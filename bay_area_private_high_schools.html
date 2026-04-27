@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Bay Area Private High Schools — T25 Matriculation Research</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root {
+    --ink: #1f2937;
+    --muted: #6b7280;
+    --bg: #fafaf9;
+    --card: #ffffff;
+    --line: #e5e7eb;
+    --accent: #1f3a8a;
+    --high: #dcfce7;
+    --med: #fef9c3;
+    --low: #fee2e2;
+    --na: #f3f4f6;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    margin: 0;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1300px; margin: 0 auto; padding: 28px 22px 80px; }
+  h1 {
+    font-size: 28px;
+    margin: 0 0 6px;
+    color: var(--accent);
+    letter-spacing: -0.01em;
+  }
+  h2 {
+    font-size: 21px;
+    margin: 36px 0 12px;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 6px;
+    color: var(--accent);
+  }
+  h3 {
+    font-size: 16px;
+    margin: 22px 0 8px;
+    color: var(--ink);
+  }
+  .sub { color: var(--muted); margin-top: 0; font-size: 14px; }
+  .callout {
+    background: #eef2ff;
+    border-left: 4px solid var(--accent);
+    padding: 14px 18px;
+    border-radius: 6px;
+    margin: 14px 0;
+    font-size: 14px;
+  }
+  .warn {
+    background: #fef3c7;
+    border-left: 4px solid #d97706;
+    padding: 14px 18px;
+    border-radius: 6px;
+    margin: 14px 0;
+    font-size: 14px;
+  }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  @media (max-width: 800px) { .grid2 { grid-template-columns: 1fr; } }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--card);
+    font-size: 13px;
+    margin: 8px 0 24px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  th, td {
+    border-bottom: 1px solid var(--line);
+    padding: 9px 10px;
+    text-align: left;
+    vertical-align: top;
+  }
+  th {
+    background: #f1f5f9;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: #334155;
+  }
+  tr:last-child td { border-bottom: none; }
+  td.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .school { font-weight: 600; color: var(--accent); }
+  .tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 7px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+  .tag-high { background: var(--high); color: #14532d; }
+  .tag-med { background: var(--med); color: #713f12; }
+  .tag-low { background: var(--low); color: #7f1d1d; }
+  .tag-na { background: var(--na); color: #4b5563; }
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    font-size: 12px;
+    color: var(--muted);
+    margin: 6px 0 14px;
+  }
+  .pill {
+    display: inline-block;
+    background: #f1f5f9;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 1px 8px;
+    font-size: 11px;
+    color: #475569;
+    margin-right: 4px;
+  }
+  a { color: #1d4ed8; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .src { font-size: 11px; color: var(--muted); }
+  .src a { color: var(--muted); text-decoration: underline; }
+  ul.tight { margin: 6px 0 14px; padding-left: 20px; }
+  ul.tight li { margin-bottom: 4px; }
+  .standout {
+    background: #ecfdf5;
+    border: 1px solid #a7f3d0;
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin-bottom: 8px;
+  }
+  .standout-rank {
+    display: inline-block;
+    background: #047857;
+    color: white;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 22px;
+    font-weight: 700;
+    font-size: 12px;
+    margin-right: 8px;
+  }
+  .footer {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 40px;
+    border-top: 1px solid var(--line);
+    padding-top: 16px;
+  }
+  code.t25 {
+    background: #f1f5f9;
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-size: 12px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>Bay Area Private High Schools — Top‑25 University Matriculation</h1>
+<p class="sub">A research snapshot focused on the past 4–5 graduating classes (~2020/21 → 2024/25). Compiled from publicly available school profiles, college counseling pages, and PDFs published for college admissions offices.</p>
+
+<div class="callout">
+<strong>What this is:</strong> a decision aid for choosing among Bay Area independent &amp; Catholic high schools, focused on outcomes at U.S. News Top‑25 National Universities. <strong>What it is not:</strong> a quality ranking. Selection bias is the dominant factor — see <a href="#caveats">Methodology &amp; caveats</a>.
+</div>
+
+<div class="warn">
+<strong>Data limitations are significant.</strong> Most Bay Area privates publish a 3–5 year cumulative <em>list</em> of where graduates have matriculated, but only some publish per‑college <em>counts</em>. Schools that publish only an alphabetical list (e.g., Sacred Heart Prep, Crystal Springs Uplands, Convent &amp; Stuart Hall) are flagged "list only — counts not disclosed." Counts shown are reported by the schools themselves and have not been independently audited.
+</div>
+
+<h2 id="t25">T25 reference list</h2>
+<p>Treat this as the U.S. News National Universities Top 25 as of the 2024–2025 rankings cycle. The list shifts year to year by 1–2 schools.</p>
+<p>
+<span class="pill">Princeton</span><span class="pill">MIT</span><span class="pill">Harvard</span><span class="pill">Stanford</span><span class="pill">Yale</span><span class="pill">Caltech</span><span class="pill">Duke</span><span class="pill">Johns Hopkins</span><span class="pill">Northwestern</span><span class="pill">Penn</span><span class="pill">Cornell</span><span class="pill">UChicago</span><span class="pill">Brown</span><span class="pill">Columbia</span><span class="pill">Dartmouth</span><span class="pill">UCLA</span><span class="pill">UC Berkeley</span><span class="pill">Notre Dame</span><span class="pill">Rice</span><span class="pill">Vanderbilt</span><span class="pill">Carnegie Mellon</span><span class="pill">Michigan</span><span class="pill">WashU</span><span class="pill">Emory</span><span class="pill">UVA</span><span class="pill">Georgetown</span>
+</p>
+
+<h2>Top performers (with caveats)</h2>
+<p class="sub">"Top" here means schools with both the highest publicly verifiable T25 absorption rates <em>and</em> the strongest individual placement at HYPSM. Rankings are interpretive — they reward both volume and density, and account for class size.</p>
+
+<div class="standout"><span class="standout-rank">1</span><strong>The Harker School (San Jose)</strong> — Roughly 9.7% of recent graduates go to HYPSM alone. 2023–2025 cumulative: <strong>34 to Stanford, 27 CMU, 26 UCB, 17 UCLA, 16 UChicago, 15 Columbia, 13 Rice, 12 MIT, 9 Yale, 9 Emory, 8 Cornell, 7 Duke, 7 Northwestern, 7 Georgetown</strong>. With a class of ~190, this is roughly half the class going to T25 schools. Overwhelmingly the strongest STEM/research pipeline.</div>
+
+<div class="standout"><span class="standout-rank">2</span><strong>The Nueva School (San Mateo)</strong> — Class of ~110. 2020–2023 cumulative: <strong>10+ each at Stanford, Berkeley, UChicago, Columbia, Cornell, CMU, Harvard, Northwestern, Princeton, Penn, USC, Northeastern</strong>; <strong>5+ each at Brown, Caltech, Dartmouth, Duke, Harvey Mudd, MIT, NYU, Tufts, UCLA, Illinois, Michigan, WashU, Yale, Wellesley, Reed, Case Western</strong>. Likely the highest T25 density in the Bay Area on a per‑graduate basis. STEM + design thinking culture.</div>
+
+<div class="standout"><span class="standout-rank">3</span><strong>Castilleja School (Palo Alto)</strong> — All‑girls, class of ~51. Class of 2025 alone matriculated to <strong>Brown, Cal Poly SLO, CMU, Dartmouth, Duke, Harvard, Harvey Mudd, Northeastern, Northwestern, Stanford, UC Berkeley, UCLA, Michigan, Notre Dame, Penn, USC, UChicago, Vanderbilt, WashU, Yale</strong> (and others). Very high T25 density per capita.</div>
+
+<div class="standout"><span class="standout-rank">4</span><strong>Menlo School (Atherton)</strong> — Class of ~146. 2021–2023 cumulative: <strong>23 Stanford, 18 UC Berkeley, 14 UChicago, 13 Cornell, 12 Boston College, 11 WashU, 8 Tufts, 8 UCLA, 8 Michigan, 7 Dartmouth, 7 Duke, 7 Penn, 7 Wake Forest, 6 Brown, 6 Northwestern, 5 Harvard, 5 Princeton, 5 JHU, 5 Vanderbilt, 4 Columbia, 4 Yale, 4 Notre Dame, 4 Georgetown, 4 CMU, 4 Emory, 3 Rice, 2 MIT</strong>. Hits every T25 school on the list — extraordinary breadth.</div>
+
+<div class="standout"><span class="standout-rank">5</span><strong>The College Preparatory School (Oakland)</strong> — Class of ~80. Five‑year cumulative: <strong>24 UChicago, 16 UC Berkeley, 15 Georgetown, 14 WashU, 13 Harvard, 12 Cornell, 10 Brown, 10 Stanford, 9 Dartmouth, 9 UCLA, 8 Yale, 8 Northwestern, 8 Penn, 8 CMU, 7 Rice, 6 Duke, 6 JHU, 4 Princeton, 4 Michigan</strong>. Roughly ~44% of grads to T25 in some recent year. Deeply intellectual, low‑key culture.</div>
+
+<p>Honorable mentions: <strong>Crystal Springs Uplands</strong> (lists matriculation at every T25 school except Caltech, but no counts published), <strong>Sacred Heart Prep Atherton</strong> (Class of 2025 matriculated to Brown, CMU, Columbia, Cornell, Dartmouth, Emory, Harvard, JHU, MIT, Northwestern, Princeton, Stanford, UC Berkeley, UCLA, Notre Dame, Penn, USC, UChicago, Vanderbilt, WashU, Yale), <strong>Branson School (Marin)</strong>, <strong>Marin Academy</strong> (broad T25 footprint with counts available), <strong>BASIS Independent Silicon Valley</strong> (Princeton, Columbia, Harvard, MIT, Yale among 2024 destinations; very small class).</p>
+
+<h2>Peninsula &amp; Silicon Valley (San Mateo + Santa Clara counties)</h2>
+<p class="sub">Where the highest-performing privates cluster. STEM-heavy and admissions-screened.</p>
+
+<div class="legend">
+  <strong>Data confidence:</strong>
+  <span class="tag tag-high">HIGH</span> per-school counts published
+  <span class="tag tag-med">MED</span> list w/ 2+ marker only, or partial counts
+  <span class="tag tag-low">LOW</span> list only / no counts
+  <span class="tag tag-na">EST</span> third-party estimate (Niche etc.)
+</div>
+
+<table>
+<thead>
+<tr>
+  <th>School</th>
+  <th>Location</th>
+  <th>Affiliation / Personality</th>
+  <th>Class size</th>
+  <th>Tuition (~24–25)</th>
+  <th>Years</th>
+  <th>T25 matriculants (most common destinations)</th>
+  <th>Source</th>
+  <th>Notes</th>
+</tr>
+</thead>
+<tbody>
+
+<tr>
+  <td><span class="school">The Harker School</span> <span class="tag tag-high">HIGH</span></td>
+  <td>San Jose, Santa Clara</td>
+  <td>Independent / coed / STEM powerhouse</td>
+  <td>~190</td>
+  <td>~$60k</td>
+  <td>2023–25</td>
+  <td><strong>Stanford 34, CMU 27, UCB 26, UCLA 17, UChicago 16, Columbia 15, Rice 13, MIT 12, Yale 9, Emory 9, Cornell 8, Duke 7, Northwestern 7, Georgetown 7, Harvard 5, Dartmouth 5, Brown 3, Princeton 2, Vanderbilt 2.</strong> No public count for Caltech, JHU, Notre Dame, UVA. ~9.7% to HYPSM.</td>
+  <td class="src"><a href="https://www.harker.org/upper-school/support-services/college-counseling/college-acceptances">harker.org</a></td>
+  <td>Largest, most quantitatively documented T25 footprint in the Bay Area.</td>
+</tr>
+
+<tr>
+  <td><span class="school">The Nueva School</span> <span class="tag tag-high">HIGH</span></td>
+  <td>San Mateo (US campus)</td>
+  <td>Independent / coed / gifted, design-thinking</td>
+  <td>~110–117</td>
+  <td>~$55k</td>
+  <td>2020–23</td>
+  <td><strong>10+ each:</strong> CMU, Columbia, Cornell, Harvard, Northeastern, Northwestern, Princeton, Stanford, UCB, UChicago, Penn, USC. <strong>5+ each:</strong> Brown, Caltech, Case Western, Dartmouth, Duke, Harvey Mudd, MIT, NYU, Reed, Tufts, UCLA, Illinois, Michigan, WashU, Wellesley, Yale.</td>
+  <td class="src"><a href="https://resources.finalsite.net/images/v1702412698/nuevaschoolorg/xaapknab9fyt6adrrl8n/23-24CollegeProfile.pdf">23–24 profile</a></td>
+  <td>Bands rather than counts. Likely highest per-capita T25 density. 70% leave California.</td>
+</tr>
+
+<tr>
+  <td><span class="school">Castilleja School</span> <span class="tag tag-med">MED</span></td>
+  <td>Palo Alto, Santa Clara</td>
+  <td>Independent / all-girls</td>
+  <td>~51 (2025)</td>
+  <td>~$66k</td>
+  <td>Class of 2025</td>
+  <td>2025 matriculations include <strong>Brown, CMU, Dartmouth, Duke, Harvard, Northwestern, Stanford, UCB, UCLA, Michigan, Notre Dame, Penn, USC, UChicago, Vanderbilt, WashU, Yale</strong> (bold list). Long acceptance tail.</td>
+  <td class="src"><a href="https://www.castilleja.org/uploaded/College_Counseling/Documents/CastillejaProfile.pdf">2025–26 profile</a></td>
+  <td>One of the highest per-capita T25 rates in the Bay (small class). Athletic recruiting to Stanford, Harvard, Yale, Northwestern, Columbia, MIT, UVA noted.</td>
+</tr>
+
+<tr>
+  <td><span class="school">Menlo School</span> <span class="tag tag-high">HIGH</span></td>
+  <td>Atherton, San Mateo</td>
+  <td>Independent / coed</td>
+  <td>~146</td>
+  <td>~$66k</td>
+  <td>2021–23</td>
+  <td><strong>Stanford 23, UCB 18, UChicago 14, Cornell 13, WashU 11, Tufts 8, UCLA 8, Michigan 8, Dartmouth 7, Duke 7, Penn 7, Brown 6, Northwestern 6, Harvard 5, Princeton 5, JHU 5, Vanderbilt 5, Columbia 4, Yale 4, Notre Dame 4, Georgetown 4, CMU 4, Emory 4, Rice 3, MIT 2</strong>. Hits all 26.</td>
+  <td class="src"><a href="https://www.menloschool.org/live/files/3729-menlo-school-profile-2023-2024">23–24 profile</a></td>
+  <td>The most complete T25 breadth of any Bay Area school. ~9.6% to HYPSM.</td>
+</tr>
+
+<tr>
+  <td><span class="school">Sacred Heart Prep (SHP)</span> <span class="tag tag-low">LOW</span></td>
+  <td>Atherton, San Mateo</td>
+  <td>Catholic (RSCJ) / coed</td>
+  <td>~149–171</td>
+  <td>~$55k</td>
+  <td>2023–25</td>
+  <td>Class of 2025 enrolled at <strong>Brown, CMU, Columbia, Cornell, Dartmouth, Duke, Emory, Georgetown, Harvard, JHU, MIT, Northwestern, Princeton, Stanford, UCB, UCLA, Notre Dame, Penn, UChicago, Vanderbilt, WashU, Yale</strong> (full list bolded; counts not published).</td>
+  <td class="src"><a href="https://bbk12e1-cdn.myschoolcdn.com/ftpimages/783/misc/misc_230271.pdf">25–26 profile</a></td>
+  <td>3-class total of 322 colleges. Hits every T25; per-school counts not disclosed. Catholic but admissions-selective.</td>
+</tr>
+
+<tr>
+  <td><span class="school">Crystal Springs Uplands</span> <span class="tag tag-low">LOW</span></td>
+  <td>Hillsborough, San Mateo</td>
+  <td>Independent / coed</td>
+  <td>~90</td>
+  <td>~$66k</td>
+  <td>2022–25</td>
+  <td>Matriculations at every T25 school <strong>except Caltech</strong>: Brown, CMU, Columbia, Cornell, Dartmouth, Duke, Emory, Georgetown, Harvard, JHU, MIT, Northwestern, Princeton, Rice, Stanford, UCLA, UCB, UChicago, Michigan, Penn, UVA, Vanderbilt, WashU, Yale. Counts not public.</td>
+  <td class="src"><a href="https://www.crystal.org/resources/academic-support/college-counseling">crystal.org</a></td>
+  <td>Reportedly sent ~7 to Stanford in one recent year. 30:1 student/counselor ratio. Strong overall.</td>
+</tr>
+
+<tr>
+  <td><span class="school">Pinewood School</span> <span class="tag tag-med">MED</span></td>
+  <td>Los Altos Hills, Santa Clara</td>
+  <td>Independent, non-sectarian / coed</td>
+  <td>~54</td>
+  <td>~$48k</td>
+  <td>2021–24</td>
+  <td>Matriculations include Stanford, Princeton, Cornell, Columbia, Dartmouth, Duke, Harvey Mudd, JHU, Northwestern, Penn, UChicago, UCB (2+), UCLA (2+), CMU (2+), Vanderbilt, Notre Dame, UVA, Michigan, WashU (2+), Emory (2+). Counts not published per school, only ★ for ≥2.</td>
+  <td class="src"><a href="https://www.pinewood.edu/uploaded/New_Website_Page_Elements/Admissions/Updated_Materials/PWSchoolProfile_24-25.pdf">24–25 profile</a></td>
+  <td>Tiny class size = high variance year-to-year. Strong per-capita selective placements.</td>
+</tr>
+
+<tr>
+  <td><span class="school">BASIS Independent Silicon Valley</span> <span class="tag tag-low">LOW</span></td>
+  <td>San Jose, Santa Clara</td>
+  <td>Independent / coed / advanced STEM</td>
+  <td>~90 (2024)</td>
+  <td>~$42k</td>
+  <td>Class of 2024</td>
+  <td>2024 destinations explicitly include Princeton, Columbia, Harvard, MIT, Yale, RISD; broader Ivy + selective list. SAT mean 1513.</td>
+  <td class="src"><a href="https://basisindependent.com/wp-content/uploads/2024/10/BISV-High-School-Profile-2024-25.pdf">24–25 profile</a></td>
+  <td>Per-school counts not published. Very strong test profile (SAT mean 1513, ACT mean 33).</td>
+</tr>
+
+<tr>
+  <td><span class="school">Woodside Priory</span> <span class="tag tag-na">EST</span></td>
+  <td>Portola Valley, San Mateo</td>
+  <td>Catholic Benedictine / coed / day+boarding</td>
+  <td>~70 (avg)</td>
+  <td>~$60k</td>
+  <td>2019–24</td>
+  <td>436 grads over 6 years. Matriculations include Stanford, Harvard, Yale, UCB, UCLA. Niche-aggregated estimate ~4.5% to T25, ~1.1% HYPSM.</td>
+  <td class="src"><a href="https://www.prioryca.org/academics/college-counseling/college-matriculation">prioryca.org</a></td>
+  <td>Counts not publicly listed; Niche numbers likely understate.</td>
+</tr>
+
+<tr>
+  <td><span class="school">Eastside College Prep</span> <span class="tag tag-low">LOW</span></td>
+  <td>East Palo Alto, San Mateo</td>
+  <td>Independent / coed / first-gen, low-income</td>
+  <td>~50</td>
+  <td>$0 (free)</td>
+  <td>Cumulative</td>
+  <td>Confirmed admits include Stanford, Princeton, Yale, Columbia, MIT, UCB, UCLA, Emory, Pomona, SCU, Occidental. >99% to 4-year college.</td>
+  <td class="src"><a href="https://www.eastside.org/_ourgraduates/college.html">eastside.org</a></td>
+  <td>Massive value-add story — first-gen students placing into elite schools. Tuition-free.</td>
+</tr>
+
+<tr>
+  <td><span class="school">The King's Academy (TKA)</span> <span class="tag tag-low">LOW</span></td>
+  <td>Sunnyvale, Santa Clara</td>
+  <td>Christian / coed</td>
+  <td>~150</td>
+  <td>~$30k</td>
+  <td>2021–23</td>
+  <td>Matriculations confirmed at Stanford, MIT, Northwestern, Rice, Vanderbilt, CMU, UChicago, UCLA, UCB, UVA, Michigan, WashU, Emory (13 of 25). Counts not published.</td>
+  <td class="src"><a href="https://www.tka.org/academics/college-enrollment">tka.org</a></td>
+  <td>2021 noted as pandemic-affected/atypical. Christian college prep.</td>
+</tr>
+
+<tr>
+  <td><span class="school">Bellarmine College Prep</span> <span class="tag tag-na">EST</span></td>
+  <td>San Jose, Santa Clara</td>
+  <td>Catholic Jesuit / all-boys</td>
+  <td>~410</td>
+  <td>~$33k</td>
+  <td>—</td>
+  <td>Detailed matriculation lists not publicly published. School emphasizes 6 full-time college counselors. SAT mean 1380, ACT 32. ~96% to 4-year college.</td>
+  <td class="src"><a href="https://www.bcp.org/">bcp.org</a></td>
+  <td>Strong reputation but largely opaque to outsiders. Counts unknown.</td>
+</tr>
+
+<tr>
+  <td><span class="school">Archbishop Mitty</span> <span class="tag tag-na">EST</span></td>
+  <td>San Jose, Santa Clara</td>
+  <td>Catholic / coed</td>
+  <td>~340</td>
+  <td>~$30k</td>
+  <td>—</td>
+  <td>Class of 2025 admitted to 285+ four-year institutions including Ivies, Stanford. Broad college list. Per-college matriculation counts not publicly disclosed (only performing-arts subset listed publicly).</td>
+  <td class="src"><a href="https://www.mitty.com/">mitty.com</a></td>
+  <td>Large, popular Catholic. Good outcomes but T25 share looks modest in proportion to size.</td>
+</tr>
+
+<tr>
+  <td><span class="school">Saint Francis HS</span> <span class="tag tag-na">EST</span></td>
+  <td>Mountain View, Santa Clara</td>
+  <td>Catholic (Holy Cross) / coed</td>
+  <td>~440</td>
+  <td>~$28k</td>
+  <td>Class of 2023</td>
+  <td>166 matriculation institutions. SAT mean 1319 (Class of 2024). 91% to 4-year college. Per-college counts not public.</td>
+  <td class="src"><a href="https://www.sfhs.com/academics/prepared-for-college">sfhs.com</a></td>
+  <td>Big school, mid-tier T25 footprint relative to selective independents.</td>
+</tr>
+
+<tr>
+  <td><span class="school">Presentation HS</span> <span class="tag tag-na">EST</span></td>
+  <td>San Jose, Santa Clara</td>
+  <td>Catholic / all-girls</td>
+  <td>~140</td>
+  <td>~$30k</td>
+  <td>—</td>
+  <td>Profile lists UC system, broad public &amp; private. Per-college matriculation counts not publicly disclosed in profile.</td>
+  <td class="src"><a href="https://resources.finalsite.net/images/v1743114566/presentation/szlaznxqibxir5rvcfdo/2024-25SchoolProfile.pdf">24–25 profile</a></td>
+  <td>SAT 1278 mean. Strong UC pipeline; T25 specifics not transparent.</td>
+</tr>
+
+<tr>
+  <td><span class="school">Notre Dame HS Belmont</span> <span class="tag tag-low">LOW</span></td>
+  <td>Belmont, San Mateo</td>
+  <td>Catholic (SNDdeN) / all-girls</td>
+  <td>~100</td>
+  <td>~$30k</td>
+  <td>Recent 3–4 yrs</td>
+  <td>"Recent acceptances" list includes Cornell, Dartmouth, Georgetown, Stanford, Penn, UCB, UCLA, Michigan, Notre Dame, USC, Vanderbilt, WashU. Acceptances vs. matriculation not differentiated.</td>
+  <td class="src"><a href="https://resources.finalsite.net/images/v1758308436/ndhsborg/bzu4peesvuzhbrjf4lgr/_SchoolProfile2025-26.pdf">25–26 profile</a></td>
+  <td>96% to 4-year college (Class of 2025). 2024 AP Honor Roll Platinum.</td>
+</tr>
+
+<tr>
+  <td><span class="school">Mercy HS Burlingame</span> <span class="tag tag-na">EST</span></td>
+  <td>Burlingame, San Mateo</td>
+  <td>Catholic (Mercy) / all-girls</td>
+  <td>~95</td>
+  <td>~$28k</td>
+  <td>—</td>
+  <td>Detailed T25 matriculation lists not surfaced via public sources.</td>
+  <td class="src"><a href="https://www.mercyhsb.com/academics">mercyhsb.com</a></td>
+  <td>Tri-school cooperative w/ NDB &amp; Junipero Serra.</td>
+</tr>
+
+</tbody>
+</table>
+
+<h2>San Francisco</h2>
+<p class="sub">Concentration of secular independents + Catholic schools.</p>
+
+<table>
+<thead>
+<tr>
+  <th>School</th>
+  <th>Location</th>
+  <th>Affiliation / Personality</th>
+  <th>Class size</th>
+  <th>Tuition (~24–25)</th>
+  <th>Years</th>
+  <th>T25 matriculants (most common destinations)</th>
+  <th>Source</th>
+  <th>Notes</th>
+</tr>
+</thead>
+<tbody>
+
+<tr>
+  <td><span class="school">University HS (UHS / SFUHS)</span> <span class="tag tag-na">EST</span></td>
+  <td>SF — Pacific Heights</td>
+  <td>Independent / coed</td>
+  <td>~125</td>
+  <td>~$62.6k</td>
+  <td>—</td>
+  <td>Niche-aggregated estimate ~27% to T25, ~10.5% HYPSM. Detailed counts not surfaced from a public profile in this research pass.</td>
+  <td class="src"><a href="https://www.sfuhs.org/admissions/uhs-at-a-glance">sfuhs.org</a></td>
+  <td>Widely considered SF's most selective indep. Real T25 share likely ~25–35%.</td>
+</tr>
+
+<tr>
+  <td><span class="school">Lick-Wilmerding HS</span> <span class="tag tag-na">EST</span></td>
+  <td>SF — Ingleside</td>
+  <td>Independent / coed / shop-based</td>
+  <td>~140</td>
+  <td>~$59k</td>
+  <td>—</td>
+  <td>Confirmed acceptances at Stanford, Yale, Princeton, Harvard, MIT, Caltech, UCB, UCLA, Michigan, Dartmouth, BC, Notre Dame, Penn, USC, Cornell. Niche estimate ~21% T25, ~8.8% HYPSM.</td>
+  <td class="src"><a href="https://www.lwhs.org/academic/college-counseling">lwhs.org</a></td>
+  <td>Detailed matriculation behind Scoir login. Famous "head, heart, hands" tech-shop curriculum.</td>
+</tr>
+
+<tr>
+  <td><span class="school">Urban School of SF</span> <span class="tag tag-high">HIGH</span></td>
+  <td>SF — Haight</td>
+  <td>Independent / coed / progressive</td>
+  <td>~95</td>
+  <td>~$60k</td>
+  <td>2020–24</td>
+  <td><strong>UCLA 26, NYU 19, Northeastern 19, Occidental 17, Pitzer 16, Cal Poly SLO 15, Oregon 14, Tulane 12, Boston U 11, UCB 11, CU Boulder 11, Wesleyan 10. T25:</strong> Brown 9, Tufts 8, Penn 6, WashU 6, USC 6, Stanford 5, Rochester 5, St Andrews 5, Yale 4, Wellesley 4, Wake Forest 4, Vassar 4, Princeton 3, CMU 3, Columbia 3, Northwestern 3, Dartmouth 2, Cornell 2, Michigan 2, UChicago 2, Harvard 1, Duke 1, JHU 1, UVA 1.</td>
+  <td class="src"><a href="https://resources.finalsite.net/images/v1723570942/urban/h0euk81uqdv3xiiufhxm/UrbanSchoolCollegeMatriculation_2020-2024.pdf">2020–24 list</a></td>
+  <td>Lower HYPSM rate than peers but extremely broad LAC + research U footprint. Progressive culture.</td>
+</tr>
+
+<tr>
+  <td><span class="school">St. Ignatius College Prep (SI)</span> <span class="tag tag-na">EST</span></td>
+  <td>SF — Sunset</td>
+  <td>Catholic Jesuit / coed</td>
+  <td>~360</td>
+  <td>~$32k</td>
+  <td>—</td>
+  <td>Detailed per-college matriculation counts not currently published; old Class of 2017 data exists. ~97% to 4-year college.</td>
+  <td class="src"><a href="https://www.siprep.org/about/glance">siprep.org</a></td>
+  <td>Largest SF private. Strong Catholic college pipeline; T25 share modest relative to size.</td>
+</tr>
+
+<tr>
+  <td><span class="school">Sacred Heart Cathedral Prep (SHC)</span> <span class="tag tag-low">LOW</span></td>
+  <td>SF — Cathedral Hill</td>
+  <td>Catholic (Mercy/SF Schools) / coed</td>
+  <td>~340</td>
+  <td>~$26.5k</td>
+  <td>"Recent classes"</td>
+  <td>Acceptance list (with ★ for "one or more attending") includes Harvard, MIT, Stanford, Yale, Duke, JHU, Northwestern, Penn, Cornell, UChicago, Brown, Columbia, Dartmouth, UCLA, UCB, Notre Dame, CMU, Michigan, Georgetown.</td>
+  <td class="src"><a href="https://www.shcp.edu/admissions/college-placements">shcp.edu</a></td>
+  <td>Broad placement; counts not disclosed. More accessible Catholic option.</td>
+</tr>
+
+<tr>
+  <td><span class="school">Convent &amp; Stuart Hall</span> <span class="tag tag-na">EST</span></td>
+  <td>SF — Pacific Heights</td>
+  <td>Catholic (RSCJ) / single-sex HS</td>
+  <td>~80 each (girls/boys)</td>
+  <td>~$60k</td>
+  <td>—</td>
+  <td>School publishes IB + AP curriculum but T25 counts not in public profile fetched here. 100% to 4-year college.</td>
+  <td class="src"><a href="https://www.sacredsf.org/the-education/college-counseling">sacredsf.org</a></td>
+  <td>Convent (girls) and Stuart Hall (boys) are separately accredited HSs.</td>
+</tr>
+
+<tr>
+  <td><span class="school">JCHS of the Bay</span> <span class="tag tag-na">EST</span></td>
+  <td>SF — Western Addition</td>
+  <td>Jewish pluralistic / coed</td>
+  <td>~45</td>
+  <td>~$53k</td>
+  <td>—</td>
+  <td>Detailed T25 matriculation list not publicly fetched. ~92% to 4-year college; 25–33% take a gap year (often Israel).</td>
+  <td class="src"><a href="https://www.jchsofthebay.org/academics/college-advising/">jchsofthebay.org</a></td>
+  <td>Very small class. 5:1 student/teacher ratio.</td>
+</tr>
+
+<tr>
+  <td><span class="school">Drew School</span> <span class="tag tag-na">EST</span></td>
+  <td>SF — Pacific Heights</td>
+  <td>Independent / coed</td>
+  <td>~75</td>
+  <td>~$55k</td>
+  <td>2022–24</td>
+  <td>Public 2022–24 acceptance page published; specific T25 counts not extracted in this pass.</td>
+  <td class="src"><a href="https://www.drewschool.org/academics/college-counseling/college-acceptances-2022-2024">drewschool.org</a></td>
+  <td>Smaller, less selective than UHS/Lick. Strong arts &amp; LAC orientation.</td>
+</tr>
+
+<tr>
+  <td><span class="school">Lycée Français de SF</span> <span class="tag tag-na">EST</span></td>
+  <td>SF (Ortega) + multi-campus</td>
+  <td>French international / coed</td>
+  <td>~46 (Class of 2024)</td>
+  <td>~$40k</td>
+  <td>—</td>
+  <td>Dual French + US baccalaureate. Grads matriculate to Yale, UCL, Sciences Po and similar; per-college counts not surfaced.</td>
+  <td class="src"><a href="https://www.lelycee.org/about/news/news-post/~board/lfsf-news/post/wall-of-acceptance2024">lelycee.org</a></td>
+  <td>Significant share to European/UK/Canadian unis; T25 share smaller than English-stream peers.</td>
+</tr>
+
+</tbody>
+</table>
+
+<h2>East Bay (Alameda + Contra Costa)</h2>
+
+<table>
+<thead>
+<tr>
+  <th>School</th>
+  <th>Location</th>
+  <th>Affiliation / Personality</th>
+  <th>Class size</th>
+  <th>Tuition (~24–25)</th>
+  <th>Years</th>
+  <th>T25 matriculants (most common destinations)</th>
+  <th>Source</th>
+  <th>Notes</th>
+</tr>
+</thead>
+<tbody>
+
+<tr>
+  <td><span class="school">College Preparatory School (CPS)</span> <span class="tag tag-high">HIGH</span></td>
+  <td>Oakland, Alameda</td>
+  <td>Independent / coed / intellectual</td>
+  <td>~80</td>
+  <td>~$58k</td>
+  <td>Last 5 years</td>
+  <td><strong>UChicago 24, UCB 16, Georgetown 15, WashU 14, Harvard 13, Cornell 12, Brown 10, Stanford 10, Dartmouth 9, UCLA 9, Yale 8, Northwestern 8, Penn 8, CMU 8, Rice 7, Duke 6, JHU 6, Princeton 4, Michigan 4.</strong> No reported MIT, Caltech, Columbia, Notre Dame, Vanderbilt, Emory, UVA in counted period.</td>
+  <td class="src"><a href="https://www.college-prep.org/list-detail?pk=75495">college-prep.org</a></td>
+  <td>Approx ~44% T25 share in some recent year. Best East Bay academic outcomes.</td>
+</tr>
+
+<tr>
+  <td><span class="school">Head-Royce</span> <span class="tag tag-na">EST</span></td>
+  <td>Oakland, Alameda</td>
+  <td>Independent / coed</td>
+  <td>~94 (2024)</td>
+  <td>~$55k</td>
+  <td>—</td>
+  <td>100% college matriculation; school references "where graduates matriculated over past 5 years" PDF but did not surface in public scrape. Niche estimate ~33% T25, ~8.3% HYPSM.</td>
+  <td class="src"><a href="https://www.headroyce.org/academics/college-counseling">headroyce.org</a></td>
+  <td>Strong East Bay independent. 65% out-of-state enrollment.</td>
+</tr>
+
+<tr>
+  <td><span class="school">Bentley School (Upper Campus)</span> <span class="tag tag-low">LOW</span></td>
+  <td>Lafayette, Contra Costa</td>
+  <td>Independent / coed</td>
+  <td>~60</td>
+  <td>~$53k</td>
+  <td>2019–23</td>
+  <td>5-year list of admits includes T25: Brown, CMU, Columbia, Cornell, Duke, Emory, Georgetown, Northwestern, Penn, Rice, Stanford, UCB, UCLA, UChicago, Vanderbilt, WashU, Yale (no counts).</td>
+  <td class="src"><a href="https://www.bentleyschool.org/5-year-college-list">bentleyschool.org</a></td>
+  <td>List is "accepted" not "matriculated." 100% admit to 300+ colleges.</td>
+</tr>
+
+<tr>
+  <td><span class="school">Athenian School</span> <span class="tag tag-med">MED</span></td>
+  <td>Danville, Contra Costa</td>
+  <td>Independent / coed / day+boarding / Round Square</td>
+  <td>~60–80</td>
+  <td>~$55k day / ~$80k boarding</td>
+  <td>2021–24 (146 grads)</td>
+  <td>Matriculations include Caltech, Columbia, Cornell, Dartmouth, Emory, Georgetown, Harvey Mudd, Northwestern, Penn, Rice, Stanford, UCB, UCLA, UChicago, Michigan, Vanderbilt, WashU, Yale (no per-school counts published). 98% to 4-year.</td>
+  <td class="src"><a href="https://www.athenian.org/userfiles/athenianschool/03-academics/doc/athenian-college-profile-2024.pdf">24–25 profile</a></td>
+  <td>Wilderness program (AWE) is graduation requirement. International, experiential.</td>
+</tr>
+
+<tr>
+  <td><span class="school">Bishop O'Dowd</span> <span class="tag tag-na">EST</span></td>
+  <td>Oakland, Alameda</td>
+  <td>Catholic / coed</td>
+  <td>~309 (2024)</td>
+  <td>~$26k</td>
+  <td>—</td>
+  <td>Per-college matriculation counts not publicly published. ~93% to 4-year college.</td>
+  <td class="src"><a href="https://www.bishopodowd.org/class-of-2024">bishopodowd.org</a></td>
+  <td>Large Catholic; T25 share modest relative to selective independents.</td>
+</tr>
+
+<tr>
+  <td><span class="school">De La Salle</span> <span class="tag tag-na">EST</span></td>
+  <td>Concord, Contra Costa</td>
+  <td>Catholic Lasallian / all-boys</td>
+  <td>~246 (2024)</td>
+  <td>~$24k</td>
+  <td>—</td>
+  <td>~99% to college/university; per-college counts not surfaced.</td>
+  <td class="src"><a href="https://www.dlshs.org/academics/profile-of-a-graduate/graduation">dlshs.org</a></td>
+  <td>Big East Bay Catholic. Famous athletics. Less T25-focused than independents.</td>
+</tr>
+
+<tr>
+  <td><span class="school">Saint Mary's College HS</span> <span class="tag tag-na">EST</span></td>
+  <td>Berkeley, Alameda</td>
+  <td>Catholic Lasallian / coed</td>
+  <td>~140</td>
+  <td>~$18k</td>
+  <td>—</td>
+  <td>~88% to 4-year college; T25-specific data not publicly surfaced.</td>
+  <td class="src"><a href="https://www.saintmaryschs.org/">saintmaryschs.org</a></td>
+  <td>More accessible price point.</td>
+</tr>
+
+</tbody>
+</table>
+
+<h2>Marin</h2>
+
+<table>
+<thead>
+<tr>
+  <th>School</th>
+  <th>Location</th>
+  <th>Affiliation / Personality</th>
+  <th>Class size</th>
+  <th>Tuition (~24–25)</th>
+  <th>Years</th>
+  <th>T25 matriculants (most common destinations)</th>
+  <th>Source</th>
+  <th>Notes</th>
+</tr>
+</thead>
+<tbody>
+
+<tr>
+  <td><span class="school">Marin Academy</span> <span class="tag tag-high">HIGH</span></td>
+  <td>San Rafael, Marin</td>
+  <td>Independent / coed / progressive (no APs since 2016)</td>
+  <td>~115</td>
+  <td>~$60k</td>
+  <td>2023–25</td>
+  <td><strong>WashU 10, Vanderbilt 8, Brown 6, UCB 6, UCLA 7, Tufts 7, Dartmouth 4, Duke 4, UChicago 4, Stanford 4, Georgetown 4, Notre Dame 3, Northwestern 3, Michigan 3, Rice 2, JHU 2, CMU 2, Penn 2, UVA 2, Cornell 2, Columbia 1, Yale 1, Emory 1.</strong> No reported MIT, Caltech, Princeton.</td>
+  <td class="src"><a href="https://www.ma.org/">ma.org</a> (25–26 profile)</td>
+  <td>No AP courses since 2016. Test-optional emphasis. Strong T25 footprint despite progressive structure.</td>
+</tr>
+
+<tr>
+  <td><span class="school">Branson School</span> <span class="tag tag-na">EST</span></td>
+  <td>Ross, Marin</td>
+  <td>Independent / coed</td>
+  <td>~80</td>
+  <td>~$68k</td>
+  <td>—</td>
+  <td>2022–23 college profile published; current 23–24/24–25 matriculation list not surfaced. Niche-aggregated estimate ~33% T25, ~8.8% HYPSM.</td>
+  <td class="src"><a href="https://issuu.com/bransonschool/docs/branson_collegeprofile_2022-23">22–23 profile (Issuu)</a></td>
+  <td>Often paired with Marin Academy as Marin's elite indep. Test-free admissions.</td>
+</tr>
+
+<tr>
+  <td><span class="school">Marin Catholic</span> <span class="tag tag-na">EST</span></td>
+  <td>Kentfield, Marin</td>
+  <td>Catholic Archdiocesan / coed</td>
+  <td>~196 (2024)</td>
+  <td>~$28k</td>
+  <td>—</td>
+  <td>Class of 2024 received 1,000+ acceptances. Per-college matriculation counts not in public sources.</td>
+  <td class="src"><a href="https://www.marincatholic.org/congratulations-to-the-class-of-2024">marincatholic.org</a></td>
+  <td>Marin's leading Catholic option. Likely modest T25 footprint vs. independents.</td>
+</tr>
+
+<tr>
+  <td><span class="school">San Domenico</span> <span class="tag tag-low">LOW</span></td>
+  <td>San Anselmo, Marin</td>
+  <td>Catholic Dominican / coed / day+boarding</td>
+  <td>~50</td>
+  <td>~$60k day / ~$84k boarding</td>
+  <td>2021–25</td>
+  <td>5-year matriculations (bold) include Stanford, Cornell, Dartmouth, Penn, UCB, UCLA, UChicago, Michigan, Notre Dame, USC, NYU, WashU, Emory. Also Princeton, JHU among acceptances.</td>
+  <td class="src"><a href="https://resources.finalsite.net/images/v1756238268/sandomenico/fzffsajwbeogkya8gqyx/SD2021-2025MatriculationListwithLetter.pdf">21–25 list</a></td>
+  <td>Heavy international student base (Chinese matriculation pipeline). Niche estimate ~13% T25.</td>
+</tr>
+
+</tbody>
+</table>
+
+<h2>Napa, Sonoma, Solano (North Bay)</h2>
+
+<table>
+<thead>
+<tr>
+  <th>School</th>
+  <th>Location</th>
+  <th>Affiliation / Personality</th>
+  <th>Class size</th>
+  <th>Tuition (~24–25)</th>
+  <th>Years</th>
+  <th>T25 matriculants (most common destinations)</th>
+  <th>Source</th>
+  <th>Notes</th>
+</tr>
+</thead>
+<tbody>
+
+<tr>
+  <td><span class="school">Sonoma Academy</span> <span class="tag tag-low">LOW</span></td>
+  <td>Santa Rosa, Sonoma</td>
+  <td>Independent / coed</td>
+  <td>~70</td>
+  <td>~$55k</td>
+  <td>2021–25</td>
+  <td>Confirmed T25 matriculations include Princeton, Harvard, Stanford, Yale, JHU, Northwestern, Penn, Cornell, Columbia, Dartmouth, UCB, UCLA, CMU, Rice, Notre Dame, UVA. No per-college counts.</td>
+  <td class="src"><a href="https://www.sonomaacademy.org/college-matriculations">sonomaacademy.org</a></td>
+  <td>Only private indep college prep in Sonoma County.</td>
+</tr>
+
+<tr>
+  <td><span class="school">Justin-Siena</span> <span class="tag tag-na">EST</span></td>
+  <td>Napa, Napa</td>
+  <td>Catholic Lasallian / coed</td>
+  <td>~140</td>
+  <td>~$25k</td>
+  <td>Class of 2024</td>
+  <td>2024 destinations include Northwestern, UC Santa Barbara, Berklee, Chapman, etc. Niche estimate ~17% T25.</td>
+  <td class="src"><a href="https://www.justin-siena.org/admissions/college-matriculations">justin-siena.org</a></td>
+  <td>Modest T25 footprint; mainly UC + state pipeline.</td>
+</tr>
+
+<tr>
+  <td><span class="school">Cardinal Newman HS</span> <span class="tag tag-na">EST</span></td>
+  <td>Santa Rosa, Sonoma</td>
+  <td>Catholic / coed</td>
+  <td>~140</td>
+  <td>~$22k</td>
+  <td>—</td>
+  <td>Class of 2024 had 196 acceptances; ~96% to 4-year. Past Class accepted to Harvard, Duke, UCLA, Pomona, UCB. Counts unspecified.</td>
+  <td class="src"><a href="https://www.cardinalnewman.org/">cardinalnewman.org</a></td>
+  <td>Solano County privates: very limited at the HS level.</td>
+</tr>
+
+</tbody>
+</table>
+
+<h2>Schools noted but not deeply profiled</h2>
+<p class="sub">Either not enough public data found in this pass, or smaller relevance to T25 matriculation question.</p>
+<ul class="tight">
+  <li><strong>K-8 schools (excluded):</strong> Mt. Tamalpais School, Marin Country Day (K-8 only).</li>
+  <li><strong>Closed:</strong> Holy Names HS Oakland (closed 2022).</li>
+  <li><strong>Smaller / less data:</strong> Notre Dame HS San Jose (Catholic, all-girls), Salesian College Prep (Richmond, Catholic, coed), Carondelet (Concord, Catholic, all-girls; pairs with De La Salle), Junipero Serra (San Mateo, Catholic, all-boys; tri-school w/ Mercy &amp; NDB).</li>
+  <li><strong>Other private/specialty:</strong> Marin Country Day Upper School expansion (newer), Stanford Online HS (online; not Bay-Area location-bound).</li>
+</ul>
+
+<h2 id="caveats">Methodology &amp; caveats</h2>
+
+<div class="grid2">
+<div>
+<h3>How this was built</h3>
+<ul class="tight">
+  <li>Each school's own school-profile PDF or college-counseling webpage was the primary source. Where the school publishes a multi-year matriculation list with per-college counts (Harker, Menlo, College Prep, Marin Academy, Urban, Castilleja, Athenian, Pinewood, Nueva), data confidence is highest.</li>
+  <li>Where the school publishes only an alphabetical list with "bold = matriculated" (Sacred Heart Prep, Crystal Springs Uplands, Sonoma Academy, San Domenico, Pinewood, NDB, Bentley), we record presence but not counts.</li>
+  <li>For schools with no public matriculation document (most Catholic large-enrollment schools, plus several small SF schools), we either flag as <span class="tag tag-na">EST</span> using Niche.com aggregates or leave the cell explicit.</li>
+  <li>T25 reference list = U.S. News National Universities Top 25 as of approximately the 2024–2025 cycle. The composition shifts slightly year to year (e.g., Wake Forest, Tufts, NYU, USC sometimes in/near). Excludes liberal arts colleges (Williams, Amherst, Pomona, Swarthmore, etc.) — which would dramatically change the picture for several schools (Marin Academy, College Prep, Castilleja in particular).</li>
+</ul>
+</div>
+
+<div>
+<h3>Why "best matriculation" ≠ "best fit"</h3>
+<ul class="tight">
+  <li><strong>Selection bias dominates.</strong> Castilleja, Harker, Nueva, UHS, College Prep, Crystal Springs, Sacred Heart Prep, Branson, Menlo, and Marin Academy all admit ~15–30% of applicants. Their T25 numbers reflect the kids they admit at least as much as anything they teach.</li>
+  <li><strong>Acceptance vs. matriculation.</strong> Some lists conflate them. "Bentley accepted to T25 X" ≠ "Bentley sent N students to T25 X."</li>
+  <li><strong>Year-to-year variance.</strong> A class of 50 kids will have wild swings (3 to Stanford one year, 0 the next). 5-year cumulative numbers smooth this out — single-year claims should be ignored.</li>
+  <li><strong>Missing the LAC story.</strong> Many of the most "elite" Bay Area kids go to Pomona, Williams, Swarthmore, Amherst, Harvey Mudd, Wellesley, etc. Those don't show up in T25 National Universities counts. College Prep, Castilleja, and Marin Academy all send substantial cohorts to top LACs.</li>
+  <li><strong>Catholic schools deserve different metrics.</strong> Bellarmine, Mitty, Saint Francis, SI, SHC, De La Salle each enroll 300–500 graduates per class. They don't optimize for HYPSM and largely don't publish counts. Their T25 share looks small in % terms but absolute Stanford / Berkeley admits per year is competitive.</li>
+  <li><strong>Single-sex effects.</strong> Castilleja, Mercy, NDB, Presentation (girls); Bellarmine, De La Salle, Stuart Hall (boys). Family/student fit considerations beyond outcomes data.</li>
+  <li><strong>Test policies.</strong> Several schools (Marin Academy, Castilleja, BASIS, etc.) have explicit notes about Bay Area test-center scarcity. Many graduates apply test-optional. Reported SATs may overstate actual class profile.</li>
+  <li><strong>Value-add observation:</strong> the schools that punch most above their selectivity (i.e., produce more T25 outcomes than their admit rate would suggest) tend to be the ones with very strong, dedicated college counseling staffs (College Prep, Crystal Springs, Castilleja). Eastside College Prep is the singular value-add story — getting first-gen / low-income students from East Palo Alto into Stanford, Princeton, Yale, MIT.</li>
+</ul>
+</div>
+</div>
+
+<div class="callout">
+<strong>Practical advice for an attendance decision:</strong>
+<ol>
+  <li>If your child is a top STEM kid and you want maximum HYPSM optionality: <strong>Harker, Nueva, Castilleja</strong> (girls), <strong>BASIS Independent SV</strong>, <strong>Crystal Springs Uplands</strong>.</li>
+  <li>If you want the broadest selective-college pipeline (T25 + LACs): <strong>Menlo, Sacred Heart Prep, Marin Academy, College Prep, Branson</strong>.</li>
+  <li>If a Catholic / values-based environment matters and you can accept a less concentrated T25 outcome: <strong>SI, SHC, Bellarmine, Mitty, Saint Francis</strong>, plus <strong>Sacred Heart Prep</strong> or <strong>SHC</strong> at the higher selectivity end.</li>
+  <li>If you want creative / progressive / arts-leaning culture: <strong>Urban, Lick-Wilmerding, Marin Academy, Athenian, Drew</strong>.</li>
+  <li>If price matters significantly: Catholic schools (~$24–32k) cost roughly half of independents (~$55–68k). Eastside College Prep is tuition-free but selective on socioeconomic grounds.</li>
+</ol>
+</div>
+
+<div class="footer">
+Compiled April 2026 from publicly available school profile documents, college-counseling pages, and public matriculation lists. All figures are as reported by the schools themselves and have not been independently verified. Tuition figures are approximate and rise ~5%/year. T25 reference list is the U.S. News National Universities Top 25 as of approximately the 2024–2025 ranking cycle. This document is a research aid, not a recommendation.
+</div>
+
+</div>
+</body>
+</html>

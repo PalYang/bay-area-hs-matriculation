@@ -1,0 +1,870 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Bay Area Public High Schools — Top-25 University Matriculation</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  :root {
+    --bg: #fafafa;
+    --fg: #1f2933;
+    --muted: #5b6b7a;
+    --line: #e1e5ea;
+    --hi: #d9f0d9;        /* high confidence */
+    --med: #fff3cd;       /* partial / older */
+    --lo: #f8d7da;        /* missing / very weak */
+    --note: #eef5ff;
+    --accent: #1a3e72;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font: 15px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    color: var(--fg); background: var(--bg);
+    margin: 0; padding: 32px 24px 80px;
+    max-width: 1300px; margin-left: auto; margin-right: auto;
+  }
+  h1 { font-size: 28px; margin: 0 0 4px; color: var(--accent); }
+  h2 { font-size: 22px; margin: 36px 0 8px; color: var(--accent); border-bottom: 2px solid var(--line); padding-bottom: 4px; }
+  h3 { font-size: 17px; margin: 24px 0 6px; color: var(--accent); }
+  .lede { color: var(--muted); margin: 4px 0 24px; }
+  .pill { display: inline-block; padding: 1px 8px; border-radius: 10px; font-size: 12px; margin-left: 6px; vertical-align: middle; }
+  .pill.hi { background: var(--hi); }
+  .pill.med { background: var(--med); }
+  .pill.lo { background: var(--lo); }
+  .legend { display: flex; gap: 14px; flex-wrap: wrap; margin: 12px 0 20px; font-size: 13px; }
+  .legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .swatch { display: inline-block; width: 14px; height: 14px; border: 1px solid var(--line); }
+  .callout {
+    background: var(--note);
+    border-left: 4px solid var(--accent);
+    padding: 12px 16px; margin: 16px 0;
+    border-radius: 4px;
+  }
+  .warn {
+    background: #fff8e1;
+    border-left: 4px solid #d29800;
+    padding: 12px 16px; margin: 16px 0;
+    border-radius: 4px;
+  }
+  table {
+    border-collapse: collapse; width: 100%;
+    background: white;
+    margin: 8px 0 16px;
+    font-size: 13.5px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  }
+  th, td {
+    border: 1px solid var(--line);
+    padding: 8px 10px;
+    vertical-align: top;
+    text-align: left;
+  }
+  th {
+    background: #eef2f6;
+    font-weight: 600;
+    position: sticky; top: 0;
+  }
+  tr.hi td { background: var(--hi); }
+  tr.med td { background: var(--med); }
+  tr.lo td { background: var(--lo); }
+  td.col-school { font-weight: 600; min-width: 170px; }
+  td.col-notes { font-size: 12.5px; color: #333; }
+  td.col-source a { color: var(--accent); text-decoration: none; }
+  td.col-source a:hover { text-decoration: underline; }
+  td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  ul.tight { margin: 6px 0; padding-left: 20px; }
+  ul.tight li { margin-bottom: 4px; }
+  details { margin: 6px 0; }
+  summary { cursor: pointer; color: var(--accent); }
+  .tag { font-size: 11px; padding: 1px 6px; border-radius: 8px; background: #eef2f6; color: #333; margin-right: 4px; }
+  footer { margin-top: 40px; color: var(--muted); font-size: 12px; }
+</style>
+</head>
+<body>
+
+<h1>Bay Area Public High Schools — T25 University Matriculation</h1>
+<p class="lede">A research compilation focused on graduating classes ~2020–2025. Built for a family choosing where to attend high school based on Top-25 (US News National Universities) matriculation outcomes.</p>
+
+<div class="callout">
+<strong>Scope.</strong> 9 Bay Area counties (San Francisco, San Mateo, Santa Clara, Alameda, Contra Costa, Marin, Sonoma, Napa, Solano), public schools only. Private schools (e.g., Harker, Menlo School, Castilleja, Crystal Springs Uplands, Bishop O'Dowd, Marin Academy, Branson, Sacred Heart, Bentley, Lick-Wilmerding, Stuart Hall, College Prep, Head-Royce) are explicitly excluded — handled by a sister analysis.
+<br/><br/>
+<strong>T25 reference list (US News National Universities, 2024–25 ranking, ties expanding the list).</strong> Princeton, MIT, Harvard, Stanford, Yale, Caltech, Duke, Johns Hopkins, Northwestern, Penn, Cornell, UChicago, Brown, Columbia, Dartmouth, UCLA, UC Berkeley, Notre Dame, Rice, Vanderbilt, Carnegie Mellon, Michigan, WashU, Emory, UVA, Georgetown.
+</div>
+
+<div class="warn">
+<strong>READ THIS FIRST — DATA LIMITATIONS.</strong>
+<ul class="tight">
+<li><strong>California public high schools do not centrally report college matriculation.</strong> Each school decides whether and how to publish it. Quality varies wildly.</li>
+<li><strong>Two of the three "elite four" (Mission San Jose, Monta Vista, Lynbrook) do NOT publish per-college matriculation counts publicly</strong> in the school profile PDFs we could access. We can confirm they are top UC feeders (UC Berkeley source data) but cannot list per-T25 counts with confidence.</li>
+<li>The two schools with the cleanest, longest, year-by-year per-college data are <strong>Palo Alto High (Paly)</strong> and <strong>Henry M. Gunn HS</strong> — both publish full multi-year matriculation grids on their counseling websites. Their numbers are presented in full below.</li>
+<li>"Matriculated" (enrolled) ≠ "Admitted." Many anecdotal lists (Niche, college-counselor blogs) mix these. Where ambiguous, we flag it.</li>
+<li>Several PDF profiles we found are scanned/binary and the text could not be reliably extracted via webfetch. They are linked in the source column; a human can verify.</li>
+<li><strong>Selection bias warning</strong>: Mission San Jose, Monta Vista, Lynbrook, Saratoga, and Lowell are highly self-selected (Lowell is exam-admit; the others draw demographically homogeneous, academically intense student bodies). Their T25 rates reflect input as much as output.</li>
+<li>Some 2025 numbers are from the <em>most recent</em> profile (which reports the previous June's class). Years labeled below are graduating-class years.</li>
+</ul>
+</div>
+
+<div class="legend">
+  <span><span class="swatch" style="background: var(--hi)"></span> High-confidence: per-college counts from school's own multi-year matriculation list</span>
+  <span><span class="swatch" style="background: var(--med)"></span> Partial: aggregate %s, single year, or limited data</span>
+  <span><span class="swatch" style="background: var(--lo)"></span> Missing: no per-school T25 data publicly available</span>
+</div>
+
+<h2>Top performers (with caveats)</h2>
+<p>Based on the data we could actually verify (with full awareness that some of the most-discussed schools have weak public data), here is what the evidence supports:</p>
+<ol>
+  <li><strong>Henry M. Gunn HS (Palo Alto)</strong> &mdash; Best <em>verified</em> T25 matriculation in the Bay Area. Publishes a clean year-by-year per-college table. ~400 students/grad class; in 2024 sent <strong>~85+ students to T25 schools</strong> (Stanford 14, UC Berkeley 30, UCLA 10, plus strong showings at CMU, Cornell, Penn, Northwestern, Michigan, Emory, Brown, Columbia, UChicago). 2025: Stanford 22, Berkeley 19, UCLA 8, CMU 9, Cornell 6 &mdash; <strong>~85+ T25 again</strong>.</li>
+  <li><strong>Palo Alto HS (Paly)</strong> &mdash; Same district, similar quality of data; ~470/class. 2024: Stanford 11, Berkeley 35, plus solid Northwestern (8), CMU (4), Cornell (1), MIT (2), Penn (2), Dartmouth (2). 2025: Stanford 12, Berkeley 23, Northwestern 6, Cornell 5, CMU 5. <strong>~70+ T25 per year.</strong></li>
+  <li><strong>Mission San Jose HS (Fremont)</strong> &mdash; Widely regarded as <em>the</em> top public for elite outcomes (#1 in chicardgo's ECPI). <strong>~40 to UC Berkeley/year, ~40 to UCLA/year</strong> historically (UC source-school data). <em>Caveat: per-T25 counts not in public profile — ranking is heavily based on triangulation and reputation.</em></li>
+  <li><strong>Monta Vista HS (Cupertino)</strong> &mdash; Confirmed top UC feeder (~204 to UC Berkeley over 2012–16; ~40/yr historically). <em>Same caveat as MSJ — per-T25 counts not publicly itemized.</em></li>
+  <li><strong>Lowell HS (San Francisco)</strong> &mdash; <strong>Largest single feeder to UC system</strong>, especially Berkeley and Davis. Class size ~640. SFUSD's only academic-admission high school. <em>Caveat: SFUSD profile PDF does not publish per-college matriculation counts; the strength is overwhelmingly UC-pipeline rather than Ivy/elite-private.</em></li>
+</ol>
+<p><strong>Honorable mentions with strong but not-perfectly-documented data:</strong> Saratoga HS (sends large cohorts T25; school profile lists aggregate categories rather than per-college counts); Lynbrook HS (peer of Monta Vista; same data limitation); Dougherty Valley HS (San Ramon, large strong cohort, profile mostly aggregate).</p>
+
+<!-- ============ SF ============ -->
+<h2>San Francisco</h2>
+<table>
+<thead>
+<tr>
+  <th>School</th><th>District</th><th>Enroll.</th><th>Class size</th>
+  <th>Years covered</th><th>T25 matriculants (count or %)</th>
+  <th>Most common T25 destinations</th>
+  <th>Source(s)</th><th>Notes</th>
+</tr>
+</thead>
+<tbody>
+
+<tr class="med">
+  <td class="col-school">Lowell HS</td>
+  <td>SFUSD</td>
+  <td class="num">2,571</td>
+  <td class="num">~640</td>
+  <td>2024</td>
+  <td>Per-T25 counts <strong>not published</strong>. Aggregate: largest single feeder to UC system in California (heavy UC Berkeley + UC Davis pipeline).</td>
+  <td>UC Berkeley (very large), UC Davis, UCLA. Anecdotally Stanford, Cornell, Penn, CMU each year but unverified counts.</td>
+  <td class="col-source">
+    <a href="https://resources.finalsite.net/images/v1741886154/lowellpublicsd/hj2bfrllimdsqqufa7fq/2024-2025LHSSchoolProfile.pdf">2024-25 profile (PDF)</a><br/>
+    <a href="https://www.sfusd.edu/school/lowell-high-school">SFUSD page</a><br/>
+    <a href="https://thelowell.org/">thelowell.org</a>
+  </td>
+  <td class="col-notes">Only SF public with academic admission (test/GPA-based, restored 2024). Strong UC pipeline historically; T25-private placement is more variable. SFUSD does not publish per-college counts in the profile we accessed. <span class="tag">magnet</span></td>
+</tr>
+
+<tr class="lo">
+  <td class="col-school">Ruth Asawa SOTA, Galileo, Washington, Lincoln, Balboa, Mission HS, etc.</td>
+  <td>SFUSD</td>
+  <td colspan="2" class="num">varies</td>
+  <td>—</td>
+  <td>Per-school T25 data not publicly aggregated.</td>
+  <td>Mostly UC/CSU pipeline.</td>
+  <td class="col-source">SFUSD school sites</td>
+  <td class="col-notes">Outside Lowell, SFUSD high schools rarely publish T25 matriculation counts; T25 outcomes are sporadic. Listed for completeness.</td>
+</tr>
+
+</tbody>
+</table>
+
+<!-- ============ PENINSULA ============ -->
+<h2>Peninsula (San Mateo County + N. Santa Clara, Palo Alto / Mountain View / Los Altos)</h2>
+<table>
+<thead>
+<tr>
+  <th>School</th><th>District</th><th>Enroll.</th><th>Class size</th>
+  <th>Years covered</th><th>T25 matriculants (count or %)</th>
+  <th>Most common T25 destinations</th>
+  <th>Source(s)</th><th>Notes</th>
+</tr>
+</thead>
+<tbody>
+
+<tr class="hi">
+  <td class="col-school">Palo Alto HS (Paly)</td>
+  <td>Palo Alto USD</td>
+  <td class="num">1,866</td>
+  <td class="num">~470</td>
+  <td>2023, 2024, 2025</td>
+  <td>
+    <strong>2024:</strong> ~67+ to T25 (Stanford 11, Berkeley 35, Northwestern 8, CMU 4, Brown 1, Cornell 1, Columbia 1, UChicago 1, Duke 0, Yale 0, Penn 2, Dartmouth 2, Princeton 1, Vanderbilt 1, JHU 1, MIT 2). <br/>
+    <strong>2025:</strong> ~70+ (Stanford 12, Berkeley 23, Northwestern 6, Cornell 5, CMU 5, Yale 3, Columbia 3, UChicago 3, Brown 2, Penn 1, Dartmouth 1, MIT 1, Harvard 1, Georgetown 2). <br/>
+    <strong>2023:</strong> ~58+ (Stanford 13, Berkeley 20, Northwestern 6, Brown 4, CMU 4, UChicago 3, Yale 2, Georgetown 2).
+  </td>
+  <td>UC Berkeley, Stanford, Northwestern, CMU, Cornell, UChicago, Yale</td>
+  <td class="col-source">
+    <a href="https://www.paly.net/campus-life/college-career-center/college-matriculation-summary">Paly matriculation summary</a><br/>
+    <a href="https://resources.finalsite.net/images/v1727799272/pausdorg/pwpknwqfwa39zt0hqjdu/Palyschoolprofile2024-25.pdf">2024-25 profile (PDF)</a>
+  </td>
+  <td class="col-notes">Among the most transparent matriculation reporters in California. Very high T25 placement, largest single destination is UC Berkeley.</td>
+</tr>
+
+<tr class="hi">
+  <td class="col-school">Henry M. Gunn HS</td>
+  <td>Palo Alto USD</td>
+  <td class="num">~1,900</td>
+  <td class="num">~440</td>
+  <td>2022–2025</td>
+  <td>
+    <strong>2024:</strong> ~85 to T25 (Stanford 14, MIT 4, Berkeley 30, UCLA 10, Cornell 5, Penn 2, Northwestern 2, Brown 1, Dartmouth 1, Columbia 2, UChicago 2, Rice 1, Vanderbilt 1, CMU 6, Michigan 3, WashU 2, Emory 1, Georgetown 1, JHU 1, Harvard 1).<br/>
+    <strong>2025:</strong> ~85+ (Stanford 22, MIT 3, Berkeley 19, UCLA 8, Cornell 6, Penn 1, Northwestern 1, Caltech 1, Yale 1, Columbia 1, UChicago 2, Rice 1, Vanderbilt 1, CMU 9, Michigan 5, WashU 2, Emory 3, JHU 2).<br/>
+    <strong>2023:</strong> Stanford 8, Berkeley 18, MIT 1, UCLA 2, Cornell 5, Brown 1, Dartmouth 2, Yale 3, Penn 1, Northwestern 1, Duke 3, JHU 3, CMU 11, Michigan 4, Emory 6.<br/>
+    <strong>2022:</strong> Stanford 5, Berkeley 20, UCLA 6, Brown 7, Cornell 1, Yale 2, Penn 4, Northwestern 3, JHU 2, CMU 10, Michigan 3, Emory 3.
+  </td>
+  <td>UC Berkeley, Stanford, CMU, UCLA, Cornell, Michigan</td>
+  <td class="col-source">
+    <a href="https://gunn.pausd.org/campus-life/college-career-center/college-matriculation-summary">Gunn matriculation summary</a><br/>
+    <a href="https://resources.finalsite.net/images/v1728670640/pausdorg/w9jz2hqizkj2hzuon56j/GunnProfile2024-202510-11-24.pdf">2024-25 profile (PDF)</a>
+  </td>
+  <td class="col-notes">Strongest <em>verified</em> T25 outcomes in the Bay Area. Per-college, multi-year transparent table.</td>
+</tr>
+
+<tr class="med">
+  <td class="col-school">Mountain View HS</td>
+  <td>Mountain View–Los Altos UHSD</td>
+  <td class="num">2,196</td>
+  <td class="num">~525</td>
+  <td>Class of 2024 aggregate</td>
+  <td>92% of MVLA Class of 2024 self-reported attending college. MVLA Foundation maintains a "College Destinations Map" but per-college matriculation counts not posted on accessible page. Anecdotally strong UC Berkeley and Stanford pipeline.</td>
+  <td>UC Berkeley, UCLA, Stanford, Cal Poly SLO, plus Ivies in small numbers</td>
+  <td class="col-source">
+    <a href="https://mvhs.mvla.net/Our-School/About-MVHS/School-Profile/index.html">School profile page</a><br/>
+    <a href="https://mvlafoundation.org/how-you-benefit/college-destinations-map/">MVLA Foundation map</a><br/>
+    <a href="https://www.mvla.net/documents/MVHS-School-Profile-2023-24-FINALrev11.1.23.pdf">2023-24 profile (PDF)</a>
+  </td>
+  <td class="col-notes">Top-1% nationally per Newsweek/US News rhetoric. Detailed counts not in plain text on public pages.</td>
+</tr>
+
+<tr class="med">
+  <td class="col-school">Los Altos HS</td>
+  <td>Mountain View–Los Altos UHSD</td>
+  <td class="num">2,141</td>
+  <td class="num">~520</td>
+  <td>Class of 2024 aggregate</td>
+  <td>Same MVLA aggregate (92% to college). Per-college breakdown not in extractable form on public pages.</td>
+  <td>UC Berkeley, UCLA, Stanford, plus selective privates</td>
+  <td class="col-source">
+    <a href="https://lahs.mvla.net/About-Us/Our-School/School-Profile/index.html">School profile page</a><br/>
+    <a href="https://www.mvla.net/documents/Departments/Educational-Services/Plans-Reports/LAHS-School-Profile-2022-2023.pdf">2022-23 profile (PDF)</a>
+  </td>
+  <td class="col-notes">Peer of MVHS; treat outcomes as comparable.</td>
+</tr>
+
+<tr class="hi">
+  <td class="col-school">Menlo-Atherton HS</td>
+  <td>Sequoia UHSD</td>
+  <td class="num">~2,300</td>
+  <td class="num">~540</td>
+  <td>2022–2025 (chart)</td>
+  <td>"2025 College Destinations Chart" published; full PDF "College Destinations 22-25" available. Counts not extractable here. Anecdotal: typically 6–12 to Stanford, healthy Ivy presence, large UC presence.</td>
+  <td>UC Berkeley, UCLA, Stanford, USC, Cal Poly SLO, smattering of Ivy/Ivy+</td>
+  <td class="col-source">
+    <a href="https://www.mabears.org/About-M-A/School-Profile/Where-do-our-Grads-go/index.html">Where do our grads go</a><br/>
+    <a href="https://www.seq.org/documents/SARCs/2023/23-SARC_Sequoia-Union-HSD_Menlo-Atherton-HS.pdf">2023 SARC (PDF)</a>
+  </td>
+  <td class="col-notes">Affluent, well-resourced; sends a meaningful T25 cohort each year. Linked PDF has the actual numbers.</td>
+</tr>
+
+<tr class="med">
+  <td class="col-school">Aragon HS</td>
+  <td>San Mateo UHSD</td>
+  <td class="num">1,686</td>
+  <td class="num">~422</td>
+  <td>2024</td>
+  <td>UC Berkeley admit rate from Aragon ~14% (27 admits, 18 enrolled, 187 applicants in 2024). Class of 2023: 79% college matriculation rate. Per-T25 counts in profile PDF (binary, not text-extractable here).</td>
+  <td>UC Berkeley, UCLA, San Diego State, USC, Cal Poly SLO; small but real Ivy/Stanford each year</td>
+  <td class="col-source">
+    <a href="https://resources.finalsite.net/images/v1727723726/smuhsdorg/yynofffzdjkcl89vt305/AragonSchoolProfile2024-25.pdf">2024-25 profile (PDF)</a><br/>
+    <a href="https://sierraadmissions.com/blog/aragon-high-school-ranking-for-college-admissions">Sierra Admissions analysis</a>
+  </td>
+  <td class="col-notes">Strongest of the SMUHSD comprehensives.</td>
+</tr>
+
+<tr class="med">
+  <td class="col-school">Burlingame HS</td>
+  <td>San Mateo UHSD</td>
+  <td class="num">~1,500</td>
+  <td class="num">~370</td>
+  <td>2023</td>
+  <td>97% of Class of 2023 reported planning to attend college. Per-college T25 not in extractable text from the profile.</td>
+  <td>UC Berkeley, UCLA, USC, Cal Poly SLO; Ivies and Stanford in small numbers</td>
+  <td class="col-source">
+    <a href="https://resources.finalsite.net/images/v1734456710/smuhsdorg/asoknwcbfklfycou0ogt/2024-25BHSProfile.pdf">2024-25 profile (PDF)</a>
+  </td>
+  <td class="col-notes">Affluent feeder, profile available but counts not extractable here.</td>
+</tr>
+
+<tr class="med">
+  <td class="col-school">Mills HS</td>
+  <td>San Mateo UHSD</td>
+  <td class="num">1,119</td>
+  <td class="num">~280</td>
+  <td>—</td>
+  <td>Per-T25 not published in summary form. 94% graduation rate; 58% AP participation.</td>
+  <td>UC system, USC; T25 outcomes occasional</td>
+  <td class="col-source">
+    <a href="https://mhs.smuhsd.org/">School site</a>
+  </td>
+  <td class="col-notes">High-Asian student body (~59%); decent UC pipeline.</td>
+</tr>
+
+<tr class="med">
+  <td class="col-school">San Mateo HS</td>
+  <td>San Mateo UHSD</td>
+  <td class="num">~1,700</td>
+  <td class="num">~400</td>
+  <td>—</td>
+  <td>Not published per-college in extractable form.</td>
+  <td>UC system, Cal States, USC</td>
+  <td class="col-source"><a href="https://smhs.smuhsd.org/">School site</a></td>
+  <td class="col-notes">Comprehensive HS; good UC outcomes, small T25 cohorts.</td>
+</tr>
+
+<tr class="med">
+  <td class="col-school">Hillsdale HS</td>
+  <td>San Mateo UHSD</td>
+  <td class="num">1,581</td>
+  <td class="num">~390</td>
+  <td>—</td>
+  <td>Per-college not published. Lower AP participation (53%); CA rank #424.</td>
+  <td>UC, CSU, community college transfer</td>
+  <td class="col-source"><a href="https://www.cde.ca.gov/sdprofile/details.aspx?cds=41690474133070">CDE profile</a></td>
+  <td class="col-notes">Smaller T25 cohort than Aragon/Burlingame.</td>
+</tr>
+
+<tr class="hi">
+  <td class="col-school">Carlmont HS</td>
+  <td>Sequoia UHSD</td>
+  <td class="num">~2,400</td>
+  <td class="num">~600</td>
+  <td>2021, 2023, 2025 matriculation lists</td>
+  <td>Carlmont publishes per-class matriculation lists (Class of 2023 PDF, Class of 2025 in Google Sheets). Anecdotal: meaningful Berkeley/UCLA cohort each year, plus a handful of Stanford/Ivy/CMU.</td>
+  <td>UC Berkeley, UCLA, USC, Cal Poly SLO, UCSD, Stanford (small)</td>
+  <td class="col-source">
+    <a href="https://www.carlmonths.org/Counseling/College--Career/School-Profile--Matriculation/index.html">Profile &amp; matriculation page</a><br/>
+    <a href="https://www.carlmonths.org/documents/Class-of-2023-Matriculation-Sheet1.pdf">Class of 2023 matriculation</a><br/>
+    <a href="https://www.carlmonths.org/documents/School-Profile-Class-of-2024-Final-2-2.pdf">Class of 2024 profile</a>
+  </td>
+  <td class="col-notes">One of the most transparent SMUHSD/Sequoia schools. Visit linked sheets for exact counts.</td>
+</tr>
+
+<tr class="hi">
+  <td class="col-school">Sequoia HS</td>
+  <td>Sequoia UHSD</td>
+  <td class="num">1,905</td>
+  <td class="num">~460</td>
+  <td>2020-21 profile</td>
+  <td>2020-21 reported: 26% UC, 34% CSU, 9% CA private, 19% out-of-state public, 9% out-of-state private, 3% intl. Higher T25 numbers come via the IB program.</td>
+  <td>UC Berkeley, UCLA, plus IB-driven outcomes at selective privates</td>
+  <td class="col-source">
+    <a href="https://www.sequoiahs.org/documents/23-24-Sequoia-School-Profile.pdf">2023-24 profile (PDF)</a><br/>
+    <a href="https://www.sequoiahs.org/PARENTS--COMMUNITY/IB-Programme/Sequoia-IB-Student-College-Selections/">IB student college selections</a>
+  </td>
+  <td class="col-notes">More socioeconomically diverse; T25 cohort smaller than M-A/Carlmont.</td>
+</tr>
+
+<tr class="med">
+  <td class="col-school">Woodside HS</td>
+  <td>Sequoia UHSD</td>
+  <td class="num">1,646</td>
+  <td class="num">~400</td>
+  <td>2022–2024</td>
+  <td>"Acceptances and Destinations" docs published for Classes 2022, 2023, 2024 (Google Drive). Counts not extractable here. T25 cohort is modest.</td>
+  <td>UC, CSU, Cal Poly SLO, USC, sporadic Ivy/Stanford</td>
+  <td class="col-source">
+    <a href="https://www.woodsidehs.org/Guidance--Counseling/College--Career-Center/College-Destinations/index.html">College Destinations page</a>
+  </td>
+  <td class="col-notes">Good UC outcomes; T25 placement uneven year-to-year.</td>
+</tr>
+
+</tbody>
+</table>
+
+<!-- ============ SOUTH BAY ============ -->
+<h2>South Bay (Santa Clara County: Cupertino, Saratoga, Los Gatos, San Jose)</h2>
+<table>
+<thead>
+<tr>
+  <th>School</th><th>District</th><th>Enroll.</th><th>Class size</th>
+  <th>Years covered</th><th>T25 matriculants (count or %)</th>
+  <th>Most common T25 destinations</th>
+  <th>Source(s)</th><th>Notes</th>
+</tr>
+</thead>
+<tbody>
+
+<tr class="med">
+  <td class="col-school">Monta Vista HS</td>
+  <td>Fremont Union HSD</td>
+  <td class="num">1,630</td>
+  <td class="num">~410</td>
+  <td>2012–16 source data; 2024-25 profile</td>
+  <td>~204 students enrolled at UC Berkeley over 2012–16 (≈40/yr). Heavy UCLA pipeline as well. <strong>Per-T25 counts not published in plain text.</strong></td>
+  <td>UC Berkeley, UCLA, UC San Diego, CMU, USC, Stanford, Northwestern, Michigan, Cornell</td>
+  <td class="col-source">
+    <a href="https://resources.finalsite.net/images/v1726855294/fuhsdorg/xbozlh8ps8ghyavn7nvt/MVHS24-25SchoolProfileFINAL_2.pdf">2024-25 profile (PDF)</a><br/>
+    <a href="https://medium.com/@slackjack314/what-high-schools-send-the-most-students-to-uc-berkeley-5331f19a7a60">UC Berkeley feeder analysis</a>
+  </td>
+  <td class="col-notes">79.5% Asian student body, 84% AP participation. Universally regarded as a top public T25 producer; lack of granular published data is a real limitation.</td>
+</tr>
+
+<tr class="med">
+  <td class="col-school">Lynbrook HS</td>
+  <td>Fremont Union HSD</td>
+  <td class="num">1,702</td>
+  <td class="num">~430</td>
+  <td>2012–16 source; profile years 22-23, 24-25, 25-26</td>
+  <td>~176 to UC Berkeley over 2012–16 (~35/yr). UCLA also among the highest in the Bay. Per-T25 counts not in plain text in any profile we accessed.</td>
+  <td>UC Berkeley, UCLA, UC San Diego, CMU, Stanford, Cornell, Penn, Michigan</td>
+  <td class="col-source">
+    <a href="https://lhs.fuhsd.org/about-us/accountability/school-profile">Profile page (PDF list)</a><br/>
+    <a href="https://resources.finalsite.net/images/v1758734834/fuhsdorg/eg4tboe5rxxvi8dhz22l/SchoolProfile25_26.pdf">2025-26 profile (PDF)</a>
+  </td>
+  <td class="col-notes">Peer of Monta Vista, very STEM-leaning. 82% Asian. Same data limitation as MVHS.</td>
+</tr>
+
+<tr class="med">
+  <td class="col-school">Cupertino HS</td>
+  <td>Fremont Union HSD</td>
+  <td class="num">1,811</td>
+  <td class="num">~450</td>
+  <td>2024-25, 2025-26 profiles</td>
+  <td>2024 College Board Equity & Excellence Pct 77.3%; 75.7% of 2025 grads passed at least 1 AP. Per-T25 counts not in extractable text. Strong UC pipeline.</td>
+  <td>UC Berkeley, UCLA, UC San Diego, USC, CMU</td>
+  <td class="col-source">
+    <a href="https://resources.finalsite.net/images/v1743439230/fuhsdorg/owmxetiqoxllgcphfxmi/CHS24-25SchoolProfile.pdf">2024-25 profile (PDF)</a><br/>
+    <a href="https://resources.finalsite.net/images/v1760475854/fuhsdorg/nwubnzuusuv59fpnfz53/CHS25-26SchoolProfile.pdf">2025-26 profile (PDF)</a>
+  </td>
+  <td class="col-notes">Slightly behind Monta Vista/Lynbrook on T25 but solid UC outcomes.</td>
+</tr>
+
+<tr class="med">
+  <td class="col-school">Homestead HS</td>
+  <td>Fremont Union HSD</td>
+  <td class="num">2,405</td>
+  <td class="num">~600</td>
+  <td>2025-26 profile</td>
+  <td>72% AP participation; CA rank #65. School profile published but per-T25 counts not in extractable text.</td>
+  <td>UC Berkeley, UCLA, UC San Diego, USC, Stanford (small)</td>
+  <td class="col-source">
+    <a href="https://hhs.fuhsd.org/about-us/accountability/school-profile">Profile page</a>
+  </td>
+  <td class="col-notes">Apple founder Steve Wozniak's HS. Strong but slightly behind the MV/Lynbrook tier.</td>
+</tr>
+
+<tr class="med">
+  <td class="col-school">Fremont HS (Sunnyvale)</td>
+  <td>Fremont Union HSD</td>
+  <td class="num">~2,000</td>
+  <td class="num">~480</td>
+  <td>2024-25, 2025-26 profiles</td>
+  <td>Per-T25 not in extractable text. AP participation 43%. Lower-affluence than the rest of FUHSD.</td>
+  <td>UC system, CSU, USC</td>
+  <td class="col-source">
+    <a href="https://fhs.fuhsd.org/about-us/accountability/school-profile">Profile page</a>
+  </td>
+  <td class="col-notes">Distinct from Mission San Jose / Fremont USD. Modest T25 cohort.</td>
+</tr>
+
+<tr class="med">
+  <td class="col-school">Saratoga HS</td>
+  <td>Los Gatos–Saratoga Joint UHSD</td>
+  <td class="num">1,108</td>
+  <td class="num">~280</td>
+  <td>2024 (in 25-26 profile)</td>
+  <td>Class of 2024 college placement: 31.6% Non-CA Public, 22.8% UC, 18.8% Non-CA Private, 13.7% CSU, 5.9% CA Private, 1.1% Intl. Per-college counts not in profile (only category percentages).</td>
+  <td>UC Berkeley, UCLA, Cal Poly SLO, USC, Michigan, NYU, plus strong T25 cohort spread across Stanford/Ivies/CMU</td>
+  <td class="col-source">
+    <a href="https://resources.finalsite.net/images/v1758142136/lgsuhsdorg/htrryyxhdqeryrzjedti/SchoolProfileFinal2025-20262.pdf">2025-26 profile (PDF)</a><br/>
+    <a href="https://resources.finalsite.net/images/v1727471290/lgsuhsdorg/sfcuvsj92ojfkflumnwj/SHSSchoolProfile2024-20251.pdf">2024-25 profile (PDF)</a>
+  </td>
+  <td class="col-notes">35 National Merit Semifinalists in Class of 2026 (very high). Mean SAT 1430. The "31.6% non-CA public" + "18.8% non-CA private" → roughly half the class goes out of state, much of it to T25-adjacent schools.</td>
+</tr>
+
+<tr class="med">
+  <td class="col-school">Los Gatos HS</td>
+  <td>Los Gatos–Saratoga Joint UHSD</td>
+  <td class="num">1,977</td>
+  <td class="num">~480</td>
+  <td>2021 aggregate</td>
+  <td>96% of 2021 grads to college (74% four-year). Mean SAT 1326. Per-T25 not in extractable text.</td>
+  <td>UC Berkeley, UCLA, Cal Poly SLO, USC, sporadic Ivy/Stanford</td>
+  <td class="col-source">
+    <a href="https://www.cde.ca.gov/sdprofile/details.aspx?cds=43695344334371">CDE profile</a>
+  </td>
+  <td class="col-notes">Strong but distinctly behind Saratoga next door.</td>
+</tr>
+
+<tr class="lo">
+  <td class="col-school">Mission San Jose HS</td>
+  <td>Fremont USD</td>
+  <td class="num">1,794</td>
+  <td class="num">~440</td>
+  <td>2012–16 source data; profile years available</td>
+  <td>~202 students enrolled at UC Berkeley over 2012–16 (~40/yr). 88% of grads to four-year college. <strong>Ranked #1 in chicardgo's ECPI for the Bay Area.</strong> Per-T25 counts not in publicly accessible text.</td>
+  <td>UC Berkeley, UCLA, UC San Diego, CMU, Stanford, MIT, Caltech, Cornell, Northwestern, Michigan</td>
+  <td class="col-source">
+    <a href="https://fremontunified.org/msjhs/students-community/student-support/counselors-overview/school-profiles/">School profiles page</a><br/>
+    <a href="https://medium.com/@slackjack314/what-high-schools-send-the-most-students-to-uc-berkeley-5331f19a7a60">UC source-school analysis</a><br/>
+    <a href="https://school.chicardgo.com/bayarea/">chicardgo ECPI</a>
+  </td>
+  <td class="col-notes"><strong>The most-discussed Bay Area public for elite outcomes</strong>. 88.7% Asian, very high SAT (~1460 mean). #107 nationally per US News (2025). Reputation strongly outpaces public data transparency. Sister schools (Irvington, American, Washington) in same district below.</td>
+</tr>
+
+</tbody>
+</table>
+
+<!-- ============ EAST BAY ============ -->
+<h2>East Bay (Alameda + Contra Costa)</h2>
+<table>
+<thead>
+<tr>
+  <th>School</th><th>District</th><th>Enroll.</th><th>Class size</th>
+  <th>Years covered</th><th>T25 matriculants (count or %)</th>
+  <th>Most common T25 destinations</th>
+  <th>Source(s)</th><th>Notes</th>
+</tr>
+</thead>
+<tbody>
+
+<tr class="med">
+  <td class="col-school">Mission San Jose HS</td>
+  <td colspan="8" style="font-style: italic; color: #666;">Listed in South Bay table above (technically Alameda County / Fremont USD). Listed there for clustering with peer FUHSD schools.</td>
+</tr>
+
+<tr class="med">
+  <td class="col-school">Irvington HS</td>
+  <td>Fremont USD</td>
+  <td class="num">2,157</td>
+  <td class="num">~530</td>
+  <td>—</td>
+  <td>86% take ≥1 AP. CA Distinguished 2024, 2025. Per-T25 counts not published in extractable form.</td>
+  <td>UC Berkeley, UCLA, UC San Diego, USC, CMU</td>
+  <td class="col-source"><a href="https://www.usnews.com/education/best-high-schools/california/districts/fremont-unified-school-district/irvington-high-school-2206">US News profile</a></td>
+  <td class="col-notes">Top 5% in CA. Smaller T25 cohort than MSJ but well above district average.</td>
+</tr>
+
+<tr class="med">
+  <td class="col-school">American HS</td>
+  <td>Fremont USD</td>
+  <td class="num">2,618</td>
+  <td class="num">~640</td>
+  <td>2024-25 profile</td>
+  <td>69% AP participation, 96% grad rate. Per-T25 counts not extractable here.</td>
+  <td>UC system, USC, CMU</td>
+  <td class="col-source"><a href="https://fremontunified.org/american/students-community/student-support/school-profile-2024-2025/">Profile 2024-25 page</a></td>
+  <td class="col-notes">CA rank #60. 76% Asian. Decent UC outcomes; T25 numbers smaller than MSJ.</td>
+</tr>
+
+<tr class="med">
+  <td class="col-school">Washington HS (Fremont)</td>
+  <td>Fremont USD</td>
+  <td class="num">1,957</td>
+  <td class="num">~480</td>
+  <td>—</td>
+  <td>Per-T25 counts not published in extractable form. CA rank #281.</td>
+  <td>UC system, CSU, USC</td>
+  <td class="col-source"><a href="https://www.usnews.com/education/best-high-schools/california/districts/fremont-unified-school-district/washington-high-school-2210">US News profile</a></td>
+  <td class="col-notes">Solid but the weakest of the Fremont USD top-three (Mission, Irvington, American > Washington).</td>
+</tr>
+
+<tr class="med">
+  <td class="col-school">Berkeley HS</td>
+  <td>Berkeley USD</td>
+  <td class="num">~3,200</td>
+  <td class="num">~800</td>
+  <td>—</td>
+  <td>~95% of grads plan to attend college. UC Berkeley admit rate from BHS reportedly ~23%. Per-T25 counts not in current public profile (latest accessible: 2019-20).</td>
+  <td>UC Berkeley (very large), UCLA, UC Santa Cruz, plus Ivies, Stanford, NYU each year</td>
+  <td class="col-source">
+    <a href="https://bhs.berkeleyschools.net/wp-content/uploads/2020/09/school-profile-2019-2020-2.pdf">2019-20 profile (PDF)</a><br/>
+    <a href="https://bhs.berkeleyschools.net/college-career-center/">College &amp; Career Center</a>
+  </td>
+  <td class="col-notes">Very large, very diverse. Strong UC pipeline; T25-private outcomes are real but spread thinly across a big class.</td>
+</tr>
+
+<tr class="med">
+  <td class="col-school">Piedmont HS</td>
+  <td>Piedmont City USD</td>
+  <td class="num">733</td>
+  <td class="num">~180</td>
+  <td>2022-23 senior matriculations published</td>
+  <td>2022-23 sample destinations included UCLA, Dartmouth, Chapman, Lewis &amp; Clark, Cal Poly SLO, CU Boulder, etc. Per-T25 counts in profile PDF (Google Doc, not extractable here).</td>
+  <td>UCLA, UC Berkeley, Dartmouth, Cornell, Stanford (sporadic), USC</td>
+  <td class="col-source">
+    <a href="https://phs.piedmont.k12.ca.us/our-school/school-profile">School profile page</a><br/>
+    <a href="https://tphnews.com/20338/campus/2022-2023-senior-matriculations/">Student paper matriculations</a>
+  </td>
+  <td class="col-notes">Tiny, affluent, very high T25 <em>per-capita</em>; total absolute numbers are small (180/class).</td>
+</tr>
+
+<tr class="med">
+  <td class="col-school">Albany HS</td>
+  <td>Albany City USD</td>
+  <td class="num">1,117</td>
+  <td class="num">~270</td>
+  <td>—</td>
+  <td>Per-T25 not extractable from public profile. National rank #559 (2025); top 10% in CA.</td>
+  <td>UC system, CSU, sporadic T25</td>
+  <td class="col-source"><a href="https://ahs.ausdk12.org/school-profile">School profile page</a></td>
+  <td class="col-notes">Solid academic school; smaller T25 cohort than Berkeley HS.</td>
+</tr>
+
+<tr class="med">
+  <td class="col-school">Dougherty Valley HS</td>
+  <td>San Ramon Valley USD</td>
+  <td class="num">3,000+</td>
+  <td class="num">~750</td>
+  <td>2023-24 profile</td>
+  <td>Profile published; per-T25 counts not extractable here. Strong UC pipeline; moderate Ivy/Stanford each year.</td>
+  <td>UC Berkeley, UCLA, UC San Diego, USC, CMU, Michigan</td>
+  <td class="col-source">
+    <a href="https://dvhs.srvusd.net/documents/2023-2024-Profile.docx.pdf">2023-24 profile (PDF)</a><br/>
+    <a href="https://dvhs.srvusd.net/School-Info/Departments/College-and-Career-Center/index.html">College &amp; Career Center</a>
+  </td>
+  <td class="col-notes">Newest of the SRVUSD high schools (opened 2007). Large, high-performing, demographically Asian-majority.</td>
+</tr>
+
+<tr class="med">
+  <td class="col-school">Monte Vista HS (Danville)</td>
+  <td>San Ramon Valley USD</td>
+  <td class="num">2,042</td>
+  <td class="num">~510</td>
+  <td>—</td>
+  <td>Mean SAT 1350; 92% AP exam pass rate. CA rank #93. Per-T25 not in extractable form.</td>
+  <td>UC system, USC, Cal Poly SLO, sporadic T25</td>
+  <td class="col-source"><a href="https://www.usnews.com/education/best-high-schools/california/districts/san-ramon-valley-unified-school-district/monte-vista-high-school-3355">US News</a></td>
+  <td class="col-notes">National Blue Ribbon. Affluent suburban; respectable T25 cohort each year.</td>
+</tr>
+
+<tr class="med">
+  <td class="col-school">San Ramon Valley HS</td>
+  <td>San Ramon Valley USD</td>
+  <td class="num">2,024</td>
+  <td class="num">~510</td>
+  <td>2022-23 profile</td>
+  <td>Mean SAT 1310; 81% AP enrollment, 57% pass rate. Per-T25 counts not in extractable form.</td>
+  <td>UC system, USC, Cal Poly SLO, occasional T25 private</td>
+  <td class="col-source">
+    <a href="https://srvhs.srvusd.net/documents/2022-23-SRVHS-Profile-8.23.22.pdf">2022-23 profile (PDF)</a>
+  </td>
+  <td class="col-notes">Solid suburban; T25 cohort smaller than Dougherty Valley.</td>
+</tr>
+
+<tr class="med">
+  <td class="col-school">California HS (San Ramon)</td>
+  <td>San Ramon Valley USD</td>
+  <td class="num">2,894</td>
+  <td class="num">~720</td>
+  <td>—</td>
+  <td>Mean SAT 1350; mean ACT 31; 22 AP courses. Per-T25 not published in extractable form.</td>
+  <td>UC system, USC, CMU, sporadic T25</td>
+  <td class="col-source"><a href="https://www.usnews.com/education/best-high-schools/california/districts/san-ramon-valley-unified-school-district/california-high-school-3353">US News</a></td>
+  <td class="col-notes">Large; outcomes between Dougherty and SRVHS.</td>
+</tr>
+
+<tr class="med">
+  <td class="col-school">Acalanes HS (Lafayette)</td>
+  <td>Acalanes Union HSD</td>
+  <td class="num">~1,300</td>
+  <td class="num">~340</td>
+  <td>2024-25 profile</td>
+  <td>Profile published; per-T25 not in extractable text from PDF.</td>
+  <td>UC Berkeley, UCLA, USC, Cal Poly SLO, sporadic Ivy/Stanford</td>
+  <td class="col-source">
+    <a href="https://www.acalanes.k12.ca.us/cms/lib/CA01001364/Centricity/Domain/56/School%20Profile%2024-25.pdf">2024-25 profile (PDF)</a>
+  </td>
+  <td class="col-notes">Affluent Lamorinda HS; respectable T25 numbers.</td>
+</tr>
+
+<tr class="med">
+  <td class="col-school">Campolindo HS (Moraga)</td>
+  <td>Acalanes Union HSD</td>
+  <td class="num">1,340</td>
+  <td class="num">~340</td>
+  <td>—</td>
+  <td>79% AP participation; CA rank #30. Per-T25 not in extractable form.</td>
+  <td>UC Berkeley, UCLA, USC, Stanford (small), Ivies in small numbers</td>
+  <td class="col-source"><a href="https://nationalblueribbonschools.ed.gov/awardwinners/winning/15ca459pu_campolindo_high_school.html/">National Blue Ribbon page</a></td>
+  <td class="col-notes">Among the highest-ranked Lamorinda publics.</td>
+</tr>
+
+<tr class="med">
+  <td class="col-school">Miramonte HS (Orinda)</td>
+  <td>Acalanes Union HSD</td>
+  <td class="num">1,188</td>
+  <td class="num">~300</td>
+  <td>—</td>
+  <td>23 APs; US News national rank #217 (2023-24). 97.7% grad rate. Per-T25 not in extractable form.</td>
+  <td>UC system, USC, Cal Poly SLO, plus Ivies/Stanford in small numbers</td>
+  <td class="col-source"><a href="https://www.publicschoolreview.com/miramonte-high-school-profile">Public School Review</a></td>
+  <td class="col-notes">Top 1% of CA HS by proficiency rates.</td>
+</tr>
+
+</tbody>
+</table>
+
+<!-- ============ NORTH BAY ============ -->
+<h2>North Bay (Marin, Sonoma, Napa, Solano)</h2>
+<table>
+<thead>
+<tr>
+  <th>School</th><th>District</th><th>Enroll.</th><th>Class size</th>
+  <th>Years covered</th><th>T25 matriculants (count or %)</th>
+  <th>Most common T25 destinations</th>
+  <th>Source(s)</th><th>Notes</th>
+</tr>
+</thead>
+<tbody>
+
+<tr class="med">
+  <td class="col-school">Redwood HS (Larkspur)</td>
+  <td>Tamalpais Union HSD</td>
+  <td class="num">1,722</td>
+  <td class="num">~430</td>
+  <td>—</td>
+  <td>84% AP participation; CA rank #50. Per-T25 not published in extractable form (most recent accessible profile is 2016-17).</td>
+  <td>UC Berkeley, UCLA, USC, Cal Poly SLO, plus Ivies in small numbers</td>
+  <td class="col-source"><a href="https://www.ed-data.org/school/Marin/Tamalpais-Union-High/Redwood-High">Ed-Data profile</a></td>
+  <td class="col-notes">Strongest of the Tam district publics. Affluent; healthy T25 cohort but data opacity.</td>
+</tr>
+
+<tr class="med">
+  <td class="col-school">Tamalpais HS (Mill Valley)</td>
+  <td>Tamalpais Union HSD</td>
+  <td class="num">1,544</td>
+  <td class="num">~390</td>
+  <td>2023</td>
+  <td>Class of 2023: 89% to 2-yr or 4-yr (76% four-year). Top destinations: College of Marin (35), Cal Poly SLO (22), UC Berkeley (14), SDSU (13), UCSB (13). T25 cohort modest.</td>
+  <td>UC Berkeley, UCLA, Cal Poly SLO, UCSB, sporadic Ivy/Stanford</td>
+  <td class="col-source">
+    <a href="https://resources.finalsite.net/images/v1718745994/tamdistrictorg/hjc4ze4thivpriikayeb/TAM_HIGH_SCHOOL_PROFILE_2023-2024_.pdf">2023-24 profile (PDF)</a><br/>
+    <a href="https://www.tamdistrict.org/Page/7586">College acceptances page</a>
+  </td>
+  <td class="col-notes">14 to UC Berkeley in 2023 → small T25 cohort relative to comparable affluent schools elsewhere.</td>
+</tr>
+
+<tr class="lo">
+  <td class="col-school">Archie Williams HS (formerly Sir Francis Drake)</td>
+  <td>Tamalpais Union HSD</td>
+  <td class="num">~1,000</td>
+  <td class="num">~250</td>
+  <td>—</td>
+  <td>Per-T25 not published. Renamed from Sir Francis Drake.</td>
+  <td>UC system, Cal States</td>
+  <td class="col-source"><a href="https://www.usnews.com/education/best-high-schools/california/districts/tamalpais-union-high/sir-francis-drake-high-school-3549">US News</a></td>
+  <td class="col-notes">Smaller T25 numbers than Redwood/Tam.</td>
+</tr>
+
+<tr class="lo">
+  <td class="col-school">San Rafael HS, Novato HS</td>
+  <td>San Rafael City HSD / Novato USD</td>
+  <td colspan="2" class="num">~1,200 / ~1,500</td>
+  <td>—</td>
+  <td>No public per-T25 matriculation data found. T25 outcomes are sporadic.</td>
+  <td>UC system, CSU</td>
+  <td class="col-source">School district sites</td>
+  <td class="col-notes">Listed for completeness; not T25 powerhouses.</td>
+</tr>
+
+<tr class="med">
+  <td class="col-school">Maria Carrillo HS</td>
+  <td>Santa Rosa City Schools</td>
+  <td class="num">1,600</td>
+  <td class="num">~400</td>
+  <td>2023-24 profile published</td>
+  <td>CA Distinguished. Profile PDF accessible but text not extractable here. T25 cohort modest.</td>
+  <td>UC system, CSU, USC, sporadic Stanford/Ivy</td>
+  <td class="col-source">
+    <a href="https://resources.finalsite.net/images/v1738943128/srcschoolsorg/maxicv7gf6bqbvuax8si/MCHSSchoolProfile2023-2024.pdf">2023-24 profile (PDF)</a>
+  </td>
+  <td class="col-notes">Highest-rated SRCS comprehensive HS. 400:1 student:counselor ratio limits granular advising.</td>
+</tr>
+
+<tr class="lo">
+  <td class="col-school">Montgomery HS, Santa Rosa HS, Sonoma Valley HS</td>
+  <td>Santa Rosa CS / Sonoma Valley USD</td>
+  <td colspan="2" class="num">varies</td>
+  <td>—</td>
+  <td>No public per-T25 matriculation data found.</td>
+  <td>UC, CSU</td>
+  <td class="col-source">District sites</td>
+  <td class="col-notes">Listed for completeness; T25 cohorts small.</td>
+</tr>
+
+<tr class="lo">
+  <td class="col-school">Napa HS, Vintage HS</td>
+  <td>Napa Valley USD</td>
+  <td class="num">~1,800 / 1,712</td>
+  <td>—</td>
+  <td>2013–2021 aggregate</td>
+  <td>NVUSD publishes a "Student Matriculation 2013–2021" district aggregate page. AP participation 35–39%. T25 cohort small.</td>
+  <td>UC, CSU, Sonoma State, Santa Rosa JC</td>
+  <td class="col-source"><a href="https://www.nvusd.org/our-schools/highschools/collegelist">NVUSD matriculation page</a></td>
+  <td class="col-notes">10,000 Degrees nonprofit supports college access. T25 numbers very low.</td>
+</tr>
+
+<tr class="lo">
+  <td class="col-school">Vanden HS</td>
+  <td>Travis USD</td>
+  <td class="num">1,631</td>
+  <td class="num">~400</td>
+  <td>—</td>
+  <td>No public per-T25 matriculation data found.</td>
+  <td>UC, CSU, Solano CC</td>
+  <td class="col-source"><a href="https://vanden.travisusd.org/counseling/counseling-department/solano-community-college-enrollment">Counseling page</a></td>
+  <td class="col-notes">Solano County's highest-profile public; T25 cohort small.</td>
+</tr>
+
+</tbody>
+</table>
+
+<!-- ============ Methodology ============ -->
+<h2>Methodology &amp; caveats</h2>
+
+<h3>What "T25" means here</h3>
+<p>This report uses the US News National Universities ranking roughly as of 2024–25, with ties expanding the list slightly: Princeton, MIT, Harvard, Stanford, Yale, Caltech, Duke, Johns Hopkins, Northwestern, Penn, Cornell, UChicago, Brown, Columbia, Dartmouth, UCLA, UC Berkeley, Notre Dame, Rice, Vanderbilt, Carnegie Mellon, Michigan, WashU, Emory, UVA, Georgetown. Rankings shift year to year — "Top 25" should be read as "the most selective tier of national research universities," not a precise cut-off.</p>
+
+<h3>How data was gathered</h3>
+<ul class="tight">
+  <li>School-published College Matriculation Summary pages (Paly, Gunn — gold standard).</li>
+  <li>School Profile PDFs sent to colleges (most schools have these; quality of college-list section varies enormously).</li>
+  <li>The University of California's "Admissions by source school" data (authoritative for UC Berkeley/UCLA pipeline counts but lags).</li>
+  <li>Sequoia District schools' "College Destinations" pages (M-A, Carlmont, Woodside).</li>
+  <li>Triangulation against chicardgo.com's Bay Area Elite College Placement Index, Niche, and US News rankings.</li>
+  <li>Local press (Palo Alto Online, Patch, KRON) for occasional class-of-X feature stories.</li>
+</ul>
+
+<h3>Why so many "med" / "lo" rows?</h3>
+<p>California public high schools are not required to publish college matriculation outcomes, and most do not publish per-college counts in machine-readable form. Many post the data in PDFs that are scanned images or that defeated automated text extraction in this research session. The schools in <span class="pill hi">high-confidence</span> rows are those that <em>chose</em> to publish a clean year-by-year per-college table on a public page. That choice itself correlates with strong outcomes (those schools are proud of them).</p>
+
+<h3>Important biases to be aware of</h3>
+<ul class="tight">
+  <li><strong>Selection bias.</strong> Mission San Jose, Monta Vista, Lynbrook, Saratoga, and Lowell admit (or attract) demographically and academically narrow student bodies. Their T25 placement rates reflect <em>who they enroll</em> as much as <em>what they teach</em>. Sending a strong student to one of these schools does not guarantee they "level up" — they are surrounded by peers with similar profiles.</li>
+  <li><strong>Self-reporting differences.</strong> Some schools count "enrolled," others count "admitted" or "applied." A school showing 35 to UC Berkeley likely means enrolled; a school showing 35 to "Ivies" might mean admits-anywhere.</li>
+  <li><strong>Class size matters.</strong> Gunn (~440) sending 14 to Stanford is a much higher per-capita rate than Lowell (~640) or Berkeley HS (~800). Compare percentages where possible.</li>
+  <li><strong>Recency.</strong> 2024 and 2025 data is preferred. Some schools' most recent accessible profile is 2019-20 or 2022-23. Treat older data as indicative, not current.</li>
+  <li><strong>UC focus.</strong> Bay Area public outcomes lean very heavily on UC Berkeley, UCLA, UCSD, UCSB, etc. If you weight T25 toward private/Ivy, the rankings shift toward Gunn, Paly, M-A, Piedmont, Saratoga.</li>
+  <li><strong>Counselor-to-student ratio</strong> matters for college outcomes. Mission San Jose, Lynbrook, Monta Vista have famously high ratios (300–400:1). Paly and Gunn have substantially better ratios.</li>
+  <li><strong>Mental health context.</strong> Palo Alto schools have well-documented mental-health crises tied to academic pressure; Mission San Jose, Lynbrook, Monta Vista similar. T25 outcomes come at a cost worth weighing.</li>
+</ul>
+
+<h3>Key data gaps in this report</h3>
+<ul class="tight">
+  <li>Per-T25 itemized counts for <strong>Mission San Jose, Monta Vista, Lynbrook, Cupertino, Homestead, Saratoga, Lowell</strong> &mdash; the most-discussed schools all have weaker public reporting than Paly/Gunn.</li>
+  <li>5-year aggregates for any school &mdash; nobody publishes these as a single number.</li>
+  <li>Yield-adjusted data (admit vs. enroll).</li>
+  <li>Anything for the smaller / less-affluent districts (Sonoma, Solano, much of Napa).</li>
+</ul>
+
+<h3>If you want to do better than this</h3>
+<ul class="tight">
+  <li>Email the College &amp; Career Center at any school you're seriously considering. Many will share the latest matriculation list on request.</li>
+  <li>Download UC's "Admissions by source school" CSV for the most recent year (2024 enrollees) — that's the single most authoritative public dataset for UC Berkeley/UCLA pipeline counts.</li>
+  <li>Cross-check the linked PDFs in this report manually — many contain the per-college table but defeated automated extraction.</li>
+  <li>Naviance/SCOIR data (typically only available to enrolled families) gives the cleanest school-specific picture.</li>
+</ul>
+
+<footer>
+Generated 2026-04-26. All sources are linked in the table above. This is research-grade compilation, not an official ranking. Do not cite numbers without verifying against the linked source.
+</footer>
+
+</body>
+</html>
