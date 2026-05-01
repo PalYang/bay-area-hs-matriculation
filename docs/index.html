@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bay Area High Schools — T25 Matriculation</title>
+<style>
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    max-width: 760px;
+    margin: 60px auto;
+    padding: 0 24px;
+    line-height: 1.55;
+    color: #1f2328;
+  }
+  h1 { font-size: 28px; margin-bottom: 8px; }
+  .subtitle { color: #656d76; margin-top: 0; margin-bottom: 32px; }
+  .card {
+    display: block;
+    border: 1px solid #d0d7de;
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.15s, background 0.15s;
+  }
+  .card:hover {
+    border-color: #0969da;
+    background: #f6f8fa;
+  }
+  .card h2 { margin: 0 0 6px 0; font-size: 19px; color: #0969da; }
+  .card p { margin: 0; color: #656d76; font-size: 14px; }
+  .caveats {
+    background: #fff8c5;
+    border: 1px solid #d4a72c;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-top: 32px;
+    font-size: 14px;
+  }
+  .caveats h3 { margin-top: 0; font-size: 15px; }
+  .caveats ul { padding-left: 20px; margin-bottom: 0; }
+  .caveats li { margin-bottom: 6px; }
+  footer { margin-top: 48px; color: #656d76; font-size: 13px; }
+  footer a { color: #0969da; text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<h1>Bay Area High Schools — T25 Matriculation</h1>
+<p class="subtitle">Where Bay Area public and private high school graduates matriculate to U.S. News Top-25 universities, past ~5 years.</p>
+
+<a class="card" href="bay_area_public_high_schools.html">
+  <h2>Public &amp; charter high schools &rarr;</h2>
+  <p>~70 comprehensive public and charter high schools across 9 counties, with measured and estimated T25 % and 95% confidence intervals.</p>
+</a>
+
+<a class="card" href="bay_area_private_high_schools.html">
+  <h2>Private &amp; independent high schools &rarr;</h2>
+  <p>~60 independent, Catholic, and other private high schools across 9 counties, with measured and estimated T25 % and 95% confidence intervals.</p>
+</a>
+
+<a class="card" href="methodology_and_review.md">
+  <h2>Methodology &amp; review &rarr;</h2>
+  <p>T25 reference list, master roster of Bay Area high schools, methodology critique, decision framework, and reviewer audit of the data tables.</p>
+</a>
+
+<div class="caveats">
+  <h3>Read before drawing conclusions</h3>
+  <ul>
+    <li><strong>Selection bias dominates.</strong> The schools at the top admit students who were already on a strong trajectory. The numbers reflect <em>who they enroll</em> as much as <em>what they teach</em>.</li>
+    <li><strong>Data is partial.</strong> Most public schools don't publish per-college matriculation. Rows are tagged <strong>M</strong> (measured), <strong>E</strong> (estimated), <strong>R</strong> (rough), or <strong>N</strong> (no data) with explicit confidence intervals.</li>
+    <li><strong>R-tier rows can be off by ±10 percentage points.</strong> Use rankings as a starting point for due diligence, not a final answer.</li>
+    <li><strong>"T25" is fuzzy</strong> and excludes liberal arts colleges. Bay Area students disproportionately attend UC Berkeley/UCLA/Stanford — high T25 share partly reflects geography.</li>
+    <li><strong>School culture matters.</strong> The Palo Alto teen-suicide cluster is documented; optimizing purely on matriculation points toward the highest-pressure schools.</li>
+  </ul>
+</div>
+
+<footer>
+  Source: <a href="https://github.com/PalYang/bay-area-hs-matriculation">github.com/PalYang/bay-area-hs-matriculation</a>
+</footer>
+</body>
+</html>
