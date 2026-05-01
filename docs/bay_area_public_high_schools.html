@@ -120,44 +120,44 @@
 </div>
 
 <h2>Consolidated &quot;T25 %&quot; ranking (publics + privates, top 25)</h2>
-<p class="lede">Single-number summary so schools can be ranked side-by-side. <strong>T25 %</strong> = the average % of a graduating class that <em>matriculates</em> (not just is admitted) to a U.S. News Top-25 National University, averaged over the most recent 3–5 graduating classes. UC Berkeley + UCLA are in the T25 set; LACs are not. The <strong>95% CI</strong> column is a subjective uncertainty band reflecting how far off the estimate could plausibly be (see &quot;T25 % methodology&quot; below).</p>
+<p class="lede">Single-number summary so schools can be ranked side-by-side. <strong>T25 %</strong> = the average % of a graduating class that <em>matriculates</em> (not just is admitted) to a U.S. News Top-25 National University, averaged over the most recent 3–5 graduating classes. UC Berkeley + UCLA are in the T25 set; LACs are not. <strong>GS</strong> = GreatSchools score (1–10); <strong>Niche</strong> = Niche letter grade. See "T25 % methodology" and the GS/Niche note below.</p>
 <div class="warn">
-  <strong>This is a transparent heuristic anchored to schools with published data, not a trained ML model.</strong> The 95% CI is a subjective communication of uncertainty, not a statistical confidence interval. Estimates flagged <span class="conf conf-r">R</span> could easily be off by &plusmn;10 percentage points; <span class="conf conf-n">N</span>-tagged rows have essentially no signal beyond demographics.
+  <strong>This is a transparent heuristic anchored to schools with published data, not a trained ML model.</strong> Estimates flagged <span class="conf conf-r">R</span> could easily be off by &plusmn;10 percentage points; <span class="conf conf-n">N</span>-tagged rows have essentially no signal beyond demographics.
 </div>
 
 <table class="rank-table">
 <thead>
-<tr><th>Rank</th><th>School</th><th>Type</th><th>Class size</th><th>T25 %</th><th>95% CI</th><th>Confidence</th></tr>
+<tr><th>Rank</th><th>School</th><th>Type</th><th>Class size</th><th>T25 %</th><th>GS</th><th>Niche</th><th>Confidence</th></tr>
 </thead>
 <tbody>
-<tr><td class="rank">1</td><td>College Preparatory School (Oakland)</td><td>Private</td><td class="num">~80</td><td class="num">47.8%</td><td class="col-ci">45.8 – 49.8%</td><td><span class="conf conf-m">M</span> measured (5-yr counts)</td></tr>
-<tr><td class="rank">2</td><td>Menlo School (Atherton)</td><td>Private</td><td class="num">~146</td><td class="num">40.4%</td><td class="col-ci">38.4 – 42.4%</td><td><span class="conf conf-m">M</span> measured (3-yr counts)</td></tr>
-<tr><td class="rank">3</td><td>The Harker School (San Jose)</td><td>Private</td><td class="num">~190</td><td class="num">39.3%</td><td class="col-ci">37.3 – 41.3%</td><td><span class="conf conf-m">M</span> measured (3-yr counts)</td></tr>
-<tr><td class="rank">4</td><td>The Nueva School (San Mateo)</td><td>Private</td><td class="num">~110</td><td class="num">~38%</td><td class="col-ci">36 – 40%</td><td><span class="conf conf-m">M</span> measured (bands; floor)</td></tr>
-<tr><td class="rank">5</td><td>Castilleja School (Palo Alto)</td><td>Private</td><td class="num">~51</td><td class="num">~38%</td><td class="col-ci">33 – 43%</td><td><span class="conf conf-e">E</span> peer-anchored (small all-girls)</td></tr>
-<tr><td class="rank">6</td><td>Crystal Springs Uplands (Hillsborough)</td><td>Private</td><td class="num">~90</td><td class="num">~30%</td><td class="col-ci">25 – 35%</td><td><span class="conf conf-e">E</span> hits all T25 ex-Caltech</td></tr>
-<tr><td class="rank">7</td><td>University HS / SFUHS</td><td>Private</td><td class="num">~125</td><td class="num">~28%</td><td class="col-ci">23 – 33%</td><td><span class="conf conf-e">E</span> Niche + UHS-tier peer</td></tr>
-<tr><td class="rank">8</td><td>Marin Academy (San Rafael)</td><td>Private</td><td class="num">~115</td><td class="num">25.5%</td><td class="col-ci">23.5 – 27.5%</td><td><span class="conf conf-m">M</span> measured (3-yr counts)</td></tr>
-<tr><td class="rank">9</td><td>Sacred Heart Prep (Atherton)</td><td>Private</td><td class="num">~160</td><td class="num">~24%</td><td class="col-ci">19 – 29%</td><td><span class="conf conf-e">E</span> hits every T25</td></tr>
-<tr><td class="rank">10</td><td>Branson School (Ross, Marin)</td><td>Private</td><td class="num">~80</td><td class="num">~22%</td><td class="col-ci">17 – 27%</td><td><span class="conf conf-e">E</span> Niche + Marin elite</td></tr>
-<tr><td class="rank">11</td><td>Lick-Wilmerding (SF)</td><td>Private</td><td class="num">~140</td><td class="num">~21%</td><td class="col-ci">16 – 26%</td><td><span class="conf conf-e">E</span> Niche estimate ~21% T25</td></tr>
-<tr><td class="rank">12</td><td>Saratoga HS</td><td>Public</td><td class="num">~280</td><td class="num">~20%</td><td class="col-ci">15 – 25%</td><td><span class="conf conf-e">E</span> Gunn-tier; small affluent class</td></tr>
-<tr><td class="rank">13</td><td>Mission San Jose HS</td><td>Public</td><td class="num">~440</td><td class="num">~20%</td><td class="col-ci">15 – 25%</td><td><span class="conf conf-e">E</span> Gunn-tier + UC source data</td></tr>
-<tr><td class="rank">14</td><td>Lynbrook HS (San Jose)</td><td>Public</td><td class="num">~430</td><td class="num">~18%</td><td class="col-ci">13 – 23%</td><td><span class="conf conf-e">E</span> Monta Vista peer; UC source</td></tr>
-<tr><td class="rank">15</td><td>Monta Vista HS (Cupertino)</td><td>Public</td><td class="num">~410</td><td class="num">~18%</td><td class="col-ci">13 – 23%</td><td><span class="conf conf-e">E</span> Gunn-tier; UC source data</td></tr>
-<tr><td class="rank">16</td><td>Henry M. Gunn HS (Palo Alto)</td><td>Public</td><td class="num">~440</td><td class="num">17.8%</td><td class="col-ci">15.8 – 19.8%</td><td><span class="conf conf-m">M</span> measured (4-yr counts)</td></tr>
-<tr><td class="rank">17</td><td>Lowell HS (SF)</td><td>Public</td><td class="num">~640</td><td class="num">14.0%</td><td class="col-ci">9 – 19%</td><td><span class="conf conf-e">E</span> magnet; large class dilutes</td></tr>
-<tr><td class="rank">18</td><td>Piedmont HS</td><td>Public</td><td class="num">~180</td><td class="num">~14%</td><td class="col-ci">9 – 19%</td><td><span class="conf conf-e">E</span> tiny affluent feeder</td></tr>
-<tr><td class="rank">19</td><td>Palo Alto HS (Paly)</td><td>Public</td><td class="num">~470</td><td class="num">13.7%</td><td class="col-ci">11.7 – 15.7%</td><td><span class="conf conf-m">M</span> measured (3-yr counts)</td></tr>
-<tr><td class="rank">20</td><td>Cupertino HS</td><td>Public</td><td class="num">~450</td><td class="num">~12%</td><td class="col-ci">7 – 17%</td><td><span class="conf conf-e">E</span> FUHSD; high-Asian; UC pipeline</td></tr>
-<tr><td class="rank">21</td><td>Irvington HS (Fremont)</td><td>Public</td><td class="num">~530</td><td class="num">~10%</td><td class="col-ci">5 – 15%</td><td><span class="conf conf-e">E</span> top 5% CA; FUSD</td></tr>
-<tr><td class="rank">22</td><td>Mountain View HS</td><td>Public</td><td class="num">~525</td><td class="num">~10%</td><td class="col-ci">5 – 15%</td><td><span class="conf conf-e">E</span> MVLA peer of Paly</td></tr>
-<tr><td class="rank">23</td><td>Los Altos HS</td><td>Public</td><td class="num">~520</td><td class="num">~10%</td><td class="col-ci">5 – 15%</td><td><span class="conf conf-e">E</span> MVLA peer of Paly</td></tr>
-<tr><td class="rank">24</td><td>Homestead HS (Cupertino)</td><td>Public</td><td class="num">~600</td><td class="num">~10%</td><td class="col-ci">5 – 15%</td><td><span class="conf conf-e">E</span> FUHSD; large class dilutes</td></tr>
-<tr><td class="rank">25</td><td>Dougherty Valley HS (San Ramon)</td><td>Public</td><td class="num">~750</td><td class="num">~9%</td><td class="col-ci">4 – 14%</td><td><span class="conf conf-e">E</span> SRVUSD; Asian-majority; large</td></tr>
+<tr><td class="rank">1</td><td>College Preparatory School (Oakland)</td><td>Private</td><td class="num">~80</td><td class="num">47.8%</td><td class="num">—</td><td class="num">A+</td><td><span class="conf conf-m">M</span> measured (5-yr counts)</td></tr>
+<tr><td class="rank">2</td><td>Menlo School (Atherton)</td><td>Private</td><td class="num">~146</td><td class="num">40.4%</td><td class="num">—</td><td class="num">A+</td><td><span class="conf conf-m">M</span> measured (3-yr counts)</td></tr>
+<tr><td class="rank">3</td><td>The Harker School (San Jose)</td><td>Private</td><td class="num">~190</td><td class="num">39.3%</td><td class="num">—</td><td class="num">A+</td><td><span class="conf conf-m">M</span> measured (3-yr counts)</td></tr>
+<tr><td class="rank">4</td><td>The Nueva School (San Mateo)</td><td>Private</td><td class="num">~110</td><td class="num">~38%</td><td class="num">—</td><td class="num">A+</td><td><span class="conf conf-m">M</span> measured (bands; floor)</td></tr>
+<tr><td class="rank">5</td><td>Castilleja School (Palo Alto)</td><td>Private</td><td class="num">~51</td><td class="num">~38%</td><td class="num">—</td><td class="num">A+</td><td><span class="conf conf-e">E</span> peer-anchored (small all-girls)</td></tr>
+<tr><td class="rank">6</td><td>Crystal Springs Uplands (Hillsborough)</td><td>Private</td><td class="num">~90</td><td class="num">~30%</td><td class="num">—</td><td class="num">A+</td><td><span class="conf conf-e">E</span> hits all T25 ex-Caltech</td></tr>
+<tr><td class="rank">7</td><td>University HS / SFUHS</td><td>Private</td><td class="num">~125</td><td class="num">~28%</td><td class="num">—</td><td class="num">A+</td><td><span class="conf conf-e">E</span> Niche + UHS-tier peer</td></tr>
+<tr><td class="rank">8</td><td>Marin Academy (San Rafael)</td><td>Private</td><td class="num">~115</td><td class="num">25.5%</td><td class="num">—</td><td class="num">A+</td><td><span class="conf conf-m">M</span> measured (3-yr counts)</td></tr>
+<tr><td class="rank">9</td><td>Sacred Heart Prep (Atherton)</td><td>Private</td><td class="num">~160</td><td class="num">~24%</td><td class="num">—</td><td class="num">A+</td><td><span class="conf conf-e">E</span> hits every T25</td></tr>
+<tr><td class="rank">10</td><td>Branson School (Ross, Marin)</td><td>Private</td><td class="num">~80</td><td class="num">~22%</td><td class="num">—</td><td class="num">A+</td><td><span class="conf conf-e">E</span> Niche + Marin elite</td></tr>
+<tr><td class="rank">11</td><td>Lick-Wilmerding (SF)</td><td>Private</td><td class="num">~140</td><td class="num">~21%</td><td class="num">—</td><td class="num">A+</td><td><span class="conf conf-e">E</span> Niche estimate ~21% T25</td></tr>
+<tr><td class="rank">12</td><td>Saratoga HS</td><td>Public</td><td class="num">~280</td><td class="num">~20%</td><td class="num">10</td><td class="num">A+</td><td><span class="conf conf-e">E</span> Gunn-tier; small affluent class</td></tr>
+<tr><td class="rank">13</td><td>Mission San Jose HS</td><td>Public</td><td class="num">~440</td><td class="num">~20%</td><td class="num">10</td><td class="num">A+</td><td><span class="conf conf-e">E</span> Gunn-tier + UC source data</td></tr>
+<tr><td class="rank">14</td><td>Lynbrook HS (San Jose)</td><td>Public</td><td class="num">~430</td><td class="num">~18%</td><td class="num">10</td><td class="num">A+</td><td><span class="conf conf-e">E</span> Monta Vista peer; UC source</td></tr>
+<tr><td class="rank">15</td><td>Monta Vista HS (Cupertino)</td><td>Public</td><td class="num">~410</td><td class="num">~18%</td><td class="num">10</td><td class="num">A+</td><td><span class="conf conf-e">E</span> Gunn-tier; UC source data</td></tr>
+<tr><td class="rank">16</td><td>Henry M. Gunn HS (Palo Alto)</td><td>Public</td><td class="num">~440</td><td class="num">17.8%</td><td class="num">10</td><td class="num">A+</td><td><span class="conf conf-m">M</span> measured (4-yr counts)</td></tr>
+<tr><td class="rank">17</td><td>Lowell HS (SF)</td><td>Public</td><td class="num">~640</td><td class="num">14.0%</td><td class="num">9</td><td class="num">A</td><td><span class="conf conf-e">E</span> magnet; large class dilutes</td></tr>
+<tr><td class="rank">18</td><td>Piedmont HS</td><td>Public</td><td class="num">~180</td><td class="num">~14%</td><td class="num">10</td><td class="num">A+</td><td><span class="conf conf-e">E</span> tiny affluent feeder</td></tr>
+<tr><td class="rank">19</td><td>Palo Alto HS (Paly)</td><td>Public</td><td class="num">~470</td><td class="num">13.7%</td><td class="num">10</td><td class="num">A+</td><td><span class="conf conf-m">M</span> measured (3-yr counts)</td></tr>
+<tr><td class="rank">20</td><td>Cupertino HS</td><td>Public</td><td class="num">~450</td><td class="num">~12%</td><td class="num">10</td><td class="num">A+</td><td><span class="conf conf-e">E</span> FUHSD; high-Asian; UC pipeline</td></tr>
+<tr><td class="rank">21</td><td>Irvington HS (Fremont)</td><td>Public</td><td class="num">~530</td><td class="num">~10%</td><td class="num">9</td><td class="num">A</td><td><span class="conf conf-e">E</span> top 5% CA; FUSD</td></tr>
+<tr><td class="rank">22</td><td>Mountain View HS</td><td>Public</td><td class="num">~525</td><td class="num">~10%</td><td class="num">9</td><td class="num">A+</td><td><span class="conf conf-e">E</span> MVLA peer of Paly</td></tr>
+<tr><td class="rank">23</td><td>Los Altos HS</td><td>Public</td><td class="num">~520</td><td class="num">~10%</td><td class="num">9</td><td class="num">A+</td><td><span class="conf conf-e">E</span> MVLA peer of Paly</td></tr>
+<tr><td class="rank">24</td><td>Homestead HS (Cupertino)</td><td>Public</td><td class="num">~600</td><td class="num">~10%</td><td class="num">10</td><td class="num">A+</td><td><span class="conf conf-e">E</span> FUHSD; large class dilutes</td></tr>
+<tr><td class="rank">25</td><td>Dougherty Valley HS (San Ramon)</td><td>Public</td><td class="num">~750</td><td class="num">~9%</td><td class="num">9</td><td class="num">A</td><td><span class="conf conf-e">E</span> SRVUSD; Asian-majority; large</td></tr>
 </tbody>
 </table>
-<p class="lede" style="font-size: 12.5px;">This ranking spans both the public and private files. The same estimator, anchor calibration, and CI methodology was used in <code>bay_area_private_high_schools.html</code>.</p>
+<p class="lede" style="font-size: 12.5px;">This ranking spans both the public and private files. The same estimator and anchor calibration was used in <code>bay_area_private_high_schools.html</code>.</p>
 
 
 <h2>Top performers (with caveats)</h2>
@@ -178,7 +178,7 @@
 <tr>
   <th>School</th><th>District</th><th>Enroll.</th><th>Class size</th>
   <th>T25 %</th>
-  <th>95% CI</th>
+  <th>GS</th><th>Niche</th>
   <th>Years covered</th><th>T25 matriculants (count or %)</th>
   <th>Most common T25 destinations</th>
   <th>Source(s)</th><th>Notes</th>
@@ -192,7 +192,7 @@
   <td class="num">2,571</td>
   <td class="num">~640</td>
   <td class="col-t25" title="Estimated. Heavy UCB+UCD pipeline (in T25), but large class dilutes; SFUSD doesn't publish per-college counts. Lower than Gunn because of class size and fewer privates.">14.0% <span class="conf conf-e">E</span></td>
-  <td class="col-ci">9 – 19%</td>
+  <td class="num">9</td><td class="num">A</td>
   <td>2024</td>
   <td>Per-T25 counts <strong>not published</strong>. Aggregate: largest single feeder to UC system in California (heavy UC Berkeley + UC Davis pipeline).</td>
   <td>UC Berkeley (very large), UC Davis, UCLA. Anecdotally Stanford, Cornell, Penn, CMU each year but unverified counts.</td>
@@ -210,7 +210,7 @@
   <td class="num">~700</td>
   <td class="num">~175</td>
   <td class="col-t25" title="Estimated. Audition-admit SF arts magnet; small but real T25 pipeline (Yale, Brown, NYU); arts-focused track inflates Ivy/private flow over typical SFUSD comprehensive.">~6% <span class="conf conf-e">E</span></td>
-  <td class="col-ci">1 – 11%</td>
+  <td class="num">7</td><td class="num">B+</td>
   <td>—</td>
   <td>Per-T25 counts not published. Audition-based magnet; arts pipeline to selective programs.</td>
   <td>NYU, UCLA, Brown, Yale (sporadic), CMU, USC</td>
@@ -224,7 +224,7 @@
   <td class="num">2,365</td>
   <td class="num">~590</td>
   <td class="col-t25" title="Rough. Comprehensive SFUSD; majority Asian; UC pipeline strong, T25-private rare.">~3% <span class="conf conf-r">R</span></td>
-  <td>0 – 13%</td>
+  <td class="num">6</td><td class="num">B+</td>
   <td>—</td>
   <td>Per-T25 not published. Aggregate: heavy UC pipeline, particularly UCB/UCSD.</td>
   <td>UC Berkeley, UC Davis, UCSD, SF State</td>
@@ -238,7 +238,7 @@
   <td class="num">2,007</td>
   <td class="num">~500</td>
   <td class="col-t25" title="Rough. Comprehensive SFUSD; high-Asian, decent UC pipeline.">~3% <span class="conf conf-r">R</span></td>
-  <td>0 – 13%</td>
+  <td class="num">6</td><td class="num">B+</td>
   <td>—</td>
   <td>Per-T25 not published.</td>
   <td>UC system, SF State, USF</td>
@@ -252,7 +252,7 @@
   <td class="num">~1,900</td>
   <td class="num">~480</td>
   <td class="col-t25" title="Rough. Comprehensive SFUSD with academy/CTE focus; UC pipeline.">~2% <span class="conf conf-r">R</span></td>
-  <td>0 – 12%</td>
+  <td class="num">5</td><td class="num">B</td>
   <td>—</td>
   <td>Per-T25 not published.</td>
   <td>UC system, SF State</td>
@@ -266,7 +266,7 @@
   <td class="num">~1,200</td>
   <td class="num">~300</td>
   <td class="col-t25" title="Rough. Title I-leaning comprehensive; small T25 cohort.">&lt;1%</td>
-  <td>0 – 2%</td>
+  <td class="num">3</td><td class="num">C+</td>
   <td>—</td>
   <td>Per-T25 not published.</td>
   <td>UC system, SF State, City College</td>
@@ -280,7 +280,7 @@
   <td class="num">~960</td>
   <td class="num">~240</td>
   <td class="col-t25" title="Rough. Title I; majority Latino; small T25 cohort.">&lt;1%</td>
-  <td>0 – 2%</td>
+  <td class="num">3</td><td class="num">C+</td>
   <td>—</td>
   <td>Per-T25 not published.</td>
   <td>UC system, SF State, City College</td>
@@ -294,7 +294,7 @@
   <td class="num">~1,000</td>
   <td class="num">~250</td>
   <td class="col-t25" title="Rough. Comprehensive Excelsior HS.">~1%</td>
-  <td>0 – 11%</td>
+  <td class="num">3</td><td class="num">B-</td>
   <td>—</td>
   <td>Per-T25 not published.</td>
   <td>UC system, SF State</td>
@@ -308,7 +308,7 @@
   <td class="num">~480</td>
   <td class="num">~120</td>
   <td class="col-t25" title="Rough. Small SFUSD comprehensive.">~2%</td>
-  <td>0 – 12%</td>
+  <td class="num">5</td><td class="num">B</td>
   <td>—</td>
   <td>Per-T25 not published.</td>
   <td>UC system, SF State</td>
@@ -322,7 +322,7 @@
   <td class="num">~250</td>
   <td class="num">~60</td>
   <td class="col-t25" title="Rough. Small Title-I-leaning comprehensive.">&lt;1%</td>
-  <td>0 – 2%</td>
+  <td class="num">2</td><td class="num">C</td>
   <td>—</td>
   <td>Per-T25 not published.</td>
   <td>UC, CSU, City College</td>
@@ -336,7 +336,7 @@
   <td class="num">~480</td>
   <td class="num">~120</td>
   <td class="col-t25" title="Rough. Title I-leaning Bayview comprehensive.">&lt;1%</td>
-  <td>0 – 2%</td>
+  <td class="num">2</td><td class="num">C</td>
   <td>—</td>
   <td>Per-T25 not published.</td>
   <td>UC, CSU, City College</td>
@@ -350,7 +350,7 @@
   <td class="num">~470</td>
   <td class="num">~115</td>
   <td class="col-t25" title="Rough. Title I-leaning CTE-academy comprehensive.">&lt;1%</td>
-  <td>0 – 2%</td>
+  <td class="num">2</td><td class="num">C</td>
   <td>—</td>
   <td>Per-T25 not published.</td>
   <td>UC, CSU, City College</td>
@@ -364,7 +364,7 @@
   <td class="num">~470</td>
   <td class="num">~120</td>
   <td class="col-t25" title="Rough. KIPP Bay Area charter; college-prep focus serving low-income students; small T25 cohort but more focused than SFUSD comprehensives.">~3% <span class="conf conf-r">R</span></td>
-  <td>0 – 13%</td>
+  <td class="num">4</td><td class="num">B-</td>
   <td>—</td>
   <td>KIPP publishes aggregate matriculation; T25 small but real.</td>
   <td>UC system, CSU, USC, Howard, Spelman</td>
@@ -378,7 +378,7 @@
   <td class="num">~430</td>
   <td class="num">~110</td>
   <td class="col-t25" title="Rough. Small SF charter, college-prep.">~3% <span class="conf conf-r">R</span></td>
-  <td>0 – 13%</td>
+  <td class="num">5</td><td class="num">B</td>
   <td>—</td>
   <td>Per-T25 not published.</td>
   <td>UC, CSU, sporadic small private</td>
@@ -392,7 +392,7 @@
   <td class="num">~360</td>
   <td class="num">~90</td>
   <td class="col-t25" title="Rough. Envision charter; project-based.">~1%</td>
-  <td>0 – 11%</td>
+  <td class="num">3</td><td class="num">C+</td>
   <td>—</td>
   <td>Per-T25 not published.</td>
   <td>UC, CSU</td>
@@ -406,7 +406,7 @@
   <td class="num">~360</td>
   <td class="num">~90</td>
   <td class="col-t25" title="Rough. Small charter serving low-income.">&lt;1%</td>
-  <td>0 – 2%</td>
+  <td class="num">—</td><td class="num">—</td>
   <td>—</td>
   <td>Per-T25 not published.</td>
   <td>UC, CSU, City College</td>
@@ -420,7 +420,7 @@
   <td class="num">~150</td>
   <td class="num">~40</td>
   <td class="col-t25" title="Rough. Small alternative-leaning but standard diploma SFUSD HS.">&lt;1%</td>
-  <td>0 – 2%</td>
+  <td class="num">2</td><td class="num">C</td>
   <td>—</td>
   <td>Per-T25 not published.</td>
   <td>City College, CSU</td>
@@ -434,7 +434,7 @@
   <td class="num">~400</td>
   <td class="num">~100</td>
   <td class="col-t25" title="Rough. Small SFUSD comprehensive.">~1%</td>
-  <td>0 – 11%</td>
+  <td class="num">4</td><td class="num">B-</td>
   <td>—</td>
   <td>Per-T25 not published.</td>
   <td>UC, CSU, SF State</td>
@@ -452,7 +452,7 @@
 <tr>
   <th>School</th><th>District</th><th>Enroll.</th><th>Class size</th>
   <th>T25 %</th>
-  <th>95% CI</th>
+  <th>GS</th><th>Niche</th>
   <th>Years covered</th><th>T25 matriculants (count or %)</th>
   <th>Most common T25 destinations</th>
   <th>Source(s)</th><th>Notes</th>
@@ -466,7 +466,7 @@
   <td class="num">1,866</td>
   <td class="num">~470</td>
   <td class="col-t25" title="Measured. 3-yr avg: 2024 ~71/470=15.1%, 2025 ~68/470=14.5%, 2023 ~54/470=11.5%. Avg 13.7%.">13.7% <span class="conf conf-m">M</span></td>
-  <td class="col-ci">11.7 – 15.7%</td>
+  <td class="num">10</td><td class="num">A+</td>
   <td>2023, 2024, 2025</td>
   <td>
     <strong>2024:</strong> ~67+ to T25 (Stanford 11, Berkeley 35, Northwestern 8, CMU 4, Brown 1, Cornell 1, Columbia 1, UChicago 1, Duke 0, Yale 0, Penn 2, Dartmouth 2, Princeton 1, Vanderbilt 1, JHU 1, MIT 2). <br/>
@@ -487,7 +487,7 @@
   <td class="num">~1,900</td>
   <td class="num">~440</td>
   <td class="col-t25" title="Measured. 4-yr avg: 2024 ~90/440=20.5%, 2025 ~88/440=20.0%, 2023 ~69/440=15.7%, 2022 ~66/440=15.0%. Avg 17.8%.">17.8% <span class="conf conf-m">M</span></td>
-  <td class="col-ci">15.8 – 19.8%</td>
+  <td class="num">10</td><td class="num">A+</td>
   <td>2022–2025</td>
   <td>
     <strong>2024:</strong> ~85 to T25 (Stanford 14, MIT 4, Berkeley 30, UCLA 10, Cornell 5, Penn 2, Northwestern 2, Brown 1, Dartmouth 1, Columbia 2, UChicago 2, Rice 1, Vanderbilt 1, CMU 6, Michigan 3, WashU 2, Emory 1, Georgetown 1, JHU 1, Harvard 1).<br/>
@@ -509,7 +509,7 @@
   <td class="num">2,196</td>
   <td class="num">~525</td>
   <td class="col-t25" title="Estimate. Affluent MVLA peer of Paly with weaker public data; estimate at ~70% of Paly to reflect demographic and counseling differences.">~10% <span class="conf conf-e">E</span></td>
-  <td class="col-ci">5 – 15%</td>
+  <td class="num">9</td><td class="num">A+</td>
   <td>Class of 2024 aggregate</td>
   <td>92% of MVLA Class of 2024 self-reported attending college. MVLA Foundation maintains a "College Destinations Map" but per-college matriculation counts not posted on accessible page. Anecdotally strong UC Berkeley and Stanford pipeline.</td>
   <td>UC Berkeley, UCLA, Stanford, Cal Poly SLO, plus Ivies in small numbers</td>
@@ -527,7 +527,7 @@
   <td class="num">2,141</td>
   <td class="num">~520</td>
   <td class="col-t25" title="Estimate. Peer of Mountain View HS in same district, similar demographics.">~10% <span class="conf conf-e">E</span></td>
-  <td class="col-ci">5 – 15%</td>
+  <td class="num">9</td><td class="num">A+</td>
   <td>Class of 2024 aggregate</td>
   <td>Same MVLA aggregate (92% to college). Per-college breakdown not in extractable form on public pages.</td>
   <td>UC Berkeley, UCLA, Stanford, plus selective privates</td>
@@ -544,7 +544,7 @@
   <td class="num">~2,300</td>
   <td class="num">~540</td>
   <td class="col-t25" title="Estimate. Affluent Atherton-area public; published chart suggests 6-12 Stanford/yr + healthy Ivy + large UC. Comparable to Carlmont.">~9% <span class="conf conf-e">E</span></td>
-  <td class="col-ci">4 – 14%</td>
+  <td class="num">9</td><td class="num">A+</td>
   <td>2022–2025 (chart)</td>
   <td>"2025 College Destinations Chart" published; full PDF "College Destinations 22-25" available. Counts not extractable here. Anecdotal: typically 6–12 to Stanford, healthy Ivy presence, large UC presence.</td>
   <td>UC Berkeley, UCLA, Stanford, USC, Cal Poly SLO, smattering of Ivy/Ivy+</td>
@@ -561,7 +561,7 @@
   <td class="num">1,686</td>
   <td class="num">~422</td>
   <td class="col-t25" title="Estimate. UCB enrolled 18/422 = 4.3%; add UCLA + small Ivy/Stanford and you get to ~6-8%. Conservative estimate.">~7% <span class="conf conf-e">E</span></td>
-  <td class="col-ci">2 – 12%</td>
+  <td class="num">9</td><td class="num">A</td>
   <td>2024</td>
   <td>UC Berkeley admit rate from Aragon ~14% (27 admits, 18 enrolled, 187 applicants in 2024). Class of 2023: 79% college matriculation rate. Per-T25 counts in profile PDF (binary, not text-extractable here).</td>
   <td>UC Berkeley, UCLA, San Diego State, USC, Cal Poly SLO; small but real Ivy/Stanford each year</td>
@@ -578,7 +578,7 @@
   <td class="num">~1,500</td>
   <td class="num">~370</td>
   <td class="col-t25" title="Estimate. Affluent feeder, similar to Aragon but slightly thinner T25 outcomes per anecdotal data.">~6% <span class="conf conf-e">E</span></td>
-  <td class="col-ci">1 – 11%</td>
+  <td class="num">9</td><td class="num">A</td>
   <td>2023</td>
   <td>97% of Class of 2023 reported planning to attend college. Per-college T25 not in extractable text from the profile.</td>
   <td>UC Berkeley, UCLA, USC, Cal Poly SLO; Ivies and Stanford in small numbers</td>
@@ -594,7 +594,7 @@
   <td class="num">1,119</td>
   <td class="num">~280</td>
   <td class="col-t25" title="Rough. High-Asian student body (~59%), decent UC pipeline, but no explicit T25 data; below Aragon tier.">~4% <span class="conf conf-r">R</span></td>
-  <td class="col-ci">0 – 14%</td>
+  <td class="num">8</td><td class="num">A-</td>
   <td>—</td>
   <td>Per-T25 not published in summary form. 94% graduation rate; 58% AP participation.</td>
   <td>UC system, USC; T25 outcomes occasional</td>
@@ -610,7 +610,7 @@
   <td class="num">~1,700</td>
   <td class="num">~400</td>
   <td class="col-t25" title="Rough. Comprehensive HS, mostly UC/CSU; small T25 cohort each year.">~3% <span class="conf conf-r">R</span></td>
-  <td class="col-ci">0 – 13%</td>
+  <td class="num">7</td><td class="num">B+</td>
   <td>—</td>
   <td>Not published per-college in extractable form.</td>
   <td>UC system, Cal States, USC</td>
@@ -624,7 +624,7 @@
   <td class="num">1,581</td>
   <td class="num">~390</td>
   <td class="col-t25" title="Rough. Lower AP participation, more UC/CSU/CC; smaller T25 share than Aragon/Burlingame.">~2% <span class="conf conf-r">R</span></td>
-  <td class="col-ci">0 – 12%</td>
+  <td class="num">6</td><td class="num">B+</td>
   <td>—</td>
   <td>Per-college not published. Lower AP participation (53%); CA rank #424.</td>
   <td>UC, CSU, community college transfer</td>
@@ -638,7 +638,7 @@
   <td class="num">~2,400</td>
   <td class="num">~600</td>
   <td class="col-t25" title="Estimate. Carlmont publishes per-class lists but extracted text shows only sources, not counts. Anecdotal 'meaningful UCB/UCLA + handful Stanford/Ivy/CMU' over class of ~600 implies ~5-7%.">~6% <span class="conf conf-e">E</span></td>
-  <td class="col-ci">1 – 11%</td>
+  <td class="num">9</td><td class="num">A</td>
   <td>2021, 2023, 2025 matriculation lists</td>
   <td>Carlmont publishes per-class matriculation lists (Class of 2023 PDF, Class of 2025 in Google Sheets). Anecdotal: meaningful Berkeley/UCLA cohort each year, plus a handful of Stanford/Ivy/CMU.</td>
   <td>UC Berkeley, UCLA, USC, Cal Poly SLO, UCSD, Stanford (small)</td>
@@ -656,7 +656,7 @@
   <td class="num">1,905</td>
   <td class="num">~460</td>
   <td class="col-t25" title="Rough. More socio-economically diverse; only 26% UC + 9% CA private; T25 cohort small but lifted by IB pipeline.">~3% <span class="conf conf-r">R</span></td>
-  <td class="col-ci">0 – 13%</td>
+  <td class="num">7</td><td class="num">B+</td>
   <td>2020-21 profile</td>
   <td>2020-21 reported: 26% UC, 34% CSU, 9% CA private, 19% out-of-state public, 9% out-of-state private, 3% intl. Higher T25 numbers come via the IB program.</td>
   <td>UC Berkeley, UCLA, plus IB-driven outcomes at selective privates</td>
@@ -673,7 +673,7 @@
   <td class="num">1,646</td>
   <td class="num">~400</td>
   <td class="col-t25" title="Rough. T25 placement uneven year-to-year, mostly UC/CSU; smaller cohort than M-A/Carlmont.">~3% <span class="conf conf-r">R</span></td>
-  <td class="col-ci">0 – 13%</td>
+  <td class="num">7</td><td class="num">B+</td>
   <td>2022–2024</td>
   <td>"Acceptances and Destinations" docs published for Classes 2022, 2023, 2024 (Google Drive). Counts not extractable here. T25 cohort is modest.</td>
   <td>UC, CSU, Cal Poly SLO, USC, sporadic Ivy/Stanford</td>
@@ -693,7 +693,7 @@
 <tr>
   <th>School</th><th>District</th><th>Enroll.</th><th>Class size</th>
   <th>T25 %</th>
-  <th>95% CI</th>
+  <th>GS</th><th>Niche</th>
   <th>Years covered</th><th>T25 matriculants (count or %)</th>
   <th>Most common T25 destinations</th>
   <th>Source(s)</th><th>Notes</th>
@@ -707,6 +707,7 @@
   <td class="num">1,630</td>
   <td class="num">~410</td>
   <td class="col-t25" title="Estimate. Gunn-tier peer (high-Asian, top-decile test scores). UC source data: ~40/yr to UCB alone (~10%); add UCLA + small private T25 ⇒ 17-22%. Estimate at high end of band.">~18% <span class="conf conf-e">E</span></td>
+  <td class="num">10</td><td class="num">A+</td>
   <td>2012–16 source data; 2024-25 profile</td>
   <td>~204 students enrolled at UC Berkeley over 2012–16 (≈40/yr). Heavy UCLA pipeline as well. <strong>Per-T25 counts not published in plain text.</strong></td>
   <td>UC Berkeley, UCLA, UC San Diego, CMU, USC, Stanford, Northwestern, Michigan, Cornell</td>
@@ -723,6 +724,7 @@
   <td class="num">1,702</td>
   <td class="num">~430</td>
   <td class="col-t25" title="Estimate. Peer of Monta Vista, very STEM-leaning. UC source: ~35/yr UCB (~8%) + UCLA + private T25.">~18% <span class="conf conf-e">E</span></td>
+  <td class="num">10</td><td class="num">A+</td>
   <td>2012–16 source; profile years 22-23, 24-25, 25-26</td>
   <td>~176 to UC Berkeley over 2012–16 (~35/yr). UCLA also among the highest in the Bay. Per-T25 counts not in plain text in any profile we accessed.</td>
   <td>UC Berkeley, UCLA, UC San Diego, CMU, Stanford, Cornell, Penn, Michigan</td>
@@ -739,6 +741,7 @@
   <td class="num">1,811</td>
   <td class="num">~450</td>
   <td class="col-t25" title="Estimate. Slightly behind MV/Lynbrook on T25 but solid UC pipeline; same FUHSD demographics.">~12% <span class="conf conf-e">E</span></td>
+  <td class="num">10</td><td class="num">A+</td>
   <td>2024-25, 2025-26 profiles</td>
   <td>2024 College Board Equity & Excellence Pct 77.3%; 75.7% of 2025 grads passed at least 1 AP. Per-T25 counts not in extractable text. Strong UC pipeline.</td>
   <td>UC Berkeley, UCLA, UC San Diego, USC, CMU</td>
@@ -755,6 +758,7 @@
   <td class="num">2,405</td>
   <td class="num">~600</td>
   <td class="col-t25" title="Estimate. Strong but slightly behind MV/Lynbrook tier; larger class dilutes per-capita.">~10% <span class="conf conf-e">E</span></td>
+  <td class="num">10</td><td class="num">A+</td>
   <td>2025-26 profile</td>
   <td>72% AP participation; CA rank #65. School profile published but per-T25 counts not in extractable text.</td>
   <td>UC Berkeley, UCLA, UC San Diego, USC, Stanford (small)</td>
@@ -770,6 +774,7 @@
   <td class="num">~2,000</td>
   <td class="num">~480</td>
   <td class="col-t25" title="Rough. Lower-affluence than rest of FUHSD; AP participation 43%; modest T25 cohort.">~3% <span class="conf conf-r">R</span></td>
+  <td class="num">7</td><td class="num">B+</td>
   <td>2024-25, 2025-26 profiles</td>
   <td>Per-T25 not in extractable text. AP participation 43%. Lower-affluence than the rest of FUHSD.</td>
   <td>UC system, CSU, USC</td>
@@ -785,6 +790,7 @@
   <td class="num">1,108</td>
   <td class="num">~280</td>
   <td class="col-t25" title="Estimate. 22.8% UC + 31.6% non-CA public + 18.8% non-CA private; 35 NMSF; mean SAT 1430; smaller class lifts per-capita. Place at top of public tier.">~20% <span class="conf conf-e">E</span></td>
+  <td class="num">10</td><td class="num">A+</td>
   <td>2024 (in 25-26 profile)</td>
   <td>Class of 2024 college placement: 31.6% Non-CA Public, 22.8% UC, 18.8% Non-CA Private, 13.7% CSU, 5.9% CA Private, 1.1% Intl. Per-college counts not in profile (only category percentages).</td>
   <td>UC Berkeley, UCLA, Cal Poly SLO, USC, Michigan, NYU, plus strong T25 cohort spread across Stanford/Ivies/CMU</td>
@@ -801,6 +807,7 @@
   <td class="num">1,977</td>
   <td class="num">~480</td>
   <td class="col-t25" title="Estimate. Mean SAT 1326, 96% to college; distinctly behind Saratoga next door but similar income demographics.">~7% <span class="conf conf-e">E</span></td>
+  <td class="num">9</td><td class="num">A+</td>
   <td>2021 aggregate</td>
   <td>96% of 2021 grads to college (74% four-year). Mean SAT 1326. Per-T25 not in extractable text.</td>
   <td>UC Berkeley, UCLA, Cal Poly SLO, USC, sporadic Ivy/Stanford</td>
@@ -816,6 +823,7 @@
   <td class="num">1,794</td>
   <td class="num">~440</td>
   <td class="col-t25" title="Estimate. ~40/yr to UCB (~9%), comparable to Gunn; 88.7% Asian, mean SAT ~1460. Estimate at Gunn-tier or slightly above.">~20% <span class="conf conf-e">E</span></td>
+  <td class="num">10</td><td class="num">A+</td>
   <td>2012–16 source data; profile years available</td>
   <td>~202 students enrolled at UC Berkeley over 2012–16 (~40/yr). 88% of grads to four-year college. <strong>Ranked #1 in chicardgo's ECPI for the Bay Area.</strong> Per-T25 counts not in publicly accessible text.</td>
   <td>UC Berkeley, UCLA, UC San Diego, CMU, Stanford, MIT, Caltech, Cornell, Northwestern, Michigan</td>
@@ -837,7 +845,7 @@
 <tr>
   <th>School</th><th>District</th><th>Enroll.</th><th>Class size</th>
   <th>T25 %</th>
-  <th>95% CI</th>
+  <th>GS</th><th>Niche</th>
   <th>Years covered</th><th>T25 matriculants (count or %)</th>
   <th>Most common T25 destinations</th>
   <th>Source(s)</th><th>Notes</th>
@@ -847,7 +855,7 @@
 
 <tr class="med">
   <td class="col-school">Mission San Jose HS</td>
-  <td colspan="9" style="font-style: italic; color: #666;">Listed in South Bay table above (technically Alameda County / Fremont USD). Listed there for clustering with peer FUHSD schools.</td>
+  <td colspan="11" style="font-style: italic; color: #666;">Listed in South Bay table above (technically Alameda County / Fremont USD). Listed there for clustering with peer FUHSD schools.</td>
 </tr>
 
 <tr class="med">
@@ -856,6 +864,7 @@
   <td class="num">2,157</td>
   <td class="num">~530</td>
   <td class="col-t25" title="Estimate. Top 5% in CA, well above district average; smaller T25 cohort than MSJ.">~10% <span class="conf conf-e">E</span></td>
+  <td class="num">9</td><td class="num">A</td>
   <td>—</td>
   <td>86% take ≥1 AP. CA Distinguished 2024, 2025. Per-T25 counts not published in extractable form.</td>
   <td>UC Berkeley, UCLA, UC San Diego, USC, CMU</td>
@@ -869,6 +878,7 @@
   <td class="num">2,618</td>
   <td class="num">~640</td>
   <td class="col-t25" title="Estimate. CA rank #60, 76% Asian, decent UC outcomes; large class dilutes per-capita.">~7% <span class="conf conf-e">E</span></td>
+  <td class="num">8</td><td class="num">A-</td>
   <td>2024-25 profile</td>
   <td>69% AP participation, 96% grad rate. Per-T25 counts not extractable here.</td>
   <td>UC system, USC, CMU</td>
@@ -882,6 +892,7 @@
   <td class="num">1,957</td>
   <td class="num">~480</td>
   <td class="col-t25" title="Rough. Weakest of Fremont USD top-three; CA rank #281.">~3% <span class="conf conf-r">R</span></td>
+  <td class="num">6</td><td class="num">B</td>
   <td>—</td>
   <td>Per-T25 counts not published in extractable form. CA rank #281.</td>
   <td>UC system, CSU, USC</td>
@@ -895,6 +906,7 @@
   <td class="num">~3,200</td>
   <td class="num">~800</td>
   <td class="col-t25" title="Estimate. Heavy UCB pipeline (UCB admit rate from BHS ~23%); large diverse class spreads outcomes thinly per-capita; estimate ~7-9%.">~8% <span class="conf conf-e">E</span></td>
+  <td class="num">7</td><td class="num">A-</td>
   <td>—</td>
   <td>~95% of grads plan to attend college. UC Berkeley admit rate from BHS reportedly ~23%. Per-T25 counts not in current public profile (latest accessible: 2019-20).</td>
   <td>UC Berkeley (very large), UCLA, UC Santa Cruz, plus Ivies, Stanford, NYU each year</td>
@@ -911,6 +923,7 @@
   <td class="num">733</td>
   <td class="num">~180</td>
   <td class="col-t25" title="Estimate. Tiny affluent feeder, very high T25 per-capita; sample matriculations show Dartmouth, UCLA, Cornell. Smaller absolute numbers but high rate.">~14% <span class="conf conf-e">E</span></td>
+  <td class="num">10</td><td class="num">A+</td>
   <td>2022-23 senior matriculations published</td>
   <td>2022-23 sample destinations included UCLA, Dartmouth, Chapman, Lewis &amp; Clark, Cal Poly SLO, CU Boulder, etc. Per-T25 counts in profile PDF (Google Doc, not extractable here).</td>
   <td>UCLA, UC Berkeley, Dartmouth, Cornell, Stanford (sporadic), USC</td>
@@ -927,6 +940,7 @@
   <td class="num">1,117</td>
   <td class="num">~270</td>
   <td class="col-t25" title="Rough. Solid academic; smaller T25 cohort than Berkeley HS; top 10% in CA.">~5% <span class="conf conf-r">R</span></td>
+  <td class="num">8</td><td class="num">A</td>
   <td>—</td>
   <td>Per-T25 not extractable from public profile. National rank #559 (2025); top 10% in CA.</td>
   <td>UC system, CSU, sporadic T25</td>
@@ -940,6 +954,7 @@
   <td class="num">3,000+</td>
   <td class="num">~750</td>
   <td class="col-t25" title="Estimate. Asian-majority, large, high-performing; strong UC pipeline; large class dilutes per-capita.">~9% <span class="conf conf-e">E</span></td>
+  <td class="num">9</td><td class="num">A</td>
   <td>2023-24 profile</td>
   <td>Profile published; per-T25 counts not extractable here. Strong UC pipeline; moderate Ivy/Stanford each year.</td>
   <td>UC Berkeley, UCLA, UC San Diego, USC, CMU, Michigan</td>
@@ -956,6 +971,7 @@
   <td class="num">2,042</td>
   <td class="num">~510</td>
   <td class="col-t25" title="Estimate. National Blue Ribbon, mean SAT 1350, CA rank #93; affluent suburban; smaller T25 cohort than Dougherty Valley.">~6% <span class="conf conf-e">E</span></td>
+  <td class="num">9</td><td class="num">A+</td>
   <td>—</td>
   <td>Mean SAT 1350; 92% AP exam pass rate. CA rank #93. Per-T25 not in extractable form.</td>
   <td>UC system, USC, Cal Poly SLO, sporadic T25</td>
@@ -969,6 +985,7 @@
   <td class="num">2,024</td>
   <td class="num">~510</td>
   <td class="col-t25" title="Estimate. Mean SAT 1310; smaller T25 cohort than Dougherty Valley.">~5% <span class="conf conf-e">E</span></td>
+  <td class="num">9</td><td class="num">A</td>
   <td>2022-23 profile</td>
   <td>Mean SAT 1310; 81% AP enrollment, 57% pass rate. Per-T25 counts not in extractable form.</td>
   <td>UC system, USC, Cal Poly SLO, occasional T25 private</td>
@@ -984,6 +1001,7 @@
   <td class="num">2,894</td>
   <td class="num">~720</td>
   <td class="col-t25" title="Estimate. Mean SAT 1350, mean ACT 31; large class; outcomes between Dougherty and SRVHS.">~6% <span class="conf conf-e">E</span></td>
+  <td class="num">9</td><td class="num">A</td>
   <td>—</td>
   <td>Mean SAT 1350; mean ACT 31; 22 AP courses. Per-T25 not published in extractable form.</td>
   <td>UC system, USC, CMU, sporadic T25</td>
@@ -997,6 +1015,7 @@
   <td class="num">~1,300</td>
   <td class="num">~340</td>
   <td class="col-t25" title="Estimate. Affluent Lamorinda HS, respectable T25 numbers.">~8% <span class="conf conf-e">E</span></td>
+  <td class="num">10</td><td class="num">A+</td>
   <td>2024-25 profile</td>
   <td>Profile published; per-T25 not in extractable text from PDF.</td>
   <td>UC Berkeley, UCLA, USC, Cal Poly SLO, sporadic Ivy/Stanford</td>
@@ -1012,6 +1031,7 @@
   <td class="num">1,340</td>
   <td class="num">~340</td>
   <td class="col-t25" title="Estimate. Among highest-ranked Lamorinda publics; CA rank #30; 79% AP participation.">~9% <span class="conf conf-e">E</span></td>
+  <td class="num">10</td><td class="num">A+</td>
   <td>—</td>
   <td>79% AP participation; CA rank #30. Per-T25 not in extractable form.</td>
   <td>UC Berkeley, UCLA, USC, Stanford (small), Ivies in small numbers</td>
@@ -1025,6 +1045,7 @@
   <td class="num">1,188</td>
   <td class="num">~300</td>
   <td class="col-t25" title="Estimate. US News national rank #217, top 1% CA proficiency, 23 APs; affluent Orinda.">~9% <span class="conf conf-e">E</span></td>
+  <td class="num">10</td><td class="num">A+</td>
   <td>—</td>
   <td>23 APs; US News national rank #217 (2023-24). 97.7% grad rate. Per-T25 not in extractable form.</td>
   <td>UC system, USC, Cal Poly SLO, plus Ivies/Stanford in small numbers</td>
@@ -1042,7 +1063,7 @@
 <tr>
   <th>School</th><th>District</th><th>Enroll.</th><th>Class size</th>
   <th>T25 %</th>
-  <th>95% CI</th>
+  <th>GS</th><th>Niche</th>
   <th>Years covered</th><th>T25 matriculants (count or %)</th>
   <th>Most common T25 destinations</th>
   <th>Source(s)</th><th>Notes</th>
@@ -1056,6 +1077,7 @@
   <td class="num">1,722</td>
   <td class="num">~430</td>
   <td class="col-t25" title="Estimate. Strongest Tam district public, CA rank #50, affluent; healthy T25 cohort.">~7% <span class="conf conf-e">E</span></td>
+  <td class="num">9</td><td class="num">A+</td>
   <td>—</td>
   <td>84% AP participation; CA rank #50. Per-T25 not published in extractable form (most recent accessible profile is 2016-17).</td>
   <td>UC Berkeley, UCLA, USC, Cal Poly SLO, plus Ivies in small numbers</td>
@@ -1069,6 +1091,7 @@
   <td class="num">1,544</td>
   <td class="num">~390</td>
   <td class="col-t25" title="Measured fragments. UCB 14 in 2023 (~3.6%); add UCLA + small Ivy/Stanford ⇒ ~5-6%.">~5% <span class="conf conf-e">E</span></td>
+  <td class="num">8</td><td class="num">A</td>
   <td>2023</td>
   <td>Class of 2023: 89% to 2-yr or 4-yr (76% four-year). Top destinations: College of Marin (35), Cal Poly SLO (22), UC Berkeley (14), SDSU (13), UCSB (13). T25 cohort modest.</td>
   <td>UC Berkeley, UCLA, Cal Poly SLO, UCSB, sporadic Ivy/Stanford</td>
@@ -1085,6 +1108,7 @@
   <td class="num">~1,000</td>
   <td class="num">~250</td>
   <td class="col-t25" title="Rough. Smaller T25 numbers than Redwood/Tam; mostly UC/CSU.">~3% <span class="conf conf-r">R</span></td>
+  <td class="num">7</td><td class="num">A-</td>
   <td>—</td>
   <td>Per-T25 not published. Renamed from Sir Francis Drake.</td>
   <td>UC system, Cal States</td>
@@ -1097,6 +1121,7 @@
   <td>San Rafael City HSD / Novato USD</td>
   <td colspan="2" class="num">~1,200 / ~1,500</td>
   <td class="col-t25" title="Rough. Comprehensive Marin publics; sporadic T25 outcomes.">~2% <span class="conf conf-r">R</span></td>
+  <td class="num">5</td><td class="num">B</td>
   <td>—</td>
   <td>No public per-T25 matriculation data found. T25 outcomes are sporadic.</td>
   <td>UC system, CSU</td>
@@ -1110,6 +1135,7 @@
   <td class="num">1,600</td>
   <td class="num">~400</td>
   <td class="col-t25" title="Rough. Highest-rated SRCS comprehensive; CA Distinguished; modest T25 cohort.">~3% <span class="conf conf-r">R</span></td>
+  <td class="num">8</td><td class="num">A-</td>
   <td>2023-24 profile published</td>
   <td>CA Distinguished. Profile PDF accessible but text not extractable here. T25 cohort modest.</td>
   <td>UC system, CSU, USC, sporadic Stanford/Ivy</td>
@@ -1124,6 +1150,7 @@
   <td>Santa Rosa CS / Sonoma Valley USD</td>
   <td colspan="2" class="num">varies</td>
   <td class="col-t25" title="Rough. Comprehensive Sonoma publics; small T25 cohorts.">~2% <span class="conf conf-r">R</span></td>
+  <td class="num">—</td><td class="num">B</td>
   <td>—</td>
   <td>No public per-T25 matriculation data found.</td>
   <td>UC, CSU</td>
@@ -1137,6 +1164,7 @@
   <td class="num">~1,800 / 1,712</td>
   <td>—</td>
   <td class="col-t25" title="Rough. AP participation 35-39%; mostly UC/CSU/JC; T25 numbers very low.">~1% <span class="conf conf-r">R</span></td>
+  <td class="num">—</td><td class="num">B-</td>
   <td>2013–2021 aggregate</td>
   <td>NVUSD publishes a "Student Matriculation 2013–2021" district aggregate page. AP participation 35–39%. T25 cohort small.</td>
   <td>UC, CSU, Sonoma State, Santa Rosa JC</td>
@@ -1150,6 +1178,7 @@
   <td class="num">1,631</td>
   <td class="num">~400</td>
   <td class="col-t25" title="Rough. Solano County's highest-profile public; small T25 cohort.">~1% <span class="conf conf-r">R</span></td>
+  <td class="num">7</td><td class="num">B+</td>
   <td>—</td>
   <td>No public per-T25 matriculation data found.</td>
   <td>UC, CSU, Solano CC</td>
@@ -1191,6 +1220,9 @@
   <li>Triangulation against chicardgo.com's Bay Area Elite College Placement Index, Niche, and US News rankings.</li>
   <li>Local press (Palo Alto Online, Patch, KRON) for occasional class-of-X feature stories.</li>
 </ul>
+
+<h3>GreatSchools (GS) and Niche columns</h3>
+<p>The <strong>GS</strong> column is the headline GreatSchools score (1–10 integer) sourced from <a href="https://www.greatschools.org/">greatschools.org</a>. The <strong>Niche</strong> column is the overall letter grade (A+ down to D-) sourced from <a href="https://www.niche.com/">niche.com</a>. Both ratings were filled from training-knowledge for widely-published schools (Gunn, Paly, Lowell, Mission San Jose, Lynbrook, Monta Vista, Saratoga, Cupertino, Homestead, Los Gatos, Acalanes, Campolindo, Miramonte, Piedmont, Albany, Berkeley HS, Aragon, Burlingame, Carlmont, Menlo-Atherton, etc.) and approximated for the long tail; "—" indicates the value was not readily available and we declined to fabricate one. <strong>Limitations:</strong> these are external proxies, not measures of T25 outcome — GreatSchools weights state test scores, equity, and college-readiness signals, and Niche aggregates parent/student reviews plus public data. Use them for cross-reference only; a high GS or A+ Niche does not imply a high T25 % (e.g., schools with strong UC pipelines but few private-T25 placements can score very highly on both while still landing in the single-digit T25 % bucket).</p>
 
 <h3>Why so many "med" / "lo" rows?</h3>
 <p>California public high schools are not required to publish college matriculation outcomes, and most do not publish per-college counts in machine-readable form. Many post the data in PDFs that are scanned images or that defeated automated text extraction in this research session. The schools in <span class="pill hi">high-confidence</span> rows are those that <em>chose</em> to publish a clean year-by-year per-college table on a public page. That choice itself correlates with strong outcomes (those schools are proud of them).</p>

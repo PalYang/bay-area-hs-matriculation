@@ -198,41 +198,41 @@
 </div>
 
 <h2>Consolidated &quot;T25 %&quot; ranking (publics + privates, top 25)</h2>
-<p class="sub">Single-number summary so schools can be ranked side-by-side. <strong>T25 %</strong> = the average % of a graduating class that <em>matriculates</em> (not just is admitted) to a U.S. News Top-25 National University, averaged over the most recent 3-5 graduating classes. UC Berkeley + UCLA are in the T25 set; LACs are not. The <strong>95% CI</strong> column is a subjective uncertainty band (M &plusmn;2pp, E &plusmn;5pp, R &plusmn;10pp, N = no data) — see &quot;T25 % methodology&quot; below.</p>
+<p class="sub">Single-number summary so schools can be ranked side-by-side. <strong>T25 %</strong> = the average % of a graduating class that <em>matriculates</em> (not just is admitted) to a U.S. News Top-25 National University, averaged over the most recent 3-5 graduating classes. UC Berkeley + UCLA are in the T25 set; LACs are not. The <strong>GS</strong> column is the GreatSchools 1-10 score (mostly &quot;—&quot; for privates, which GreatSchools rarely rates). The <strong>Niche</strong> column is the niche.com letter grade (A+ to D-). Confidence tags (M / E / R / N) reflect how strong the underlying T25 data is — see &quot;T25 % methodology&quot; below.</p>
 <div class="warn">
-  <strong>This is a transparent heuristic anchored to schools with published data, not a trained ML model.</strong> The 95% CI column is a <em>subjective</em> communication of uncertainty, not a statistical confidence interval — it reflects how far off the estimate could plausibly be based on data availability. Estimates flagged <span class="conf conf-r">R</span> could easily be off by &plusmn;10pp; <span class="conf conf-n">N</span> means no usable data. Use the rank as a starting point for your own due diligence, not a final answer.
+  <strong>This is a transparent heuristic anchored to schools with published data, not a trained ML model.</strong> Confidence tags communicate uncertainty: estimates flagged <span class="conf conf-r">R</span> could easily be off by &plusmn;10pp; <span class="conf conf-n">N</span> means no usable data. Use the rank as a starting point for your own due diligence, not a final answer.
 </div>
 
 <table class="rank-table">
 <thead>
-<tr><th>Rank</th><th>School</th><th>Type</th><th>Class size</th><th>T25 %</th><th>95% CI</th><th>Confidence</th></tr>
+<tr><th>Rank</th><th>School</th><th>Type</th><th>Class size</th><th>T25 %</th><th>GS</th><th>Niche</th><th>Confidence</th></tr>
 </thead>
 <tbody>
-<tr><td class="rank">1</td><td>College Preparatory School (Oakland)</td><td>Private</td><td class="num">~80</td><td class="num">47.8%</td><td class="num">45.8 – 49.8%</td><td><span class="conf conf-m">M</span> measured (5-yr counts)</td></tr>
-<tr><td class="rank">2</td><td>Menlo School (Atherton)</td><td>Private</td><td class="num">~146</td><td class="num">40.4%</td><td class="num">38.4 – 42.4%</td><td><span class="conf conf-m">M</span> measured (3-yr counts)</td></tr>
-<tr><td class="rank">3</td><td>The Harker School (San Jose)</td><td>Private</td><td class="num">~190</td><td class="num">39.3%</td><td class="num">37.3 – 41.3%</td><td><span class="conf conf-m">M</span> measured (3-yr counts)</td></tr>
-<tr><td class="rank">4</td><td>The Nueva School (San Mateo)</td><td>Private</td><td class="num">~110</td><td class="num">~38%</td><td class="num">36.0 – 40.0%</td><td><span class="conf conf-m">M</span> measured (bands; floor)</td></tr>
-<tr><td class="rank">5</td><td>Castilleja School (Palo Alto)</td><td>Private</td><td class="num">~51</td><td class="num">~38%</td><td class="num">33.0 – 43.0%</td><td><span class="conf conf-e">E</span> peer-anchored (small all-girls)</td></tr>
-<tr><td class="rank">6</td><td>Crystal Springs Uplands (Hillsborough)</td><td>Private</td><td class="num">~90</td><td class="num">~30%</td><td class="num">25.0 – 35.0%</td><td><span class="conf conf-e">E</span> hits all T25 ex-Caltech, no counts</td></tr>
-<tr><td class="rank">7</td><td>Head-Royce (Oakland)</td><td>Private</td><td class="num">~94</td><td class="num">~30%</td><td class="num">25.0 – 35.0%</td><td><span class="conf conf-e">E</span> Niche-aggregate ~33%</td></tr>
-<tr><td class="rank">8</td><td>University HS / SFUHS</td><td>Private</td><td class="num">~125</td><td class="num">~28%</td><td class="num">23.0 – 33.0%</td><td><span class="conf conf-e">E</span> Niche aggregate + UHS-tier peer</td></tr>
-<tr><td class="rank">9</td><td>BASIS Independent Silicon Valley</td><td>Private</td><td class="num">~90</td><td class="num">~25%</td><td class="num">20.0 – 30.0%</td><td><span class="conf conf-e">E</span> very strong test profile, STEM</td></tr>
-<tr><td class="rank">10</td><td>Marin Academy (San Rafael)</td><td>Private</td><td class="num">~115</td><td class="num">25.5%</td><td class="num">23.5 – 27.5%</td><td><span class="conf conf-m">M</span> measured (3-yr counts)</td></tr>
-<tr><td class="rank">11</td><td>Sacred Heart Prep (Atherton)</td><td>Private</td><td class="num">~160</td><td class="num">~24%</td><td class="num">19.0 – 29.0%</td><td><span class="conf conf-e">E</span> hits every T25, no counts</td></tr>
-<tr><td class="rank">12</td><td>Branson School (Ross, Marin)</td><td>Private</td><td class="num">~80</td><td class="num">~22%</td><td class="num">17.0 – 27.0%</td><td><span class="conf conf-e">E</span> Niche-aggregate + Marin elite</td></tr>
-<tr><td class="rank">13</td><td>Pinewood School (Los Altos Hills)</td><td>Private</td><td class="num">~54</td><td class="num">~22%</td><td class="num">17.0 – 27.0%</td><td><span class="conf conf-e">E</span> tiny class, ★ on many T25</td></tr>
-<tr><td class="rank">14</td><td>Lick-Wilmerding (SF)</td><td>Private</td><td class="num">~140</td><td class="num">~21%</td><td class="num">16.0 – 26.0%</td><td><span class="conf conf-e">E</span> Niche estimate ~21% T25</td></tr>
-<tr><td class="rank">15</td><td>Eastside College Prep (East Palo Alto)</td><td>Private</td><td class="num">~50</td><td class="num">~20%</td><td class="num">15.0 – 25.0%</td><td><span class="conf conf-e">E</span> first-gen elite outcomes</td></tr>
-<tr><td class="rank">16</td><td>Mission San Jose HS</td><td>Public</td><td class="num">~440</td><td class="num">~20%</td><td class="num">15.0 – 25.0%</td><td><span class="conf conf-e">E</span> Gunn-tier peer + UC source data</td></tr>
-<tr><td class="rank">17</td><td>Urban School of SF</td><td>Private</td><td class="num">~95</td><td class="num">19.2%</td><td class="num">17.2 – 21.2%</td><td><span class="conf conf-m">M</span> measured (5-yr counts)</td></tr>
-<tr><td class="rank">18</td><td>Athenian School (Danville)</td><td>Private</td><td class="num">~70</td><td class="num">~18%</td><td class="num">13.0 – 23.0%</td><td><span class="conf conf-e">E</span> hits 18 T25 schools</td></tr>
-<tr><td class="rank">19</td><td>Henry M. Gunn HS (Palo Alto)</td><td>Public</td><td class="num">~440</td><td class="num">17.8%</td><td class="num">15.8 – 19.8%</td><td><span class="conf conf-m">M</span> measured (4-yr counts)</td></tr>
-<tr><td class="rank">20</td><td>Lynbrook HS (San Jose)</td><td>Public</td><td class="num">~430</td><td class="num">~18%</td><td class="num">13.0 – 23.0%</td><td><span class="conf conf-e">E</span> Monta Vista peer; UC source data</td></tr>
-<tr><td class="rank">21</td><td>Monta Vista HS (Cupertino)</td><td>Public</td><td class="num">~410</td><td class="num">~18%</td><td class="num">13.0 – 23.0%</td><td><span class="conf conf-e">E</span> Gunn-tier peer; UC source data</td></tr>
-<tr><td class="rank">22</td><td>Stratford Schools Upper School (San Jose)</td><td>Private</td><td class="num">~80</td><td class="num">~17%</td><td class="num">12.0 – 22.0%</td><td><span class="conf conf-e">E</span> STEM-heavy, Asian-American base</td></tr>
-<tr><td class="rank">23</td><td>Convent &amp; Stuart Hall (SF)</td><td>Private</td><td class="num">~80 each</td><td class="num">~15%</td><td class="num">10.0 – 20.0%</td><td><span class="conf conf-e">E</span> Catholic IB + AP</td></tr>
-<tr><td class="rank">24</td><td>Sonoma Academy (Santa Rosa)</td><td>Private</td><td class="num">~70</td><td class="num">~15%</td><td class="num">10.0 – 20.0%</td><td><span class="conf conf-e">E</span> hits 16+ T25, no counts</td></tr>
-<tr><td class="rank">25</td><td>San Domenico (San Anselmo)</td><td>Private</td><td class="num">~50</td><td class="num">~13%</td><td class="num">8.0 – 18.0%</td><td><span class="conf conf-e">E</span> Niche estimate ~13% T25</td></tr>
+<tr><td class="rank">1</td><td>College Preparatory School (Oakland)</td><td>Private</td><td class="num">~80</td><td class="num">47.8%</td><td class="num">—</td><td class="num">A+</td><td><span class="conf conf-m">M</span> measured (5-yr counts)</td></tr>
+<tr><td class="rank">2</td><td>Menlo School (Atherton)</td><td>Private</td><td class="num">~146</td><td class="num">40.4%</td><td class="num">—</td><td class="num">A+</td><td><span class="conf conf-m">M</span> measured (3-yr counts)</td></tr>
+<tr><td class="rank">3</td><td>The Harker School (San Jose)</td><td>Private</td><td class="num">~190</td><td class="num">39.3%</td><td class="num">—</td><td class="num">A+</td><td><span class="conf conf-m">M</span> measured (3-yr counts)</td></tr>
+<tr><td class="rank">4</td><td>The Nueva School (San Mateo)</td><td>Private</td><td class="num">~110</td><td class="num">~38%</td><td class="num">—</td><td class="num">A+</td><td><span class="conf conf-m">M</span> measured (bands; floor)</td></tr>
+<tr><td class="rank">5</td><td>Castilleja School (Palo Alto)</td><td>Private</td><td class="num">~51</td><td class="num">~38%</td><td class="num">—</td><td class="num">A+</td><td><span class="conf conf-e">E</span> peer-anchored (small all-girls)</td></tr>
+<tr><td class="rank">6</td><td>Crystal Springs Uplands (Hillsborough)</td><td>Private</td><td class="num">~90</td><td class="num">~30%</td><td class="num">—</td><td class="num">A</td><td><span class="conf conf-e">E</span> hits all T25 ex-Caltech, no counts</td></tr>
+<tr><td class="rank">7</td><td>Head-Royce (Oakland)</td><td>Private</td><td class="num">~94</td><td class="num">~30%</td><td class="num">—</td><td class="num">A</td><td><span class="conf conf-e">E</span> Niche-aggregate ~33%</td></tr>
+<tr><td class="rank">8</td><td>University HS / SFUHS</td><td>Private</td><td class="num">~125</td><td class="num">~28%</td><td class="num">—</td><td class="num">A+</td><td><span class="conf conf-e">E</span> Niche aggregate + UHS-tier peer</td></tr>
+<tr><td class="rank">9</td><td>BASIS Independent Silicon Valley</td><td>Private</td><td class="num">~90</td><td class="num">~25%</td><td class="num">—</td><td class="num">A</td><td><span class="conf conf-e">E</span> very strong test profile, STEM</td></tr>
+<tr><td class="rank">10</td><td>Marin Academy (San Rafael)</td><td>Private</td><td class="num">~115</td><td class="num">25.5%</td><td class="num">—</td><td class="num">A</td><td><span class="conf conf-m">M</span> measured (3-yr counts)</td></tr>
+<tr><td class="rank">11</td><td>Sacred Heart Prep (Atherton)</td><td>Private</td><td class="num">~160</td><td class="num">~24%</td><td class="num">—</td><td class="num">A</td><td><span class="conf conf-e">E</span> hits every T25, no counts</td></tr>
+<tr><td class="rank">12</td><td>Branson School (Ross, Marin)</td><td>Private</td><td class="num">~80</td><td class="num">~22%</td><td class="num">—</td><td class="num">A</td><td><span class="conf conf-e">E</span> Niche-aggregate + Marin elite</td></tr>
+<tr><td class="rank">13</td><td>Pinewood School (Los Altos Hills)</td><td>Private</td><td class="num">~54</td><td class="num">~22%</td><td class="num">—</td><td class="num">A</td><td><span class="conf conf-e">E</span> tiny class, ★ on many T25</td></tr>
+<tr><td class="rank">14</td><td>Lick-Wilmerding (SF)</td><td>Private</td><td class="num">~140</td><td class="num">~21%</td><td class="num">—</td><td class="num">A</td><td><span class="conf conf-e">E</span> Niche estimate ~21% T25</td></tr>
+<tr><td class="rank">15</td><td>Eastside College Prep (East Palo Alto)</td><td>Private</td><td class="num">~50</td><td class="num">~20%</td><td class="num">—</td><td class="num">A</td><td><span class="conf conf-e">E</span> first-gen elite outcomes</td></tr>
+<tr><td class="rank">16</td><td>Mission San Jose HS</td><td>Public</td><td class="num">~440</td><td class="num">~20%</td><td class="num">10</td><td class="num">A+</td><td><span class="conf conf-e">E</span> Gunn-tier peer + UC source data</td></tr>
+<tr><td class="rank">17</td><td>Urban School of SF</td><td>Private</td><td class="num">~95</td><td class="num">19.2%</td><td class="num">—</td><td class="num">A</td><td><span class="conf conf-m">M</span> measured (5-yr counts)</td></tr>
+<tr><td class="rank">18</td><td>Athenian School (Danville)</td><td>Private</td><td class="num">~70</td><td class="num">~18%</td><td class="num">—</td><td class="num">A-</td><td><span class="conf conf-e">E</span> hits 18 T25 schools</td></tr>
+<tr><td class="rank">19</td><td>Henry M. Gunn HS (Palo Alto)</td><td>Public</td><td class="num">~440</td><td class="num">17.8%</td><td class="num">10</td><td class="num">A+</td><td><span class="conf conf-m">M</span> measured (4-yr counts)</td></tr>
+<tr><td class="rank">20</td><td>Lynbrook HS (San Jose)</td><td>Public</td><td class="num">~430</td><td class="num">~18%</td><td class="num">10</td><td class="num">A+</td><td><span class="conf conf-e">E</span> Monta Vista peer; UC source data</td></tr>
+<tr><td class="rank">21</td><td>Monta Vista HS (Cupertino)</td><td>Public</td><td class="num">~410</td><td class="num">~18%</td><td class="num">10</td><td class="num">A+</td><td><span class="conf conf-e">E</span> Gunn-tier peer; UC source data</td></tr>
+<tr><td class="rank">22</td><td>Stratford Schools Upper School (San Jose)</td><td>Private</td><td class="num">~80</td><td class="num">~17%</td><td class="num">—</td><td class="num">A-</td><td><span class="conf conf-e">E</span> STEM-heavy, Asian-American base</td></tr>
+<tr><td class="rank">23</td><td>Convent &amp; Stuart Hall (SF)</td><td>Private</td><td class="num">~80 each</td><td class="num">~15%</td><td class="num">—</td><td class="num">A</td><td><span class="conf conf-e">E</span> Catholic IB + AP</td></tr>
+<tr><td class="rank">24</td><td>Sonoma Academy (Santa Rosa)</td><td>Private</td><td class="num">~70</td><td class="num">~15%</td><td class="num">—</td><td class="num">A</td><td><span class="conf conf-e">E</span> hits 16+ T25, no counts</td></tr>
+<tr><td class="rank">25</td><td>San Domenico (San Anselmo)</td><td>Private</td><td class="num">~50</td><td class="num">~13%</td><td class="num">—</td><td class="num">B+</td><td><span class="conf conf-e">E</span> Niche estimate ~13% T25</td></tr>
 </tbody>
 </table>
 <p class="sub" style="font-size: 12px;">This ranking spans both the public and private files. The same estimator and anchor calibration was used in <code>bay_area_public_high_schools.html</code>; both files share the same top-25 list.</p>
@@ -281,7 +281,8 @@
   <th>Affiliation / Personality</th>
   <th>Class size</th>
   <th>T25 %</th>
-  <th>95% CI</th>
+  <th>GS</th>
+  <th>Niche</th>
   <th>Tuition (~24–25)</th>
   <th>Years</th>
   <th>T25 matriculants (most common destinations)</th>
@@ -297,7 +298,8 @@
   <td>Independent / coed / STEM powerhouse</td>
   <td>~190</td>
   <td class="col-t25" title="Measured. Sum of T25 counts 2023-25 = 224 over ~570 grads = 39.3%.">39.3% <span class="conf conf-m">M</span></td>
-  <td class="col-ci">37.3 – 41.3%</td>
+  <td class="num">—</td>
+  <td class="num">A+</td>
   <td>~$60k</td>
   <td>2023–25</td>
   <td><strong>Stanford 34, CMU 27, UCB 26, UCLA 17, UChicago 16, Columbia 15, Rice 13, MIT 12, Yale 9, Emory 9, Cornell 8, Duke 7, Northwestern 7, Georgetown 7, Harvard 5, Dartmouth 5, Brown 3, Princeton 2, Vanderbilt 2.</strong> No public count for Caltech, JHU, Notre Dame, UVA. ~9.7% to HYPSM.</td>
@@ -311,7 +313,8 @@
   <td>Independent / coed / gifted, design-thinking</td>
   <td>~110–117</td>
   <td class="col-t25" title="Measured floor. 'Bands' (10+ at 12 T25 schools, 5+ at 9 more) sum to ~145 floor over ~440 grads = ~33%; bands likely understate, true value ~35-40%.">~38% <span class="conf conf-m">M</span></td>
-  <td class="col-ci">36.0 – 40.0%</td>
+  <td class="num">—</td>
+  <td class="num">A+</td>
   <td>~$55k</td>
   <td>2020–23</td>
   <td><strong>10+ each:</strong> CMU, Columbia, Cornell, Harvard, Northeastern, Northwestern, Princeton, Stanford, UCB, UChicago, Penn, USC. <strong>5+ each:</strong> Brown, Caltech, Case Western, Dartmouth, Duke, Harvey Mudd, MIT, NYU, Reed, Tufts, UCLA, Illinois, Michigan, WashU, Wellesley, Yale.</td>
@@ -325,7 +328,8 @@
   <td>Independent / all-girls</td>
   <td>~51 (2025)</td>
   <td class="col-t25" title="Estimate. Class of 2025 has bolded matriculations to ~17 T25 schools; very small all-girls = high per-capita; estimate at peer-anchored 35-45% band.">~38% <span class="conf conf-e">E</span></td>
-  <td class="col-ci">33.0 – 43.0%</td>
+  <td class="num">—</td>
+  <td class="num">A+</td>
   <td>~$66k</td>
   <td>Class of 2025</td>
   <td>2025 matriculations include <strong>Brown, CMU, Dartmouth, Duke, Harvard, Northwestern, Stanford, UCB, UCLA, Michigan, Notre Dame, Penn, USC, UChicago, Vanderbilt, WashU, Yale</strong> (bold list). Long acceptance tail.</td>
@@ -339,7 +343,8 @@
   <td>Independent / coed</td>
   <td>~146</td>
   <td class="col-t25" title="Measured. Sum of T25 counts 2021-23 = 177 over ~438 grads = 40.4%.">40.4% <span class="conf conf-m">M</span></td>
-  <td class="col-ci">38.4 – 42.4%</td>
+  <td class="num">—</td>
+  <td class="num">A+</td>
   <td>~$66k</td>
   <td>2021–23</td>
   <td><strong>Stanford 23, UCB 18, UChicago 14, Cornell 13, WashU 11, Tufts 8, UCLA 8, Michigan 8, Dartmouth 7, Duke 7, Penn 7, Brown 6, Northwestern 6, Harvard 5, Princeton 5, JHU 5, Vanderbilt 5, Columbia 4, Yale 4, Notre Dame 4, Georgetown 4, CMU 4, Emory 4, Rice 3, MIT 2</strong>. Hits all 26.</td>
@@ -353,7 +358,8 @@
   <td>Catholic (RSCJ) / coed</td>
   <td>~149–171</td>
   <td class="col-t25" title="Estimate. Hits every T25 school (full bolded list) over 3-class total of 322 colleges; Catholic-affiliated but admissions-selective; counts not published. Place mid-band of independents.">~24% <span class="conf conf-e">E</span></td>
-  <td class="col-ci">19.0 – 29.0%</td>
+  <td class="num">—</td>
+  <td class="num">A</td>
   <td>~$55k</td>
   <td>2023–25</td>
   <td>Class of 2025 enrolled at <strong>Brown, CMU, Columbia, Cornell, Dartmouth, Duke, Emory, Georgetown, Harvard, JHU, MIT, Northwestern, Princeton, Stanford, UCB, UCLA, Notre Dame, Penn, UChicago, Vanderbilt, WashU, Yale</strong> (full list bolded; counts not published).</td>
@@ -367,7 +373,8 @@
   <td>Independent / coed</td>
   <td>~90</td>
   <td class="col-t25" title="Estimate. Hits every T25 school except Caltech; reportedly ~7 to Stanford in one recent year; 30:1 student-counselor; small selective independent.">~30% <span class="conf conf-e">E</span></td>
-  <td class="col-ci">25.0 – 35.0%</td>
+  <td class="num">—</td>
+  <td class="num">A</td>
   <td>~$66k</td>
   <td>2022–25</td>
   <td>Matriculations at every T25 school <strong>except Caltech</strong>: Brown, CMU, Columbia, Cornell, Dartmouth, Duke, Emory, Georgetown, Harvard, JHU, MIT, Northwestern, Princeton, Rice, Stanford, UCLA, UCB, UChicago, Michigan, Penn, UVA, Vanderbilt, WashU, Yale. Counts not public.</td>
@@ -381,7 +388,8 @@
   <td>Independent, non-sectarian / coed</td>
   <td>~54</td>
   <td class="col-t25" title="Estimate. Tiny class with 'star=2+' on many T25 schools; high variance year-to-year but selective placements.">~22% <span class="conf conf-e">E</span></td>
-  <td class="col-ci">17.0 – 27.0%</td>
+  <td class="num">—</td>
+  <td class="num">A</td>
   <td>~$48k</td>
   <td>2021–24</td>
   <td>Matriculations include Stanford, Princeton, Cornell, Columbia, Dartmouth, Duke, Harvey Mudd, JHU, Northwestern, Penn, UChicago, UCB (2+), UCLA (2+), CMU (2+), Vanderbilt, Notre Dame, UVA, Michigan, WashU (2+), Emory (2+). Counts not published per school, only ★ for ≥2.</td>
@@ -395,7 +403,8 @@
   <td>Independent / coed / advanced STEM</td>
   <td>~90 (2024)</td>
   <td class="col-t25" title="Estimate. Strong test profile (SAT mean 1513, ACT 33); destinations include Princeton/Columbia/Harvard/MIT/Yale; very small selective STEM-focused class.">~25% <span class="conf conf-e">E</span></td>
-  <td class="col-ci">20.0 – 30.0%</td>
+  <td class="num">—</td>
+  <td class="num">A</td>
   <td>~$42k</td>
   <td>Class of 2024</td>
   <td>2024 destinations explicitly include Princeton, Columbia, Harvard, MIT, Yale, RISD; broader Ivy + selective list. SAT mean 1513.</td>
@@ -409,7 +418,8 @@
   <td>Catholic Benedictine / coed / day+boarding</td>
   <td>~70 (avg)</td>
   <td class="col-t25" title="Rough. Niche-aggregated estimate ~4.5% T25; counts not published; Catholic boarding/day with broader tail.">~5% <span class="conf conf-r">R</span></td>
-  <td class="col-ci">0.0 – 15.0%</td>
+  <td class="num">—</td>
+  <td class="num">A-</td>
   <td>~$60k</td>
   <td>2019–24</td>
   <td>436 grads over 6 years. Matriculations include Stanford, Harvard, Yale, UCB, UCLA. Niche-aggregated estimate ~4.5% to T25, ~1.1% HYPSM.</td>
@@ -423,7 +433,8 @@
   <td>Independent / coed / first-gen, low-income</td>
   <td>~50</td>
   <td class="col-t25" title="Estimate. First-gen / low-income; massive value-add story with confirmed admits at Stanford, Princeton, Yale, Columbia, MIT, UCB, UCLA; tiny selective class.">~20% <span class="conf conf-e">E</span></td>
-  <td class="col-ci">15.0 – 25.0%</td>
+  <td class="num">—</td>
+  <td class="num">A</td>
   <td>$0 (free)</td>
   <td>Cumulative</td>
   <td>Confirmed admits include Stanford, Princeton, Yale, Columbia, MIT, UCB, UCLA, Emory, Pomona, SCU, Occidental. >99% to 4-year college.</td>
@@ -437,7 +448,8 @@
   <td>Christian / coed</td>
   <td>~150</td>
   <td class="col-t25" title="Rough. Christian college prep; matriculations confirmed at 13 of 25 T25 schools but no counts; mid-tier Catholic-equivalent.">~7% <span class="conf conf-r">R</span></td>
-  <td class="col-ci">0.0 – 17.0%</td>
+  <td class="num">—</td>
+  <td class="num">A-</td>
   <td>~$30k</td>
   <td>2021–23</td>
   <td>Matriculations confirmed at Stanford, MIT, Northwestern, Rice, Vanderbilt, CMU, UChicago, UCLA, UCB, UVA, Michigan, WashU, Emory (13 of 25). Counts not published.</td>
@@ -451,7 +463,8 @@
   <td>Catholic Jesuit / all-boys</td>
   <td>~410</td>
   <td class="col-t25" title="Estimate. Large Catholic Jesuit all-boys; SAT mean 1380; college preferences skew Notre Dame/Santa Clara/USF/USD; T25 share structurally lower than independents.">~10% <span class="conf conf-e">E</span></td>
-  <td class="col-ci">5.0 – 15.0%</td>
+  <td class="num">—</td>
+  <td class="num">A</td>
   <td>~$33k</td>
   <td>—</td>
   <td>Detailed matriculation lists not publicly published. School emphasizes 6 full-time college counselors. SAT mean 1380, ACT 32. ~96% to 4-year college.</td>
@@ -465,7 +478,8 @@
   <td>Catholic / coed</td>
   <td>~340</td>
   <td class="col-t25" title="Estimate. Large coed Catholic, broad college list including Ivies/Stanford; T25 share modest in proportion to size.">~9% <span class="conf conf-e">E</span></td>
-  <td class="col-ci">4.0 – 14.0%</td>
+  <td class="num">—</td>
+  <td class="num">A</td>
   <td>~$30k</td>
   <td>—</td>
   <td>Class of 2025 admitted to 285+ four-year institutions including Ivies, Stanford. Broad college list. Per-college matriculation counts not publicly disclosed (only performing-arts subset listed publicly).</td>
@@ -479,7 +493,8 @@
   <td>Catholic (Holy Cross) / coed</td>
   <td>~440</td>
   <td class="col-t25" title="Estimate. Large Catholic; SAT mean 1319; mid-tier T25 footprint relative to selective independents.">~8% <span class="conf conf-e">E</span></td>
-  <td class="col-ci">3.0 – 13.0%</td>
+  <td class="num">—</td>
+  <td class="num">A-</td>
   <td>~$28k</td>
   <td>Class of 2023</td>
   <td>166 matriculation institutions. SAT mean 1319 (Class of 2024). 91% to 4-year college. Per-college counts not public.</td>
@@ -493,7 +508,8 @@
   <td>Catholic / all-girls</td>
   <td>~140</td>
   <td class="col-t25" title="Estimate. SAT 1278 mean; strong UC pipeline (in T25 set) but T25-private specifics not transparent; Catholic all-girls.">~8% <span class="conf conf-e">E</span></td>
-  <td class="col-ci">3.0 – 13.0%</td>
+  <td class="num">—</td>
+  <td class="num">A-</td>
   <td>~$30k</td>
   <td>—</td>
   <td>Profile lists UC system, broad public &amp; private. Per-college matriculation counts not publicly disclosed in profile.</td>
@@ -507,7 +523,8 @@
   <td>Catholic (SNDdeN) / all-girls</td>
   <td>~100</td>
   <td class="col-t25" title="Rough. List confounds acceptances vs matriculation; small Catholic all-girls; 96% to 4-year college; 2024 AP Honor Roll Platinum.">~9% <span class="conf conf-r">R</span></td>
-  <td class="col-ci">0.0 – 19.0%</td>
+  <td class="num">—</td>
+  <td class="num">A-</td>
   <td>~$30k</td>
   <td>Recent 3–4 yrs</td>
   <td>"Recent acceptances" list includes Cornell, Dartmouth, Georgetown, Stanford, Penn, UCB, UCLA, Michigan, Notre Dame, USC, Vanderbilt, WashU. Acceptances vs. matriculation not differentiated.</td>
@@ -521,7 +538,8 @@
   <td>Catholic (Mercy) / all-girls</td>
   <td>~95</td>
   <td class="col-t25" title="Rough. Catholic all-girls in tri-school cooperative; no detailed T25 data surfaced; small modest cohort.">~5% <span class="conf conf-r">R</span></td>
-  <td class="col-ci">0.0 – 15.0%</td>
+  <td class="num">—</td>
+  <td class="num">B+</td>
   <td>~$28k</td>
   <td>—</td>
   <td>Detailed T25 matriculation lists not surfaced via public sources.</td>
@@ -543,7 +561,8 @@
   <th>Affiliation / Personality</th>
   <th>Class size</th>
   <th>T25 %</th>
-  <th>95% CI</th>
+  <th>GS</th>
+  <th>Niche</th>
   <th>Tuition (~24–25)</th>
   <th>Years</th>
   <th>T25 matriculants (most common destinations)</th>
@@ -559,7 +578,8 @@
   <td>Independent / coed</td>
   <td>~125</td>
   <td class="col-t25" title="Estimate. Widely considered SF's most selective indep; Niche-aggregated ~27% T25; UHS-tier comparable to Menlo/CPS but a notch lower than measured anchors.">~28% <span class="conf conf-e">E</span></td>
-  <td class="col-ci">23.0 – 33.0%</td>
+  <td class="num">—</td>
+  <td class="num">A+</td>
   <td>~$62.6k</td>
   <td>—</td>
   <td>Niche-aggregated estimate ~27% to T25, ~10.5% HYPSM. Detailed counts not surfaced from a public profile in this research pass.</td>
@@ -573,7 +593,8 @@
   <td>Independent / coed / shop-based</td>
   <td>~140</td>
   <td class="col-t25" title="Estimate. Niche estimate ~21% T25; UHS-tier SF independent.">~21% <span class="conf conf-e">E</span></td>
-  <td class="col-ci">16.0 – 26.0%</td>
+  <td class="num">—</td>
+  <td class="num">A</td>
   <td>~$59k</td>
   <td>—</td>
   <td>Confirmed acceptances at Stanford, Yale, Princeton, Harvard, MIT, Caltech, UCB, UCLA, Michigan, Dartmouth, BC, Notre Dame, Penn, USC, Cornell. Niche estimate ~21% T25, ~8.8% HYPSM.</td>
@@ -587,7 +608,8 @@
   <td>Independent / coed / progressive</td>
   <td>~95</td>
   <td class="col-t25" title="Measured. Sum of T25 counts 2020-24 = 91 over ~475 grads = 19.2%.">19.2% <span class="conf conf-m">M</span></td>
-  <td class="col-ci">17.2 – 21.2%</td>
+  <td class="num">—</td>
+  <td class="num">A</td>
   <td>~$60k</td>
   <td>2020–24</td>
   <td><strong>UCLA 26, NYU 19, Northeastern 19, Occidental 17, Pitzer 16, Cal Poly SLO 15, Oregon 14, Tulane 12, Boston U 11, UCB 11, CU Boulder 11, Wesleyan 10. T25:</strong> Brown 9, Tufts 8, Penn 6, WashU 6, USC 6, Stanford 5, Rochester 5, St Andrews 5, Yale 4, Wellesley 4, Wake Forest 4, Vassar 4, Princeton 3, CMU 3, Columbia 3, Northwestern 3, Dartmouth 2, Cornell 2, Michigan 2, UChicago 2, Harvard 1, Duke 1, JHU 1, UVA 1.</td>
@@ -601,7 +623,8 @@
   <td>Catholic Jesuit / coed</td>
   <td>~360</td>
   <td class="col-t25" title="Estimate. Largest SF private; Catholic Jesuit; 97% to 4-year; college preferences skew Notre Dame/Santa Clara/USF; T25 share modest relative to size.">~9% <span class="conf conf-e">E</span></td>
-  <td class="col-ci">4.0 – 14.0%</td>
+  <td class="num">—</td>
+  <td class="num">A</td>
   <td>~$32k</td>
   <td>—</td>
   <td>Detailed per-college matriculation counts not currently published; old Class of 2017 data exists. ~97% to 4-year college.</td>
@@ -615,7 +638,8 @@
   <td>Catholic (Mercy/SF Schools) / coed</td>
   <td>~340</td>
   <td class="col-t25" title="Rough. Acceptance list (with star = '1+ attending') hits broad range including all T25; counts not disclosed; large coed Catholic.">~7% <span class="conf conf-r">R</span></td>
-  <td class="col-ci">0.0 – 17.0%</td>
+  <td class="num">—</td>
+  <td class="num">B+</td>
   <td>~$26.5k</td>
   <td>"Recent classes"</td>
   <td>Acceptance list (with ★ for "one or more attending") includes Harvard, MIT, Stanford, Yale, Duke, JHU, Northwestern, Penn, Cornell, UChicago, Brown, Columbia, Dartmouth, UCLA, UCB, Notre Dame, CMU, Michigan, Georgetown.</td>
@@ -629,7 +653,8 @@
   <td>Catholic (RSCJ) / single-sex HS</td>
   <td>~80 each (girls/boys)</td>
   <td class="col-t25" title="Estimate. Catholic single-sex SF independents (separate accreditation); IB + AP; 100% to 4-year; mid-tier among SF privates.">~15% <span class="conf conf-e">E</span></td>
-  <td class="col-ci">10.0 – 20.0%</td>
+  <td class="num">—</td>
+  <td class="num">A</td>
   <td>~$60k</td>
   <td>—</td>
   <td>School publishes IB + AP curriculum but T25 counts not in public profile fetched here. 100% to 4-year college.</td>
@@ -643,7 +668,8 @@
   <td>Jewish pluralistic / coed</td>
   <td>~45</td>
   <td class="col-t25" title="Rough. Very small Jewish pluralistic; significant gap-year share (Israel); detailed T25 not fetched.">~10% <span class="conf conf-r">R</span></td>
-  <td class="col-ci">0.0 – 20.0%</td>
+  <td class="num">—</td>
+  <td class="num">A-</td>
   <td>~$53k</td>
   <td>—</td>
   <td>Detailed T25 matriculation list not publicly fetched. ~92% to 4-year college; 25–33% take a gap year (often Israel).</td>
@@ -657,7 +683,8 @@
   <td>Independent / coed</td>
   <td>~75</td>
   <td class="col-t25" title="Rough. Smaller, less selective than UHS/Lick; arts/LAC orientation; T25 cohort modest.">~6% <span class="conf conf-r">R</span></td>
-  <td class="col-ci">0.0 – 16.0%</td>
+  <td class="num">—</td>
+  <td class="num">B+</td>
   <td>~$55k</td>
   <td>2022–24</td>
   <td>Public 2022–24 acceptance page published; specific T25 counts not extracted in this pass.</td>
@@ -671,7 +698,8 @@
   <td>French international / coed</td>
   <td>~46 (Class of 2024)</td>
   <td class="col-t25" title="Rough. Significant share to European/UK/Canadian universities (UCL, Sciences Po) which aren't in the US T25; T25 share smaller than English-stream peers.">~7% <span class="conf conf-r">R</span></td>
-  <td class="col-ci">0.0 – 17.0%</td>
+  <td class="num">—</td>
+  <td class="num">A-</td>
   <td>~$40k</td>
   <td>—</td>
   <td>Dual French + US baccalaureate. Grads matriculate to Yale, UCL, Sciences Po and similar; per-college counts not surfaced.</td>
@@ -692,7 +720,8 @@
   <th>Affiliation / Personality</th>
   <th>Class size</th>
   <th>T25 %</th>
-  <th>95% CI</th>
+  <th>GS</th>
+  <th>Niche</th>
   <th>Tuition (~24–25)</th>
   <th>Years</th>
   <th>T25 matriculants (most common destinations)</th>
@@ -708,7 +737,8 @@
   <td>Independent / coed / intellectual</td>
   <td>~80</td>
   <td class="col-t25" title="Measured. Sum of T25 counts over 5 yrs = 191 over ~400 grads = 47.8%.">47.8% <span class="conf conf-m">M</span></td>
-  <td class="col-ci">45.8 – 49.8%</td>
+  <td class="num">—</td>
+  <td class="num">A+</td>
   <td>~$58k</td>
   <td>Last 5 years</td>
   <td><strong>UChicago 24, UCB 16, Georgetown 15, WashU 14, Harvard 13, Cornell 12, Brown 10, Stanford 10, Dartmouth 9, UCLA 9, Yale 8, Northwestern 8, Penn 8, CMU 8, Rice 7, Duke 6, JHU 6, Princeton 4, Michigan 4.</strong> No reported MIT, Caltech, Columbia, Notre Dame, Vanderbilt, Emory, UVA in counted period.</td>
@@ -722,7 +752,8 @@
   <td>Independent / coed</td>
   <td>~94 (2024)</td>
   <td class="col-t25" title="Estimate. Niche estimate ~33% T25; strong East Bay independent; 65% out-of-state.">~30% <span class="conf conf-e">E</span></td>
-  <td class="col-ci">25.0 – 35.0%</td>
+  <td class="num">—</td>
+  <td class="num">A</td>
   <td>~$55k</td>
   <td>—</td>
   <td>100% college matriculation; school references "where graduates matriculated over past 5 years" PDF but did not surface in public scrape. Niche estimate ~33% T25, ~8.3% HYPSM.</td>
@@ -736,7 +767,8 @@
   <td>Independent / coed</td>
   <td>~60</td>
   <td class="col-t25" title="Rough. List is 'accepted' (NOT matriculated); hits 17 T25 schools but no counts. Lafayette affluent but smaller selective tier than Head-Royce.">~12% <span class="conf conf-r">R</span></td>
-  <td class="col-ci">2.0 – 22.0%</td>
+  <td class="num">—</td>
+  <td class="num">A-</td>
   <td>~$53k</td>
   <td>2019–23</td>
   <td>5-year list of admits includes T25: Brown, CMU, Columbia, Cornell, Duke, Emory, Georgetown, Northwestern, Penn, Rice, Stanford, UCB, UCLA, UChicago, Vanderbilt, WashU, Yale (no counts).</td>
@@ -750,7 +782,8 @@
   <td>Independent / coed / day+boarding / Round Square</td>
   <td>~60–80</td>
   <td class="col-t25" title="Estimate. Hits 18 T25 schools (no counts) over 146 grads in 4 years; 98% to 4-year; international experiential.">~18% <span class="conf conf-e">E</span></td>
-  <td class="col-ci">13.0 – 23.0%</td>
+  <td class="num">—</td>
+  <td class="num">A-</td>
   <td>~$55k day / ~$80k boarding</td>
   <td>2021–24 (146 grads)</td>
   <td>Matriculations include Caltech, Columbia, Cornell, Dartmouth, Emory, Georgetown, Harvey Mudd, Northwestern, Penn, Rice, Stanford, UCB, UCLA, UChicago, Michigan, Vanderbilt, WashU, Yale (no per-school counts published). 98% to 4-year.</td>
@@ -764,7 +797,8 @@
   <td>Catholic / coed</td>
   <td>~309 (2024)</td>
   <td class="col-t25" title="Estimate. Large coed Catholic; 93% to 4-year; T25 share modest relative to selective independents.">~7% <span class="conf conf-e">E</span></td>
-  <td class="col-ci">2.0 – 12.0%</td>
+  <td class="num">—</td>
+  <td class="num">A-</td>
   <td>~$26k</td>
   <td>—</td>
   <td>Per-college matriculation counts not publicly published. ~93% to 4-year college.</td>
@@ -778,7 +812,8 @@
   <td>Catholic Lasallian / all-boys</td>
   <td>~246 (2024)</td>
   <td class="col-t25" title="Estimate. Big East Bay Catholic all-boys (Lasallian); famous athletics; less T25-focused than independents.">~5% <span class="conf conf-e">E</span></td>
-  <td class="col-ci">0.0 – 10.0%</td>
+  <td class="num">—</td>
+  <td class="num">A-</td>
   <td>~$24k</td>
   <td>—</td>
   <td>~99% to college/university; per-college counts not surfaced.</td>
@@ -792,7 +827,8 @@
   <td>Catholic Lasallian / coed</td>
   <td>~140</td>
   <td class="col-t25" title="Rough. Lower-tuition Catholic Lasallian coed; 88% to 4-year; T25 cohort modest.">~4% <span class="conf conf-r">R</span></td>
-  <td class="col-ci">0.0 – 14.0%</td>
+  <td class="num">—</td>
+  <td class="num">B+</td>
   <td>~$18k</td>
   <td>—</td>
   <td>~88% to 4-year college; T25-specific data not publicly surfaced.</td>
@@ -806,7 +842,8 @@
   <td>Independent / secular / coed / K-12 / STEM-leaning</td>
   <td>~70–90</td>
   <td class="col-t25" title="Rough. Small Tri-Valley independent K-12. Publishes college acceptance lists (UCB, UCLA, CMU, Cornell, JHU, Northwestern, Stanford, Duke regularly named) but per-college matriculation counts not surfaced. Niche A range.">~15% <span class="conf conf-r">R</span></td>
-  <td class="col-ci">5.0 – 25.0%</td>
+  <td class="num">—</td>
+  <td class="num">A</td>
   <td>~$48k</td>
   <td>—</td>
   <td>Acceptance lists name UC Berkeley, UCLA, UCSD, CMU, Cornell, JHU, Northwestern, Stanford, Duke, NYU, USC. Per-college matriculation counts not publicly surfaced. STEM/research orientation; high SAT/ACT.</td>
@@ -827,7 +864,8 @@
   <th>Affiliation / Personality</th>
   <th>Class size</th>
   <th>T25 %</th>
-  <th>95% CI</th>
+  <th>GS</th>
+  <th>Niche</th>
   <th>Tuition (~24–25)</th>
   <th>Years</th>
   <th>T25 matriculants (most common destinations)</th>
@@ -843,7 +881,8 @@
   <td>Independent / coed / progressive (no APs since 2016)</td>
   <td>~115</td>
   <td class="col-t25" title="Measured. Sum of T25 counts 2023-25 = 88 over ~345 grads = 25.5%.">25.5% <span class="conf conf-m">M</span></td>
-  <td class="col-ci">23.5 – 27.5%</td>
+  <td class="num">—</td>
+  <td class="num">A</td>
   <td>~$60k</td>
   <td>2023–25</td>
   <td><strong>WashU 10, Vanderbilt 8, Brown 6, UCB 6, UCLA 7, Tufts 7, Dartmouth 4, Duke 4, UChicago 4, Stanford 4, Georgetown 4, Notre Dame 3, Northwestern 3, Michigan 3, Rice 2, JHU 2, CMU 2, Penn 2, UVA 2, Cornell 2, Columbia 1, Yale 1, Emory 1.</strong> No reported MIT, Caltech, Princeton.</td>
@@ -857,7 +896,8 @@
   <td>Independent / coed</td>
   <td>~80</td>
   <td class="col-t25" title="Estimate. Niche estimate ~33% T25; often paired with Marin Academy as Marin's elite indep; test-free; current matriculation list not surfaced.">~22% <span class="conf conf-e">E</span></td>
-  <td class="col-ci">17.0 – 27.0%</td>
+  <td class="num">—</td>
+  <td class="num">A</td>
   <td>~$68k</td>
   <td>—</td>
   <td>2022–23 college profile published; current 23–24/24–25 matriculation list not surfaced. Niche-aggregated estimate ~33% T25, ~8.8% HYPSM.</td>
@@ -871,7 +911,8 @@
   <td>Catholic Archdiocesan / coed</td>
   <td>~196 (2024)</td>
   <td class="col-t25" title="Estimate. Marin's leading Catholic option; modest T25 footprint vs independents.">~7% <span class="conf conf-e">E</span></td>
-  <td class="col-ci">2.0 – 12.0%</td>
+  <td class="num">—</td>
+  <td class="num">A-</td>
   <td>~$28k</td>
   <td>—</td>
   <td>Class of 2024 received 1,000+ acceptances. Per-college matriculation counts not in public sources.</td>
@@ -885,7 +926,8 @@
   <td>Catholic Dominican / coed / day+boarding</td>
   <td>~50</td>
   <td class="col-t25" title="Estimate. Niche estimate ~13% T25; heavy international (Chinese matriculation pipeline); 5-yr matriculations include 13 T25 schools.">~13% <span class="conf conf-e">E</span></td>
-  <td class="col-ci">8.0 – 18.0%</td>
+  <td class="num">—</td>
+  <td class="num">B+</td>
   <td>~$60k day / ~$84k boarding</td>
   <td>2021–25</td>
   <td>5-year matriculations (bold) include Stanford, Cornell, Dartmouth, Penn, UCB, UCLA, UChicago, Michigan, Notre Dame, USC, NYU, WashU, Emory. Also Princeton, JHU among acceptances.</td>
@@ -906,7 +948,8 @@
   <th>Affiliation / Personality</th>
   <th>Class size</th>
   <th>T25 %</th>
-  <th>95% CI</th>
+  <th>GS</th>
+  <th>Niche</th>
   <th>Tuition (~24–25)</th>
   <th>Years</th>
   <th>T25 matriculants (most common destinations)</th>
@@ -922,7 +965,8 @@
   <td>Independent / coed</td>
   <td>~70</td>
   <td class="col-t25" title="Estimate. Only private indep college prep in Sonoma County; matriculations include 16+ T25 schools but no counts; small selective.">~15% <span class="conf conf-e">E</span></td>
-  <td class="col-ci">10.0 – 20.0%</td>
+  <td class="num">—</td>
+  <td class="num">A</td>
   <td>~$55k</td>
   <td>2021–25</td>
   <td>Confirmed T25 matriculations include Princeton, Harvard, Stanford, Yale, JHU, Northwestern, Penn, Cornell, Columbia, Dartmouth, UCB, UCLA, CMU, Rice, Notre Dame, UVA. No per-college counts.</td>
@@ -936,7 +980,8 @@
   <td>Catholic Lasallian / coed</td>
   <td>~140</td>
   <td class="col-t25" title="Estimate. Niche estimate ~17% T25; modest T25 footprint, mainly UC + state pipeline.">~10% <span class="conf conf-e">E</span></td>
-  <td class="col-ci">5.0 – 15.0%</td>
+  <td class="num">—</td>
+  <td class="num">B+</td>
   <td>~$25k</td>
   <td>Class of 2024</td>
   <td>2024 destinations include Northwestern, UC Santa Barbara, Berklee, Chapman, etc. Niche estimate ~17% T25.</td>
@@ -950,7 +995,8 @@
   <td>Catholic / coed</td>
   <td>~140</td>
   <td class="col-t25" title="Rough. Sonoma County Catholic; 96% to 4-year; counts unspecified; small T25 cohort.">~5% <span class="conf conf-r">R</span></td>
-  <td class="col-ci">0.0 – 15.0%</td>
+  <td class="num">—</td>
+  <td class="num">B+</td>
   <td>~$22k</td>
   <td>—</td>
   <td>Class of 2024 had 196 acceptances; ~96% to 4-year. Past Class accepted to Harvard, Duke, UCLA, Pomona, UCB. Counts unspecified.</td>
@@ -984,6 +1030,9 @@
 <div class="warn">
   <strong>This is a transparent heuristic anchored to schools with published data, not a trained ML model. Estimates flagged <span class="conf conf-r">R</span> could be off by &plusmn;10 percentage points. Use the rank as a starting point for your own due diligence, not a final answer.</strong>
 </div>
+
+<h3>GS &amp; Niche columns</h3>
+<p class="sub">The <strong>GS</strong> column is the school's <a href="https://www.greatschools.org">GreatSchools.org</a> 1-10 summary score. GreatSchools rates almost exclusively public schools using state test &amp; outcome data, so the column is "—" for the overwhelming majority of privates in this file. The <strong>Niche</strong> column is the <a href="https://www.niche.com">niche.com</a> overall letter grade (A+ down to D-), which aggregates academics, teachers, college prep, diversity, and parent/student survey data and does cover most privates. Treat both as third-party reputational signals, not as independent measures of T25 outcomes — they use very different inputs from the T25 % column and should be read alongside, not instead of, the matriculation evidence. Grades shown are based on training-data knowledge of well-known schools as of early 2026; for less-covered schools we leave the cell as "—" rather than guess.</p>
 
 <h2 id="caveats">Methodology &amp; caveats</h2>
 
