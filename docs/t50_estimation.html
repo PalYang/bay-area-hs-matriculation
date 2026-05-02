@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How T50 % is estimated</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; max-width: 900px; margin: 40px auto; padding: 0 24px; line-height: 1.6; color: #1f2328; }
+  h1 { font-size: 26px; }
+  h2 { font-size: 19px; margin-top: 36px; padding-top: 16px; border-top: 1px solid #d0d7de; }
+  h3 { font-size: 16px; margin-top: 24px; }
+  .nav { margin-bottom: 20px; font-size: 14px; }
+  .nav a { color: #0969da; text-decoration: none; margin-right: 16px; }
+  .nav a:hover { text-decoration: underline; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 12px 0; }
+  th, td { border: 1px solid #d0d7de; padding: 8px 12px; text-align: left; }
+  th { background: #f6f8fa; }
+  .callout { background: #fff8c5; border: 1px solid #d4a72c; border-radius: 6px; padding: 14px 18px; margin: 16px 0; }
+  .formula { background: #f6f8fa; padding: 14px 18px; border-radius: 6px; font-family: ui-monospace, monospace; font-size: 14px; }
+  .anchor { background: #d4edda; }
+</style>
+</head>
+<body>
+<div class="nav">
+  <a href="index.html">← Index</a>
+  <a href="methodology.html">Main methodology</a>
+  <a href="all_schools_ranked.html">All schools ranked →</a>
+</div>
+
+<h1>How T50 % is estimated</h1>
+<p>This page explains how the <strong>T50 %</strong> column on the schools tables is computed (for M-anchor schools) or estimated (for everyone else).</p>
+
+<h2>1. Definition</h2>
+<p>T50 % = % of the graduating class that matriculates to a U.S. News Top-50 National University. T50 includes all of T25 plus the next 25 schools. The full additional T26-50 set (rough — boundary shifts year to year):</p>
+<p style="font-size: 13px; color: #656d76;">USC, NYU, Tufts, UC Santa Barbara, UC San Diego, UC Irvine, UC Davis, Boston College, Boston University, Tulane, Wake Forest, Lehigh, U Rochester, Brandeis, Case Western, William &amp; Mary, Northeastern, Georgia Tech, U Wisconsin–Madison, UIUC (Illinois), UT Austin, Pepperdine, U Florida, Yeshiva, Villanova.</p>
+<p>UCSD, UCI, UCD are in T50 but not T25 — important for Bay Area schools whose UC matriculation spreads beyond UCB/UCLA.</p>
+
+<h2>2. Why T50 % matters separately from T25 %</h2>
+<p>T25 cuts at #25, which excludes major Bay Area destinations:</p>
+<ul>
+  <li><strong>USC, NYU, BU</strong> — common alternatives to T25 for Bay Area students who want a city-private experience</li>
+  <li><strong>UCSD, UCI, UCD</strong> — UC-eligible students who don't get UCB/UCLA</li>
+  <li><strong>Northeastern, BC, Tufts</strong> — common East Coast options below the T25 line</li>
+</ul>
+<p>For most Bay Area schools, T50 % captures roughly 50% more matriculation than T25 % — a school with 20% T25 typically has 32–40% T50.</p>
+
+<h2>3. M-anchor calculation</h2>
+<p>For schools with published per-college matriculation lists, T50 % is computed by summing matriculation counts to all colleges in the T50 set, dividing by class size, and averaging across the published years.</p>
+
+<h3>Worked example: College Preparatory School (Oakland)</h3>
+<div class="formula">
+CPS 5-year cumulative matriculations to T26-50 schools (approximate, from CPS published list):<br>
+&nbsp;&nbsp;USC 8, NYU 6, Tufts 5, BC 3, BU 4, Northeastern 5, GA Tech 2, U Wisconsin 1, UCSB 4, UCSD 6, UCI 2, UCD 3, others ~10<br>
+&nbsp;&nbsp;Sum T26-50 ≈ 59 over 5 yrs = ~12/yr<br>
+&nbsp;&nbsp;Plus T25 of ~38/yr (= 47.8% × 80 grads)<br>
+&nbsp;&nbsp;<strong>T50 % = (38 + 12) / 80 ≈ 62.5%</strong>
+</div>
+<p>Note that CPS's actual T50 % is higher than its T25 % by about 15 percentage points — the spread is broader than the headline T25 % suggests.</p>
+
+<h3>Measured T50 % for the M-anchor set</h3>
+<table>
+<thead><tr><th>School</th><th>T25 %</th><th>T50 %</th><th>T50/T25 ratio</th><th>Notes</th></tr></thead>
+<tbody>
+<tr class="anchor"><td>The Harker School</td><td>~42%</td><td>~68%</td><td>1.62</td><td>Heavy USC, NYU, Tufts spread.</td></tr>
+<tr class="anchor"><td>College Preparatory School</td><td>47.8%</td><td>~62%</td><td>1.30</td><td>Already very T25-heavy; less room to grow.</td></tr>
+<tr class="anchor"><td>Castilleja School</td><td>~42%</td><td>~62%</td><td>1.48</td><td>Smaller LAC bias balances out.</td></tr>
+<tr class="anchor"><td>Menlo School</td><td>40.4%</td><td>~68%</td><td>1.68</td><td>USC, NYU, BC, Tufts well-represented.</td></tr>
+<tr class="anchor"><td>The Nueva School</td><td>~38%</td><td>~58%</td><td>1.53</td><td>Spread to T26-50 plus LACs.</td></tr>
+<tr class="anchor"><td>Branson School</td><td>~50%</td><td>~75%</td><td>1.50</td><td>Broad national spread.</td></tr>
+<tr class="anchor"><td>Marin Academy</td><td>25.5%</td><td>~45%</td><td>1.76</td><td>Strong USC + Tufts + BU.</td></tr>
+<tr class="anchor"><td>Urban School</td><td>19.2%</td><td>~38%</td><td>1.98</td><td>Long tail of T26-50 progressive privates.</td></tr>
+<tr class="anchor"><td>Lick-Wilmerding</td><td>~33%</td><td>~58%</td><td>1.76</td><td>USC, BU, Northeastern strong.</td></tr>
+<tr class="anchor"><td>Lynbrook HS</td><td>~22%</td><td>~42%</td><td>1.91</td><td>UCSD, UCI, UCD picks up most of the additional.</td></tr>
+<tr class="anchor"><td>Henry M. Gunn HS</td><td>17.8%</td><td>~33%</td><td>1.85</td><td>UCSD/UCI/UCD plus USC and Northeastern.</td></tr>
+<tr class="anchor"><td>Palo Alto HS</td><td>~21%</td><td>~38%</td><td>1.81</td><td>Similar to Gunn.</td></tr>
+</tbody>
+</table>
+
+<h2>4. Estimation for non-M schools</h2>
+<table>
+<thead><tr><th>School type</th><th>T50/T25 ratio</th><th>Reasoning</th></tr></thead>
+<tbody>
+<tr><td>Elite private / national-feeding</td><td>1.4–1.7</td><td>Top schools already-saturate T25 placements; T26-50 adds USC/NYU/Tufts.</td></tr>
+<tr><td>Top SF/Marin progressive private</td><td>1.5–1.9</td><td>USC and Tufts are reliable T26-50 destinations; LAC overlap doesn't count toward T50 (LACs are separate).</td></tr>
+<tr><td>Top public (Gunn-tier)</td><td>1.6–2.0</td><td>UCSD/UCI/UCD are huge T26-50 contributors; class spread broadens.</td></tr>
+<tr><td>Strong suburban public</td><td>1.7–2.2</td><td>Cohort spreads broadly across T26-50 + UCs.</td></tr>
+<tr><td>Catholic college-prep</td><td>1.8–2.5</td><td>Big jump because Santa Clara, USF, USD, Loyola Marymount land at T51-100 — but BC, BU, GA Tech, UCSD pull the cohort up.</td></tr>
+<tr><td>Mid-tier public</td><td>1.8–2.5</td><td>Most matriculation is sub-T25; T26-50 adds proportionally more than for top schools.</td></tr>
+<tr><td>Lower-tier public / Title I</td><td>1.5–2.5</td><td>Highly variable — depends on whether the school has any equity-driven private admits or stays purely UC/CSU.</td></tr>
+</tbody>
+</table>
+
+<div class="callout">
+<strong>Why the ratio is highest for mid- and Catholic schools.</strong> Catholic and mid-tier publics have many students whose top-target college is in the T26-50 range (USC, BC, Tulane for Catholic; UCSD, UCI, UCD for publics). Their T25 % is small but their T50 % is much larger. Elite privates already place most strong students at T25, so T26-50 just adds the long tail.
+</div>
+
+<h2>5. Known sources of error</h2>
+<ul>
+  <li><strong>Boundary fuzziness.</strong> #50 vs #51 is a coin flip in U.S. News methodology. A school where Villanova or Wake Forest ranks just above #50 vs just below shifts T50 % by 1–3 percentage points without any underlying change in school behavior.</li>
+  <li><strong>UC-rich Bay Area effect.</strong> UCSD/UCI/UCD are massive matriculation destinations for Bay Area public-school cohorts. The T50 % for top publics is heavily UCSD/UCI/UCD-driven, more so than national-comparable schools.</li>
+  <li><strong>Catholic schools' "Catholic T26-50."</strong> Notre Dame is T10, but BC, Villanova, Loyola Marymount (T51-100), Santa Clara (T51-100) drive Catholic matriculation. The T26-50 jump is especially uncertain for Catholic schools because the BC/Villanova share fluctuates year to year.</li>
+  <li><strong>Estimate stack.</strong> Non-M T50 % = ratio × estimated T25 %. Both are estimates; uncertainty stacks.</li>
+</ul>
+
+<h2>6. Confidence tags carry over</h2>
+<p>Same as T10 and T25 — the conf tag (M / E / R / N) applies to all metrics. An M-anchor T50 % was computed from published data; non-M T50 % inherits the T25 % uncertainty and adds ~2pp from the ratio approximation.</p>
+
+<p style="margin-top: 32px; color: #656d76; font-size: 13px;">See also: <a href="t10_estimation.html">How T10 % is estimated</a> · <a href="lac15_estimation.html">How LAC15 % is estimated</a> · <a href="methodology.html">Main methodology</a></p>
+
+</body>
+</html>

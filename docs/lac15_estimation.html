@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How LAC15 % is estimated</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; max-width: 900px; margin: 40px auto; padding: 0 24px; line-height: 1.6; color: #1f2328; }
+  h1 { font-size: 26px; }
+  h2 { font-size: 19px; margin-top: 36px; padding-top: 16px; border-top: 1px solid #d0d7de; }
+  h3 { font-size: 16px; margin-top: 24px; }
+  .nav { margin-bottom: 20px; font-size: 14px; }
+  .nav a { color: #0969da; text-decoration: none; margin-right: 16px; }
+  .nav a:hover { text-decoration: underline; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 12px 0; }
+  th, td { border: 1px solid #d0d7de; padding: 8px 12px; text-align: left; }
+  th { background: #f6f8fa; }
+  .callout { background: #fff8c5; border: 1px solid #d4a72c; border-radius: 6px; padding: 14px 18px; margin: 16px 0; }
+  .callout-red { background: #ffebe9; border-color: #cf222e; }
+  .formula { background: #f6f8fa; padding: 14px 18px; border-radius: 6px; font-family: ui-monospace, monospace; font-size: 14px; }
+  .anchor { background: #d4edda; }
+</style>
+</head>
+<body>
+<div class="nav">
+  <a href="index.html">← Index</a>
+  <a href="methodology.html">Main methodology</a>
+  <a href="all_schools_ranked.html">All schools ranked →</a>
+</div>
+
+<h1>How LAC15 % is estimated</h1>
+<p>This page explains how the <strong>LAC15 %</strong> column on the schools tables is computed (for M-anchor schools) or estimated (for everyone else).</p>
+
+<div class="callout callout-red">
+<strong>Reliability warning.</strong> LAC15 is the weakest of the four metrics on this site. Most schools (especially publics and Catholic schools) do not break out matriculation to liberal arts colleges in their published profiles. Estimates are heavily extrapolated from school type. Treat LAC15 % as directional, not exact — easily ±3–5 percentage points off for any single non-M school.
+</div>
+
+<h2>1. Definition</h2>
+<p>LAC15 % = % of the graduating class that matriculates to a U.S. News Top-15 Liberal Arts College. The LAC15 set:</p>
+<ol style="columns: 2; column-gap: 32px;">
+  <li>Williams</li>
+  <li>Amherst</li>
+  <li>Pomona</li>
+  <li>Swarthmore</li>
+  <li>Bowdoin</li>
+  <li>Wellesley</li>
+  <li>Carleton</li>
+  <li>Claremont McKenna</li>
+  <li>Middlebury</li>
+  <li>Davidson</li>
+  <li>Hamilton</li>
+  <li>Vassar</li>
+  <li>Smith</li>
+  <li>Washington &amp; Lee</li>
+  <li>US Naval Academy</li>
+</ol>
+<p>List approximates the U.S. News 2024–2025 LAC ranking. Boundary shifts year to year.</p>
+
+<h2>2. Why LAC15 % matters separately</h2>
+<p>LACs are entirely missing from T10/T25/T50/UC. They're a distinct cultural orientation — small, residential, undergraduate-focused — that some students prioritize over big-name research universities.</p>
+<p>Schools that send many graduates to LACs typically have a <strong>progressive, arts-leaning, or social-justice-oriented culture</strong>. This is a real differentiator that doesn't show up in any other metric.</p>
+<p>Conversely: a school with 0 LAC15 % isn't worse than one with 8% — it just attracts a different student body. Tech-leaning students often have no interest in LACs.</p>
+
+<h2>3. M-anchor calculation</h2>
+<p>For the few schools that publish per-college matriculation lists, LAC15 % is computed by summing matriculations to the 15 LACs above and dividing by class size. Even some M-anchor schools have very few or zero LAC15 matriculations, in which case the cell shows the actual zero.</p>
+
+<h3>Worked example: Marin Academy</h3>
+<div class="formula">
+Marin Academy 2023-25 matriculations to LAC15 schools (approximate, from MA published list):<br>
+&nbsp;&nbsp;Williams 3, Pomona 4, Swarthmore 2, Carleton 2, Hamilton 3, Vassar 4, Middlebury 3, Wellesley 2, Bowdoin 2, others 5<br>
+&nbsp;&nbsp;Sum LAC15 ≈ 30 over 3 yrs = ~10/yr<br>
+&nbsp;&nbsp;Class size ~115<br>
+&nbsp;&nbsp;<strong>LAC15 % = 10 / 115 ≈ 8.7%</strong>
+</div>
+<p>Marin Academy is one of the highest LAC15 % schools in the dataset — characteristic of progressive privates. Compare to Lynbrook (LAC15 ~1%) — a top-tier public where almost no graduates choose LACs.</p>
+
+<h3>Measured LAC15 % for the M-anchor set</h3>
+<table>
+<thead><tr><th>School</th><th>T25 %</th><th>LAC15 %</th><th>LAC15/T25 ratio</th><th>Notes</th></tr></thead>
+<tbody>
+<tr class="anchor"><td>Marin Academy</td><td>25.5%</td><td>~9%</td><td>0.35</td><td>Highest LAC orientation in M set; consistent with progressive culture.</td></tr>
+<tr class="anchor"><td>Urban School (SF)</td><td>19.2%</td><td>~7%</td><td>0.36</td><td>Carleton, Pomona, Wesleyan strong.</td></tr>
+<tr class="anchor"><td>Lick-Wilmerding</td><td>~33%</td><td>~8%</td><td>0.24</td><td>Pomona, Carleton, Williams represented.</td></tr>
+<tr class="anchor"><td>The Nueva School</td><td>~38%</td><td>~7%</td><td>0.18</td><td>Some LAC matriculation despite STEM lean.</td></tr>
+<tr class="anchor"><td>Branson School</td><td>~50%</td><td>~10%</td><td>0.20</td><td>Williams, Amherst, Pomona well-placed.</td></tr>
+<tr class="anchor"><td>College Preparatory School</td><td>47.8%</td><td>~6%</td><td>0.13</td><td>More T25-focused than LAC-focused.</td></tr>
+<tr class="anchor"><td>The Harker School</td><td>~42%</td><td>~5%</td><td>0.12</td><td>Strong tech/STEM lean; few LAC matrics.</td></tr>
+<tr class="anchor"><td>Menlo School</td><td>40.4%</td><td>~5%</td><td>0.12</td><td>National universities favored over LACs.</td></tr>
+<tr class="anchor"><td>Castilleja School</td><td>~42%</td><td>~6%</td><td>0.14</td><td>Wellesley + Pomona + Williams typical.</td></tr>
+<tr class="anchor"><td>Henry M. Gunn HS</td><td>17.8%</td><td>~2%</td><td>0.11</td><td>Public — very few LAC matriculations.</td></tr>
+<tr class="anchor"><td>Palo Alto HS</td><td>~21%</td><td>~2%</td><td>0.10</td><td>Same as Gunn.</td></tr>
+<tr class="anchor"><td>Lynbrook HS</td><td>~22%</td><td>~1%</td><td>0.05</td><td>Heavy STEM cohort; almost no LAC interest.</td></tr>
+</tbody>
+</table>
+
+<h2>4. Estimation for non-M schools</h2>
+<table>
+<thead><tr><th>School type</th><th>LAC15/T25 ratio</th><th>Reasoning</th></tr></thead>
+<tbody>
+<tr><td>Top SF/Marin progressive private</td><td>0.20–0.40</td><td>Highest LAC orientation. Anchored to Marin Academy, Urban, Lick-Wilmerding.</td></tr>
+<tr><td>Elite private / national-feeding</td><td>0.10–0.20</td><td>Some LAC placement but national universities dominate. Anchored to Harker, Menlo, CPS.</td></tr>
+<tr><td>Top public (Gunn-tier)</td><td>0.05–0.15</td><td>Very few. STEM-heavy cohorts; LACs typically not on radar. Anchored to Gunn, Paly, Lynbrook.</td></tr>
+<tr><td>Strong suburban public</td><td>0.05–0.15</td><td>Occasional LAC admits; usually 0–2 per class.</td></tr>
+<tr><td>Catholic college-prep</td><td>0.03–0.08</td><td>Very low. Catholic-school cohorts strongly favor BC, Notre Dame, Santa Clara — not LACs. Davidson and Wash &amp; Lee occasional.</td></tr>
+<tr><td>Mid-tier public</td><td>0.02–0.08</td><td>Trace level — typically 0 or 1 per class.</td></tr>
+<tr><td>Lower-tier public / Title I</td><td>0.0–0.05</td><td>Almost always 0; equity programs occasionally place students at Pomona, Wellesley, Smith.</td></tr>
+</tbody>
+</table>
+
+<h2>5. Why this metric is the weakest</h2>
+<p>Two structural reasons LAC15 % is hard to estimate:</p>
+<ol>
+  <li><strong>Schools rarely break out LAC matriculations.</strong> Most school profile PDFs lump LACs in with "other 4-year colleges" or list them by name without distinguishing T15 from T100. Even some M-anchor schools required hand-coding from name lists.</li>
+  <li><strong>Cohort self-selection dominates ratios.</strong> A "progressive private" with 0.20 LAC/T25 ratio and an "elite STEM private" with 0.05 LAC/T25 ratio could have identical academic outcomes — the difference is which colleges their students apply to. The school's culture predicts the ratio more than the school's selectivity.</li>
+</ol>
+
+<div class="callout">
+<strong>Don't compare LAC15 % across school types.</strong> A Catholic school at 3% LAC15 isn't worse than an independent at 8% — it's a different cultural fit. Use LAC15 % to identify schools that match a "small-college, residential, undergrad-focused" priority, not to rank quality.
+</div>
+
+<h2>6. Known sources of error</h2>
+<ul>
+  <li><strong>List boundary.</strong> US Naval Academy at #15 vs. Wesleyan at #16 (or wherever the cutoff falls) — boundary shifts year to year.</li>
+  <li><strong>School-published lists may omit LACs.</strong> If a school's profile only highlights "where seniors enrolled at name-brand universities," LAC matriculations may be undercounted in the source data.</li>
+  <li><strong>Ratio range is wide.</strong> Within "progressive private" the ratio runs 0.20–0.40 — a 2x spread. Real numbers can be anywhere in the band.</li>
+  <li><strong>Year-to-year variance is large for small schools.</strong> A class of 50 with 1 fewer Williams admit drops LAC15 % by 2pp.</li>
+</ul>
+
+<h2>7. Confidence tags carry over but with extra uncertainty</h2>
+<p>For non-M schools, LAC15 % uncertainty is roughly 2× the T25 % uncertainty due to the wider ratio bands and weaker source data. Even an "E" tag should be read as "rough" for LAC15 specifically.</p>
+
+<p style="margin-top: 32px; color: #656d76; font-size: 13px;">See also: <a href="t10_estimation.html">How T10 % is estimated</a> · <a href="t50_estimation.html">How T50 % is estimated</a> · <a href="methodology.html">Main methodology</a></p>
+
+</body>
+</html>

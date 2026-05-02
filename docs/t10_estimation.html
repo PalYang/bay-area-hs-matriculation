@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How T10 % is estimated</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; max-width: 900px; margin: 40px auto; padding: 0 24px; line-height: 1.6; color: #1f2328; }
+  h1 { font-size: 26px; }
+  h2 { font-size: 19px; margin-top: 36px; padding-top: 16px; border-top: 1px solid #d0d7de; }
+  h3 { font-size: 16px; margin-top: 24px; }
+  .nav { margin-bottom: 20px; font-size: 14px; }
+  .nav a { color: #0969da; text-decoration: none; margin-right: 16px; }
+  .nav a:hover { text-decoration: underline; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 12px 0; }
+  th, td { border: 1px solid #d0d7de; padding: 8px 12px; text-align: left; }
+  th { background: #f6f8fa; }
+  .callout { background: #fff8c5; border: 1px solid #d4a72c; border-radius: 6px; padding: 14px 18px; margin: 16px 0; }
+  .formula { background: #f6f8fa; padding: 14px 18px; border-radius: 6px; font-family: ui-monospace, monospace; font-size: 14px; }
+  .anchor { background: #d4edda; }
+</style>
+</head>
+<body>
+<div class="nav">
+  <a href="index.html">← Index</a>
+  <a href="methodology.html">Main methodology</a>
+  <a href="all_schools_ranked.html">All schools ranked →</a>
+</div>
+
+<h1>How T10 % is estimated</h1>
+<p>This page explains how the <strong>T10 %</strong> column on the schools tables is computed (for M-anchor schools) or estimated (for everyone else).</p>
+
+<h2>1. Definition</h2>
+<p>T10 % = % of the graduating class that matriculates to a U.S. News Top-10 National University. The T10 set:</p>
+<ol style="columns: 2; column-gap: 32px;">
+  <li>Princeton</li>
+  <li>MIT</li>
+  <li>Harvard</li>
+  <li>Stanford</li>
+  <li>Yale</li>
+  <li>Caltech</li>
+  <li>Duke</li>
+  <li>Johns Hopkins</li>
+  <li>Northwestern</li>
+  <li>Penn</li>
+</ol>
+<p>List current as of the U.S. News 2024–2025 ranking cycle. Ties at the boundary slightly expand the set (e.g., a year where Penn ties with Brown could push #11 into the bucket). <strong>Matriculation</strong>, not acceptance — where students actually enroll.</p>
+
+<h2>2. Why T10 % matters separately from T25 %</h2>
+<p>T25 % bundles HYPSM with UCB, UCLA, Michigan, UVA, Notre Dame, etc. A school can be "20% T25" while sending almost no one to HYPSM — they just have a strong UC pipeline. T10 % strips out that effect.</p>
+<p>The gap between T10 % and T25 % is the cleanest single signal of whether a school's outcomes lean ultra-elite-private vs strong-state-flagship.</p>
+
+<h2>3. M-anchor calculation (schools with published per-college lists)</h2>
+<p>For these ~10 schools, T10 % is computed directly from the school's published matriculation list. Sum matriculations to the 10 schools listed above, divide by class size, average across the years in the published window.</p>
+
+<h3>Worked example: Henry M. Gunn HS</h3>
+<div class="formula">
+Gunn 2024 matriculations to T10 schools (per Gunn's CCC page):<br>
+&nbsp;&nbsp;Stanford 14, Harvard 4, Princeton 2, MIT 3, Yale 2, Northwestern 1, Penn 1, Duke 0, JHU 0, Caltech 1<br>
+&nbsp;&nbsp;Sum = 28<br>
+&nbsp;&nbsp;Class size = ~440<br>
+&nbsp;&nbsp;<strong>T10 % = 28 / 440 ≈ 6.4%</strong>
+</div>
+<p>Compare to Gunn's T25 % of 17.8% — about 36% of Gunn's T25 matriculation goes to T10, the other 64% goes to UCB/UCLA/UCSD/Michigan/CMU/etc.</p>
+
+<h3>Measured T10 % for the M-anchor set</h3>
+<table>
+<thead><tr><th>School</th><th>T25 %</th><th>T10 %</th><th>T10/T25 ratio</th><th>Notes</th></tr></thead>
+<tbody>
+<tr class="anchor"><td>The Harker School</td><td>~42%</td><td>~19%</td><td>0.45</td><td>Strong HYPSM funnel — Stanford 34 over 3 yrs is the dominant T10 contributor.</td></tr>
+<tr class="anchor"><td>Castilleja School</td><td>~42%</td><td>~17%</td><td>0.40</td><td>Small all-girls; high-density HYPSM placement.</td></tr>
+<tr class="anchor"><td>College Preparatory School (Oakland)</td><td>47.8%</td><td>~19%</td><td>0.40</td><td>UChicago and Stanford lead; Harvard 13 + Yale 8 + Princeton 4.</td></tr>
+<tr class="anchor"><td>Menlo School</td><td>40.4%</td><td>~14%</td><td>0.35</td><td>Broad T25 footprint but less concentrated at HYPSM.</td></tr>
+<tr class="anchor"><td>The Nueva School</td><td>~38%</td><td>~14%</td><td>0.37</td><td>Stanford-heavy; small class makes year-over-year noisy.</td></tr>
+<tr class="anchor"><td>Branson School</td><td>~50%</td><td>~15%</td><td>0.30</td><td>High T25 from broad spread; not as HYPSM-concentrated as Harker.</td></tr>
+<tr class="anchor"><td>Marin Academy</td><td>25.5%</td><td>~8%</td><td>0.31</td><td>Lower T10 because outcomes spread to LACs (LAC15 ~8%).</td></tr>
+<tr class="anchor"><td>Urban School (SF)</td><td>19.2%</td><td>~7%</td><td>0.36</td><td>Progressive; spread across T25 + LACs.</td></tr>
+<tr class="anchor"><td>Lick-Wilmerding (SF)</td><td>~33%</td><td>~10%</td><td>0.30</td><td>Stanford 19 leads; broad spread.</td></tr>
+<tr class="anchor"><td>Lynbrook HS</td><td>~22%</td><td>~7%</td><td>0.32</td><td>Top-public pattern: most T25 is UCB/UCLA, not HYPSM.</td></tr>
+<tr class="anchor"><td>Henry M. Gunn HS</td><td>17.8%</td><td>~6.4%</td><td>0.36</td><td>See worked example above.</td></tr>
+<tr class="anchor"><td>Palo Alto HS (Paly)</td><td>~21%</td><td>~6%</td><td>0.29</td><td>Same pattern as Gunn; Stanford ~10–14/yr is the dominant T10.</td></tr>
+</tbody>
+</table>
+
+<h2>4. Estimation for non-M schools</h2>
+<p>For schools without a published per-college list (E, R, N tags — about 145 schools), T10 % is estimated as a multiple of T25 % using the calibrated ratio table below:</p>
+
+<table>
+<thead><tr><th>School type</th><th>T10/T25 ratio</th><th>Reasoning</th></tr></thead>
+<tbody>
+<tr><td>Elite private / national-feeding</td><td>0.35–0.50</td><td>Top-tier admissions; cohort qualifies for HYPSM admits at high rate. Anchored to Harker, Castilleja, CPS.</td></tr>
+<tr><td>Top SF/Marin progressive private</td><td>0.25–0.40</td><td>Spread shifts to LACs and broader T25; Stanford remains accessible. Anchored to Urban, Lick-Wilmerding, Marin Academy.</td></tr>
+<tr><td>Top public (Gunn-tier)</td><td>0.20–0.35</td><td>Strong cohort but T25 is UC-heavy. HYPSM admits exist but smaller share. Anchored to Gunn, Paly, Lynbrook.</td></tr>
+<tr><td>Strong suburban public</td><td>0.10–0.20</td><td>Smaller HYPSM admit share; matriculation skews CSU/UC-mid.</td></tr>
+<tr><td>Catholic college-prep</td><td>0.08–0.15</td><td>Lower HYPSM admit rate; Notre Dame is the main T10 destination, capping share.</td></tr>
+<tr><td>Mid-tier public</td><td>0.05–0.15</td><td>HYPSM admits rare but not zero; usually 1–2 per class.</td></tr>
+<tr><td>Lower-tier public / Title I</td><td>0.0–0.10</td><td>Mostly zero; equity-driven UCB or Stanford admits add 1–2 in good years.</td></tr>
+</tbody>
+</table>
+
+<div class="callout">
+<strong>Why the ratio varies.</strong> A school's T10/T25 ratio reflects how concentrated its top placements are at the very top of the list. Elite privates have admit-screened cohorts where many students could attend HYPSM. UC-pipeline publics have many strong students whose typical destination is UCB or UCLA — also T25, but not T10.
+</div>
+
+<h2>5. Known sources of error</h2>
+<ul>
+  <li><strong>Small-sample noise.</strong> A school with 80 graduates per year shows ±2–3 students of T10 variance from random year-to-year admit fluctuation. That's 2.5–4 percentage points — comparable to the entire estimate for some schools.</li>
+  <li><strong>Stanford geography.</strong> Bay Area schools cluster near Stanford. Stanford comprises 30–60% of any Bay Area school's T10 matriculation. A school's relative Stanford yield drives its T10 % more than any other single factor.</li>
+  <li><strong>Year-to-year variance for small private schools.</strong> A class with 1 fewer Harvard admit drops T10 % by 1pp on a 100-student class. Three-year averages help; single years can mislead.</li>
+  <li><strong>Catholic schools' Notre Dame skew.</strong> Notre Dame is in T10 but is heavily over-represented in Catholic-school matriculation vs the rest of T10. SI / Bellarmine / Mitty estimates may overstate "ultra-elite" feeling — many of those T10 admits are Notre Dame, not HYPSM.</li>
+</ul>
+
+<h2>6. Confidence tags carry over</h2>
+<p>The conf tag (M / E / R / N) on each row applies to all metrics, not just T25. An M row's T10 % was computed from the same source data as its T25 % and carries the same confidence. An R row's T10 % is a ratio applied to an R-tier T25 % — its uncertainty stacks (roughly ±3pp).</p>
+
+<p style="margin-top: 32px; color: #656d76; font-size: 13px;">See also: <a href="t50_estimation.html">How T50 % is estimated</a> · <a href="lac15_estimation.html">How LAC15 % is estimated</a> · <a href="methodology.html">Main methodology</a></p>
+
+</body>
+</html>
