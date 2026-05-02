@@ -151,6 +151,86 @@ Confidence tag is set by the highest-tier source available:<br>
 </tbody>
 </table>
 
+<h2>8. Acceptance vs. matriculation conversion</h2>
+<p>Many schools (especially Catholic college-preps and some independents like BASIS Independent Fremont, Bay School of SF, Bentley) publish <em>acceptance</em> lists rather than <em>matriculation</em> lists. Converting one to the other is the single most error-prone step in this dataset. The formal rule:</p>
+
+<div class="formula">
+TN_matriculation = TN_acceptance × yield(N)
+</div>
+
+<p><strong>One yield multiplier per tier. No stacking.</strong> Earlier drafts of the estimator stacked a yield factor and a separate selection factor, which compressed each tier independently and broke internal consistency.</p>
+
+<h3>The subset rule</h3>
+<p>For every school, the following must hold on both acceptance and matriculation counts:</p>
+<div class="formula">
+T10 &le; T15 &le; T25 &le; T50 &le; T100
+</div>
+<p>This is definitional — T15 is a strict superset of T10, and so on. Any row that violates this ordering is a methodology error, not a real-world finding.</p>
+
+<div class="callout callout-red">
+<strong>Worked counterexample — BASIS Independent Fremont (before fix).</strong> School publishes acceptance counts only. Stacked-discount conversion took 29% T15 acceptance → ~16% T15 matriculation, then estimated T25 matriculation at ~22% — implying T25 &lt; T15, which is impossible. Switching to a single yield-per-tier multiplier produced the corrected T25 estimate of ~32%, with T15 ≤ T25 properly preserved.
+</div>
+
+<h3>Default yield factors by tier</h3>
+<p>Use these as defaults when converting acceptance counts to matriculation. Yield declines as the bucket broadens because higher-tier admits cross-admit each other heavily and pick the most-selective option, while lower-tier admits are more diffusely distributed across the bucket. If the school publishes both acceptance and matriculation for any tier, prefer the measured ratio.</p>
+<table>
+<thead><tr><th>Tier</th><th>Default yield</th><th>Reasoning</th></tr></thead>
+<tbody>
+<tr><td>T10</td><td>0.85</td><td>Cross-admit pool concentrated; admits typically pick the single most-selective option.</td></tr>
+<tr><td>T15</td><td>0.85</td><td>Same as T10 — adding 5 more elite schools doesn't materially change yield behavior.</td></tr>
+<tr><td>T25</td><td>0.80</td><td>Bucket starts to include large publics (UCB/UCLA/UMich/UVA) where yield is lower.</td></tr>
+<tr><td>T50</td><td>0.70</td><td>Many cross-admits trade down to in-state public or merit-aid school outside T50.</td></tr>
+<tr><td>T100</td><td>0.60</td><td>Broad bucket; substantial leakage to LACs, military, conservatories, in-state.</td></tr>
+</tbody>
+</table>
+
+<h3>Three sanity checks for every new school estimate</h3>
+<ol>
+  <li><strong>Subset check.</strong> Does T10 &le; T15 &le; T25 &le; T50 hold? If not, the conversion is wrong — fix before publishing.</li>
+  <li><strong>Yield-stacking check.</strong> Did you apply more than one discount factor between acceptance and matriculation? If yes, collapse to a single yield per tier.</li>
+  <li><strong>Plausibility check.</strong> Does T25 % land in the typical range for the school's peer band (see Section 1b ratio table)? A 2× outlier from peers usually means an acceptance list was read as a matriculation list.</li>
+</ol>
+
+<h3>Yield is school-type dependent</h3>
+<p>The default yield table above (T10 0.85, T15 0.85, T25 0.80, etc.) is a starting point. The T25 yield in particular varies meaningfully by <em>school type</em> because yield is a behavioral parameter of the student population, not a fixed property of the T25 bucket. Use this table when the school's type is clear; fall back to 0.80 when it's not.</p>
+<table>
+<thead><tr><th>School type</th><th>T25 yield</th><th>Reasoning</th></tr></thead>
+<tbody>
+<tr><td>STEM-focused affluent secular (BASIS Fremont, BASIS SV, Quarry Lane, Pinewood, Stanford OHS)</td><td>0.90</td><td>High aspiration, few non-T25 attractions, low cost sensitivity.</td></tr>
+<tr><td>Elite progressive secular (Marin Academy, Urban, Lick-Wilmerding, Bay School, Branson)</td><td>0.80</td><td>LAC alternative pulls some T25-admitted students to top LACs instead.</td></tr>
+<tr><td>Top-tier Catholic (Bellarmine, Mitty, SI, SHC, Saint Francis)</td><td>0.70</td><td>Notre Dame loyalty (counts in T25, fine) but Santa Clara / USF / USD pull some T25-admitted students away.</td></tr>
+<tr><td>Mid-tier Catholic (NDB, Mercy Burlingame, De La Salle, Carondelet, Bishop O'Dowd)</td><td>0.65</td><td>More cost sensitivity + religious-school preference; many T25 admits opt for SCU / USF / USD.</td></tr>
+<tr><td>Top public (Gunn, Paly, MSJ, Lynbrook, etc.)</td><td>0.80</td><td>UCB/UCLA/UCSD admits typically taken; some pull to non-T25 UC and CSU.</td></tr>
+<tr><td>Strong suburban public</td><td>0.75</td><td>UC focus, but more cost-driven choices.</td></tr>
+</tbody>
+</table>
+
+<p>Full case study and revision log: <a href="lessons.md">Methodology lessons</a>.</p>
+
+<h2>9. Cross-check vs chicardgo (and the residual gap)</h2>
+<p>chicardgo.com is the most widely cited Bay Area high school ranking, and its T25 % numbers run materially higher than ours for the same schools. This section decomposes that gap honestly: part of it is a <strong>definitional gap</strong> (chicardgo's "T25 %" is a composite that includes T15 LACs and other UCs, which we exclude by definition), and part of it is a <strong>methodological gap</strong> (their formula does not separate acceptance from matriculation, and applies a yield assumption that is too low for top-of-funnel schools).</p>
+
+<table>
+<thead><tr><th>School</th><th>chicardgo T25 %</th><th>Our T25 %</th><th>Gap</th><th>Definitional contribution (LAC15 + non-T25 UC)</th><th>Methodological contribution (yield/admit conflation)</th><th>Decomposed: ours + LAC15 + other-UC ≈</th></tr></thead>
+<tbody>
+<tr><td>The Harker School</td><td>62%</td><td>~42%</td><td>20pp</td><td>~4% LAC15 + ~10% other-UC ≈ 14pp</td><td>~6pp (acceptance vs matric, plus index weighting)</td><td>42 + 4 + 10 = <strong>~56%</strong></td></tr>
+<tr><td>Castilleja School</td><td>57%</td><td>~42%</td><td>15pp</td><td>~8% LAC15 + ~7% other-UC ≈ 15pp</td><td>~0pp (most of gap is definitional here)</td><td>42 + 8 + 7 = <strong>~57%</strong></td></tr>
+<tr><td>Stanford Online HS</td><td>55%</td><td>~32%</td><td>23pp</td><td>~6% LAC15 + ~5% other-UC ≈ 11pp</td><td>~12pp (chicardgo's index folds in college-readiness score, inflating roughly 10pp)</td><td>32 + 6 + 5 = <strong>~43%</strong></td></tr>
+<tr><td>College Preparatory School</td><td>55%</td><td>47.8%</td><td>7pp</td><td>~12% LAC15 + ~6% other-UC ≈ 18pp</td><td>negative (ours is <em>higher</em> on a like-for-like basis once chicardgo's bigger LAC15 weight is netted in)</td><td>48 + 12 + 6 = <strong>~66%</strong> (above chicardgo because their composite caps the LAC contribution)</td></tr>
+<tr><td>Menlo School</td><td>53%</td><td>40.4%</td><td>13pp</td><td>~8% LAC15 + ~9% other-UC ≈ 17pp</td><td>negative-to-zero on a like-for-like basis</td><td>40 + 8 + 9 = <strong>~57%</strong></td></tr>
+<tr><td>The Nueva School</td><td>52%</td><td>~38%</td><td>14pp</td><td>~10% LAC15 + ~6% other-UC ≈ 16pp</td><td>~negative on like-for-like</td><td>38 + 10 + 6 = <strong>~54%</strong></td></tr>
+<tr><td>Lick-Wilmerding HS</td><td>49%</td><td>~33%</td><td>16pp</td><td>~10% LAC15 + ~10% other-UC ≈ 20pp</td><td>negative</td><td>33 + 10 + 10 = <strong>~53%</strong></td></tr>
+<tr><td>BASIS Independent Fremont</td><td>~50%</td><td>~48%</td><td>2pp</td><td>~5% LAC15 + ~10% other-UC ≈ 15pp</td><td>negative — our 90%-yield correction closes most of the gap</td><td>48 + 5 + 10 = <strong>~63%</strong></td></tr>
+<tr><td>Branson School</td><td>52%</td><td>~50%</td><td>2pp</td><td>~15% LAC15 + ~10% other-UC ≈ 25pp</td><td>negative — measured matriculation list nearly matches chicardgo on the simple T25 component</td><td>50 + 15 + 10 = <strong>~75%</strong></td></tr>
+</tbody>
+</table>
+
+<p><strong>Reading the decomposition.</strong> When "ours + LAC15 + other-UC" is roughly equal to chicardgo, the entire gap is definitional — they are measuring a broader bucket. When it exceeds chicardgo, our pure T25 number is actually <em>higher</em> on a like-for-like basis, and chicardgo's index is being held back by their college-readiness weighting (20% of their composite). When it is less than chicardgo (Stanford OHS, Harker), the residual is the methodological gap: chicardgo conflates acceptance and matriculation and uses an implied yield closer to 100%, which inflates schools where the school publishes acceptance lists but the actual yield is meaningfully below 100%.</p>
+
+<div class="callout">
+<strong>Honest closing.</strong> chicardgo's numbers are not wrong — they are a different metric. They measure "elite college outcomes broadly" by combining T25 nationals, top LACs, all UCs, and a college-readiness signal. We measure pure T25 matriculation (where students enroll at U.S. News Top-25 National Universities only). The two metrics rank the schools in roughly the same order — the absolute scale is different. If you want a single broader number, mentally add ~10-15pp to our T25 % for elite-feeding privates and ~5-10pp for top publics; that approximates the chicardgo "T25 %." If you want pure prestige-selectivity, use ours.
+</div>
+
 <div class="callout">
 <strong>Bottom line:</strong> Use the rankings as a starting point, not an answer. The single biggest source of variance in any individual student's outcome is their own aptitude and effort — high-quality schools amplify that, but they don't replace it. The "best high school to attend" is the one whose culture, peer group, distance, and cost fit your family — matriculation rankings just narrow the field.
 </div>
