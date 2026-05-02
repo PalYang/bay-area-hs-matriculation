@@ -45,6 +45,41 @@
   footer { margin-top: 48px; color: #656d76; font-size: 13px; }
   footer a { color: #0969da; text-decoration: none; }
   footer a:hover { text-decoration: underline; }
+  .county-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 12px;
+  }
+  .county-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+    padding: 10px 14px;
+    text-decoration: none;
+    color: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    transition: border-color 0.15s, background 0.15s;
+  }
+  .county-card:hover {
+    border-color: #0969da;
+    background: #f6f8fa;
+  }
+  .county-card span {
+    color: #656d76;
+    font-size: 12px;
+    font-weight: 400;
+    margin-left: 10px;
+  }
+  @media (max-width: 720px) {
+    .county-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 480px) {
+    .county-grid { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
@@ -70,6 +105,19 @@
   <h2>Methodology &amp; review &rarr;</h2>
   <p>T25 reference list, master roster of Bay Area high schools, methodology critique, decision framework, and reviewer audit of the data tables.</p>
 </a>
+
+<h2 style="margin-top: 40px; font-size: 18px; color: #656d76;">Per-county detail (year-by-year, 2021–2025)</h2>
+<div class="county-grid">
+  <a class="county-card" href="counties/santa_clara.html">Santa Clara <span>~31 schools</span></a>
+  <a class="county-card" href="counties/alameda.html">Alameda <span>~29 schools</span></a>
+  <a class="county-card" href="counties/san_mateo.html">San Mateo <span>~24 schools</span></a>
+  <a class="county-card" href="counties/contra_costa.html">Contra Costa <span>~29 schools</span></a>
+  <a class="county-card" href="counties/san_francisco.html">San Francisco <span>~26 schools</span></a>
+  <a class="county-card" href="counties/marin.html">Marin <span>~11 schools</span></a>
+  <a class="county-card" href="counties/sonoma.html">Sonoma <span>~14 schools</span></a>
+  <a class="county-card" href="counties/napa.html">Napa <span>~6 schools</span></a>
+  <a class="county-card" href="counties/solano.html">Solano <span>~9 schools</span></a>
+</div>
 
 <div class="caveats">
   <h3>Read before drawing conclusions</h3>
