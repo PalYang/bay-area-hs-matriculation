@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Methodology — Bay Area HS T25 Matriculation</title>
+<title>Methodology — Bay Area HS Matriculation Metrics</title>
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; max-width: 900px; margin: 40px auto; padding: 0 24px; line-height: 1.6; color: #1f2328; }
   h1 { font-size: 26px; }
@@ -29,8 +29,8 @@
   <a href="all_schools_ranked.html">All schools ranked →</a>
 </div>
 
-<h1>Methodology — How T25 % is estimated</h1>
-<p>This page documents the multi-source weighted estimator used to produce the T25 % numbers across this site, and explains why our numbers will diverge from other published Bay Area high school rankings.</p>
+<h1>Methodology — How the matriculation metrics are estimated</h1>
+<p>This page documents the multi-source weighted estimator used to produce the T25 % (and companion T10 %, T50 %, LAC15 %, UC %) numbers across this site, and explains why our numbers will diverge from other published Bay Area high school rankings.</p>
 
 <h2>1. What "T25" means in this dataset</h2>
 <p>Every T25 % on this site refers to:</p>
@@ -39,6 +39,40 @@
   <li><strong>Outcome counted:</strong> matriculation (where students actually enroll), not admission/acceptance.</li>
   <li><strong>Excluded:</strong> Top Liberal Arts Colleges (Williams, Amherst, Pomona, Swarthmore, etc.), other UC campuses outside T25 (Davis, Irvine, Santa Barbara, Santa Cruz, Riverside, Merced), Stanford-style hybrid programs not in the T25 list.</li>
 </ul>
+
+<h2>1b. The four companion metrics: T10 %, T50 %, LAC15 %, UC %</h2>
+<p>T25 % is one slice of selectivity. To give a fuller picture without abandoning the simplicity of single-number comparison, the schools tables now include four companion metrics. Each is built on the same matriculation-not-acceptance basis as T25 %, and each can be sorted independently in the tables.</p>
+<table>
+<thead><tr><th>Metric</th><th>Definition</th><th>Why it's useful</th></tr></thead>
+<tbody>
+<tr><td><strong>T10 %</strong></td><td>% of class matriculating to a U.S. News Top-10 National University: Princeton, MIT, Harvard, Stanford, Yale, Caltech, Duke, Johns Hopkins, Northwestern, Penn (ties at boundary slightly expand).</td><td><strong>Ultra-elite filter.</strong> T25 lumps in places like UCB, UCLA, Michigan, and UVA — fine schools but very different selectivity from HYPSM. T10 % is the cleanest signal for "how many alumni land at the most selective handful." This is where the gap between top private feeders and top publics shows up most starkly.</td></tr>
+<tr><td><strong>T25 %</strong></td><td>U.S. News Top-25 National Universities (existing — unchanged).</td><td>Standard prestige bucket; balances breadth and selectivity.</td></tr>
+<tr><td><strong>T50 %</strong></td><td>Top-50 National Universities. Adds the next 25 to T25: NYU, USC, Tufts, UCSB, UCSD, UCI, UCD, BC, BU, Tulane, Wake Forest, Lehigh, U Rochester, Brandeis, Case Western, William &amp; Mary, Northeastern, Georgia Tech, U Wisconsin, UIUC, UT Austin, Pepperdine, Florida, Yeshiva, etc.</td><td><strong>Broader prestige bucket.</strong> Captures the much larger group of strong selective schools (USC, NYU, BU, Tufts, UCSD, UCI, UCD…) that are common Bay Area destinations but invisible in T25. For most schools T50 % is roughly 1.5–2× T25 %.</td></tr>
+<tr><td><strong>LAC15 %</strong></td><td>Top-15 Liberal Arts Colleges: Williams, Amherst, Pomona, Swarthmore, Bowdoin, Wellesley, Carleton, Claremont McKenna, Middlebury, Davidson, Hamilton, Vassar, Smith, Washington &amp; Lee, US Naval Academy.</td><td><strong>Different school style.</strong> LACs are missing entirely from T25/T50/UC. Schools that send many graduates to LACs (typically progressive privates like Urban, Lick-Wilmerding, Marin Academy) have a very different cultural orientation than schools that don't. Catholic schools, mid-publics, and lower-tier publics will mostly show 0 here — that's correct, not a data gap.</td></tr>
+<tr><td><strong>UC %</strong></td><td>All 9 UC campuses combined: UCB, UCLA, UCSD, UCD, UCI, UCSB, UCSC, UCR, UCM.</td><td><strong>Practical Bay Area context.</strong> The UC system is by far the largest college destination for any Bay Area school. T25 only counts UCB+UCLA+UCSD; the other 6 UCs go uncounted. UC % is the realistic answer to "what fraction of the class is going to a UC?" — usually the single most-asked question. Capped at 80% because some of every class always goes to CSU/CC/private/military/gap year.</td></tr>
+</tbody>
+</table>
+
+<h3>Typical ratios used to estimate the new metrics from T25 %</h3>
+<p>For the ~10 M-anchor schools (where the school publishes a per-college matriculation list), the new metrics are computed directly from the published source data. For the rest, they are estimated as multiples of T25 % using these per-school-type ratios. The ratios were calibrated against the M-anchor set:</p>
+<table>
+<thead><tr><th>School type</th><th>T10/T25</th><th>T50/T25</th><th>LAC15/T25</th><th>UC/T25</th></tr></thead>
+<tbody>
+<tr><td>Elite private / national-feeding (Harker, Castilleja, Nueva, Menlo, College Prep, Branson)</td><td>0.35–0.50</td><td>1.4–1.7</td><td>0.15–0.30</td><td>0.5–0.8</td></tr>
+<tr><td>Top SF/Marin progressive private (Urban, Lick-Wilmerding, Marin Academy)</td><td>0.25–0.40</td><td>1.5–1.9</td><td>0.20–0.40</td><td>0.6–1.0</td></tr>
+<tr><td>Top public (Gunn, Paly, MSJ, Lynbrook, Monta Vista, Saratoga)</td><td>0.20–0.35</td><td>1.6–2.0</td><td>0.05–0.15</td><td>2.0–4.0</td></tr>
+<tr><td>Strong suburban public (Acalanes, Campolindo, Miramonte, Piedmont, Carlmont, Aragon)</td><td>0.10–0.20</td><td>1.7–2.2</td><td>0.05–0.15</td><td>3.0–5.0</td></tr>
+<tr><td>Catholic college-prep (Bellarmine, Mitty, SI, SHC, St. Francis, De La Salle)</td><td>0.08–0.15</td><td>1.8–2.5</td><td>0.03–0.08</td><td>2.5–4.5</td></tr>
+<tr><td>Mid-tier public</td><td>0.05–0.15</td><td>1.8–2.5</td><td>0.02–0.08</td><td>3.0–6.0</td></tr>
+<tr><td>Lower-tier public / Title I</td><td>0.0–0.10</td><td>1.5–2.5</td><td>0.0–0.05</td><td>4.0–8.0</td></tr>
+</tbody>
+</table>
+<div class="callout">
+<strong>UC % can exceed T25 %.</strong> All 9 UCs together are typically the largest single destination for a Bay Area school, while T25 only counts UCB+UCLA+UCSD. For schools where the estimate would exceed 80%, we cap at 80% — that's the practical ceiling once CSU/CC/private/military/gap-year shares are taken out.
+</div>
+<div class="callout">
+<strong>Confidence tags carry over.</strong> The conf tag (M/E/R/N) on each row applies to all five metrics, not just T25. An M-anchor row's new metrics were computed directly from the same source data; an E/R/N row's new metrics inherit the same uncertainty as its T25.
+</div>
 
 <h2>2. Why our numbers differ from chicardgo and similar sites</h2>
 <div class="callout callout-red">
