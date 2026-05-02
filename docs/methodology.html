@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Methodology — Bay Area HS T25 Matriculation</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; max-width: 900px; margin: 40px auto; padding: 0 24px; line-height: 1.6; color: #1f2328; }
+  h1 { font-size: 26px; }
+  h2 { font-size: 19px; margin-top: 36px; padding-top: 16px; border-top: 1px solid #d0d7de; }
+  h3 { font-size: 16px; margin-top: 24px; }
+  .nav { margin-bottom: 20px; font-size: 14px; }
+  .nav a { color: #0969da; text-decoration: none; margin-right: 16px; }
+  .nav a:hover { text-decoration: underline; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 12px 0; }
+  th, td { border: 1px solid #d0d7de; padding: 8px 12px; text-align: left; }
+  th { background: #f6f8fa; }
+  .tier-1 { background: #d4edda; }
+  .tier-7 { background: #f8d7da; }
+  .callout { background: #fff8c5; border: 1px solid #d4a72c; border-radius: 6px; padding: 14px 18px; margin: 16px 0; }
+  .callout-red { background: #ffebe9; border-color: #cf222e; }
+  code { background: #f6f8fa; padding: 2px 6px; border-radius: 3px; font-size: 13px; }
+  .formula { background: #f6f8fa; padding: 14px 18px; border-radius: 6px; font-family: ui-monospace, monospace; font-size: 14px; }
+</style>
+</head>
+<body>
+<div class="nav">
+  <a href="index.html">← Index</a>
+  <a href="all_schools_ranked.html">All schools ranked →</a>
+</div>
+
+<h1>Methodology — How T25 % is estimated</h1>
+<p>This page documents the multi-source weighted estimator used to produce the T25 % numbers across this site, and explains why our numbers will diverge from other published Bay Area high school rankings.</p>
+
+<h2>1. What "T25" means in this dataset</h2>
+<p>Every T25 % on this site refers to:</p>
+<ul>
+  <li><strong>Universe:</strong> U.S. News &amp; World Report Top-25 National Universities, list current as of the 2024–2025 ranking cycle. Ties at the boundary slightly expand the set.</li>
+  <li><strong>Outcome counted:</strong> matriculation (where students actually enroll), not admission/acceptance.</li>
+  <li><strong>Excluded:</strong> Top Liberal Arts Colleges (Williams, Amherst, Pomona, Swarthmore, etc.), other UC campuses outside T25 (Davis, Irvine, Santa Barbara, Santa Cruz, Riverside, Merced), Stanford-style hybrid programs not in the T25 list.</li>
+</ul>
+
+<h2>2. Why our numbers differ from chicardgo and similar sites</h2>
+<div class="callout callout-red">
+<strong>Important:</strong> chicardgo.com publishes a "T25 %" that is <em>not</em> a pure T25 matriculation rate. Per their published methodology:
+<div class="formula" style="margin-top:8px;">
+chicardgo "T25 %" = 45% × (T25 National matriculation) + 25% × (T15 Liberal Arts matriculation) + 10% × (other UC system) + 20% × (College Readiness Score)
+</div>
+This is a composite index that mixes T25 nationals, top LACs, all UCs, and a readiness score. Their published numbers will be ~15–20 percentage points higher than ours for the same school. The difference is a definitional gap, not a data error.
+</div>
+
+<p>Other sources have their own biases:</p>
+<ul>
+  <li><strong>findingschool.com</strong> tends to under-report (their methodology applies strict matriculation discounting).</li>
+  <li><strong>Niche.com</strong> uses student/alumni surveys — can lag and skew optimistic.</li>
+  <li><strong>Aggregator blogs</strong> (Sierra Admissions, College Transitions) often summarize rankings without publishing hard matriculation numbers.</li>
+  <li><strong>School profile PDFs</strong> may publish acceptance lists rather than matriculation lists; acceptance counts overstate matriculation by 30–50% for top schools.</li>
+</ul>
+
+<h2>3. Source hierarchy and weights</h2>
+<p>For each school, every available data point is assigned to a tier. The final estimate is a weighted average, with higher-weight tiers dominating when sources conflict.</p>
+
+<table>
+<thead><tr><th>Tier</th><th>Source type</th><th>Weight</th><th>Notes</th></tr></thead>
+<tbody>
+<tr class="tier-1"><td>1</td><td>School-published per-college matriculation list with year + counts</td><td>1.0</td><td>Gold standard. Examples: Gunn, Paly, Harker, Menlo, College Prep Oakland, Marin Academy, Urban, Carlmont, Lynbrook (FUHSD profiles), Lick-Wilmerding 4-year PDF, Branson 4-year list.</td></tr>
+<tr><td>2</td><td>School-published multi-year aggregate matriculation list with counts</td><td>0.7</td><td>Reliable but obscures year-over-year variance. Examples: Nueva 4-year bands, Athenian aggregate.</td></tr>
+<tr><td>3</td><td>School-published acceptance list (admits, not matriculations)</td><td>0.5</td><td>Discount by 70–85% to estimate matriculation. Many Catholic schools, Bay School of SF, Bentley fall here.</td></tr>
+<tr><td>4</td><td>UC source-school admit/enrolled CSV (covers UCB+UCLA+UCSD only)</td><td>0.4</td><td>Hard data per year, but only 3 of 25 T25 schools — extrapolate to full T25 by typical Bay Area ratio (UCB+UCLA+UCSD ≈ 50–70% of total T25 matriculation depending on school).</td></tr>
+<tr><td>5</td><td>Local news matriculation reporting</td><td>0.3</td><td>SF Chronicle, Mercury News, Palo Alto Online, Marin IJ "Class of 20XX heads to college" features.</td></tr>
+<tr><td>6</td><td>Reddit / College Confidential anecdotes</td><td>0.2</td><td>Anecdotal but useful for direction-of-magnitude on schools with no other public data.</td></tr>
+<tr class="tier-7"><td>7</td><td>Aggregator estimates (chicardgo, findingschool, Niche)</td><td>0.15</td><td>Direction-of-magnitude only. Never adopted directly because of definitional mismatches (see Section 2).</td></tr>
+</tbody>
+</table>
+
+<h2>4. The estimator</h2>
+<div class="formula">
+For each school <em>s</em>:<br>
+&nbsp;&nbsp;T25%(<em>s</em>) = Σ<sub>i</sub> ( source<sub>i</sub>.value × source<sub>i</sub>.weight ) / Σ<sub>i</sub> source<sub>i</sub>.weight<br>
+<br>
+Confidence tag is set by the highest-tier source available:<br>
+&nbsp;&nbsp;Tier 1 only → <strong>M</strong> (measured)<br>
+&nbsp;&nbsp;Tiers 1–2 with multiple agreement → <strong>M</strong><br>
+&nbsp;&nbsp;Tiers 2–4 → <strong>E</strong> (estimated)<br>
+&nbsp;&nbsp;Tiers 4–6 only → <strong>R</strong> (rough)<br>
+&nbsp;&nbsp;No tier-1 to tier-5 data → <strong>N</strong> (no data, floor estimate)
+</div>
+
+<h2>5. Why not a real ML model</h2>
+<p>The user-facing question — "can you train a model to improve accuracy?" — has a short honest answer: <strong>no, the dataset doesn't support it.</strong></p>
+<p>A real regression model needs labeled training data. Here, "labeled" means a school where we know the true T25 % with certainty. That's the M-tagged anchor set: roughly 8–10 schools (Gunn, Paly, Carlmont, Harker, Menlo, Nueva, College Prep, Marin Academy, Urban, plus Lynbrook now Tier 1). Eight to ten labeled examples cannot train a meaningful regression that generalizes to ~150 schools, especially when the predictive features (test scores, demographics, district, religious affiliation) are themselves noisy.</p>
+<p>The weighted estimator above is the honest version of "more accurate." It's transparent about which source contributed what, and the weights are decisions you can audit and override. A black-box ML model on this size of dataset would just be a less-honest version of the same heuristic.</p>
+
+<h2>6. What would actually improve accuracy</h2>
+<p>In rough order of impact, more data of these types would meaningfully shift the estimates:</p>
+<ol>
+  <li><strong>UC source-school CSV pulled systematically per year</strong> — would upgrade ~30 public schools from R to E with hard UCB+UCLA+UCSD numbers. The dashboard is interactive and not WebFetch-friendly; would require a person to manually pull or a Selenium scrape.</li>
+  <li><strong>Direct outreach to school counseling offices</strong> — many schools have detailed per-college matriculation data internally that they don't publish online but will share on request.</li>
+  <li><strong>Naviance / SCOIR exports</strong> — most Bay Area private schools and many publics use these tools internally. A current student or parent at the school can typically see aggregated outcomes.</li>
+  <li><strong>LinkedIn alumni searches</strong> — for each school, search current students at each T25. Tedious and rate-limited but produces hard counts. Best for schools with no other public data.</li>
+</ol>
+
+<h2>7. Known systematic biases in the current estimates</h2>
+<table>
+<thead><tr><th>Bias</th><th>Direction</th><th>Affected schools</th></tr></thead>
+<tbody>
+<tr><td>Acceptance lists treated as matriculations without discount</td><td>Overstates by 20–40%</td><td>Bay School of SF, most Catholic schools, Bentley, some independents that publish "where students were accepted"</td></tr>
+<tr><td>Catholic-school college preferences (Santa Clara/USF/USD over T25)</td><td>True T25 rate lower than peer-adjusted estimate</td><td>Bellarmine, Mitty, SI, SHC, St. Francis, De La Salle, Carondelet</td></tr>
+<tr><td>Sample size noise on small private schools</td><td>±5pp in any direction</td><td>Castilleja (~51 grads), Nueva (~110), Pinewood (~80), Eastside (~85)</td></tr>
+<tr><td>UC-heavy matriculation pattern</td><td>Inflates apparent T25 % vs national-private-heavy schools at similar academic strength</td><td>Lowell, Mission San Jose, Lynbrook, Monta Vista — UCB+UCLA+UCSD make up most of their T25 share</td></tr>
+<tr><td>Selection bias (top schools admit pre-selected students)</td><td>Misattributes student outcomes to school value-add</td><td>All admissions-screened schools, especially the top 10</td></tr>
+</tbody>
+</table>
+
+<div class="callout">
+<strong>Bottom line:</strong> Use the rankings as a starting point, not an answer. The single biggest source of variance in any individual student's outcome is their own aptitude and effort — high-quality schools amplify that, but they don't replace it. The "best high school to attend" is the one whose culture, peer group, distance, and cost fit your family — matriculation rankings just narrow the field.
+</div>
+
+<p style="margin-top: 32px; color: #656d76; font-size: 13px;">Last updated: 2026-05-02. See <a href="https://github.com/PalYang/bay-area-hs-matriculation">the GitHub repo</a> for source data and revision history.</p>
+
+</body>
+</html>
