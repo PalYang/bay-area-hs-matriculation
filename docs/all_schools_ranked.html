@@ -119,6 +119,9 @@
     padding-top: 14px;
   }
   .muted { color: var(--muted); }
+  th { cursor: pointer; }
+  th:hover { background: #e2e8f0; }
+  .sort-indicator { display: inline-block; }
 </style>
 </head>
 <body>
@@ -156,6 +159,7 @@
   <th>School</th>
   <th>Public/Private</th>
   <th>County / City</th>
+  <th>Class size</th>
   <th>T25 %</th>
   <th>GS</th>
   <th>Niche</th>
@@ -169,6 +173,7 @@
   <td class="school">College Preparatory School (CPS)</td>
   <td><span class="type-tag tag-private">Private</span></td>
   <td class="loc">Oakland, Alameda</td>
+  <td class="num">~80</td>
   <td class="col-t25">47.8%</td>
   <td class="num">—</td>
   <td class="num">A+</td>
@@ -177,21 +182,23 @@
 </tr>
 <tr>
   <td class="rank">2</td>
-  <td class="school">Menlo School</td>
+  <td class="school">Castilleja School</td>
   <td><span class="type-tag tag-private">Private</span></td>
-  <td class="loc">Atherton, San Mateo</td>
-  <td class="col-t25">40.4%</td>
+  <td class="loc">Palo Alto, Santa Clara</td>
+  <td class="num">~51 (2025)</td>
+  <td class="col-t25">~42%</td>
   <td class="num">—</td>
   <td class="num">A+</td>
-  <td class="conf-cell"><span class="conf conf-m">M</span></td>
-  <td class="src"><a href="https://www.menloschool.org/live/files/3729-menlo-school-profile-2023-2024" target="_blank" rel="noopener">23–24 profile</a></td>
+  <td class="conf-cell"><span class="conf conf-e">E</span></td>
+  <td class="src"><a href="https://www.castilleja.org/uploaded/College_Counseling/Documents/CastillejaProfile.pdf" target="_blank" rel="noopener">2025–26 profile</a></td>
 </tr>
 <tr>
   <td class="rank">3</td>
   <td class="school">The Harker School</td>
   <td><span class="type-tag tag-private">Private</span></td>
   <td class="loc">San Jose, Santa Clara</td>
-  <td class="col-t25">39.3%</td>
+  <td class="num">~190</td>
+  <td class="col-t25">~42%</td>
   <td class="num">—</td>
   <td class="num">A+</td>
   <td class="conf-cell"><span class="conf conf-m">M</span></td>
@@ -199,20 +206,22 @@
 </tr>
 <tr>
   <td class="rank">4</td>
-  <td class="school">Castilleja School</td>
+  <td class="school">Menlo School</td>
   <td><span class="type-tag tag-private">Private</span></td>
-  <td class="loc">Palo Alto, Santa Clara</td>
-  <td class="col-t25">~38%</td>
+  <td class="loc">Atherton, San Mateo</td>
+  <td class="num">~146</td>
+  <td class="col-t25">40.4%</td>
   <td class="num">—</td>
   <td class="num">A+</td>
-  <td class="conf-cell"><span class="conf conf-e">E</span></td>
-  <td class="src"><a href="https://www.castilleja.org/uploaded/College_Counseling/Documents/CastillejaProfile.pdf" target="_blank" rel="noopener">2025–26 profile</a></td>
+  <td class="conf-cell"><span class="conf conf-m">M</span></td>
+  <td class="src"><a href="https://www.menloschool.org/live/files/3729-menlo-school-profile-2023-2024" target="_blank" rel="noopener">23–24 profile</a></td>
 </tr>
 <tr>
   <td class="rank">5</td>
   <td class="school">The Nueva School</td>
   <td><span class="type-tag tag-private">Private</span></td>
   <td class="loc">San Mateo (US campus)</td>
+  <td class="num">~110–117</td>
   <td class="col-t25">~38%</td>
   <td class="num">—</td>
   <td class="num">A+</td>
@@ -221,20 +230,10 @@
 </tr>
 <tr>
   <td class="rank">6</td>
-  <td class="school">Crystal Springs Uplands</td>
-  <td><span class="type-tag tag-private">Private</span></td>
-  <td class="loc">Hillsborough, San Mateo</td>
-  <td class="col-t25">~30%</td>
-  <td class="num">—</td>
-  <td class="num">A</td>
-  <td class="conf-cell"><span class="conf conf-e">E</span></td>
-  <td class="src"><a href="https://www.crystal.org/resources/academic-support/college-counseling" target="_blank" rel="noopener">crystal.org</a></td>
-</tr>
-<tr>
-  <td class="rank">7</td>
   <td class="school">Head-Royce</td>
   <td><span class="type-tag tag-private">Private</span></td>
   <td class="loc">Oakland, Alameda</td>
+  <td class="num">~94 (2024)</td>
   <td class="col-t25">~30%</td>
   <td class="num">—</td>
   <td class="num">A</td>
@@ -242,10 +241,23 @@
   <td class="src"><a href="https://www.headroyce.org/academics/college-counseling" target="_blank" rel="noopener">headroyce.org</a></td>
 </tr>
 <tr>
+  <td class="rank">7</td>
+  <td class="school">Branson School</td>
+  <td><span class="type-tag tag-private">Private</span></td>
+  <td class="loc">Ross, Marin</td>
+  <td class="num">~80</td>
+  <td class="col-t25">~28%</td>
+  <td class="num">—</td>
+  <td class="num">A</td>
+  <td class="conf-cell"><span class="conf conf-e">E</span></td>
+  <td class="src"><a href="https://issuu.com/bransonschool/docs/branson_collegeprofile_2022-23" target="_blank" rel="noopener">22–23 profile (Issuu)</a></td>
+</tr>
+<tr>
   <td class="rank">8</td>
   <td class="school">University HS (UHS / SFUHS)</td>
   <td><span class="type-tag tag-private">Private</span></td>
   <td class="loc">SF — Pacific Heights</td>
+  <td class="num">~125</td>
   <td class="col-t25">~28%</td>
   <td class="num">—</td>
   <td class="num">A+</td>
@@ -254,9 +266,22 @@
 </tr>
 <tr>
   <td class="rank">9</td>
+  <td class="school">Crystal Springs Uplands</td>
+  <td><span class="type-tag tag-private">Private</span></td>
+  <td class="loc">Hillsborough, San Mateo</td>
+  <td class="num">~90</td>
+  <td class="col-t25">~26%</td>
+  <td class="num">—</td>
+  <td class="num">A</td>
+  <td class="conf-cell"><span class="conf conf-e">E</span></td>
+  <td class="src"><a href="https://www.crystal.org/resources/academic-support/college-counseling" target="_blank" rel="noopener">crystal.org</a></td>
+</tr>
+<tr>
+  <td class="rank">10</td>
   <td class="school">Marin Academy</td>
   <td><span class="type-tag tag-private">Private</span></td>
   <td class="loc">San Rafael, Marin</td>
+  <td class="num">~115</td>
   <td class="col-t25">25.5%</td>
   <td class="num">—</td>
   <td class="num">A</td>
@@ -264,10 +289,11 @@
   <td class="src"><a href="https://www.ma.org/" target="_blank" rel="noopener">ma.org</a></td>
 </tr>
 <tr>
-  <td class="rank">10</td>
+  <td class="rank">11</td>
   <td class="school">BASIS Independent Silicon Valley</td>
   <td><span class="type-tag tag-private">Private</span></td>
   <td class="loc">San Jose, Santa Clara</td>
+  <td class="num">~90 (2024)</td>
   <td class="col-t25">~25%</td>
   <td class="num">—</td>
   <td class="num">A</td>
@@ -275,10 +301,11 @@
   <td class="src"><a href="https://basisindependent.com/wp-content/uploads/2024/10/BISV-High-School-Profile-2024-25.pdf" target="_blank" rel="noopener">24–25 profile</a></td>
 </tr>
 <tr>
-  <td class="rank">11</td>
+  <td class="rank">12</td>
   <td class="school">Sacred Heart Prep (SHP)</td>
   <td><span class="type-tag tag-private">Private</span></td>
   <td class="loc">Atherton, San Mateo</td>
+  <td class="num">~149–171</td>
   <td class="col-t25">~24%</td>
   <td class="num">—</td>
   <td class="num">A</td>
@@ -286,21 +313,23 @@
   <td class="src"><a href="https://bbk12e1-cdn.myschoolcdn.com/ftpimages/783/misc/misc_230271.pdf" target="_blank" rel="noopener">25–26 profile</a></td>
 </tr>
 <tr>
-  <td class="rank">12</td>
-  <td class="school">Branson School</td>
-  <td><span class="type-tag tag-private">Private</span></td>
-  <td class="loc">Ross, Marin</td>
+  <td class="rank">13</td>
+  <td class="school">Lynbrook HS</td>
+  <td><span class="type-tag tag-public">Public/Charter</span></td>
+  <td class="loc">Fremont Union HSD</td>
+  <td class="num">~430</td>
   <td class="col-t25">~22%</td>
-  <td class="num">—</td>
-  <td class="num">A</td>
-  <td class="conf-cell"><span class="conf conf-e">E</span></td>
-  <td class="src"><a href="https://issuu.com/bransonschool/docs/branson_collegeprofile_2022-23" target="_blank" rel="noopener">22–23 profile (Issuu)</a></td>
+  <td class="num">10</td>
+  <td class="num">A+</td>
+  <td class="conf-cell"><span class="conf conf-m">M</span></td>
+  <td class="src"><a href="https://lhs.fuhsd.org/about-us/accountability/school-profile" target="_blank" rel="noopener">Profile page (PDF list)</a></td>
 </tr>
 <tr>
-  <td class="rank">13</td>
+  <td class="rank">14</td>
   <td class="school">Pinewood School</td>
   <td><span class="type-tag tag-private">Private</span></td>
   <td class="loc">Los Altos Hills, Santa Clara</td>
+  <td class="num">~54</td>
   <td class="col-t25">~22%</td>
   <td class="num">—</td>
   <td class="num">A</td>
@@ -308,10 +337,11 @@
   <td class="src"><a href="https://www.pinewood.edu/uploaded/New_Website_Page_Elements/Admissions/Updated_Materials/PWSchoolProfile_24-25.pdf" target="_blank" rel="noopener">24–25 profile</a></td>
 </tr>
 <tr>
-  <td class="rank">14</td>
+  <td class="rank">15</td>
   <td class="school">Lick-Wilmerding HS</td>
   <td><span class="type-tag tag-private">Private</span></td>
   <td class="loc">SF — Ingleside</td>
+  <td class="num">~140</td>
   <td class="col-t25">~21%</td>
   <td class="num">—</td>
   <td class="num">A</td>
@@ -319,10 +349,23 @@
   <td class="src"><a href="https://www.lwhs.org/academic/college-counseling" target="_blank" rel="noopener">lwhs.org</a></td>
 </tr>
 <tr>
-  <td class="rank">15</td>
+  <td class="rank">16</td>
+  <td class="school">Palo Alto HS (Paly)</td>
+  <td><span class="type-tag tag-public">Public/Charter</span></td>
+  <td class="loc">Palo Alto USD</td>
+  <td class="num">~470</td>
+  <td class="col-t25">~21%</td>
+  <td class="num">10</td>
+  <td class="num">A+</td>
+  <td class="conf-cell"><span class="conf conf-m">M</span></td>
+  <td class="src"><a href="https://www.paly.net/campus-life/college-career-center/college-matriculation-summary" target="_blank" rel="noopener">Paly matriculation summary</a></td>
+</tr>
+<tr>
+  <td class="rank">17</td>
   <td class="school">Eastside College Prep</td>
   <td><span class="type-tag tag-private">Private</span></td>
   <td class="loc">East Palo Alto, San Mateo</td>
+  <td class="num">~50</td>
   <td class="col-t25">~20%</td>
   <td class="num">—</td>
   <td class="num">A</td>
@@ -330,10 +373,11 @@
   <td class="src"><a href="https://www.eastside.org/_ourgraduates/college.html" target="_blank" rel="noopener">eastside.org</a></td>
 </tr>
 <tr>
-  <td class="rank">16</td>
+  <td class="rank">18</td>
   <td class="school">Mission San Jose HS</td>
   <td><span class="type-tag tag-public">Public/Charter</span></td>
   <td class="loc">Fremont USD</td>
+  <td class="num">~440</td>
   <td class="col-t25">~20%</td>
   <td class="num">10</td>
   <td class="num">A+</td>
@@ -341,10 +385,23 @@
   <td class="src"><a href="https://fremontunified.org/msjhs/students-community/student-support/counselors-overview/school-profiles/" target="_blank" rel="noopener">School profiles page</a></td>
 </tr>
 <tr>
-  <td class="rank">17</td>
+  <td class="rank">19</td>
+  <td class="school">Monta Vista HS</td>
+  <td><span class="type-tag tag-public">Public/Charter</span></td>
+  <td class="loc">Fremont Union HSD</td>
+  <td class="num">~410</td>
+  <td class="col-t25">~20%</td>
+  <td class="num">10</td>
+  <td class="num">A+</td>
+  <td class="conf-cell"><span class="conf conf-e">E</span></td>
+  <td class="src"><a href="https://resources.finalsite.net/images/v1726855294/fuhsdorg/xbozlh8ps8ghyavn7nvt/MVHS24-25SchoolProfileFINAL_2.pdf" target="_blank" rel="noopener">2024-25 profile (PDF)</a></td>
+</tr>
+<tr>
+  <td class="rank">20</td>
   <td class="school">Saratoga HS</td>
   <td><span class="type-tag tag-public">Public/Charter</span></td>
   <td class="loc">Los Gatos–Saratoga Joint UHSD</td>
+  <td class="num">~280</td>
   <td class="col-t25">~20%</td>
   <td class="num">10</td>
   <td class="num">A+</td>
@@ -352,10 +409,11 @@
   <td class="src"><a href="https://resources.finalsite.net/images/v1758142136/lgsuhsdorg/htrryyxhdqeryrzjedti/SchoolProfileFinal2025-20262.pdf" target="_blank" rel="noopener">2025-26 profile (PDF)</a></td>
 </tr>
 <tr>
-  <td class="rank">18</td>
+  <td class="rank">21</td>
   <td class="school">Urban School of SF</td>
   <td><span class="type-tag tag-private">Private</span></td>
   <td class="loc">SF — Haight</td>
+  <td class="num">~95</td>
   <td class="col-t25">19.2%</td>
   <td class="num">—</td>
   <td class="num">A</td>
@@ -363,43 +421,11 @@
   <td class="src"><a href="https://resources.finalsite.net/images/v1723570942/urban/h0euk81uqdv3xiiufhxm/UrbanSchoolCollegeMatriculation_2020-2024.pdf" target="_blank" rel="noopener">2020–24 list</a></td>
 </tr>
 <tr>
-  <td class="rank">19</td>
-  <td class="school">Athenian School</td>
-  <td><span class="type-tag tag-private">Private</span></td>
-  <td class="loc">Danville, Contra Costa</td>
-  <td class="col-t25">~18%</td>
-  <td class="num">—</td>
-  <td class="num">A-</td>
-  <td class="conf-cell"><span class="conf conf-e">E</span></td>
-  <td class="src"><a href="https://www.athenian.org/userfiles/athenianschool/03-academics/doc/athenian-college-profile-2024.pdf" target="_blank" rel="noopener">24–25 profile</a></td>
-</tr>
-<tr>
-  <td class="rank">20</td>
-  <td class="school">Lynbrook HS</td>
-  <td><span class="type-tag tag-public">Public/Charter</span></td>
-  <td class="loc">Fremont Union HSD</td>
-  <td class="col-t25">~18%</td>
-  <td class="num">10</td>
-  <td class="num">A+</td>
-  <td class="conf-cell"><span class="conf conf-e">E</span></td>
-  <td class="src"><a href="https://lhs.fuhsd.org/about-us/accountability/school-profile" target="_blank" rel="noopener">Profile page (PDF list)</a></td>
-</tr>
-<tr>
-  <td class="rank">21</td>
-  <td class="school">Monta Vista HS</td>
-  <td><span class="type-tag tag-public">Public/Charter</span></td>
-  <td class="loc">Fremont Union HSD</td>
-  <td class="col-t25">~18%</td>
-  <td class="num">10</td>
-  <td class="num">A+</td>
-  <td class="conf-cell"><span class="conf conf-e">E</span></td>
-  <td class="src"><a href="https://resources.finalsite.net/images/v1726855294/fuhsdorg/xbozlh8ps8ghyavn7nvt/MVHS24-25SchoolProfileFINAL_2.pdf" target="_blank" rel="noopener">2024-25 profile (PDF)</a></td>
-</tr>
-<tr>
   <td class="rank">22</td>
   <td class="school">Henry M. Gunn HS</td>
   <td><span class="type-tag tag-public">Public/Charter</span></td>
   <td class="loc">Palo Alto USD</td>
+  <td class="num">~440</td>
   <td class="col-t25">17.8%</td>
   <td class="num">10</td>
   <td class="num">A+</td>
@@ -408,9 +434,34 @@
 </tr>
 <tr>
   <td class="rank">23</td>
+  <td class="school">The Quarry Lane School</td>
+  <td><span class="type-tag tag-private">Private</span></td>
+  <td class="loc">Dublin, Alameda</td>
+  <td class="num">~70–90</td>
+  <td class="col-t25">~17%</td>
+  <td class="num">—</td>
+  <td class="num">A</td>
+  <td class="conf-cell"><span class="conf conf-r">R</span></td>
+  <td class="src"><a href="https://www.quarrylane.org/" target="_blank" rel="noopener">quarrylane.org</a></td>
+</tr>
+<tr>
+  <td class="rank">24</td>
+  <td class="school">Athenian School</td>
+  <td><span class="type-tag tag-private">Private</span></td>
+  <td class="loc">Danville, Contra Costa</td>
+  <td class="num">~60–80</td>
+  <td class="col-t25">~15%</td>
+  <td class="num">—</td>
+  <td class="num">A-</td>
+  <td class="conf-cell"><span class="conf conf-e">E</span></td>
+  <td class="src"><a href="https://www.athenian.org/userfiles/athenianschool/03-academics/doc/athenian-college-profile-2024.pdf" target="_blank" rel="noopener">24–25 profile</a></td>
+</tr>
+<tr>
+  <td class="rank">25</td>
   <td class="school">Convent &amp; Stuart Hall</td>
   <td><span class="type-tag tag-private">Private</span></td>
   <td class="loc">SF — Pacific Heights</td>
+  <td class="num">~80 each (girls/boys)</td>
   <td class="col-t25">~15%</td>
   <td class="num">—</td>
   <td class="num">A</td>
@@ -418,10 +469,11 @@
   <td class="src"><a href="https://www.sacredsf.org/the-education/college-counseling" target="_blank" rel="noopener">sacredsf.org</a></td>
 </tr>
 <tr>
-  <td class="rank">24</td>
+  <td class="rank">26</td>
   <td class="school">Sonoma Academy</td>
   <td><span class="type-tag tag-private">Private</span></td>
   <td class="loc">Santa Rosa, Sonoma</td>
+  <td class="num">~70</td>
   <td class="col-t25">~15%</td>
   <td class="num">—</td>
   <td class="num">A</td>
@@ -429,21 +481,11 @@
   <td class="src"><a href="https://www.sonomaacademy.org/college-matriculations" target="_blank" rel="noopener">sonomaacademy.org</a></td>
 </tr>
 <tr>
-  <td class="rank">25</td>
-  <td class="school">The Quarry Lane School</td>
-  <td><span class="type-tag tag-private">Private</span></td>
-  <td class="loc">Dublin, Alameda</td>
-  <td class="col-t25">~15%</td>
-  <td class="num">—</td>
-  <td class="num">A</td>
-  <td class="conf-cell"><span class="conf conf-r">R</span></td>
-  <td class="src"><a href="https://www.quarrylane.org/" target="_blank" rel="noopener">quarrylane.org</a></td>
-</tr>
-<tr>
-  <td class="rank">26</td>
+  <td class="rank">27</td>
   <td class="school">Lowell HS</td>
   <td><span class="type-tag tag-public">Public/Charter</span></td>
   <td class="loc">SFUSD</td>
+  <td class="num">~640</td>
   <td class="col-t25">14.0%</td>
   <td class="num">9</td>
   <td class="num">A</td>
@@ -451,10 +493,11 @@
   <td class="src"><a href="https://resources.finalsite.net/images/v1741886154/lowellpublicsd/hj2bfrllimdsqqufa7fq/2024-2025LHSSchoolProfile.pdf" target="_blank" rel="noopener">2024-25 profile (PDF)</a></td>
 </tr>
 <tr>
-  <td class="rank">27</td>
+  <td class="rank">28</td>
   <td class="school">Piedmont HS</td>
   <td><span class="type-tag tag-public">Public/Charter</span></td>
   <td class="loc">Piedmont City USD</td>
+  <td class="num">~180</td>
   <td class="col-t25">~14%</td>
   <td class="num">10</td>
   <td class="num">A+</td>
@@ -462,21 +505,11 @@
   <td class="src"><a href="https://phs.piedmont.k12.ca.us/our-school/school-profile" target="_blank" rel="noopener">School profile page</a></td>
 </tr>
 <tr>
-  <td class="rank">28</td>
-  <td class="school">Palo Alto HS (Paly)</td>
-  <td><span class="type-tag tag-public">Public/Charter</span></td>
-  <td class="loc">Palo Alto USD</td>
-  <td class="col-t25">13.7%</td>
-  <td class="num">10</td>
-  <td class="num">A+</td>
-  <td class="conf-cell"><span class="conf conf-m">M</span></td>
-  <td class="src"><a href="https://www.paly.net/campus-life/college-career-center/college-matriculation-summary" target="_blank" rel="noopener">Paly matriculation summary</a></td>
-</tr>
-<tr>
   <td class="rank">29</td>
   <td class="school">San Domenico</td>
   <td><span class="type-tag tag-private">Private</span></td>
   <td class="loc">San Anselmo, Marin</td>
+  <td class="num">~50</td>
   <td class="col-t25">~13%</td>
   <td class="num">—</td>
   <td class="num">B+</td>
@@ -488,6 +521,7 @@
   <td class="school">Bentley School (Upper Campus)</td>
   <td><span class="type-tag tag-private">Private</span></td>
   <td class="loc">Lafayette, Contra Costa</td>
+  <td class="num">~60</td>
   <td class="col-t25">~12%</td>
   <td class="num">—</td>
   <td class="num">A-</td>
@@ -499,6 +533,7 @@
   <td class="school">Cupertino HS</td>
   <td><span class="type-tag tag-public">Public/Charter</span></td>
   <td class="loc">Fremont Union HSD</td>
+  <td class="num">~450</td>
   <td class="col-t25">~12%</td>
   <td class="num">10</td>
   <td class="num">A+</td>
@@ -510,6 +545,7 @@
   <td class="school">Bellarmine College Prep</td>
   <td><span class="type-tag tag-private">Private</span></td>
   <td class="loc">San Jose, Santa Clara</td>
+  <td class="num">~410</td>
   <td class="col-t25">~10%</td>
   <td class="num">—</td>
   <td class="num">A</td>
@@ -521,6 +557,7 @@
   <td class="school">Homestead HS</td>
   <td><span class="type-tag tag-public">Public/Charter</span></td>
   <td class="loc">Fremont Union HSD</td>
+  <td class="num">~600</td>
   <td class="col-t25">~10%</td>
   <td class="num">10</td>
   <td class="num">A+</td>
@@ -532,6 +569,7 @@
   <td class="school">Irvington HS</td>
   <td><span class="type-tag tag-public">Public/Charter</span></td>
   <td class="loc">Fremont USD</td>
+  <td class="num">~530</td>
   <td class="col-t25">~10%</td>
   <td class="num">9</td>
   <td class="num">A</td>
@@ -543,6 +581,7 @@
   <td class="school">JCHS of the Bay</td>
   <td><span class="type-tag tag-private">Private</span></td>
   <td class="loc">SF — Western Addition</td>
+  <td class="num">~45</td>
   <td class="col-t25">~10%</td>
   <td class="num">—</td>
   <td class="num">A-</td>
@@ -551,20 +590,10 @@
 </tr>
 <tr>
   <td class="rank">36</td>
-  <td class="school">Justin-Siena</td>
-  <td><span class="type-tag tag-private">Private</span></td>
-  <td class="loc">Napa, Napa</td>
-  <td class="col-t25">~10%</td>
-  <td class="num">—</td>
-  <td class="num">B+</td>
-  <td class="conf-cell"><span class="conf conf-e">E</span></td>
-  <td class="src"><a href="https://www.justin-siena.org/admissions/college-matriculations" target="_blank" rel="noopener">justin-siena.org</a></td>
-</tr>
-<tr>
-  <td class="rank">37</td>
   <td class="school">Los Altos HS</td>
   <td><span class="type-tag tag-public">Public/Charter</span></td>
   <td class="loc">Mountain View–Los Altos UHSD</td>
+  <td class="num">~520</td>
   <td class="col-t25">~10%</td>
   <td class="num">9</td>
   <td class="num">A+</td>
@@ -572,10 +601,11 @@
   <td class="src"><a href="https://lahs.mvla.net/About-Us/Our-School/School-Profile/index.html" target="_blank" rel="noopener">School profile page</a></td>
 </tr>
 <tr>
-  <td class="rank">38</td>
+  <td class="rank">37</td>
   <td class="school">Mountain View HS</td>
   <td><span class="type-tag tag-public">Public/Charter</span></td>
   <td class="loc">Mountain View–Los Altos UHSD</td>
+  <td class="num">~525</td>
   <td class="col-t25">~10%</td>
   <td class="num">9</td>
   <td class="num">A+</td>
@@ -583,10 +613,11 @@
   <td class="src"><a href="https://mvhs.mvla.net/Our-School/About-MVHS/School-Profile/index.html" target="_blank" rel="noopener">School profile page</a></td>
 </tr>
 <tr>
-  <td class="rank">39</td>
+  <td class="rank">38</td>
   <td class="school">Archbishop Mitty</td>
   <td><span class="type-tag tag-private">Private</span></td>
   <td class="loc">San Jose, Santa Clara</td>
+  <td class="num">~340</td>
   <td class="col-t25">~9%</td>
   <td class="num">—</td>
   <td class="num">A</td>
@@ -594,10 +625,11 @@
   <td class="src"><a href="https://www.mitty.com/" target="_blank" rel="noopener">mitty.com</a></td>
 </tr>
 <tr>
-  <td class="rank">40</td>
+  <td class="rank">39</td>
   <td class="school">Campolindo HS (Moraga)</td>
   <td><span class="type-tag tag-public">Public/Charter</span></td>
   <td class="loc">Acalanes Union HSD</td>
+  <td class="num">~340</td>
   <td class="col-t25">~9%</td>
   <td class="num">10</td>
   <td class="num">A+</td>
@@ -605,10 +637,11 @@
   <td class="src"><a href="https://nationalblueribbonschools.ed.gov/awardwinners/winning/15ca459pu_campolindo_high_school.html/" target="_blank" rel="noopener">National Blue Ribbon page</a></td>
 </tr>
 <tr>
-  <td class="rank">41</td>
+  <td class="rank">40</td>
   <td class="school">Dougherty Valley HS</td>
   <td><span class="type-tag tag-public">Public/Charter</span></td>
   <td class="loc">San Ramon Valley USD</td>
+  <td class="num">~750</td>
   <td class="col-t25">~9%</td>
   <td class="num">9</td>
   <td class="num">A</td>
@@ -616,10 +649,11 @@
   <td class="src"><a href="https://dvhs.srvusd.net/documents/2023-2024-Profile.docx.pdf" target="_blank" rel="noopener">2023-24 profile (PDF)</a></td>
 </tr>
 <tr>
-  <td class="rank">42</td>
+  <td class="rank">41</td>
   <td class="school">Menlo-Atherton HS</td>
   <td><span class="type-tag tag-public">Public/Charter</span></td>
   <td class="loc">Sequoia UHSD</td>
+  <td class="num">~540</td>
   <td class="col-t25">~9%</td>
   <td class="num">9</td>
   <td class="num">A+</td>
@@ -627,10 +661,11 @@
   <td class="src"><a href="https://www.mabears.org/About-M-A/School-Profile/Where-do-our-Grads-go/index.html" target="_blank" rel="noopener">Where do our grads go</a></td>
 </tr>
 <tr>
-  <td class="rank">43</td>
+  <td class="rank">42</td>
   <td class="school">Miramonte HS (Orinda)</td>
   <td><span class="type-tag tag-public">Public/Charter</span></td>
   <td class="loc">Acalanes Union HSD</td>
+  <td class="num">~300</td>
   <td class="col-t25">~9%</td>
   <td class="num">10</td>
   <td class="num">A+</td>
@@ -638,21 +673,11 @@
   <td class="src"><a href="https://www.publicschoolreview.com/miramonte-high-school-profile" target="_blank" rel="noopener">Public School Review</a></td>
 </tr>
 <tr>
-  <td class="rank">44</td>
-  <td class="school">Notre Dame HS Belmont</td>
-  <td><span class="type-tag tag-private">Private</span></td>
-  <td class="loc">Belmont, San Mateo</td>
-  <td class="col-t25">~9%</td>
-  <td class="num">—</td>
-  <td class="num">A-</td>
-  <td class="conf-cell"><span class="conf conf-r">R</span></td>
-  <td class="src"><a href="https://resources.finalsite.net/images/v1758308436/ndhsborg/bzu4peesvuzhbrjf4lgr/_SchoolProfile2025-26.pdf" target="_blank" rel="noopener">25–26 profile</a></td>
-</tr>
-<tr>
-  <td class="rank">45</td>
+  <td class="rank">43</td>
   <td class="school">St. Ignatius College Prep (SI)</td>
   <td><span class="type-tag tag-private">Private</span></td>
   <td class="loc">SF — Sunset</td>
+  <td class="num">~360</td>
   <td class="col-t25">~9%</td>
   <td class="num">—</td>
   <td class="num">A</td>
@@ -660,10 +685,11 @@
   <td class="src"><a href="https://www.siprep.org/about/glance" target="_blank" rel="noopener">siprep.org</a></td>
 </tr>
 <tr>
-  <td class="rank">46</td>
+  <td class="rank">44</td>
   <td class="school">Acalanes HS (Lafayette)</td>
   <td><span class="type-tag tag-public">Public/Charter</span></td>
   <td class="loc">Acalanes Union HSD</td>
+  <td class="num">~340</td>
   <td class="col-t25">~8%</td>
   <td class="num">10</td>
   <td class="num">A+</td>
@@ -671,10 +697,11 @@
   <td class="src"><a href="https://www.acalanes.k12.ca.us/cms/lib/CA01001364/Centricity/Domain/56/School%20Profile%2024-25.pdf" target="_blank" rel="noopener">2024-25 profile (PDF)</a></td>
 </tr>
 <tr>
-  <td class="rank">47</td>
+  <td class="rank">45</td>
   <td class="school">Berkeley HS</td>
   <td><span class="type-tag tag-public">Public/Charter</span></td>
   <td class="loc">Berkeley USD</td>
+  <td class="num">~800</td>
   <td class="col-t25">~8%</td>
   <td class="num">7</td>
   <td class="num">A-</td>
@@ -682,21 +709,23 @@
   <td class="src"><a href="https://bhs.berkeleyschools.net/wp-content/uploads/2020/09/school-profile-2019-2020-2.pdf" target="_blank" rel="noopener">2019-20 profile (PDF)</a></td>
 </tr>
 <tr>
-  <td class="rank">48</td>
-  <td class="school">Presentation HS</td>
+  <td class="rank">46</td>
+  <td class="school">Bishop O'Dowd</td>
   <td><span class="type-tag tag-private">Private</span></td>
-  <td class="loc">San Jose, Santa Clara</td>
+  <td class="loc">Oakland, Alameda</td>
+  <td class="num">~309 (2024)</td>
   <td class="col-t25">~8%</td>
   <td class="num">—</td>
   <td class="num">A-</td>
   <td class="conf-cell"><span class="conf conf-e">E</span></td>
-  <td class="src"><a href="https://resources.finalsite.net/images/v1743114566/presentation/szlaznxqibxir5rvcfdo/2024-25SchoolProfile.pdf" target="_blank" rel="noopener">24–25 profile</a></td>
+  <td class="src"><a href="https://www.bishopodowd.org/class-of-2024" target="_blank" rel="noopener">bishopodowd.org</a></td>
 </tr>
 <tr>
-  <td class="rank">49</td>
+  <td class="rank">47</td>
   <td class="school">Saint Francis HS</td>
   <td><span class="type-tag tag-private">Private</span></td>
   <td class="loc">Mountain View, Santa Clara</td>
+  <td class="num">~440</td>
   <td class="col-t25">~8%</td>
   <td class="num">—</td>
   <td class="num">A-</td>
@@ -704,10 +733,11 @@
   <td class="src"><a href="https://www.sfhs.com/academics/prepared-for-college" target="_blank" rel="noopener">sfhs.com</a></td>
 </tr>
 <tr>
-  <td class="rank">50</td>
+  <td class="rank">48</td>
   <td class="school">American HS</td>
   <td><span class="type-tag tag-public">Public/Charter</span></td>
   <td class="loc">Fremont USD</td>
+  <td class="num">~640</td>
   <td class="col-t25">~7%</td>
   <td class="num">8</td>
   <td class="num">A-</td>
@@ -715,10 +745,11 @@
   <td class="src"><a href="https://fremontunified.org/american/students-community/student-support/school-profile-2024-2025/" target="_blank" rel="noopener">Profile 2024-25 page</a></td>
 </tr>
 <tr>
-  <td class="rank">51</td>
+  <td class="rank">49</td>
   <td class="school">Aragon HS</td>
   <td><span class="type-tag tag-public">Public/Charter</span></td>
   <td class="loc">San Mateo UHSD</td>
+  <td class="num">~422</td>
   <td class="col-t25">~7%</td>
   <td class="num">9</td>
   <td class="num">A</td>
@@ -726,32 +757,35 @@
   <td class="src"><a href="https://resources.finalsite.net/images/v1727723726/smuhsdorg/yynofffzdjkcl89vt305/AragonSchoolProfile2024-25.pdf" target="_blank" rel="noopener">2024-25 profile (PDF)</a></td>
 </tr>
 <tr>
-  <td class="rank">52</td>
-  <td class="school">Bishop O'Dowd</td>
+  <td class="rank">50</td>
+  <td class="school">Justin-Siena</td>
   <td><span class="type-tag tag-private">Private</span></td>
-  <td class="loc">Oakland, Alameda</td>
+  <td class="loc">Napa, Napa</td>
+  <td class="num">~140</td>
   <td class="col-t25">~7%</td>
   <td class="num">—</td>
-  <td class="num">A-</td>
+  <td class="num">B+</td>
   <td class="conf-cell"><span class="conf conf-e">E</span></td>
-  <td class="src"><a href="https://www.bishopodowd.org/class-of-2024" target="_blank" rel="noopener">bishopodowd.org</a></td>
+  <td class="src"><a href="https://www.justin-siena.org/admissions/college-matriculations" target="_blank" rel="noopener">justin-siena.org</a></td>
 </tr>
 <tr>
-  <td class="rank">53</td>
+  <td class="rank">51</td>
   <td class="school">Los Gatos HS</td>
   <td><span class="type-tag tag-public">Public/Charter</span></td>
   <td class="loc">Los Gatos–Saratoga Joint UHSD</td>
+  <td class="num">~480</td>
   <td class="col-t25">~7%</td>
   <td class="num">9</td>
   <td class="num">A+</td>
-  <td class="conf-cell"><span class="conf conf-e">E</span></td>
+  <td class="conf-cell"><span class="conf conf-r">R</span></td>
   <td class="src"><a href="https://www.cde.ca.gov/sdprofile/details.aspx?cds=43695344334371" target="_blank" rel="noopener">CDE profile</a></td>
 </tr>
 <tr>
-  <td class="rank">54</td>
+  <td class="rank">52</td>
   <td class="school">Lycée Français de SF</td>
   <td><span class="type-tag tag-private">Private</span></td>
   <td class="loc">SF (Ortega) + multi-campus</td>
+  <td class="num">~46 (Class of 2024)</td>
   <td class="col-t25">~7%</td>
   <td class="num">—</td>
   <td class="num">A-</td>
@@ -759,10 +793,11 @@
   <td class="src"><a href="https://www.lelycee.org/about/news/news-post/~board/lfsf-news/post/wall-of-acceptance2024" target="_blank" rel="noopener">lelycee.org</a></td>
 </tr>
 <tr>
-  <td class="rank">55</td>
+  <td class="rank">53</td>
   <td class="school">Marin Catholic</td>
   <td><span class="type-tag tag-private">Private</span></td>
   <td class="loc">Kentfield, Marin</td>
+  <td class="num">~196 (2024)</td>
   <td class="col-t25">~7%</td>
   <td class="num">—</td>
   <td class="num">A-</td>
@@ -770,10 +805,23 @@
   <td class="src"><a href="https://www.marincatholic.org/congratulations-to-the-class-of-2024" target="_blank" rel="noopener">marincatholic.org</a></td>
 </tr>
 <tr>
-  <td class="rank">56</td>
+  <td class="rank">54</td>
+  <td class="school">Notre Dame HS Belmont</td>
+  <td><span class="type-tag tag-private">Private</span></td>
+  <td class="loc">Belmont, San Mateo</td>
+  <td class="num">~100</td>
+  <td class="col-t25">~7%</td>
+  <td class="num">—</td>
+  <td class="num">A-</td>
+  <td class="conf-cell"><span class="conf conf-r">R</span></td>
+  <td class="src"><a href="https://resources.finalsite.net/images/v1758308436/ndhsborg/bzu4peesvuzhbrjf4lgr/_SchoolProfile2025-26.pdf" target="_blank" rel="noopener">25–26 profile</a></td>
+</tr>
+<tr>
+  <td class="rank">55</td>
   <td class="school">Redwood HS (Larkspur)</td>
   <td><span class="type-tag tag-public">Public/Charter</span></td>
   <td class="loc">Tamalpais Union HSD</td>
+  <td class="num">~430</td>
   <td class="col-t25">~7%</td>
   <td class="num">9</td>
   <td class="num">A+</td>
@@ -781,10 +829,11 @@
   <td class="src"><a href="https://www.ed-data.org/school/Marin/Tamalpais-Union-High/Redwood-High" target="_blank" rel="noopener">Ed-Data profile</a></td>
 </tr>
 <tr>
-  <td class="rank">57</td>
+  <td class="rank">56</td>
   <td class="school">Sacred Heart Cathedral Prep (SHC)</td>
   <td><span class="type-tag tag-private">Private</span></td>
   <td class="loc">SF — Cathedral Hill</td>
+  <td class="num">~340</td>
   <td class="col-t25">~7%</td>
   <td class="num">—</td>
   <td class="num">B+</td>
@@ -792,10 +841,11 @@
   <td class="src"><a href="https://www.shcp.edu/admissions/college-placements" target="_blank" rel="noopener">shcp.edu</a></td>
 </tr>
 <tr>
-  <td class="rank">58</td>
+  <td class="rank">57</td>
   <td class="school">The King's Academy (TKA)</td>
   <td><span class="type-tag tag-private">Private</span></td>
   <td class="loc">Sunnyvale, Santa Clara</td>
+  <td class="num">~150</td>
   <td class="col-t25">~7%</td>
   <td class="num">—</td>
   <td class="num">A-</td>
@@ -803,10 +853,11 @@
   <td class="src"><a href="https://www.tka.org/academics/college-enrollment" target="_blank" rel="noopener">tka.org</a></td>
 </tr>
 <tr>
-  <td class="rank">59</td>
+  <td class="rank">58</td>
   <td class="school">Burlingame HS</td>
   <td><span class="type-tag tag-public">Public/Charter</span></td>
   <td class="loc">San Mateo UHSD</td>
+  <td class="num">~370</td>
   <td class="col-t25">~6%</td>
   <td class="num">9</td>
   <td class="num">A</td>
@@ -814,10 +865,11 @@
   <td class="src"><a href="https://resources.finalsite.net/images/v1734456710/smuhsdorg/asoknwcbfklfycou0ogt/2024-25BHSProfile.pdf" target="_blank" rel="noopener">2024-25 profile (PDF)</a></td>
 </tr>
 <tr>
-  <td class="rank">60</td>
+  <td class="rank">59</td>
   <td class="school">California HS (San Ramon)</td>
   <td><span class="type-tag tag-public">Public/Charter</span></td>
   <td class="loc">San Ramon Valley USD</td>
+  <td class="num">~720</td>
   <td class="col-t25">~6%</td>
   <td class="num">9</td>
   <td class="num">A</td>
@@ -825,10 +877,11 @@
   <td class="src"><a href="https://www.usnews.com/education/best-high-schools/california/districts/san-ramon-valley-unified-school-district/california-high-school-3353" target="_blank" rel="noopener">US News</a></td>
 </tr>
 <tr>
-  <td class="rank">61</td>
+  <td class="rank">60</td>
   <td class="school">Carlmont HS</td>
   <td><span class="type-tag tag-public">Public/Charter</span></td>
   <td class="loc">Sequoia UHSD</td>
+  <td class="num">~600</td>
   <td class="col-t25">~6%</td>
   <td class="num">9</td>
   <td class="num">A</td>
@@ -836,10 +889,11 @@
   <td class="src"><a href="https://www.carlmonths.org/Counseling/College--Career/School-Profile--Matriculation/index.html" target="_blank" rel="noopener">Profile & matriculation page</a></td>
 </tr>
 <tr>
-  <td class="rank">62</td>
+  <td class="rank">61</td>
   <td class="school">Drew School</td>
   <td><span class="type-tag tag-private">Private</span></td>
   <td class="loc">SF — Pacific Heights</td>
+  <td class="num">~75</td>
   <td class="col-t25">~6%</td>
   <td class="num">—</td>
   <td class="num">B+</td>
@@ -847,10 +901,11 @@
   <td class="src"><a href="https://www.drewschool.org/academics/college-counseling/college-acceptances-2022-2024" target="_blank" rel="noopener">drewschool.org</a></td>
 </tr>
 <tr>
-  <td class="rank">63</td>
+  <td class="rank">62</td>
   <td class="school">Monte Vista HS (Danville)</td>
   <td><span class="type-tag tag-public">Public/Charter</span></td>
   <td class="loc">San Ramon Valley USD</td>
+  <td class="num">~510</td>
   <td class="col-t25">~6%</td>
   <td class="num">9</td>
   <td class="num">A+</td>
@@ -858,21 +913,35 @@
   <td class="src"><a href="https://www.usnews.com/education/best-high-schools/california/districts/san-ramon-valley-unified-school-district/monte-vista-high-school-3355" target="_blank" rel="noopener">US News</a></td>
 </tr>
 <tr>
-  <td class="rank">64</td>
-  <td class="school">Ruth Asawa SF School of the Arts (SOTA)</td>
-  <td><span class="type-tag tag-public">Public/Charter</span></td>
-  <td class="loc">SFUSD</td>
+  <td class="rank">63</td>
+  <td class="school">Presentation HS</td>
+  <td><span class="type-tag tag-private">Private</span></td>
+  <td class="loc">San Jose, Santa Clara</td>
+  <td class="num">~140</td>
   <td class="col-t25">~6%</td>
-  <td class="num">7</td>
-  <td class="num">B+</td>
+  <td class="num">—</td>
+  <td class="num">A-</td>
   <td class="conf-cell"><span class="conf conf-e">E</span></td>
-  <td class="src"><a href="https://www.sfusd.edu/school/ruth-asawa-san-francisco-school-arts-public-conservatory-grades-9-12" target="_blank" rel="noopener">SFUSD page</a></td>
+  <td class="src"><a href="https://resources.finalsite.net/images/v1743114566/presentation/szlaznxqibxir5rvcfdo/2024-25SchoolProfile.pdf" target="_blank" rel="noopener">24–25 profile</a></td>
+</tr>
+<tr>
+  <td class="rank">64</td>
+  <td class="school">San Ramon Valley HS</td>
+  <td><span class="type-tag tag-public">Public/Charter</span></td>
+  <td class="loc">San Ramon Valley USD</td>
+  <td class="num">~510</td>
+  <td class="col-t25">~6%</td>
+  <td class="num">9</td>
+  <td class="num">A</td>
+  <td class="conf-cell"><span class="conf conf-e">E</span></td>
+  <td class="src"><a href="https://srvhs.srvusd.net/documents/2022-23-SRVHS-Profile-8.23.22.pdf" target="_blank" rel="noopener">2022-23 profile (PDF)</a></td>
 </tr>
 <tr>
   <td class="rank">65</td>
   <td class="school">Albany HS</td>
   <td><span class="type-tag tag-public">Public/Charter</span></td>
   <td class="loc">Albany City USD</td>
+  <td class="num">~270</td>
   <td class="col-t25">~5%</td>
   <td class="num">8</td>
   <td class="num">A</td>
@@ -884,6 +953,7 @@
   <td class="school">Cardinal Newman HS</td>
   <td><span class="type-tag tag-private">Private</span></td>
   <td class="loc">Santa Rosa, Sonoma</td>
+  <td class="num">~140</td>
   <td class="col-t25">~5%</td>
   <td class="num">—</td>
   <td class="num">B+</td>
@@ -895,6 +965,7 @@
   <td class="school">De La Salle</td>
   <td><span class="type-tag tag-private">Private</span></td>
   <td class="loc">Concord, Contra Costa</td>
+  <td class="num">~246 (2024)</td>
   <td class="col-t25">~5%</td>
   <td class="num">—</td>
   <td class="num">A-</td>
@@ -903,31 +974,10 @@
 </tr>
 <tr>
   <td class="rank">68</td>
-  <td class="school">Mercy HS Burlingame</td>
-  <td><span class="type-tag tag-private">Private</span></td>
-  <td class="loc">Burlingame, San Mateo</td>
-  <td class="col-t25">~5%</td>
-  <td class="num">—</td>
-  <td class="num">B+</td>
-  <td class="conf-cell"><span class="conf conf-r">R</span></td>
-  <td class="src"><a href="https://www.mercyhsb.com/academics" target="_blank" rel="noopener">mercyhsb.com</a></td>
-</tr>
-<tr>
-  <td class="rank">69</td>
-  <td class="school">San Ramon Valley HS</td>
-  <td><span class="type-tag tag-public">Public/Charter</span></td>
-  <td class="loc">San Ramon Valley USD</td>
-  <td class="col-t25">~5%</td>
-  <td class="num">9</td>
-  <td class="num">A</td>
-  <td class="conf-cell"><span class="conf conf-e">E</span></td>
-  <td class="src"><a href="https://srvhs.srvusd.net/documents/2022-23-SRVHS-Profile-8.23.22.pdf" target="_blank" rel="noopener">2022-23 profile (PDF)</a></td>
-</tr>
-<tr>
-  <td class="rank">70</td>
   <td class="school">Tamalpais HS (Mill Valley)</td>
   <td><span class="type-tag tag-public">Public/Charter</span></td>
   <td class="loc">Tamalpais Union HSD</td>
+  <td class="num">~390</td>
   <td class="col-t25">~5%</td>
   <td class="num">8</td>
   <td class="num">A</td>
@@ -935,21 +985,23 @@
   <td class="src"><a href="https://resources.finalsite.net/images/v1718745994/tamdistrictorg/hjc4ze4thivpriikayeb/TAM_HIGH_SCHOOL_PROFILE_2023-2024_.pdf" target="_blank" rel="noopener">2023-24 profile (PDF)</a></td>
 </tr>
 <tr>
-  <td class="rank">71</td>
+  <td class="rank">69</td>
   <td class="school">Woodside Priory</td>
   <td><span class="type-tag tag-private">Private</span></td>
   <td class="loc">Portola Valley, San Mateo</td>
+  <td class="num">~70 (avg)</td>
   <td class="col-t25">~5%</td>
   <td class="num">—</td>
   <td class="num">A-</td>
-  <td class="conf-cell"><span class="conf conf-r">R</span></td>
+  <td class="conf-cell"><span class="conf conf-e">E</span></td>
   <td class="src"><a href="https://www.prioryca.org/academics/college-counseling/college-matriculation" target="_blank" rel="noopener">prioryca.org</a></td>
 </tr>
 <tr>
-  <td class="rank">72</td>
+  <td class="rank">70</td>
   <td class="school">Mills HS</td>
   <td><span class="type-tag tag-public">Public/Charter</span></td>
   <td class="loc">San Mateo UHSD</td>
+  <td class="num">~280</td>
   <td class="col-t25">~4%</td>
   <td class="num">8</td>
   <td class="num">A-</td>
@@ -957,10 +1009,23 @@
   <td class="src"><a href="https://mhs.smuhsd.org/" target="_blank" rel="noopener">School site</a></td>
 </tr>
 <tr>
-  <td class="rank">73</td>
+  <td class="rank">71</td>
+  <td class="school">Ruth Asawa SF School of the Arts (SOTA)</td>
+  <td><span class="type-tag tag-public">Public/Charter</span></td>
+  <td class="loc">SFUSD</td>
+  <td class="num">~175</td>
+  <td class="col-t25">~4%</td>
+  <td class="num">7</td>
+  <td class="num">B+</td>
+  <td class="conf-cell"><span class="conf conf-e">E</span></td>
+  <td class="src"><a href="https://www.sfusd.edu/school/ruth-asawa-san-francisco-school-arts-public-conservatory-grades-9-12" target="_blank" rel="noopener">SFUSD page</a></td>
+</tr>
+<tr>
+  <td class="rank">72</td>
   <td class="school">Saint Mary's College HS</td>
   <td><span class="type-tag tag-private">Private</span></td>
   <td class="loc">Berkeley, Alameda</td>
+  <td class="num">~140</td>
   <td class="col-t25">~4%</td>
   <td class="num">—</td>
   <td class="num">B+</td>
@@ -968,10 +1033,11 @@
   <td class="src"><a href="https://www.saintmaryschs.org/" target="_blank" rel="noopener">saintmaryschs.org</a></td>
 </tr>
 <tr>
-  <td class="rank">74</td>
+  <td class="rank">73</td>
   <td class="school">Archie Williams HS (formerly Sir Francis Drake)</td>
   <td><span class="type-tag tag-public">Public/Charter</span></td>
   <td class="loc">Tamalpais Union HSD</td>
+  <td class="num">~250</td>
   <td class="col-t25">~3%</td>
   <td class="num">7</td>
   <td class="num">A-</td>
@@ -979,10 +1045,11 @@
   <td class="src"><a href="https://www.usnews.com/education/best-high-schools/california/districts/tamalpais-union-high/sir-francis-drake-high-school-3549" target="_blank" rel="noopener">US News</a></td>
 </tr>
 <tr>
-  <td class="rank">75</td>
+  <td class="rank">74</td>
   <td class="school">Fremont HS (Sunnyvale)</td>
   <td><span class="type-tag tag-public">Public/Charter</span></td>
   <td class="loc">Fremont Union HSD</td>
+  <td class="num">~480</td>
   <td class="col-t25">~3%</td>
   <td class="num">7</td>
   <td class="num">B+</td>
@@ -990,10 +1057,11 @@
   <td class="src"><a href="https://fhs.fuhsd.org/about-us/accountability/school-profile" target="_blank" rel="noopener">Profile page</a></td>
 </tr>
 <tr>
-  <td class="rank">76</td>
+  <td class="rank">75</td>
   <td class="school">Gateway HS</td>
   <td><span class="type-tag tag-public">Public/Charter</span></td>
   <td class="loc">Charter (independent)</td>
+  <td class="num">~110</td>
   <td class="col-t25">~3%</td>
   <td class="num">5</td>
   <td class="num">B</td>
@@ -1001,10 +1069,11 @@
   <td class="src"><a href="https://www.gatewaypublicschools.org/ghs" target="_blank" rel="noopener">Gateway HS site</a></td>
 </tr>
 <tr>
-  <td class="rank">77</td>
+  <td class="rank">76</td>
   <td class="school">KIPP San Francisco College Prep</td>
   <td><span class="type-tag tag-public">Public/Charter</span></td>
   <td class="loc">Charter (KIPP Bay Area)</td>
+  <td class="num">~120</td>
   <td class="col-t25">~3%</td>
   <td class="num">4</td>
   <td class="num">B-</td>
@@ -1012,10 +1081,11 @@
   <td class="src"><a href="https://www.kippnorcal.org/schools/kipp-san-francisco-college-preparatory/" target="_blank" rel="noopener">KIPP NorCal page</a></td>
 </tr>
 <tr>
-  <td class="rank">78</td>
+  <td class="rank">77</td>
   <td class="school">Lincoln HS (Abraham Lincoln)</td>
   <td><span class="type-tag tag-public">Public/Charter</span></td>
   <td class="loc">SFUSD</td>
+  <td class="num">~590</td>
   <td class="col-t25">~3%</td>
   <td class="num">6</td>
   <td class="num">B+</td>
@@ -1023,21 +1093,23 @@
   <td class="src"><a href="https://www.sfusd.edu/school/abraham-lincoln-high-school" target="_blank" rel="noopener">SFUSD page</a></td>
 </tr>
 <tr>
-  <td class="rank">79</td>
-  <td class="school">Maria Carrillo HS</td>
-  <td><span class="type-tag tag-public">Public/Charter</span></td>
-  <td class="loc">Santa Rosa City Schools</td>
+  <td class="rank">78</td>
+  <td class="school">Mercy HS Burlingame</td>
+  <td><span class="type-tag tag-private">Private</span></td>
+  <td class="loc">Burlingame, San Mateo</td>
+  <td class="num">~95</td>
   <td class="col-t25">~3%</td>
-  <td class="num">8</td>
-  <td class="num">A-</td>
-  <td class="conf-cell"><span class="conf conf-r">R</span></td>
-  <td class="src"><a href="https://resources.finalsite.net/images/v1738943128/srcschoolsorg/maxicv7gf6bqbvuax8si/MCHSSchoolProfile2023-2024.pdf" target="_blank" rel="noopener">2023-24 profile (PDF)</a></td>
+  <td class="num">—</td>
+  <td class="num">B+</td>
+  <td class="conf-cell"><span class="conf conf-n">N</span></td>
+  <td class="src"><a href="https://www.mercyhsb.com/academics" target="_blank" rel="noopener">mercyhsb.com</a></td>
 </tr>
 <tr>
-  <td class="rank">80</td>
+  <td class="rank">79</td>
   <td class="school">San Mateo HS</td>
   <td><span class="type-tag tag-public">Public/Charter</span></td>
   <td class="loc">San Mateo UHSD</td>
+  <td class="num">~400</td>
   <td class="col-t25">~3%</td>
   <td class="num">7</td>
   <td class="num">B+</td>
@@ -1045,21 +1117,11 @@
   <td class="src"><a href="https://smhs.smuhsd.org/" target="_blank" rel="noopener">School site</a></td>
 </tr>
 <tr>
-  <td class="rank">81</td>
-  <td class="school">Sequoia HS</td>
-  <td><span class="type-tag tag-public">Public/Charter</span></td>
-  <td class="loc">Sequoia UHSD</td>
-  <td class="col-t25">~3%</td>
-  <td class="num">7</td>
-  <td class="num">B+</td>
-  <td class="conf-cell"><span class="conf conf-r">R</span></td>
-  <td class="src"><a href="https://www.sequoiahs.org/documents/23-24-Sequoia-School-Profile.pdf" target="_blank" rel="noopener">2023-24 profile (PDF)</a></td>
-</tr>
-<tr>
-  <td class="rank">82</td>
+  <td class="rank">80</td>
   <td class="school">Washington HS (Fremont)</td>
   <td><span class="type-tag tag-public">Public/Charter</span></td>
   <td class="loc">Fremont USD</td>
+  <td class="num">~480</td>
   <td class="col-t25">~3%</td>
   <td class="num">6</td>
   <td class="num">B</td>
@@ -1067,10 +1129,11 @@
   <td class="src"><a href="https://www.usnews.com/education/best-high-schools/california/districts/fremont-unified-school-district/washington-high-school-2210" target="_blank" rel="noopener">US News profile</a></td>
 </tr>
 <tr>
-  <td class="rank">83</td>
+  <td class="rank">81</td>
   <td class="school">Washington HS (George Washington)</td>
   <td><span class="type-tag tag-public">Public/Charter</span></td>
   <td class="loc">SFUSD</td>
+  <td class="num">~500</td>
   <td class="col-t25">~3%</td>
   <td class="num">6</td>
   <td class="num">B+</td>
@@ -1078,10 +1141,11 @@
   <td class="src"><a href="https://www.sfusd.edu/school/george-washington-high-school" target="_blank" rel="noopener">SFUSD page</a></td>
 </tr>
 <tr>
-  <td class="rank">84</td>
+  <td class="rank">82</td>
   <td class="school">Woodside HS</td>
   <td><span class="type-tag tag-public">Public/Charter</span></td>
   <td class="loc">Sequoia UHSD</td>
+  <td class="num">~400</td>
   <td class="col-t25">~3%</td>
   <td class="num">7</td>
   <td class="num">B+</td>
@@ -1089,10 +1153,11 @@
   <td class="src"><a href="https://www.woodsidehs.org/Guidance--Counseling/College--Career-Center/College-Destinations/index.html" target="_blank" rel="noopener">College Destinations page</a></td>
 </tr>
 <tr>
-  <td class="rank">85</td>
+  <td class="rank">83</td>
   <td class="school">Galileo HS (Galileo Academy of Science &amp; Tech)</td>
   <td><span class="type-tag tag-public">Public/Charter</span></td>
   <td class="loc">SFUSD</td>
+  <td class="num">~480</td>
   <td class="col-t25">~2%</td>
   <td class="num">5</td>
   <td class="num">B</td>
@@ -1100,10 +1165,11 @@
   <td class="src"><a href="https://www.sfusd.edu/school/galileo-academy-science-and-technology" target="_blank" rel="noopener">SFUSD page</a></td>
 </tr>
 <tr>
-  <td class="rank">86</td>
+  <td class="rank">84</td>
   <td class="school">Hillsdale HS</td>
   <td><span class="type-tag tag-public">Public/Charter</span></td>
   <td class="loc">San Mateo UHSD</td>
+  <td class="num">~390</td>
   <td class="col-t25">~2%</td>
   <td class="num">6</td>
   <td class="num">B+</td>
@@ -1111,10 +1177,11 @@
   <td class="src"><a href="https://www.cde.ca.gov/sdprofile/details.aspx?cds=41690474133070" target="_blank" rel="noopener">CDE profile</a></td>
 </tr>
 <tr>
-  <td class="rank">87</td>
+  <td class="rank">85</td>
   <td class="school">Wallenberg HS (Raoul Wallenberg)</td>
   <td><span class="type-tag tag-public">Public/Charter</span></td>
   <td class="loc">SFUSD</td>
+  <td class="num">~120</td>
   <td class="col-t25">~2%</td>
   <td class="num">5</td>
   <td class="num">B</td>
@@ -1122,10 +1189,35 @@
   <td class="src"><a href="https://www.sfusd.edu/school/raoul-wallenberg-traditional-high-school" target="_blank" rel="noopener">SFUSD page</a></td>
 </tr>
 <tr>
+  <td class="rank">86</td>
+  <td class="school">Maria Carrillo HS</td>
+  <td><span class="type-tag tag-public">Public/Charter</span></td>
+  <td class="loc">Santa Rosa City Schools</td>
+  <td class="num">~400</td>
+  <td class="col-t25">~1.5%</td>
+  <td class="num">8</td>
+  <td class="num">A-</td>
+  <td class="conf-cell"><span class="conf conf-r">R</span></td>
+  <td class="src"><a href="https://resources.finalsite.net/images/v1738943128/srcschoolsorg/maxicv7gf6bqbvuax8si/MCHSSchoolProfile2023-2024.pdf" target="_blank" rel="noopener">2023-24 profile (PDF)</a></td>
+</tr>
+<tr>
+  <td class="rank">87</td>
+  <td class="school">Sequoia HS</td>
+  <td><span class="type-tag tag-public">Public/Charter</span></td>
+  <td class="loc">Sequoia UHSD</td>
+  <td class="num">~460</td>
+  <td class="col-t25">~1.5%</td>
+  <td class="num">7</td>
+  <td class="num">B+</td>
+  <td class="conf-cell"><span class="conf conf-r">R</span></td>
+  <td class="src"><a href="https://www.sequoiahs.org/documents/23-24-Sequoia-School-Profile.pdf" target="_blank" rel="noopener">2023-24 profile (PDF)</a></td>
+</tr>
+<tr>
   <td class="rank">88</td>
   <td class="school">Burton HS (Phillip &amp; Sala Burton)</td>
   <td><span class="type-tag tag-public">Public/Charter</span></td>
   <td class="loc">SFUSD</td>
+  <td class="num">~250</td>
   <td class="col-t25">~1%</td>
   <td class="num">3</td>
   <td class="num">B-</td>
@@ -1137,6 +1229,7 @@
   <td class="school">City Arts &amp; Tech HS</td>
   <td><span class="type-tag tag-public">Public/Charter</span></td>
   <td class="loc">Charter (Envision)</td>
+  <td class="num">~90</td>
   <td class="col-t25">~1%</td>
   <td class="num">3</td>
   <td class="num">C+</td>
@@ -1148,6 +1241,7 @@
   <td class="school">Napa HS, Vintage HS</td>
   <td><span class="type-tag tag-public">Public/Charter</span></td>
   <td class="loc">Napa Valley USD</td>
+  <td class="num">—</td>
   <td class="col-t25">~1%</td>
   <td class="num">—</td>
   <td class="num">B-</td>
@@ -1159,6 +1253,7 @@
   <td class="school">The Academy - SF @ McAteer</td>
   <td><span class="type-tag tag-public">Public/Charter</span></td>
   <td class="loc">SFUSD</td>
+  <td class="num">~100</td>
   <td class="col-t25">~1%</td>
   <td class="num">4</td>
   <td class="num">B-</td>
@@ -1170,6 +1265,7 @@
   <td class="school">Vanden HS</td>
   <td><span class="type-tag tag-public">Public/Charter</span></td>
   <td class="loc">Travis USD</td>
+  <td class="num">~400</td>
   <td class="col-t25">~1%</td>
   <td class="num">7</td>
   <td class="num">B+</td>
@@ -1181,6 +1277,7 @@
   <td class="school">Balboa HS</td>
   <td><span class="type-tag tag-public">Public/Charter</span></td>
   <td class="loc">SFUSD</td>
+  <td class="num">~300</td>
   <td class="col-t25">&lt;1%</td>
   <td class="num">3</td>
   <td class="num">C+</td>
@@ -1192,6 +1289,7 @@
   <td class="school">Downtown HS</td>
   <td><span class="type-tag tag-public">Public/Charter</span></td>
   <td class="loc">SFUSD</td>
+  <td class="num">~40</td>
   <td class="col-t25">&lt;1%</td>
   <td class="num">2</td>
   <td class="num">C</td>
@@ -1203,6 +1301,7 @@
   <td class="school">John O'Connell HS</td>
   <td><span class="type-tag tag-public">Public/Charter</span></td>
   <td class="loc">SFUSD</td>
+  <td class="num">~115</td>
   <td class="col-t25">&lt;1%</td>
   <td class="num">2</td>
   <td class="num">C</td>
@@ -1214,6 +1313,7 @@
   <td class="school">June Jordan School for Equity</td>
   <td><span class="type-tag tag-public">Public/Charter</span></td>
   <td class="loc">SFUSD</td>
+  <td class="num">~60</td>
   <td class="col-t25">&lt;1%</td>
   <td class="num">2</td>
   <td class="num">C</td>
@@ -1225,6 +1325,7 @@
   <td class="school">Mission HS</td>
   <td><span class="type-tag tag-public">Public/Charter</span></td>
   <td class="loc">SFUSD</td>
+  <td class="num">~240</td>
   <td class="col-t25">&lt;1%</td>
   <td class="num">3</td>
   <td class="num">C+</td>
@@ -1236,6 +1337,7 @@
   <td class="school">Mission Prep HS (Latino College Prep)</td>
   <td><span class="type-tag tag-public">Public/Charter</span></td>
   <td class="loc">Charter</td>
+  <td class="num">~90</td>
   <td class="col-t25">&lt;1%</td>
   <td class="num">—</td>
   <td class="num">—</td>
@@ -1247,6 +1349,7 @@
   <td class="school">Thurgood Marshall HS</td>
   <td><span class="type-tag tag-public">Public/Charter</span></td>
   <td class="loc">SFUSD</td>
+  <td class="num">~120</td>
   <td class="col-t25">&lt;1%</td>
   <td class="num">2</td>
   <td class="num">C</td>
@@ -1261,5 +1364,136 @@
 </div>
 
 </div>
+<script>
+(function () {
+  function parseNumeric(text) {
+    if (text == null) return NaN;
+    var t = text.trim();
+    if (t === '' || t === '—' || t === '-' || t === 'varies' || t === 'B') return NaN;
+    // <1 -> 0.5
+    var lt = t.match(/^<\s*([\d.]+)/);
+    if (lt) return parseFloat(lt[1]) / 2;
+    // strip ~, %, commas, leading approx. Capture first number.
+    var m = t.replace(/,/g, '').match(/-?\d+(?:\.\d+)?/);
+    return m ? parseFloat(m[0]) : NaN;
+  }
+  var GRADE_ORDER = ['A+','A','A-','B+','B','B-','C+','C','C-','D+','D','D-','F'];
+  function parseGrade(text) {
+    if (!text) return Infinity;
+    var t = text.trim();
+    if (t === '—' || t === '-') return Infinity;
+    var m = t.match(/[A-F][+-]?/);
+    if (!m) return Infinity;
+    var idx = GRADE_ORDER.indexOf(m[0]);
+    return idx === -1 ? Infinity : idx;
+  }
+  var CONF_ORDER = { 'M': 0, 'E': 1, 'R': 2, 'N': 3 };
+  function parseConf(text) {
+    if (!text) return Infinity;
+    var m = text.trim().match(/[MERN]/);
+    if (!m) return Infinity;
+    return CONF_ORDER[m[0]];
+  }
+  function detectType(headerText) {
+    var h = (headerText || '').toLowerCase().trim();
+    if (h === 'rank' || h === 'gs' || h === 't25 %' || h === 'class size' ||
+        h === 'enroll.' || h === 'enroll' || h === 'enrollment') return 'num';
+    if (h === 'niche') return 'grade';
+    if (h === 'conf' || h === 'confidence') return 'conf';
+    return 'text';
+  }
+  function getCellText(td) {
+    return (td.textContent || td.innerText || '').replace(/\s+/g, ' ').trim();
+  }
+  function sortTable(table, colIndex, direction, type) {
+    var tbody = table.tBodies[0];
+    if (!tbody) return;
+    var rows = Array.prototype.slice.call(tbody.rows);
+    rows.sort(function (a, b) {
+      var ca = a.cells[colIndex], cb = b.cells[colIndex];
+      var ta = ca ? getCellText(ca) : '';
+      var tb = cb ? getCellText(cb) : '';
+      var av, bv;
+      if (type === 'num') { av = parseNumeric(ta); bv = parseNumeric(tb); }
+      else if (type === 'grade') { av = parseGrade(ta); bv = parseGrade(tb); }
+      else if (type === 'conf') { av = parseConf(ta); bv = parseConf(tb); }
+      else { av = ta.toLowerCase(); bv = tb.toLowerCase(); }
+      var aN = (typeof av === 'number' && isNaN(av));
+      var bN = (typeof bv === 'number' && isNaN(bv));
+      if (aN && bN) return 0;
+      if (aN) return 1;       // NaN always at bottom
+      if (bN) return -1;
+      if (av < bv) return direction === 'asc' ? -1 : 1;
+      if (av > bv) return direction === 'asc' ? 1 : -1;
+      return 0;
+    });
+    rows.forEach(function (r) { tbody.appendChild(r); });
+  }
+  function resetTable(table) {
+    var tbody = table.tBodies[0];
+    if (!tbody || !table._origRows) return;
+    table._origRows.forEach(function (r) { tbody.appendChild(r); });
+  }
+  function makeSortable(table) {
+    var thead = table.tHead;
+    if (!thead || !thead.rows.length) return;
+    // Use the LAST header row (handles colspan grouping above)
+    var headerRow = thead.rows[thead.rows.length - 1];
+    var ths = Array.prototype.slice.call(headerRow.cells);
+    var tbody = table.tBodies[0];
+    if (!tbody) return;
+    // Snapshot original order
+    table._origRows = Array.prototype.slice.call(tbody.rows);
+    var state = { col: -1, dir: null }; // dir: 'asc' | 'desc' | null
+    ths.forEach(function (th, idx) {
+      var headerText = getCellText(th);
+      var type = detectType(headerText);
+      th.style.cursor = 'pointer';
+      th.setAttribute('data-sort-type', type);
+      // indicator span
+      var indicator = document.createElement('span');
+      indicator.className = 'sort-indicator';
+      indicator.style.marginLeft = '4px';
+      indicator.style.opacity = '0.4';
+      indicator.style.fontSize = '0.85em';
+      indicator.textContent = '';
+      th.appendChild(indicator);
+      th.addEventListener('click', function () {
+        var newDir;
+        if (state.col !== idx) { newDir = 'asc'; }
+        else if (state.dir === 'asc') { newDir = 'desc'; }
+        else if (state.dir === 'desc') { newDir = null; }
+        else { newDir = 'asc'; }
+        // clear all indicators
+        ths.forEach(function (t) {
+          var ind = t.querySelector('.sort-indicator');
+          if (ind) { ind.textContent = ''; ind.style.opacity = '0.4'; }
+        });
+        if (newDir === null) {
+          resetTable(table);
+          state.col = -1; state.dir = null;
+        } else {
+          sortTable(table, idx, newDir, type);
+          state.col = idx; state.dir = newDir;
+          indicator.textContent = newDir === 'asc' ? '▲' : '▼';
+          indicator.style.opacity = '1';
+        }
+      });
+    });
+  }
+  function init() {
+    var tables = document.querySelectorAll('table');
+    tables.forEach(function (t) {
+      if (t.tHead) makeSortable(t);
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+
 </body>
 </html>

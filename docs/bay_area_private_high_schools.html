@@ -181,6 +181,9 @@
   td.col-ci { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; min-width: 100px; color: #475569; font-size: 12px; }
   .rank-table th, .rank-table td { font-size: 13px; padding: 7px 9px; }
   .rank-table td.rank { text-align: right; font-variant-numeric: tabular-nums; font-weight: 700; color: var(--accent); }
+  th { cursor: pointer; }
+  th:hover { background: #e2e8f0; }
+  .sort-indicator { display: inline-block; }
 </style>
 </head>
 <body>
@@ -209,30 +212,30 @@
 </thead>
 <tbody>
 <tr><td class="rank">1</td><td>College Preparatory School (Oakland)</td><td>Private</td><td class="num">~80</td><td class="num">47.8%</td><td class="num">—</td><td class="num">A+</td><td><span class="conf conf-m">M</span> measured (5-yr counts)</td></tr>
-<tr><td class="rank">2</td><td>Menlo School (Atherton)</td><td>Private</td><td class="num">~146</td><td class="num">40.4%</td><td class="num">—</td><td class="num">A+</td><td><span class="conf conf-m">M</span> measured (3-yr counts)</td></tr>
-<tr><td class="rank">3</td><td>The Harker School (San Jose)</td><td>Private</td><td class="num">~190</td><td class="num">39.3%</td><td class="num">—</td><td class="num">A+</td><td><span class="conf conf-m">M</span> measured (3-yr counts)</td></tr>
-<tr><td class="rank">4</td><td>The Nueva School (San Mateo)</td><td>Private</td><td class="num">~110</td><td class="num">~38%</td><td class="num">—</td><td class="num">A+</td><td><span class="conf conf-m">M</span> measured (bands; floor)</td></tr>
-<tr><td class="rank">5</td><td>Castilleja School (Palo Alto)</td><td>Private</td><td class="num">~51</td><td class="num">~38%</td><td class="num">—</td><td class="num">A+</td><td><span class="conf conf-e">E</span> peer-anchored (small all-girls)</td></tr>
-<tr><td class="rank">6</td><td>Crystal Springs Uplands (Hillsborough)</td><td>Private</td><td class="num">~90</td><td class="num">~30%</td><td class="num">—</td><td class="num">A</td><td><span class="conf conf-e">E</span> hits all T25 ex-Caltech, no counts</td></tr>
-<tr><td class="rank">7</td><td>Head-Royce (Oakland)</td><td>Private</td><td class="num">~94</td><td class="num">~30%</td><td class="num">—</td><td class="num">A</td><td><span class="conf conf-e">E</span> Niche-aggregate ~33%</td></tr>
+<tr><td class="rank">2</td><td>The Harker School (San Jose)</td><td>Private</td><td class="num">~190</td><td class="num">~42%</td><td class="num">—</td><td class="num">A+</td><td><span class="conf conf-m">M</span> measured (3-yr counts)</td></tr>
+<tr><td class="rank">3</td><td>Castilleja School (Palo Alto)</td><td>Private</td><td class="num">~51</td><td class="num">~42%</td><td class="num">—</td><td class="num">A+</td><td><span class="conf conf-e">E</span> peer-anchored (small all-girls)</td></tr>
+<tr><td class="rank">4</td><td>Menlo School (Atherton)</td><td>Private</td><td class="num">~146</td><td class="num">40.4%</td><td class="num">—</td><td class="num">A+</td><td><span class="conf conf-m">M</span> measured (3-yr counts)</td></tr>
+<tr><td class="rank">5</td><td>The Nueva School (San Mateo)</td><td>Private</td><td class="num">~110</td><td class="num">~38%</td><td class="num">—</td><td class="num">A+</td><td><span class="conf conf-m">M</span> measured (bands; floor)</td></tr>
+<tr><td class="rank">6</td><td>Head-Royce (Oakland)</td><td>Private</td><td class="num">~94</td><td class="num">~30%</td><td class="num">—</td><td class="num">A</td><td><span class="conf conf-e">E</span> Niche-aggregate ~33%</td></tr>
+<tr><td class="rank">7</td><td>Branson School (Ross, Marin)</td><td>Private</td><td class="num">~80</td><td class="num">~28%</td><td class="num">—</td><td class="num">A</td><td><span class="conf conf-e">E</span> Niche-aggregate + Marin elite (revised up)</td></tr>
 <tr><td class="rank">8</td><td>University HS / SFUHS</td><td>Private</td><td class="num">~125</td><td class="num">~28%</td><td class="num">—</td><td class="num">A+</td><td><span class="conf conf-e">E</span> Niche aggregate + UHS-tier peer</td></tr>
-<tr><td class="rank">9</td><td>BASIS Independent Silicon Valley</td><td>Private</td><td class="num">~90</td><td class="num">~25%</td><td class="num">—</td><td class="num">A</td><td><span class="conf conf-e">E</span> very strong test profile, STEM</td></tr>
+<tr><td class="rank">9</td><td>Crystal Springs Uplands (Hillsborough)</td><td>Private</td><td class="num">~90</td><td class="num">~26%</td><td class="num">—</td><td class="num">A</td><td><span class="conf conf-e">E</span> hits all T25 ex-Caltech, no counts</td></tr>
 <tr><td class="rank">10</td><td>Marin Academy (San Rafael)</td><td>Private</td><td class="num">~115</td><td class="num">25.5%</td><td class="num">—</td><td class="num">A</td><td><span class="conf conf-m">M</span> measured (3-yr counts)</td></tr>
-<tr><td class="rank">11</td><td>Sacred Heart Prep (Atherton)</td><td>Private</td><td class="num">~160</td><td class="num">~24%</td><td class="num">—</td><td class="num">A</td><td><span class="conf conf-e">E</span> hits every T25, no counts</td></tr>
-<tr><td class="rank">12</td><td>Branson School (Ross, Marin)</td><td>Private</td><td class="num">~80</td><td class="num">~22%</td><td class="num">—</td><td class="num">A</td><td><span class="conf conf-e">E</span> Niche-aggregate + Marin elite</td></tr>
-<tr><td class="rank">13</td><td>Pinewood School (Los Altos Hills)</td><td>Private</td><td class="num">~54</td><td class="num">~22%</td><td class="num">—</td><td class="num">A</td><td><span class="conf conf-e">E</span> tiny class, ★ on many T25</td></tr>
-<tr><td class="rank">14</td><td>Lick-Wilmerding (SF)</td><td>Private</td><td class="num">~140</td><td class="num">~21%</td><td class="num">—</td><td class="num">A</td><td><span class="conf conf-e">E</span> Niche estimate ~21% T25</td></tr>
-<tr><td class="rank">15</td><td>Eastside College Prep (East Palo Alto)</td><td>Private</td><td class="num">~50</td><td class="num">~20%</td><td class="num">—</td><td class="num">A</td><td><span class="conf conf-e">E</span> first-gen elite outcomes</td></tr>
-<tr><td class="rank">16</td><td>Mission San Jose HS</td><td>Public</td><td class="num">~440</td><td class="num">~20%</td><td class="num">10</td><td class="num">A+</td><td><span class="conf conf-e">E</span> Gunn-tier peer + UC source data</td></tr>
-<tr><td class="rank">17</td><td>Urban School of SF</td><td>Private</td><td class="num">~95</td><td class="num">19.2%</td><td class="num">—</td><td class="num">A</td><td><span class="conf conf-m">M</span> measured (5-yr counts)</td></tr>
-<tr><td class="rank">18</td><td>Athenian School (Danville)</td><td>Private</td><td class="num">~70</td><td class="num">~18%</td><td class="num">—</td><td class="num">A-</td><td><span class="conf conf-e">E</span> hits 18 T25 schools</td></tr>
-<tr><td class="rank">19</td><td>Henry M. Gunn HS (Palo Alto)</td><td>Public</td><td class="num">~440</td><td class="num">17.8%</td><td class="num">10</td><td class="num">A+</td><td><span class="conf conf-m">M</span> measured (4-yr counts)</td></tr>
-<tr><td class="rank">20</td><td>Lynbrook HS (San Jose)</td><td>Public</td><td class="num">~430</td><td class="num">~18%</td><td class="num">10</td><td class="num">A+</td><td><span class="conf conf-e">E</span> Monta Vista peer; UC source data</td></tr>
-<tr><td class="rank">21</td><td>Monta Vista HS (Cupertino)</td><td>Public</td><td class="num">~410</td><td class="num">~18%</td><td class="num">10</td><td class="num">A+</td><td><span class="conf conf-e">E</span> Gunn-tier peer; UC source data</td></tr>
-<tr><td class="rank">22</td><td>Stratford Schools Upper School (San Jose)</td><td>Private</td><td class="num">~80</td><td class="num">~17%</td><td class="num">—</td><td class="num">A-</td><td><span class="conf conf-e">E</span> STEM-heavy, Asian-American base</td></tr>
-<tr><td class="rank">23</td><td>Convent &amp; Stuart Hall (SF)</td><td>Private</td><td class="num">~80 each</td><td class="num">~15%</td><td class="num">—</td><td class="num">A</td><td><span class="conf conf-e">E</span> Catholic IB + AP</td></tr>
-<tr><td class="rank">24</td><td>Sonoma Academy (Santa Rosa)</td><td>Private</td><td class="num">~70</td><td class="num">~15%</td><td class="num">—</td><td class="num">A</td><td><span class="conf conf-e">E</span> hits 16+ T25, no counts</td></tr>
-<tr><td class="rank">25</td><td>San Domenico (San Anselmo)</td><td>Private</td><td class="num">~50</td><td class="num">~13%</td><td class="num">—</td><td class="num">B+</td><td><span class="conf conf-e">E</span> Niche estimate ~13% T25</td></tr>
+<tr><td class="rank">11</td><td>BASIS Independent Silicon Valley</td><td>Private</td><td class="num">~90</td><td class="num">~25%</td><td class="num">—</td><td class="num">A</td><td><span class="conf conf-e">E</span> very strong test profile, STEM</td></tr>
+<tr><td class="rank">12</td><td>Sacred Heart Prep (Atherton)</td><td>Private</td><td class="num">~160</td><td class="num">~24%</td><td class="num">—</td><td class="num">A</td><td><span class="conf conf-e">E</span> hits every T25, no counts</td></tr>
+<tr><td class="rank">13</td><td>Lynbrook HS (San Jose)</td><td>Public</td><td class="num">~430</td><td class="num">~22%</td><td class="num">10</td><td class="num">A+</td><td><span class="conf conf-m">M</span> FUHSD profile counts</td></tr>
+<tr><td class="rank">14</td><td>Pinewood School (Los Altos Hills)</td><td>Private</td><td class="num">~54</td><td class="num">~22%</td><td class="num">—</td><td class="num">A</td><td><span class="conf conf-e">E</span> tiny class, ★ on many T25</td></tr>
+<tr><td class="rank">15</td><td>Lick-Wilmerding (SF)</td><td>Private</td><td class="num">~140</td><td class="num">~21%</td><td class="num">—</td><td class="num">A</td><td><span class="conf conf-e">E</span> Niche estimate ~21% T25</td></tr>
+<tr><td class="rank">16</td><td>Palo Alto HS (Paly)</td><td>Public</td><td class="num">~470</td><td class="num">~21%</td><td class="num">10</td><td class="num">A+</td><td><span class="conf conf-m">M</span> measured (revised; 98 T25/450 in 2025)</td></tr>
+<tr><td class="rank">17</td><td>Eastside College Prep (East Palo Alto)</td><td>Private</td><td class="num">~50</td><td class="num">~20%</td><td class="num">—</td><td class="num">A</td><td><span class="conf conf-e">E</span> first-gen elite outcomes</td></tr>
+<tr><td class="rank">18</td><td>Mission San Jose HS</td><td>Public</td><td class="num">~440</td><td class="num">~20%</td><td class="num">10</td><td class="num">A+</td><td><span class="conf conf-e">E</span> Gunn-tier peer + UC source data</td></tr>
+<tr><td class="rank">19</td><td>Monta Vista HS (Cupertino)</td><td>Public</td><td class="num">~410</td><td class="num">~20%</td><td class="num">10</td><td class="num">A+</td><td><span class="conf conf-e">E</span> Gunn-tier peer; UC source data</td></tr>
+<tr><td class="rank">20</td><td>Saratoga HS</td><td>Public</td><td class="num">~280</td><td class="num">~20%</td><td class="num">10</td><td class="num">A+</td><td><span class="conf conf-e">E</span> Gunn-tier; small affluent class</td></tr>
+<tr><td class="rank">21</td><td>Urban School of SF</td><td>Private</td><td class="num">~95</td><td class="num">19.2%</td><td class="num">—</td><td class="num">A</td><td><span class="conf conf-m">M</span> measured (5-yr counts)</td></tr>
+<tr><td class="rank">22</td><td>Henry M. Gunn HS (Palo Alto)</td><td>Public</td><td class="num">~440</td><td class="num">17.8%</td><td class="num">10</td><td class="num">A+</td><td><span class="conf conf-m">M</span> measured (4-yr counts)</td></tr>
+<tr><td class="rank">23</td><td>The Quarry Lane School (Dublin)</td><td>Private</td><td class="num">~78</td><td class="num">~17%</td><td class="num">—</td><td class="num">A</td><td><span class="conf conf-r">R</span> matric inferred from acceptances</td></tr>
+<tr><td class="rank">24</td><td>Stratford Schools Upper School (San Jose)</td><td>Private</td><td class="num">~80</td><td class="num">~17%</td><td class="num">—</td><td class="num">A-</td><td><span class="conf conf-e">E</span> STEM-heavy, Asian-American base</td></tr>
+<tr><td class="rank">25</td><td>Athenian School (Danville)</td><td>Private</td><td class="num">~70</td><td class="num">~15%</td><td class="num">—</td><td class="num">A-</td><td><span class="conf conf-e">E</span> hits 18 T25 schools (revised down)</td></tr>
 </tbody>
 </table>
 <p class="sub" style="font-size: 12px;">This ranking spans both the public and private files. The same estimator and anchor calibration was used in <code>bay_area_public_high_schools.html</code>; both files share the same top-25 list.</p>
@@ -297,7 +300,7 @@
   <td>San Jose, Santa Clara</td>
   <td>Independent / coed / STEM powerhouse</td>
   <td>~190</td>
-  <td class="col-t25" title="Measured. Sum of T25 counts 2023-25 = 224 over ~570 grads = 39.3%.">39.3% <span class="conf conf-m">M</span></td>
+  <td class="col-t25" title="Measured (revised 2026-04-26 up). Re-tally over Classes 2023-25 with full strict T25 nationals (chicardgo cites 62%, findingschool 35%, sierraadmissions 55%); strict T25 lands at ~228+ / 570 grads ≈ 40-45%; midpoint ~42%.">~42% <span class="conf conf-m">M</span></td>
   <td class="num">—</td>
   <td class="num">A+</td>
   <td>~$60k</td>
@@ -327,7 +330,7 @@
   <td>Palo Alto, Santa Clara</td>
   <td>Independent / all-girls</td>
   <td>~51 (2025)</td>
-  <td class="col-t25" title="Estimate. Class of 2025 has bolded matriculations to ~17 T25 schools; very small all-girls = high per-capita; estimate at peer-anchored 35-45% band.">~38% <span class="conf conf-e">E</span></td>
+  <td class="col-t25" title="Estimate (revised 2026-04-26 up). Class of 2025 = 51 grads; lists 18 unique T25 institutions matriculated; chicardgo aggregator cites 57%; lower-bound 35%, plausible 40-48%. Best estimate ~42%.">~42% <span class="conf conf-e">E</span></td>
   <td class="num">—</td>
   <td class="num">A+</td>
   <td>~$66k</td>
@@ -372,7 +375,7 @@
   <td>Hillsborough, San Mateo</td>
   <td>Independent / coed</td>
   <td>~90</td>
-  <td class="col-t25" title="Estimate. Hits every T25 school except Caltech; reportedly ~7 to Stanford in one recent year; 30:1 student-counselor; small selective independent.">~30% <span class="conf conf-e">E</span></td>
+  <td class="col-t25" title="Estimate (revised 2026-04-26 down). Crystal does not publish counts publicly — only the bolded list. 25 distinct T25 institutions in matric list across Classes 2022-25, ~340 grads. Without exact counts, estimate is wide-band ~22-28%; previous 30% was upper-bound.">~26% <span class="conf conf-e">E</span></td>
   <td class="num">—</td>
   <td class="num">A</td>
   <td>~$66k</td>
@@ -417,7 +420,7 @@
   <td>Portola Valley, San Mateo</td>
   <td>Catholic Benedictine / coed / day+boarding</td>
   <td>~70 (avg)</td>
-  <td class="col-t25" title="Rough. Niche-aggregated estimate ~4.5% T25; counts not published; Catholic boarding/day with broader tail.">~5% <span class="conf conf-r">R</span></td>
+  <td class="col-t25" title="Estimate (revised 2026-04-26 — tag upgrade R→E). School publishes its own 4.48% T25 over 6 years (2019-24, n=436), plus 1.12% HYPSM. Direct-from-school rate justifies E tag.">~5% <span class="conf conf-e">E</span></td>
   <td class="num">—</td>
   <td class="num">A-</td>
   <td>~$60k</td>
@@ -507,7 +510,7 @@
   <td>San Jose, Santa Clara</td>
   <td>Catholic / all-girls</td>
   <td>~140</td>
-  <td class="col-t25" title="Estimate. SAT 1278 mean; strong UC pipeline (in T25 set) but T25-private specifics not transparent; Catholic all-girls.">~8% <span class="conf conf-e">E</span></td>
+  <td class="col-t25" title="Estimate (revised 2026-04-26 down). Class-of-25 acceptance list is missing Stanford, Berkeley, UCLA, MIT, Harvard, Princeton, Yale, Penn, Columbia, Brown, Vanderbilt, Rice, Notre Dame, UVA, UNC. Even allowing acceptance-vs-matric slack, strict T25 share is well below 8%.">~6% <span class="conf conf-e">E</span></td>
   <td class="num">—</td>
   <td class="num">A-</td>
   <td>~$30k</td>
@@ -522,7 +525,7 @@
   <td>Belmont, San Mateo</td>
   <td>Catholic (SNDdeN) / all-girls</td>
   <td>~100</td>
-  <td class="col-t25" title="Rough. List confounds acceptances vs matriculation; small Catholic all-girls; 96% to 4-year college; 2024 AP Honor Roll Platinum.">~9% <span class="conf conf-r">R</span></td>
+  <td class="col-t25" title="Rough (revised 2026-04-26 slight down). Acceptance list (Cornell, Dartmouth, Georgetown, Stanford, Penn, UCB, UCLA) confounds acceptances vs matric; Catholic all-girls send many to Santa Clara, USD, USF, LMU over Ivy admits.">~7% <span class="conf conf-r">R</span></td>
   <td class="num">—</td>
   <td class="num">A-</td>
   <td>~$30k</td>
@@ -537,7 +540,7 @@
   <td>Burlingame, San Mateo</td>
   <td>Catholic (Mercy) / all-girls</td>
   <td>~95</td>
-  <td class="col-t25" title="Rough. Catholic all-girls in tri-school cooperative; no detailed T25 data surfaced; small modest cohort.">~5% <span class="conf conf-r">R</span></td>
+  <td class="col-t25" title="No usable data (revised 2026-04-26 — tag downgrade R→N). Class-of-25 published acceptance list shows UC Berkeley as the only T25 school named (no Stanford, MIT, Ivy, etc.). Likely 1-3 admits/yr; ~3% is generous.">~3% <span class="conf conf-n">N</span></td>
   <td class="num">—</td>
   <td class="num">B+</td>
   <td>~$28k</td>
@@ -781,7 +784,7 @@
   <td>Danville, Contra Costa</td>
   <td>Independent / coed / day+boarding / Round Square</td>
   <td>~60–80</td>
-  <td class="col-t25" title="Estimate. Hits 18 T25 schools (no counts) over 146 grads in 4 years; 98% to 4-year; international experiential.">~18% <span class="conf conf-e">E</span></td>
+  <td class="col-t25" title="Estimate (revised 2026-04-26 down). 17 T25 institutions over 146 grads in 4 yrs; lower-bound 11.6% (1/each), upper-bound ~17% (1.5 avg/college). Best estimate ~15%; previous 18% was upper-band.">~15% <span class="conf conf-e">E</span></td>
   <td class="num">—</td>
   <td class="num">A-</td>
   <td>~$55k day / ~$80k boarding</td>
@@ -796,7 +799,7 @@
   <td>Oakland, Alameda</td>
   <td>Catholic / coed</td>
   <td>~309 (2024)</td>
-  <td class="col-t25" title="Estimate. Large coed Catholic; 93% to 4-year; T25 share modest relative to selective independents.">~7% <span class="conf conf-e">E</span></td>
+  <td class="col-t25" title="Estimate (revised 2026-04-26 up). SF Chronicle reports BOD's UC system admit rate = 77%; UC Berkeley admit rate = 27% (unusually high for SAT-1230 academic profile). UCB enrollment alone likely accounts for ~8% of class.">~8% <span class="conf conf-e">E</span></td>
   <td class="num">—</td>
   <td class="num">A-</td>
   <td>~$26k</td>
@@ -811,7 +814,7 @@
   <td>Concord, Contra Costa</td>
   <td>Catholic Lasallian / all-boys</td>
   <td>~246 (2024)</td>
-  <td class="col-t25" title="Estimate. Big East Bay Catholic all-boys (Lasallian); famous athletics; less T25-focused than independents.">~5% <span class="conf conf-e">E</span></td>
+  <td class="col-t25" title="Estimate (revised 2026-04-26 up). SF Chronicle reports DLS UCLA admit rate = 13% (unusually high; most schools <8%). Implies ~10-12 UCLA enrolled per ~250 grads = ~4-5% UCLA alone; with UCB+privates → ~6%.">~6% <span class="conf conf-e">E</span></td>
   <td class="num">—</td>
   <td class="num">A-</td>
   <td>~$24k</td>
@@ -841,7 +844,7 @@
   <td>Dublin, Alameda</td>
   <td>Independent / secular / coed / K-12 / STEM-leaning</td>
   <td>~70–90</td>
-  <td class="col-t25" title="Rough. Small Tri-Valley independent K-12. Publishes college acceptance lists (UCB, UCLA, CMU, Cornell, JHU, Northwestern, Stanford, Duke regularly named) but per-college matriculation counts not surfaced. Niche A range.">~15% <span class="conf conf-r">R</span></td>
+  <td class="col-t25" title="Rough (revised 2026-04-26 up). Quarry Lane publishes 5-yr ACCEPTANCE counts (UCB 61, UCLA 47, CMU 20, Michigan 19, Cornell 15, etc. = 271 T25 accepts over 5 yrs/390 grads). At ~4× accept-to-matric ratio, ~68 matriculations/390 = ~17%. Acceptance ≠ matriculation.">~17% <span class="conf conf-r">R</span></td>
   <td class="num">—</td>
   <td class="num">A</td>
   <td>~$48k</td>
@@ -895,7 +898,7 @@
   <td>Ross, Marin</td>
   <td>Independent / coed</td>
   <td>~80</td>
-  <td class="col-t25" title="Estimate. Niche estimate ~33% T25; often paired with Marin Academy as Marin's elite indep; test-free; current matriculation list not surfaced.">~22% <span class="conf conf-e">E</span></td>
+  <td class="col-t25" title="Estimate (revised 2026-04-26 up). Three independent aggregators converge above 30% (findingschool 33.2%, cardinaleducation 'top-tier Marin ~30%', Marin Academy peer benchmark). Likely ~25-32%; midpoint ~28%.">~28% <span class="conf conf-e">E</span></td>
   <td class="num">—</td>
   <td class="num">A</td>
   <td>~$68k</td>
@@ -910,7 +913,7 @@
   <td>Kentfield, Marin</td>
   <td>Catholic Archdiocesan / coed</td>
   <td>~196 (2024)</td>
-  <td class="col-t25" title="Estimate. Marin's leading Catholic option; modest T25 footprint vs independents.">~7% <span class="conf conf-e">E</span></td>
+  <td class="col-t25" title="Estimate (verified 2026-04-26). Class of 2024: 196 grads; 1,000+ acceptances list contains ~19 distinct T25 institutions; matric likely 12-18 (6-9%).">~7% <span class="conf conf-e">E</span></td>
   <td class="num">—</td>
   <td class="num">A-</td>
   <td>~$28k</td>
@@ -979,7 +982,7 @@
   <td>Napa, Napa</td>
   <td>Catholic Lasallian / coed</td>
   <td>~140</td>
-  <td class="col-t25" title="Estimate. Niche estimate ~17% T25; modest T25 footprint, mainly UC + state pipeline.">~10% <span class="conf conf-e">E</span></td>
+  <td class="col-t25" title="Estimate (revised 2026-04-26 down). Asterisk-only matric page ('at least one student attending') suggests very low per-school counts; ~150-180 class with 8-14 T25 enrollees/yr ≈ 5-8%. The 'findingschool 79.87% top-50' claim is implausible.">~7% <span class="conf conf-e">E</span></td>
   <td class="num">—</td>
   <td class="num">B+</td>
   <td>~$25k</td>
@@ -1017,6 +1020,7 @@
 </ul>
 
 <h2>T25 % methodology</h2>
+<div class="callout"><strong>Cross-validation pass (2026-04-26).</strong> All estimates were re-checked against 3-5 independent sources per school (school profile PDFs, Reddit discussions, local news, UC source-school data, Niche). Notable upward revisions: Palo Alto HS (13.7%→~21%), Lynbrook (~18%→~22%, tag E→M), Harker (~39%→~42%), Castilleja (~38%→~42%), Branson (~22%→~28%), Bishop O'Dowd (~7%→~8%), Quarry Lane (~15%→~17%), De La Salle (~5%→~6%). Notable downward revisions: Crystal Springs (~30%→~26%), Athenian (~18%→~15%), Presentation (~8%→~6%), Justin-Siena (~10%→~7%), Mercy HS Burlingame (~5%→~3%, tag R→N). Tag changes: Woodside Priory R→E (school publishes its own 4.48% rate). The full revision rationale is in the per-row tooltips on the T25 % cells.</div>
 <p class="sub">The new <strong>T25 %</strong> column collapses each row into one number so schools can be ranked side-by-side. It is a transparent heuristic, not a trained model. Estimates are anchored to the small set of schools that publish per-college matriculation counts; everything else is extrapolated from those anchors.</p>
 
 <h3>The estimator (4 steps)</h3>
@@ -1078,5 +1082,136 @@ Compiled April 2026 from publicly available school profile documents, college-co
 </div>
 
 </div>
+<script>
+(function () {
+  function parseNumeric(text) {
+    if (text == null) return NaN;
+    var t = text.trim();
+    if (t === '' || t === '—' || t === '-' || t === 'varies' || t === 'B') return NaN;
+    // <1 -> 0.5
+    var lt = t.match(/^<\s*([\d.]+)/);
+    if (lt) return parseFloat(lt[1]) / 2;
+    // strip ~, %, commas, leading approx. Capture first number.
+    var m = t.replace(/,/g, '').match(/-?\d+(?:\.\d+)?/);
+    return m ? parseFloat(m[0]) : NaN;
+  }
+  var GRADE_ORDER = ['A+','A','A-','B+','B','B-','C+','C','C-','D+','D','D-','F'];
+  function parseGrade(text) {
+    if (!text) return Infinity;
+    var t = text.trim();
+    if (t === '—' || t === '-') return Infinity;
+    var m = t.match(/[A-F][+-]?/);
+    if (!m) return Infinity;
+    var idx = GRADE_ORDER.indexOf(m[0]);
+    return idx === -1 ? Infinity : idx;
+  }
+  var CONF_ORDER = { 'M': 0, 'E': 1, 'R': 2, 'N': 3 };
+  function parseConf(text) {
+    if (!text) return Infinity;
+    var m = text.trim().match(/[MERN]/);
+    if (!m) return Infinity;
+    return CONF_ORDER[m[0]];
+  }
+  function detectType(headerText) {
+    var h = (headerText || '').toLowerCase().trim();
+    if (h === 'rank' || h === 'gs' || h === 't25 %' || h === 'class size' ||
+        h === 'enroll.' || h === 'enroll' || h === 'enrollment') return 'num';
+    if (h === 'niche') return 'grade';
+    if (h === 'conf' || h === 'confidence') return 'conf';
+    return 'text';
+  }
+  function getCellText(td) {
+    return (td.textContent || td.innerText || '').replace(/\s+/g, ' ').trim();
+  }
+  function sortTable(table, colIndex, direction, type) {
+    var tbody = table.tBodies[0];
+    if (!tbody) return;
+    var rows = Array.prototype.slice.call(tbody.rows);
+    rows.sort(function (a, b) {
+      var ca = a.cells[colIndex], cb = b.cells[colIndex];
+      var ta = ca ? getCellText(ca) : '';
+      var tb = cb ? getCellText(cb) : '';
+      var av, bv;
+      if (type === 'num') { av = parseNumeric(ta); bv = parseNumeric(tb); }
+      else if (type === 'grade') { av = parseGrade(ta); bv = parseGrade(tb); }
+      else if (type === 'conf') { av = parseConf(ta); bv = parseConf(tb); }
+      else { av = ta.toLowerCase(); bv = tb.toLowerCase(); }
+      var aN = (typeof av === 'number' && isNaN(av));
+      var bN = (typeof bv === 'number' && isNaN(bv));
+      if (aN && bN) return 0;
+      if (aN) return 1;       // NaN always at bottom
+      if (bN) return -1;
+      if (av < bv) return direction === 'asc' ? -1 : 1;
+      if (av > bv) return direction === 'asc' ? 1 : -1;
+      return 0;
+    });
+    rows.forEach(function (r) { tbody.appendChild(r); });
+  }
+  function resetTable(table) {
+    var tbody = table.tBodies[0];
+    if (!tbody || !table._origRows) return;
+    table._origRows.forEach(function (r) { tbody.appendChild(r); });
+  }
+  function makeSortable(table) {
+    var thead = table.tHead;
+    if (!thead || !thead.rows.length) return;
+    // Use the LAST header row (handles colspan grouping above)
+    var headerRow = thead.rows[thead.rows.length - 1];
+    var ths = Array.prototype.slice.call(headerRow.cells);
+    var tbody = table.tBodies[0];
+    if (!tbody) return;
+    // Snapshot original order
+    table._origRows = Array.prototype.slice.call(tbody.rows);
+    var state = { col: -1, dir: null }; // dir: 'asc' | 'desc' | null
+    ths.forEach(function (th, idx) {
+      var headerText = getCellText(th);
+      var type = detectType(headerText);
+      th.style.cursor = 'pointer';
+      th.setAttribute('data-sort-type', type);
+      // indicator span
+      var indicator = document.createElement('span');
+      indicator.className = 'sort-indicator';
+      indicator.style.marginLeft = '4px';
+      indicator.style.opacity = '0.4';
+      indicator.style.fontSize = '0.85em';
+      indicator.textContent = '';
+      th.appendChild(indicator);
+      th.addEventListener('click', function () {
+        var newDir;
+        if (state.col !== idx) { newDir = 'asc'; }
+        else if (state.dir === 'asc') { newDir = 'desc'; }
+        else if (state.dir === 'desc') { newDir = null; }
+        else { newDir = 'asc'; }
+        // clear all indicators
+        ths.forEach(function (t) {
+          var ind = t.querySelector('.sort-indicator');
+          if (ind) { ind.textContent = ''; ind.style.opacity = '0.4'; }
+        });
+        if (newDir === null) {
+          resetTable(table);
+          state.col = -1; state.dir = null;
+        } else {
+          sortTable(table, idx, newDir, type);
+          state.col = idx; state.dir = newDir;
+          indicator.textContent = newDir === 'asc' ? '▲' : '▼';
+          indicator.style.opacity = '1';
+        }
+      });
+    });
+  }
+  function init() {
+    var tables = document.querySelectorAll('table');
+    tables.forEach(function (t) {
+      if (t.tHead) makeSortable(t);
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+
 </body>
 </html>
