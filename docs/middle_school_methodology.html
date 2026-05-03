@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Middle School Methodology — Inferring T25 % from HS feeders</title>
+<style>
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    max-width: 820px;
+    margin: 40px auto;
+    padding: 0 24px 80px;
+    line-height: 1.6;
+    color: #1f2328;
+  }
+  h1 { font-size: 26px; color: #1f3a8a; margin-bottom: 6px; letter-spacing: -0.01em; }
+  h2 { font-size: 19px; color: #1f3a8a; margin-top: 32px; }
+  h3 { font-size: 16px; margin-top: 24px; }
+  .topnav { font-size: 13px; margin-bottom: 8px; }
+  .topnav a { color: #1f3a8a; text-decoration: none; }
+  .topnav a:hover { text-decoration: underline; }
+  .sub { color: #6b7280; margin-top: 0; font-size: 14px; }
+  .warn {
+    background: #fef3c7;
+    border-left: 4px solid #d97706;
+    padding: 14px 18px;
+    border-radius: 6px;
+    margin: 20px 0;
+    font-size: 14px;
+  }
+  .warn ul { margin: 6px 0 0; padding-left: 22px; }
+  .warn li { margin-bottom: 4px; }
+  code, pre {
+    background: #f3f4f6;
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 13.5px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+  pre {
+    padding: 12px 14px;
+    overflow-x: auto;
+    line-height: 1.45;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+    margin: 12px 0 20px;
+  }
+  th, td {
+    border: 1px solid #e5e7eb;
+    padding: 6px 10px;
+    text-align: left;
+  }
+  th { background: #f1f5f9; font-weight: 600; }
+  .conf {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 1px 6px;
+    border-radius: 8px;
+    vertical-align: middle;
+  }
+  .conf-m { background: #1f7a1f; color: white; }
+  .conf-e { background: #e0b400; color: #2b2200; }
+  .conf-r { background: #d97706; color: white; }
+  .conf-n { background: #999999; color: white; }
+  .footer { color: #6b7280; font-size: 12.5px; margin-top: 36px; border-top: 1px solid #e5e7eb; padding-top: 14px; }
+</style>
+</head>
+<body>
+
+<div class="topnav"><a href="index.html">&larr; Back to index</a> &nbsp;|&nbsp; <a href="middle_schools_ranked.html">Middle schools ranked &rarr;</a></div>
+
+<h1>Middle-school T25 inference — methodology</h1>
+<p class="sub">How the <a href="middle_schools_ranked.html">middle-school ranking</a> is built, why the confidence is consistently lower than the HS data it derives from, and what NOT to read into the numbers.</p>
+
+<div class="warn">
+  <strong>Headline caveat (read this first).</strong> A middle school does not <em>cause</em> a T25 outcome. The MS T25 % below is a prediction of <em>where the families currently enrolled at this MS will end up</em>, computed by inheriting the T25 % of the high schools those families are zoned for. The estimate has at least three layers of uncertainty stacked on top of each other (see Section 5).
+</div>
+
+<h2>1. The inference equation</h2>
+<p>For a middle school <em>m</em> that feeds into a set of high schools <em>{h<sub>1</sub>, h<sub>2</sub>, &hellip;}</em> with feeder shares <em>w<sub>i</sub></em> (summing to 1):</p>
+<pre>T25 %(m)   = &Sigma;<sub>i</sub> w<sub>i</sub> &times; T25 %(h<sub>i</sub>)
+T10 %(m)   = &Sigma;<sub>i</sub> w<sub>i</sub> &times; T10 %(h<sub>i</sub>)
+T50 %(m)   = &Sigma;<sub>i</sub> w<sub>i</sub> &times; T50 %(h<sub>i</sub>)
+LAC15 %(m) = &Sigma;<sub>i</sub> w<sub>i</sub> &times; LAC15 %(h<sub>i</sub>)
+UC %(m)    = &Sigma;<sub>i</sub> w<sub>i</sub> &times; UC %(h<sub>i</sub>)</pre>
+<p>For K-12 / 6-12 private schools where MS = HS (same student body, same campus, &gt;90% MS-to-HS continuation), the equation collapses to the identity case &mdash; the MS row inherits the HS row exactly, with a small downward adjustment if a non-trivial fraction (&gt;5%) of MS grads are known to leave for other independents (Harker is the only example in our list).</p>
+
+<h2>2. Why MS confidence is one tier worse than the HS feeder</h2>
+<p>Even when the dominant HS feeder is <span class="conf conf-m">M</span> (school-published per-college matriculation list), the MS estimate adds a layer of uncertainty: the feeder weight <em>w<sub>i</sub></em> is itself an estimate. A 90/10 vs. 70/30 split between two HS feeders changes the MS T25 by 4-6 pp when the two HSs differ materially. So:</p>
+
+<table>
+<tr><th>HS feeder confidence</th><th>MS confidence</th><th>MS error band (T25 pp)</th></tr>
+<tr><td><span class="conf conf-m">M</span> measured</td><td><span class="conf conf-e">E</span> estimated</td><td>&plusmn;6 pp</td></tr>
+<tr><td><span class="conf conf-e">E</span> estimated</td><td><span class="conf conf-r">R</span> rough</td><td>&plusmn;10 pp</td></tr>
+<tr><td><span class="conf conf-r">R</span> rough</td><td><span class="conf conf-n">N</span> very rough</td><td>&plusmn;15 pp</td></tr>
+</table>
+
+<p><strong>Exception:</strong> K-12 / 6-12 same-school passthroughs keep the HS confidence (no extra feeder uncertainty if the MS-to-HS continuation rate is high enough to ignore).</p>
+
+<h2>3. Source of the HS T25 anchor data</h2>
+<p>All HS T25 / T10 / T50 / LAC15 / UC values used as feeder anchors come from <a href="all_schools_ranked.html">all_schools_ranked.html</a>, which is itself built from the multi-source weighted estimator described on the <a href="methodology.html">main methodology page</a>. Each MS row in the ranked table cites the specific HS feeder estimates used in its <em>Source HS estimate(s)</em> column.</p>
+
+<h2>4. Source of the feeder weights</h2>
+<p>Feeder weights come from a combination of:</p>
+<ul>
+  <li><strong>District zoning maps</strong> &mdash; for districts where each MS feeds a single zoned HS (e.g., Stanley MS &rarr; Acalanes), the weight is &gt;90%.</li>
+  <li><strong>Boundary catchment patterns</strong> &mdash; for the FUHSD / Cupertino Union SD overlap (one MS feeds multiple HSs based on home address), weights reflect the dominant zone share that local realtors and parent-forum data converge on.</li>
+  <li><strong>School-published "where our grads went" lists</strong> &mdash; for private K-8 feeders (Marin Country Day, SF Day, Hamlin, Town, Phillips Brooks), the school's own counseling page is the primary input. These usually list HS destinations without weighted percentages, so the weights here are eyeball estimates from list density.</li>
+  <li><strong>SFUSD assignment-system patterns</strong> &mdash; for selective-magnet MSs (Presidio, Hoover, Aptos, Roosevelt), the Lowell-share weight reflects the post-2024 partial restoration of merit-based Lowell admissions, where top SFUSD MS students have a roughly 40-50% Lowell placement rate.</li>
+</ul>
+
+<h2>5. The triple-estimation chain &mdash; honest limitation</h2>
+<p>Three layers of error compound:</p>
+<ol>
+  <li><strong>Feeder weight error.</strong> Boundaries and choice patterns shift; a "60% to Lynbrook" assumption could realistically be anywhere from 40% to 80% in a given year and zone.</li>
+  <li><strong>HS T25 estimate error.</strong> Documented in the main methodology &mdash; M-tier rows are &plusmn;2 pp, E-tier &plusmn;5 pp, R-tier &plusmn;10 pp.</li>
+  <li><strong>Acceptance-to-matriculation conversion.</strong> The T25 % itself is built from acceptances using yield factors (see <a href="lessons.md">lessons</a>); for MSs we don't add new conversion error, but we do inherit the existing one.</li>
+</ol>
+<p>A naively-quoted MS T25 of "~12%" for a competitive SFUSD MS like Presidio is honest about all three of these and means: <em>the median outcome is somewhere in the 5%-19% band depending on which HS the student lands at, what that HS's actual T25 % is, and what fraction of admits matriculate</em>.</p>
+
+<h2>6. Selection bias dominates &mdash; what the numbers do NOT mean</h2>
+<ul>
+  <li><strong>The MS does not cause the outcome.</strong> A family that moves into the Mission San Jose zone at age 11 is, on average, a different family than one that does not. Their child would likely have hit a similar T25 outcome attending a peer school in another high-performing zone. Cross-school transfer at age 11 is an opt-in event correlated with parental SES, education, and college focus.</li>
+  <li><strong>Public-school families can move zones.</strong> A child enrolled at Hopkins JH (Mission San Jose feeder) whose family relocates before HS no longer benefits from the MSJ T25 inheritance. Conversely, a non-Hopkins family that moves into the MSJ zone for HS gets the T25 boost without ever touching Hopkins.</li>
+  <li><strong>Private-school families can choose any HS.</strong> A family at MCDS or SF Day pays high tuition partly <em>for</em> the optionality of which HS to apply to. The K-8 doesn't lock in any HS &mdash; the inferred T25 % reflects the schools they tend to pick, not the only ones they could.</li>
+  <li><strong>Magnet seats are competitive.</strong> Lowell admission and SFUSD's revised assignment system mean that even the top SFUSD MS only sends a fraction of its students to Lowell. The MS T25 average smears across the magnet-bound and non-magnet-bound subpopulations.</li>
+</ul>
+
+<h2>7. Worked example: Hopkins Junior High &rarr; Mission San Jose HS</h2>
+<p>Hopkins is the primary feeder MS for Mission San Jose HS (MSJ), the highest-T25 comprehensive public HS in the Bay Area at ~23% T25.</p>
+<p>Inputs:</p>
+<ul>
+  <li>HS feeders: MSJ HS at ~23% (E, &plusmn;5 pp); Irvington HS at ~10% (E, &plusmn;5 pp).</li>
+  <li>Feeder weights: ~95% MSJ, ~5% Irvington (from FUSD zone map; Hopkins is the dedicated MSJ-zone JH).</li>
+</ul>
+<p>Computation:</p>
+<pre>T25 % = 0.95 &times; 23 + 0.05 &times; 10
+      = 21.85 + 0.50
+      = 22.35
+      &asymp; ~22%
+
+T10 % = 0.95 &times; 6.4 + 0.05 &times; 1.5  &asymp; 6.2
+T50 % = 0.95 &times; 41  + 0.05 &times; 20  &asymp; 40
+LAC15%= 0.95 &times; 2.3 + 0.05 &times; 1   &asymp; 2.2
+UC %  = 0.95 &times; 55  + 0.05 &times; 40  &asymp; 54</pre>
+<p>Confidence tag: <span class="conf conf-r">R</span> (one tier worse than the dominant E-tier MSJ HS feeder). Practical error band: &plusmn;10 pp on T25, meaning Hopkins's true T25 outcome is somewhere in the ~12-32% range depending on actual feeder weights, MSJ's true T25 %, and class-to-class variation.</p>
+
+<h2>8. Subset rule check</h2>
+<p>The all-schools T25/T15/T50 subset rule (T10 &le; T15 &le; T25 &le; T50) holds automatically because it holds for each HS feeder &mdash; weighted averages preserve the inequality. Spot-checked: the highest-T25 MS in the table (BASIS Independent Fremont, ~48%) has T10 ~19% &lt; T25 ~48% &lt; T50 ~83%; the lowest (All Souls Catholic at ~4%) has T10 &lt;1% &lt; T25 ~4% &lt; T50 ~8%. Both pass.</p>
+
+<h2>9. Cap rule</h2>
+<p>No MS row exceeds the highest-T25 K-12 anchor, which is BASIS Independent Fremont at ~48% (Branson at ~50% is HS-only, not in the MS roster). All MS estimates are well under that cap. The top public MS in the ranking (Hopkins JH at ~22%) sits below the top K-12 private MS, which matches intuition &mdash; even the top public-zone feeder doesn't beat a tuition-selecting private K-12 anchor.</p>
+
+<h2>10. What's NOT covered (intentional omissions)</h2>
+<ul>
+  <li><strong>Schools below the 1.5% T25 threshold.</strong> Most low-tier public MSs in the Bay Area inherit a sub-2% T25 from their HS feeders; they're not informative additions to a ranking and are omitted.</li>
+  <li><strong>Schools with no clear feeder map.</strong> SFUSD MSs with full district-wide assignment, K-8 schools where graduates scatter across &gt;6 HSs without a dominant one, and small charters without published outcomes.</li>
+  <li><strong>The Catholic K-8 long tail.</strong> The methodology covers 4 representative Catholic K-8s (one per Bay Area sub-region) to show how the math works for that segment, but the Catholic K-8 universe in the Bay Area is &gt;40 schools and most will look very similar (~3-6% T25) to the included examples.</li>
+  <li><strong>HS &rarr; college matriculation conversion error.</strong> Inherited from the HS estimates, not separately modeled.</li>
+</ul>
+
+<div class="footer">
+  Source data: <a href="all_schools_ranked.html">all_schools_ranked.html</a>. Main methodology: <a href="methodology.html">methodology.html</a>. MS ranking: <a href="middle_schools_ranked.html">middle_schools_ranked.html</a>.
+</div>
+
+</body>
+</html>

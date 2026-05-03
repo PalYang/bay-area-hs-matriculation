@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bay Area Middle Schools — Inferred T25 % from HS feeders</title>
+<style>
+  :root {
+    --ink: #1f2937;
+    --muted: #6b7280;
+    --bg: #fafaf9;
+    --card: #ffffff;
+    --line: #e5e7eb;
+    --accent: #1f3a8a;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    margin: 0;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1300px; margin: 0 auto; padding: 24px 22px 80px; }
+  .topnav { font-size: 13px; margin-bottom: 8px; }
+  .topnav a { color: var(--accent); text-decoration: none; }
+  .topnav a:hover { text-decoration: underline; }
+  h1 {
+    font-size: 26px;
+    margin: 0 0 6px;
+    color: var(--accent);
+    letter-spacing: -0.01em;
+  }
+  .sub { color: var(--muted); margin-top: 0; font-size: 14px; max-width: 920px; }
+  .warn {
+    background: #fef3c7;
+    border-left: 4px solid #d97706;
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin: 16px 0;
+    font-size: 13.5px;
+  }
+  .warn ul { margin: 6px 0 0; padding-left: 22px; }
+  .warn li { margin-bottom: 4px; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--card);
+    font-size: 13px;
+    margin: 8px 0 24px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  th, td {
+    border-bottom: 1px solid var(--line);
+    padding: 8px 10px;
+    text-align: left;
+    vertical-align: top;
+  }
+  th {
+    background: #f1f5f9;
+    font-weight: 600;
+    font-size: 11.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: #334155;
+    position: sticky; top: 0; z-index: 1;
+  }
+  tr:hover td { background: #fafbfc; }
+  td.rank { text-align: right; font-variant-numeric: tabular-nums; font-weight: 700; color: var(--accent); width: 40px; }
+  td.school { font-weight: 600; color: var(--accent); min-width: 200px; }
+  td.loc { color: #475569; min-width: 150px; }
+  td.feeder { color: #475569; min-width: 220px; font-size: 12.5px; }
+  td.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  td.col-t25 { text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; white-space: nowrap; min-width: 70px; }
+  td.conf-cell { text-align: center; }
+  td.src { font-size: 11.5px; }
+  td.src a { color: var(--accent); text-decoration: none; }
+  td.src a:hover { text-decoration: underline; }
+  .conf {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 1px 6px;
+    border-radius: 8px;
+    vertical-align: middle;
+  }
+  .conf-m { background: #1f7a1f; color: white; }
+  .conf-e { background: #e0b400; color: #2b2200; }
+  .conf-r { background: #d97706; color: white; }
+  .conf-n { background: #999999; color: white; }
+  .type-tag {
+    display: inline-block;
+    font-size: 10.5px;
+    font-weight: 600;
+    padding: 2px 7px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+  }
+  .tag-public { background: #dbeafe; color: #1e40af; }
+  .tag-private { background: #fce7f3; color: #9d174d; }
+  .tag-catholic { background: #ede9fe; color: #5b21b6; }
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    align-items: center;
+    font-size: 12px;
+    color: var(--muted);
+    margin: 8px 0 16px;
+  }
+  .footer {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 36px;
+    border-top: 1px solid var(--line);
+    padding-top: 14px;
+  }
+  .muted { color: var(--muted); }
+  th { cursor: pointer; }
+  th:hover { background: #e2e8f0; }
+  .sort-indicator { display: inline-block; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="topnav"><a href="index.html">&larr; Back to index</a></div>
+
+<h1>Bay Area Middle Schools — Inferred T25 % from HS feeders</h1>
+<p class="sub">Estimated T25 / T10 / T50 / LAC15 / UC matriculation rates for Bay Area middle schools, derived by weighting their primary high-school feeders' T25 estimates by feeder share. <strong>K-12 / 6-12 private schools</strong> use the school's own HS T25 directly (since the same student body continues). <strong>Public middle schools</strong> use the weighted-average of their zoned high-school destinations. <strong>Confidence is one tier worse than the dominant HS feeder</strong> to reflect feeder-weight uncertainty. See the <a href="middle_school_methodology.html">methodology page</a> for the full inference chain and worked examples.</p>
+
+<div class="warn">
+  <strong>This is a triple-estimation chain — read before drawing conclusions.</strong>
+  <ul>
+    <li><strong>Selection bias is the dominant signal.</strong> Choosing a middle school does not lock in the high-school outcome &mdash; public-school families can move zones, magnet placement is competitive, and private-MS families can choose any HS. The MS doesn't <em>cause</em> the T25 outcome; it predicts it only through the families it enrolls.</li>
+    <li><strong>Three layers of estimation stack here.</strong> MS feeder weight &times; HS T25 estimate &times; matriculation conversion. R-tier rows can be off by &plusmn;10pp, and even E-tier rows are noisier than the corresponding HS estimates.</li>
+    <li><strong>Feeder weights drift.</strong> District zone boundaries, magnet seat allocations, and choice patterns shift year-over-year. Weights below are the dominant-feeder approximation, not a 5-year average.</li>
+    <li><strong>Catholic / private K-8 mappings are the weakest links</strong> &mdash; "where our grads went" pages are usually a list, not weighted percentages. Numbers there are R-tier or N-tier.</li>
+  </ul>
+</div>
+
+<div class="legend">
+  <strong>Confidence:</strong>
+  <span><span class="conf conf-m">M</span> measured (&plusmn;3pp; same school's HS data)</span>
+  <span><span class="conf conf-e">E</span> estimated (&plusmn;6pp)</span>
+  <span><span class="conf conf-r">R</span> rough (&plusmn;10pp)</span>
+  <span><span class="conf conf-n">N</span> very rough (&plusmn;15pp)</span>
+</div>
+
+<p class="muted" style="font-size: 12.5px;">63 middle schools, ranked by inferred T25 %. Ties broken by school name (A&rarr;Z). Cap: no MS exceeds the highest-T25 K-12 anchor (no Bay Area K-12/6-12 MS approaches Branson's ~50% HS anchor).</p>
+
+<table>
+<thead>
+<tr>
+  <th>Rank</th>
+  <th>School</th>
+  <th>Type</th>
+  <th>County / City</th>
+  <th>Grades</th>
+  <th>Primary HS feeder(s) &amp; weight</th>
+  <th>T25 %</th>
+  <th>T10 %</th>
+  <th>T50 %</th>
+  <th>LAC15 %</th>
+  <th>UC %</th>
+  <th>Conf</th>
+  <th>Source HS estimate(s)</th>
+</tr>
+</thead>
+<tbody>
+
+<tr>
+  <td class="rank">1</td>
+  <td class="school">BASIS Independent Fremont (MS)</td>
+  <td><span class="type-tag tag-private">Private K-12</span></td>
+  <td class="loc">Fremont, Alameda</td>
+  <td class="num">5-12</td>
+  <td class="feeder">Same-school HS (100%)</td>
+  <td class="col-t25" title="Direct passthrough — same school's HS section is rank 2 of all Bay Area HSs at ~48% T25.">~48%</td>
+  <td class="num">~19%</td>
+  <td class="num">~83%</td>
+  <td class="num">~5%</td>
+  <td class="num">~45%</td>
+  <td class="conf-cell"><span class="conf conf-m">M</span></td>
+  <td class="src">BASIS Indep Fremont HS (E, ~48%)</td>
+</tr>
+
+<tr>
+  <td class="rank">2</td>
+  <td class="school">Castilleja MS (Lower &amp; Middle School)</td>
+  <td><span class="type-tag tag-private">Private K-12 (girls)</span></td>
+  <td class="loc">Palo Alto, Santa Clara</td>
+  <td class="num">6-12</td>
+  <td class="feeder">Same-school HS (100%)</td>
+  <td class="col-t25">~42%</td>
+  <td class="num">~17%</td>
+  <td class="num">~65%</td>
+  <td class="num">~8.4%</td>
+  <td class="num">~27%</td>
+  <td class="conf-cell"><span class="conf conf-m">M</span></td>
+  <td class="src">Castilleja HS (E, ~42%)</td>
+</tr>
+
+<tr>
+  <td class="rank">3</td>
+  <td class="school">The Harker School (MS)</td>
+  <td><span class="type-tag tag-private">Private K-12</span></td>
+  <td class="loc">San Jose, Santa Clara</td>
+  <td class="num">6-8 (Blackford campus)</td>
+  <td class="feeder">Same-school HS (~95%)</td>
+  <td class="col-t25" title="Same-school passthrough with a small haircut for MS grads who choose Lynbrook/Saratoga/independents instead of continuing to Harker US.">~40%</td>
+  <td class="num">~18%</td>
+  <td class="num">~62%</td>
+  <td class="num">~4%</td>
+  <td class="num">~28%</td>
+  <td class="conf-cell"><span class="conf conf-m">M</span></td>
+  <td class="src">Harker HS (M, ~42%); ~5% leave to Lynbrook/Saratoga</td>
+</tr>
+
+<tr>
+  <td class="rank">4</td>
+  <td class="school">The Nueva School (MS)</td>
+  <td><span class="type-tag tag-private">Private K-12</span></td>
+  <td class="loc">Hillsborough, San Mateo (MS campus)</td>
+  <td class="num">6-8</td>
+  <td class="feeder">Nueva US (~85%) + other independents (~15%)</td>
+  <td class="col-t25" title="Most Nueva MS grads continue to Nueva US, but ~15% opt for Crystal Springs, Menlo, or Bay Area private alternatives. Weighted ~37% T25.">~37%</td>
+  <td class="num">~14%</td>
+  <td class="num">~58%</td>
+  <td class="num">~9%</td>
+  <td class="num">~21%</td>
+  <td class="conf-cell"><span class="conf conf-m">M</span></td>
+  <td class="src">Nueva HS (M, ~38%)</td>
+</tr>
+
+<tr>
+  <td class="rank">5</td>
+  <td class="school">Stanford Online HS (MS)</td>
+  <td><span class="type-tag tag-private">Private 6-12 (online)</span></td>
+  <td class="loc">Redwood City (HQ); national online</td>
+  <td class="num">7-12</td>
+  <td class="feeder">Same-school US (95%+)</td>
+  <td class="col-t25">~32%</td>
+  <td class="num">~13%</td>
+  <td class="num">~50%</td>
+  <td class="num">~6.4%</td>
+  <td class="num">~21%</td>
+  <td class="conf-cell"><span class="conf conf-e">E</span></td>
+  <td class="src">Stanford OHS (E, ~32%)</td>
+</tr>
+
+<tr>
+  <td class="rank">6</td>
+  <td class="school">BASIS Independent Silicon Valley (MS)</td>
+  <td><span class="type-tag tag-private">Private K-12</span></td>
+  <td class="loc">San Jose, Santa Clara</td>
+  <td class="num">5-12</td>
+  <td class="feeder">Same-school HS (100%)</td>
+  <td class="col-t25">~30%</td>
+  <td class="num">~12%</td>
+  <td class="num">~47%</td>
+  <td class="num">~6%</td>
+  <td class="num">~20%</td>
+  <td class="conf-cell"><span class="conf conf-e">E</span></td>
+  <td class="src">BASIS Indep SV HS (E, ~30%)</td>
+</tr>
+
+<tr>
+  <td class="rank">7</td>
+  <td class="school">Crystal Springs Uplands MS</td>
+  <td><span class="type-tag tag-private">Private 6-12</span></td>
+  <td class="loc">Hillsborough, San Mateo</td>
+  <td class="num">6-12</td>
+  <td class="feeder">Same-school HS (~95%)</td>
+  <td class="col-t25">~28%</td>
+  <td class="num">~11%</td>
+  <td class="num">~43%</td>
+  <td class="num">~5.6%</td>
+  <td class="num">~18%</td>
+  <td class="conf-cell"><span class="conf conf-e">E</span></td>
+  <td class="src">Crystal Springs Uplands HS (E, ~28%)</td>
+</tr>
+
+<tr>
+  <td class="rank">8</td>
+  <td class="school">Marin Country Day School (MS)</td>
+  <td><span class="type-tag tag-private">Private K-8 (independent)</span></td>
+  <td class="loc">Corte Madera, Marin</td>
+  <td class="num">K-8</td>
+  <td class="feeder">Branson ~35% + Marin Acad ~20% + Bay/Lick/UHS ~20% + Marin public ~25%</td>
+  <td class="col-t25" title="0.35×Branson(50)+0.2×MA(25.5)+0.2×SF-prog-priv(~22)+0.25×Marin-public(~6) = 17.5+5.1+4.4+1.5 ≈ ~28%. MCDS sends a very high fraction to top independents.">~28%</td>
+  <td class="num">~9%</td>
+  <td class="num">~46%</td>
+  <td class="num">~7%</td>
+  <td class="num">~22%</td>
+  <td class="conf-cell"><span class="conf conf-r">R</span></td>
+  <td class="src">Branson (E, 50%) + Marin Acad (M, 25.5%) + SF independents + Marin public</td>
+</tr>
+
+<tr>
+  <td class="rank">9</td>
+  <td class="school">Phillips Brooks School (MS)</td>
+  <td><span class="type-tag tag-private">Private K-8 (independent)</span></td>
+  <td class="loc">Menlo Park, San Mateo</td>
+  <td class="num">K-8</td>
+  <td class="feeder">Menlo School ~25% + SHP ~20% + Crystal ~10% + Castilleja/Nueva ~10% + M-A ~25% + other ~10%</td>
+  <td class="col-t25" title="0.25×Menlo(40.4)+0.2×SHP(27)+0.1×Crystal(28)+0.1×Cast/Nueva(~40)+0.25×M-A(9)+0.1×other(~12) = 10.1+5.4+2.8+4+2.25+1.2 ≈ ~26%.">~26%</td>
+  <td class="num">~9%</td>
+  <td class="num">~42%</td>
+  <td class="num">~5%</td>
+  <td class="num">~21%</td>
+  <td class="conf-cell"><span class="conf conf-r">R</span></td>
+  <td class="src">Menlo (M, 40.4%) + SHP (E, 27%) + Crystal (E, 28%) + Castilleja/Nueva + M-A (E, 9%)</td>
+</tr>
+
+<tr>
+  <td class="rank">10</td>
+  <td class="school">Hamlin School (MS, girls)</td>
+  <td><span class="type-tag tag-private">Private K-8 (independent, girls)</span></td>
+  <td class="loc">SF — Pacific Heights</td>
+  <td class="num">K-8</td>
+  <td class="feeder">UHS ~30% + Convent ~20% + Lick ~15% + Urban ~10% + Branson/MA ~10% + public ~15%</td>
+  <td class="col-t25" title="0.3×UHS(28)+0.2×Convent(15)+0.15×Lick(33)+0.1×Urban(19)+0.1×Branson/MA(~38)+0.15×SF-pub(~6) ≈ ~23%.">~23%</td>
+  <td class="num">~7%</td>
+  <td class="num">~38%</td>
+  <td class="num">~6%</td>
+  <td class="num">~19%</td>
+  <td class="conf-cell"><span class="conf conf-r">R</span></td>
+  <td class="src">UHS (E, 28%) + Convent (E, 15%) + Lick (E, 33%) + Urban (M, 19%) + Branson/MA</td>
+</tr>
+
+<tr>
+  <td class="rank">11</td>
+  <td class="school">Pinewood MS (Lower &amp; Middle Campus)</td>
+  <td><span class="type-tag tag-private">Private K-12</span></td>
+  <td class="loc">Los Altos Hills, Santa Clara</td>
+  <td class="num">K-12 (MS campus)</td>
+  <td class="feeder">Same-school HS (~95%)</td>
+  <td class="col-t25">~22%</td>
+  <td class="num">~8.8%</td>
+  <td class="num">~34%</td>
+  <td class="num">~4.4%</td>
+  <td class="num">~14%</td>
+  <td class="conf-cell"><span class="conf conf-e">E</span></td>
+  <td class="src">Pinewood HS (E, ~22%)</td>
+</tr>
+
+<tr>
+  <td class="rank">12</td>
+  <td class="school">Hopkins Junior High (Mission San Jose)</td>
+  <td><span class="type-tag tag-public">Public</span></td>
+  <td class="loc">Fremont USD, Alameda</td>
+  <td class="num">7-8</td>
+  <td class="feeder">Mission San Jose HS ~95% + Irvington ~5%</td>
+  <td class="col-t25" title="0.95×MSJ(23) + 0.05×Irvington(10) = 21.85+0.5 ≈ ~22%. MSJ is rank 16 of all Bay Area HSs; Hopkins is its primary feeder.">~22%</td>
+  <td class="num">~6.2%</td>
+  <td class="num">~40%</td>
+  <td class="num">~2.2%</td>
+  <td class="num">~54%</td>
+  <td class="conf-cell"><span class="conf conf-r">R</span></td>
+  <td class="src">MSJ HS (E, ~23%) + Irvington (E, ~10%)</td>
+</tr>
+
+<tr>
+  <td class="rank">13</td>
+  <td class="school">Miller MS (Cupertino)</td>
+  <td><span class="type-tag tag-public">Public</span></td>
+  <td class="loc">Cupertino Union SD &rarr; FUHSD, Santa Clara</td>
+  <td class="num">6-8</td>
+  <td class="feeder">Lynbrook HS ~80% + Cupertino HS ~20%</td>
+  <td class="col-t25" title="0.8×Lynbrook(22) + 0.2×Cupertino(16) = 17.6+3.2 ≈ ~21%.">~21%</td>
+  <td class="num">~6.1%</td>
+  <td class="num">~38%</td>
+  <td class="num">~1.9%</td>
+  <td class="num">~54%</td>
+  <td class="conf-cell"><span class="conf conf-e">E</span></td>
+  <td class="src">Lynbrook (M, 22%) + Cupertino (E, 16%)</td>
+</tr>
+
+<tr>
+  <td class="rank">14</td>
+  <td class="school">San Francisco Day School (MS)</td>
+  <td><span class="type-tag tag-private">Private K-8 (independent)</span></td>
+  <td class="loc">SF — Presidio Heights</td>
+  <td class="num">K-8</td>
+  <td class="feeder">UHS ~25% + Lick ~20% + Urban ~15% + Bay ~10% + Drew/Convent/SHCP ~15% + Lowell/public ~15%</td>
+  <td class="col-t25" title="0.25×UHS(28)+0.2×Lick(33)+0.15×Urban(19)+0.1×Bay(6)+0.15×other-priv(~10)+0.15×SF-pub-mix(~6) ≈ ~20%.">~20%</td>
+  <td class="num">~6%</td>
+  <td class="num">~33%</td>
+  <td class="num">~5%</td>
+  <td class="num">~17%</td>
+  <td class="conf-cell"><span class="conf conf-r">R</span></td>
+  <td class="src">UHS (E, 28%) + Lick (E, 33%) + Urban (M, 19%) + others</td>
+</tr>
+
+<tr>
+  <td class="rank">15</td>
+  <td class="school">Hyde MS (Cupertino)</td>
+  <td><span class="type-tag tag-public">Public</span></td>
+  <td class="loc">Cupertino Union SD &rarr; FUHSD, Santa Clara</td>
+  <td class="num">6-8</td>
+  <td class="feeder">Monta Vista ~60% + Cupertino ~30% + Lynbrook ~10%</td>
+  <td class="col-t25" title="0.6×MV(22)+0.3×Cup(16)+0.1×Lyn(22) = 13.2+4.8+2.2 ≈ ~20%.">~20%</td>
+  <td class="num">~5.1%</td>
+  <td class="num">~37%</td>
+  <td class="num">~2%</td>
+  <td class="num">~52%</td>
+  <td class="conf-cell"><span class="conf conf-e">E</span></td>
+  <td class="src">Monta Vista (E, 22%) + Cupertino (E, 16%) + Lynbrook (M, 22%)</td>
+</tr>
+
+<tr>
+  <td class="rank">16</td>
+  <td class="school">Joaquin Miller MS (Cupertino)</td>
+  <td><span class="type-tag tag-public">Public</span></td>
+  <td class="loc">Cupertino Union SD &rarr; FUHSD, Santa Clara</td>
+  <td class="num">6-8</td>
+  <td class="feeder">Lynbrook ~50% + Cupertino ~30% + Monta Vista ~15% + Homestead ~5%</td>
+  <td class="col-t25" title="0.5×Lyn(22)+0.3×Cup(16)+0.15×MV(22)+0.05×Home(13) ≈ ~20%.">~20%</td>
+  <td class="num">~5.3%</td>
+  <td class="num">~37%</td>
+  <td class="num">~1.9%</td>
+  <td class="num">~52%</td>
+  <td class="conf-cell"><span class="conf conf-e">E</span></td>
+  <td class="src">Lynbrook (M) + Cupertino (E) + Monta Vista (E) + Homestead (E)</td>
+</tr>
+
+<tr>
+  <td class="rank">17</td>
+  <td class="school">Kennedy MS (Cupertino)</td>
+  <td><span class="type-tag tag-public">Public</span></td>
+  <td class="loc">Cupertino Union SD &rarr; FUHSD, Santa Clara</td>
+  <td class="num">6-8</td>
+  <td class="feeder">Monta Vista ~50% + Cupertino ~30% + Lynbrook ~20%</td>
+  <td class="col-t25" title="0.5×MV(22)+0.3×Cup(16)+0.2×Lyn(22) ≈ ~20%.">~20%</td>
+  <td class="num">~5.2%</td>
+  <td class="num">~37%</td>
+  <td class="num">~2%</td>
+  <td class="num">~52%</td>
+  <td class="conf-cell"><span class="conf conf-e">E</span></td>
+  <td class="src">Monta Vista (E) + Cupertino (E) + Lynbrook (M)</td>
+</tr>
+
+<tr>
+  <td class="rank">18</td>
+  <td class="school">Greene MS (PAUSD)</td>
+  <td><span class="type-tag tag-public">Public</span></td>
+  <td class="loc">Palo Alto USD, Santa Clara</td>
+  <td class="num">6-8</td>
+  <td class="feeder">Paly ~60% + Gunn ~40%</td>
+  <td class="col-t25" title="0.6×Paly(21)+0.4×Gunn(17.8) = 12.6+7.1 ≈ ~20%.">~20%</td>
+  <td class="num">~6%</td>
+  <td class="num">~36%</td>
+  <td class="num">~2%</td>
+  <td class="num">~55%</td>
+  <td class="conf-cell"><span class="conf conf-r">R</span></td>
+  <td class="src">Paly (M, 21%) + Gunn (M, 17.8%)</td>
+</tr>
+
+<tr>
+  <td class="rank">19</td>
+  <td class="school">Athenian MS</td>
+  <td><span class="type-tag tag-private">Private 6-12</span></td>
+  <td class="loc">Danville, Contra Costa</td>
+  <td class="num">6-12</td>
+  <td class="feeder">Same-school HS (~95%)</td>
+  <td class="col-t25">~19%</td>
+  <td class="num">~5.7%</td>
+  <td class="num">~32%</td>
+  <td class="num">~5.7%</td>
+  <td class="num">~15%</td>
+  <td class="conf-cell"><span class="conf conf-e">E</span></td>
+  <td class="src">Athenian HS (E, ~19%)</td>
+</tr>
+
+<tr>
+  <td class="rank">20</td>
+  <td class="school">JLS MS (Jane Lathrop Stanford)</td>
+  <td><span class="type-tag tag-public">Public</span></td>
+  <td class="loc">Palo Alto USD, Santa Clara</td>
+  <td class="num">6-8</td>
+  <td class="feeder">Paly ~50% + Gunn ~50%</td>
+  <td class="col-t25" title="0.5×Paly(21)+0.5×Gunn(17.8) = 10.5+8.9 ≈ ~19%.">~19%</td>
+  <td class="num">~6%</td>
+  <td class="num">~35%</td>
+  <td class="num">~2%</td>
+  <td class="num">~54%</td>
+  <td class="conf-cell"><span class="conf conf-r">R</span></td>
+  <td class="src">Paly (M, 21%) + Gunn (M, 17.8%)</td>
+</tr>
+
+<tr>
+  <td class="rank">21</td>
+  <td class="school">Fletcher MS (PAUSD)</td>
+  <td><span class="type-tag tag-public">Public</span></td>
+  <td class="loc">Palo Alto USD, Santa Clara</td>
+  <td class="num">6-8</td>
+  <td class="feeder">Gunn ~60% + Paly ~40%</td>
+  <td class="col-t25" title="0.6×Gunn(17.8)+0.4×Paly(21) = 10.7+8.4 ≈ ~19%.">~19%</td>
+  <td class="num">~6%</td>
+  <td class="num">~34%</td>
+  <td class="num">~2%</td>
+  <td class="num">~53%</td>
+  <td class="conf-cell"><span class="conf conf-r">R</span></td>
+  <td class="src">Gunn (M, 17.8%) + Paly (M, 21%)</td>
+</tr>
+
+<tr>
+  <td class="rank">22</td>
+  <td class="school">Town School for Boys (MS)</td>
+  <td><span class="type-tag tag-private">Private K-8 (independent, boys)</span></td>
+  <td class="loc">SF — Pacific Heights</td>
+  <td class="num">K-8</td>
+  <td class="feeder">UHS ~25% + Lick ~20% + Stuart Hall HS ~15% + Bay ~10% + SI/SHCP ~15% + public ~15%</td>
+  <td class="col-t25" title="0.25×UHS(28)+0.2×Lick(33)+0.15×StuartHall(15)+0.1×Bay(6)+0.15×Catholic(~8)+0.15×SF-pub(~6) ≈ ~19%.">~19%</td>
+  <td class="num">~6%</td>
+  <td class="num">~32%</td>
+  <td class="num">~5%</td>
+  <td class="num">~16%</td>
+  <td class="conf-cell"><span class="conf conf-r">R</span></td>
+  <td class="src">UHS (E) + Lick (E) + Stuart Hall (E) + Bay (R) + Catholic + public</td>
+</tr>
+
+<tr>
+  <td class="rank">23</td>
+  <td class="school">Lawson MS (Cupertino)</td>
+  <td><span class="type-tag tag-public">Public</span></td>
+  <td class="loc">Cupertino Union SD &rarr; FUHSD, Santa Clara</td>
+  <td class="num">6-8</td>
+  <td class="feeder">Cupertino HS ~70% + Lynbrook ~20% + Monta Vista ~10%</td>
+  <td class="col-t25" title="0.7×Cup(16)+0.2×Lyn(22)+0.1×MV(22) ≈ ~18%.">~18%</td>
+  <td class="num">~3.7%</td>
+  <td class="num">~34%</td>
+  <td class="num">~1.7%</td>
+  <td class="num">~51%</td>
+  <td class="conf-cell"><span class="conf conf-e">E</span></td>
+  <td class="src">Cupertino (E) + Lynbrook (M) + Monta Vista (E)</td>
+</tr>
+
+<tr>
+  <td class="rank">24</td>
+  <td class="school">Cupertino MS</td>
+  <td><span class="type-tag tag-public">Public</span></td>
+  <td class="loc">Cupertino Union SD &rarr; FUHSD, Santa Clara</td>
+  <td class="num">6-8</td>
+  <td class="feeder">Cupertino HS ~70% + Lynbrook ~20% + Monta Vista ~10%</td>
+  <td class="col-t25" title="0.7×Cup(16)+0.2×Lyn(22)+0.1×MV(22) ≈ ~18%.">~18%</td>
+  <td class="num">~3.7%</td>
+  <td class="num">~34%</td>
+  <td class="num">~1.7%</td>
+  <td class="num">~51%</td>
+  <td class="conf-cell"><span class="conf conf-e">E</span></td>
+  <td class="src">Cupertino (E) + Lynbrook (M) + Monta Vista (E)</td>
+</tr>
+
+<tr>
+  <td class="rank">25</td>
+  <td class="school">The Quarry Lane MS</td>
+  <td><span class="type-tag tag-private">Private K-12</span></td>
+  <td class="loc">Dublin, Alameda</td>
+  <td class="num">K-12</td>
+  <td class="feeder">Same-school HS (~90%)</td>
+  <td class="col-t25">~16%</td>
+  <td class="num">~6.4%</td>
+  <td class="num">~25%</td>
+  <td class="num">~3.2%</td>
+  <td class="num">~10%</td>
+  <td class="conf-cell"><span class="conf conf-r">R</span></td>
+  <td class="src">Quarry Lane HS (R, ~16%)</td>
+</tr>
+
+<tr>
+  <td class="rank">26</td>
+  <td class="school">Stanley MS (Lafayette)</td>
+  <td><span class="type-tag tag-public">Public</span></td>
+  <td class="loc">Lafayette SD &rarr; AUHSD, Contra Costa</td>
+  <td class="num">6-8</td>
+  <td class="feeder">Acalanes HS ~95% + Las Lomas ~5%</td>
+  <td class="col-t25" title="0.95×Acalanes(15)+0.05×LL(10) ≈ ~15%.">~15%</td>
+  <td class="num">~2.3%</td>
+  <td class="num">~29%</td>
+  <td class="num">~1.5%</td>
+  <td class="num">~46%</td>
+  <td class="conf-cell"><span class="conf conf-r">R</span></td>
+  <td class="src">Acalanes (E, ~15%) + Las Lomas (E, ~10%)</td>
+</tr>
+
+<tr>
+  <td class="rank">27</td>
+  <td class="school">Joaquin Moraga Intermediate</td>
+  <td><span class="type-tag tag-public">Public</span></td>
+  <td class="loc">Moraga SD &rarr; AUHSD, Contra Costa</td>
+  <td class="num">6-8</td>
+  <td class="feeder">Campolindo HS ~95%</td>
+  <td class="col-t25" title="0.95×Campo(16) ≈ ~15%.">~15%</td>
+  <td class="num">~2.3%</td>
+  <td class="num">~29%</td>
+  <td class="num">~1.5%</td>
+  <td class="num">~48%</td>
+  <td class="conf-cell"><span class="conf conf-r">R</span></td>
+  <td class="src">Campolindo (E, ~16%)</td>
+</tr>
+
+<tr>
+  <td class="rank">28</td>
+  <td class="school">Orinda Intermediate (OIS)</td>
+  <td><span class="type-tag tag-public">Public</span></td>
+  <td class="loc">Orinda Union SD &rarr; AUHSD, Contra Costa</td>
+  <td class="num">6-8</td>
+  <td class="feeder">Miramonte HS ~95%</td>
+  <td class="col-t25" title="0.95×Miramonte(16) ≈ ~15%.">~15%</td>
+  <td class="num">~2.3%</td>
+  <td class="num">~30%</td>
+  <td class="num">~1.5%</td>
+  <td class="num">~48%</td>
+  <td class="conf-cell"><span class="conf conf-r">R</span></td>
+  <td class="src">Miramonte (E, ~16%)</td>
+</tr>
+
+<tr>
+  <td class="rank">29</td>
+  <td class="school">Gale Ranch MS (San Ramon)</td>
+  <td><span class="type-tag tag-public">Public</span></td>
+  <td class="loc">San Ramon Valley USD, Contra Costa</td>
+  <td class="num">6-8</td>
+  <td class="feeder">Dougherty Valley HS ~80% + California HS ~20%</td>
+  <td class="col-t25" title="0.8×DV(14)+0.2×CalHS(9) = 11.2+1.8 ≈ ~13%.">~13%</td>
+  <td class="num">~2%</td>
+  <td class="num">~25%</td>
+  <td class="num">~1.3%</td>
+  <td class="num">~42%</td>
+  <td class="conf-cell"><span class="conf conf-r">R</span></td>
+  <td class="src">Dougherty Valley (E, 14%) + California HS (E, 9%)</td>
+</tr>
+
+<tr>
+  <td class="rank">30</td>
+  <td class="school">Piedmont MS</td>
+  <td><span class="type-tag tag-public">Public</span></td>
+  <td class="loc">Piedmont City USD, Alameda</td>
+  <td class="num">6-8</td>
+  <td class="feeder">Piedmont HS ~95% + private exit ~5%</td>
+  <td class="col-t25" title="0.95×Piedmont(14)+0.05×other(~10) ≈ ~13%. Piedmont MS feeds Piedmont HS (rank 35 of all Bay Area HSs at ~14% T25).">~13%</td>
+  <td class="num">~2%</td>
+  <td class="num">~26%</td>
+  <td class="num">~1.3%</td>
+  <td class="num">~53%</td>
+  <td class="conf-cell"><span class="conf conf-r">R</span></td>
+  <td class="src">Piedmont HS (E, 14%)</td>
+</tr>
+
+<tr>
+  <td class="rank">31</td>
+  <td class="school">Windemere Ranch MS (San Ramon)</td>
+  <td><span class="type-tag tag-public">Public</span></td>
+  <td class="loc">San Ramon Valley USD, Contra Costa</td>
+  <td class="num">6-8</td>
+  <td class="feeder">Dougherty Valley ~70% + California HS ~30%</td>
+  <td class="col-t25" title="0.7×DV(14)+0.3×CalHS(9) = 9.8+2.7 ≈ ~13%.">~13%</td>
+  <td class="num">~1.9%</td>
+  <td class="num">~24%</td>
+  <td class="num">~1.3%</td>
+  <td class="num">~40%</td>
+  <td class="conf-cell"><span class="conf conf-r">R</span></td>
+  <td class="src">Dougherty Valley (E) + California HS (E)</td>
+</tr>
+
+<tr>
+  <td class="rank">32</td>
+  <td class="school">Charlotte Wood MS (Danville)</td>
+  <td><span class="type-tag tag-public">Public</span></td>
+  <td class="loc">San Ramon Valley USD, Contra Costa</td>
+  <td class="num">6-8</td>
+  <td class="feeder">San Ramon Valley HS ~90% + Monte Vista ~10%</td>
+  <td class="col-t25" title="0.9×SRV(12)+0.1×MV(12) ≈ ~12%.">~12%</td>
+  <td class="num">~1.8%</td>
+  <td class="num">~23%</td>
+  <td class="num">~1.2%</td>
+  <td class="num">~38%</td>
+  <td class="conf-cell"><span class="conf conf-r">R</span></td>
+  <td class="src">SRV HS (E, 12%) + Monte Vista (E, 12%)</td>
+</tr>
+
+<tr>
+  <td class="rank">33</td>
+  <td class="school">Diablo Vista MS (Danville)</td>
+  <td><span class="type-tag tag-public">Public</span></td>
+  <td class="loc">San Ramon Valley USD, Contra Costa</td>
+  <td class="num">6-8</td>
+  <td class="feeder">SRV HS ~70% + Monte Vista ~30%</td>
+  <td class="col-t25" title="0.7×SRV(12)+0.3×MV(12) ≈ ~12%.">~12%</td>
+  <td class="num">~1.8%</td>
+  <td class="num">~23%</td>
+  <td class="num">~1.2%</td>
+  <td class="num">~38%</td>
+  <td class="conf-cell"><span class="conf conf-r">R</span></td>
+  <td class="src">SRV HS (E) + Monte Vista (E)</td>
+</tr>
+
+<tr>
+  <td class="rank">34</td>
+  <td class="school">Pine Valley MS (San Ramon)</td>
+  <td><span class="type-tag tag-public">Public</span></td>
+  <td class="loc">San Ramon Valley USD, Contra Costa</td>
+  <td class="num">6-8</td>
+  <td class="feeder">California HS ~50% + Dougherty Valley ~50%</td>
+  <td class="col-t25" title="0.5×CalHS(9)+0.5×DV(14) ≈ ~12%.">~12%</td>
+  <td class="num">~1.8%</td>
+  <td class="num">~23%</td>
+  <td class="num">~1.2%</td>
+  <td class="num">~37%</td>
+  <td class="conf-cell"><span class="conf conf-r">R</span></td>
+  <td class="src">California HS (E) + Dougherty Valley (E)</td>
+</tr>
+
+<tr>
+  <td class="rank">35</td>
+  <td class="school">Presidio MS (SFUSD)</td>
+  <td><span class="type-tag tag-public">Public (selective placement)</span></td>
+  <td class="loc">SFUSD, San Francisco</td>
+  <td class="num">6-8</td>
+  <td class="feeder">Lowell HS ~50% (via competitive HS app) + Washington/Lincoln/SOTA ~50%</td>
+  <td class="col-t25" title="0.5×Lowell(20)+0.5×other-SF-public(3) ≈ ~12%. SFUSD switched MS-to-HS placement away from pure GPA in 2020 then partially restored 2024-25; the 50% Lowell rate for top SFUSD MSs is the post-restoration approximation.">~12%</td>
+  <td class="num">~3%</td>
+  <td class="num">~21%</td>
+  <td class="num">~1%</td>
+  <td class="num">~30%</td>
+  <td class="conf-cell"><span class="conf conf-r">R</span></td>
+  <td class="src">Lowell (E, 20%) + Washington/Lincoln (R)</td>
+</tr>
+
+<tr>
+  <td class="rank">36</td>
+  <td class="school">Stone Valley MS (Alamo)</td>
+  <td><span class="type-tag tag-public">Public</span></td>
+  <td class="loc">San Ramon Valley USD, Contra Costa</td>
+  <td class="num">6-8</td>
+  <td class="feeder">Monte Vista HS ~60% + SRV HS ~40%</td>
+  <td class="col-t25" title="0.6×MV(12)+0.4×SRV(12) ≈ ~12%.">~12%</td>
+  <td class="num">~1.8%</td>
+  <td class="num">~23%</td>
+  <td class="num">~1.2%</td>
+  <td class="num">~38%</td>
+  <td class="conf-cell"><span class="conf conf-r">R</span></td>
+  <td class="src">Monte Vista (E) + SRV HS (E)</td>
+</tr>
+
+<tr>
+  <td class="rank">37</td>
+  <td class="school">St. Hilary School (Tiburon) — K-8 Catholic</td>
+  <td><span class="type-tag tag-catholic">Private K-8 (Catholic)</span></td>
+  <td class="loc">Tiburon, Marin</td>
+  <td class="num">K-8</td>
+  <td class="feeder">Marin Catholic ~45% + Redwood HS ~35% + Branson/MA private ~20%</td>
+  <td class="col-t25" title="0.45×MarinCath(7)+0.35×Redwood(7)+0.2×Branson/MA(~38) = 3.15+2.45+7.6 ≈ ~13%. Strong private-HS exit boosts the inferred rate.">~12%</td>
+  <td class="num">~3%</td>
+  <td class="num">~22%</td>
+  <td class="num">~2%</td>
+  <td class="num">~25%</td>
+  <td class="conf-cell"><span class="conf conf-n">N</span></td>
+  <td class="src">Marin Cath (E, 7%) + Redwood (E, 7%) + Branson (E, 50%) + MA (M, 25.5%)</td>
+</tr>
+
+<tr>
+  <td class="rank">38</td>
+  <td class="school">Foothill MS (Walnut Creek)</td>
+  <td><span class="type-tag tag-public">Public</span></td>
+  <td class="loc">Walnut Creek SD &rarr; AUHSD, Contra Costa</td>
+  <td class="num">6-8</td>
+  <td class="feeder">Las Lomas HS ~85% + Acalanes ~15%</td>
+  <td class="col-t25" title="0.85×LL(10)+0.15×Acal(15) = 8.5+2.25 ≈ ~11%.">~11%</td>
+  <td class="num">~1.6%</td>
+  <td class="num">~21%</td>
+  <td class="num">~1.1%</td>
+  <td class="num">~34%</td>
+  <td class="conf-cell"><span class="conf conf-r">R</span></td>
+  <td class="src">Las Lomas (E, 10%) + Acalanes (E, 15%)</td>
+</tr>
+
+<tr>
+  <td class="rank">39</td>
+  <td class="school">Hoover MS (SFUSD)</td>
+  <td><span class="type-tag tag-public">Public (selective placement)</span></td>
+  <td class="loc">SFUSD, San Francisco</td>
+  <td class="num">6-8</td>
+  <td class="feeder">Lowell HS ~45% + Washington/Lincoln/SOTA ~55%</td>
+  <td class="col-t25" title="0.45×Lowell(20)+0.55×SF-pub(3) ≈ ~11%.">~11%</td>
+  <td class="num">~2.7%</td>
+  <td class="num">~20%</td>
+  <td class="num">~1%</td>
+  <td class="num">~28%</td>
+  <td class="conf-cell"><span class="conf conf-r">R</span></td>
+  <td class="src">Lowell (E) + Washington/Lincoln (R)</td>
+</tr>
+
+<tr>
+  <td class="rank">40</td>
+  <td class="school">Aptos MS (SFUSD)</td>
+  <td><span class="type-tag tag-public">Public</span></td>
+  <td class="loc">SFUSD, San Francisco</td>
+  <td class="num">6-8</td>
+  <td class="feeder">Lowell HS ~40% + Lincoln/Washington ~60%</td>
+  <td class="col-t25" title="0.4×Lowell(20)+0.6×SF-pub(3) ≈ ~10%.">~10%</td>
+  <td class="num">~2.4%</td>
+  <td class="num">~18%</td>
+  <td class="num">~1%</td>
+  <td class="num">~26%</td>
+  <td class="conf-cell"><span class="conf conf-r">R</span></td>
+  <td class="src">Lowell (E) + Lincoln/Washington (R)</td>
+</tr>
+
+<tr>
+  <td class="rank">41</td>
+  <td class="school">Roosevelt MS (SFUSD)</td>
+  <td><span class="type-tag tag-public">Public</span></td>
+  <td class="loc">SFUSD, San Francisco</td>
+  <td class="num">6-8</td>
+  <td class="feeder">Lowell HS ~40% + Galileo/Washington/Lincoln ~60%</td>
+  <td class="col-t25" title="0.4×Lowell(20)+0.6×SF-pub(3) ≈ ~10%.">~10%</td>
+  <td class="num">~2.4%</td>
+  <td class="num">~18%</td>
+  <td class="num">~1%</td>
+  <td class="num">~26%</td>
+  <td class="conf-cell"><span class="conf conf-r">R</span></td>
+  <td class="src">Lowell (E) + SF public (R)</td>
+</tr>
+
+<tr>
+  <td class="rank">42</td>
+  <td class="school">Iron Horse MS (San Ramon)</td>
+  <td><span class="type-tag tag-public">Public</span></td>
+  <td class="loc">San Ramon Valley USD, Contra Costa</td>
+  <td class="num">6-8</td>
+  <td class="feeder">California HS ~80% + Dougherty Valley ~20%</td>
+  <td class="col-t25" title="0.8×CalHS(9)+0.2×DV(14) ≈ ~10%.">~10%</td>
+  <td class="num">~1.5%</td>
+  <td class="num">~20%</td>
+  <td class="num">~1%</td>
+  <td class="num">~32%</td>
+  <td class="conf-cell"><span class="conf conf-r">R</span></td>
+  <td class="src">California HS (E, 9%) + Dougherty Valley (E, 14%)</td>
+</tr>
+
+<tr>
+  <td class="rank">43</td>
+  <td class="school">Egan Junior High (Los Altos)</td>
+  <td><span class="type-tag tag-public">Public</span></td>
+  <td class="loc">Los Altos SD &rarr; MVLA UHSD, Santa Clara</td>
+  <td class="num">7-8</td>
+  <td class="feeder">Los Altos HS ~50% + Mountain View HS ~50%</td>
+  <td class="col-t25" title="0.5×LosAltos(10)+0.5×MV(10) ≈ ~10%. MVLA does open enrollment between two HSs.">~10%</td>
+  <td class="num">~1.5%</td>
+  <td class="num">~20%</td>
+  <td class="num">~1%</td>
+  <td class="num">~40%</td>
+  <td class="conf-cell"><span class="conf conf-r">R</span></td>
+  <td class="src">Los Altos HS (E, 10%) + Mountain View HS (E, 10%)</td>
+</tr>
+
+<tr>
+  <td class="rank">44</td>
+  <td class="school">Blach Intermediate (Mountain View)</td>
+  <td><span class="type-tag tag-public">Public</span></td>
+  <td class="loc">Los Altos SD &rarr; MVLA UHSD, Santa Clara</td>
+  <td class="num">7-8</td>
+  <td class="feeder">Mountain View HS ~50% + Los Altos HS ~50%</td>
+  <td class="col-t25" title="0.5×MV(10)+0.5×LosAltos(10) ≈ ~10%.">~10%</td>
+  <td class="num">~1.5%</td>
+  <td class="num">~20%</td>
+  <td class="num">~1%</td>
+  <td class="num">~40%</td>
+  <td class="conf-cell"><span class="conf conf-r">R</span></td>
+  <td class="src">Mountain View (E) + Los Altos (E)</td>
+</tr>
+
+<tr>
+  <td class="rank">45</td>
+  <td class="school">Bullis Charter School (Los Altos)</td>
+  <td><span class="type-tag tag-public">Public charter K-8</span></td>
+  <td class="loc">Los Altos, Santa Clara</td>
+  <td class="num">K-8</td>
+  <td class="feeder">Los Altos HS ~45% + Mountain View ~45% + private ~10%</td>
+  <td class="col-t25" title="0.45×LosAltos(10)+0.45×MV(10)+0.1×private(~22) ≈ ~10-11%. Bullis sends a slightly higher fraction to private HS than zoned MSs do.">~10%</td>
+  <td class="num">~1.5%</td>
+  <td class="num">~20%</td>
+  <td class="num">~1%</td>
+  <td class="num">~38%</td>
+  <td class="conf-cell"><span class="conf conf-r">R</span></td>
+  <td class="src">Los Altos (E) + Mountain View (E) + private blend</td>
+</tr>
+
+<tr>
+  <td class="rank">46</td>
+  <td class="school">Walters Junior High (Fremont)</td>
+  <td><span class="type-tag tag-public">Public</span></td>
+  <td class="loc">Fremont USD, Alameda</td>
+  <td class="num">7-8</td>
+  <td class="feeder">Irvington HS ~85% + American ~15%</td>
+  <td class="col-t25" title="0.85×Irvington(10)+0.15×American(7) = 8.5+1.05 ≈ ~10%.">~10%</td>
+  <td class="num">~1.4%</td>
+  <td class="num">~19%</td>
+  <td class="num">~1%</td>
+  <td class="num">~38%</td>
+  <td class="conf-cell"><span class="conf conf-r">R</span></td>
+  <td class="src">Irvington (E, 10%) + American (E, 7%)</td>
+</tr>
+
+<tr>
+  <td class="rank">47</td>
+  <td class="school">Hillview MS (Menlo Park)</td>
+  <td><span class="type-tag tag-public">Public</span></td>
+  <td class="loc">Menlo Park City SD &rarr; Sequoia UHSD, San Mateo</td>
+  <td class="num">6-8</td>
+  <td class="feeder">Menlo-Atherton HS ~90% + private ~10%</td>
+  <td class="col-t25" title="0.9×M-A(9)+0.1×Carlmont(6) = 8.1+0.6 ≈ ~9%. Many Hillview families redirect to Menlo / SHP / Crystal Springs (~10-15% private rate); this is a public-zoned baseline.">~9%</td>
+  <td class="num">~1.2%</td>
+  <td class="num">~17%</td>
+  <td class="num">&lt;1%</td>
+  <td class="num">~35%</td>
+  <td class="conf-cell"><span class="conf conf-r">R</span></td>
+  <td class="src">Menlo-Atherton (E, 9%); private exit-rate not modeled</td>
+</tr>
+
+<tr>
+  <td class="rank">48</td>
+  <td class="school">La Entrada MS (Las Lomitas)</td>
+  <td><span class="type-tag tag-public">Public</span></td>
+  <td class="loc">Las Lomitas Elem SD &rarr; Sequoia UHSD, San Mateo</td>
+  <td class="num">4-8</td>
+  <td class="feeder">Menlo-Atherton HS ~85% + private ~15%</td>
+  <td class="col-t25" title="0.85×M-A(9)+0.15×Carlmont(6) ≈ ~9%.">~9%</td>
+  <td class="num">~1.2%</td>
+  <td class="num">~17%</td>
+  <td class="num">&lt;1%</td>
+  <td class="num">~34%</td>
+  <td class="conf-cell"><span class="conf conf-r">R</span></td>
+  <td class="src">Menlo-Atherton (E, 9%)</td>
+</tr>
+
+<tr>
+  <td class="rank">49</td>
+  <td class="school">Del Mar MS (Tiburon)</td>
+  <td><span class="type-tag tag-public">Public</span></td>
+  <td class="loc">Reed Union SD &rarr; Tam UHSD, Marin</td>
+  <td class="num">6-8</td>
+  <td class="feeder">Redwood HS ~85% + Tamalpais ~15%</td>
+  <td class="col-t25" title="0.85×Redwood(7)+0.15×Tam(5) ≈ ~7%.">~7%</td>
+  <td class="num">~1%</td>
+  <td class="num">~13%</td>
+  <td class="num">&lt;1%</td>
+  <td class="num">~26%</td>
+  <td class="conf-cell"><span class="conf conf-r">R</span></td>
+  <td class="src">Redwood HS (E, 7%) + Tamalpais (E, 5%)</td>
+</tr>
+
+<tr>
+  <td class="rank">50</td>
+  <td class="school">Hall MS (Larkspur)</td>
+  <td><span class="type-tag tag-public">Public</span></td>
+  <td class="loc">Larkspur-Corte Madera SD &rarr; Tam UHSD, Marin</td>
+  <td class="num">5-8</td>
+  <td class="feeder">Redwood HS ~80% + Tamalpais ~20%</td>
+  <td class="col-t25" title="0.8×Redwood(7)+0.2×Tam(5) ≈ ~6%.">~6%</td>
+  <td class="num">~1%</td>
+  <td class="num">~13%</td>
+  <td class="num">&lt;1%</td>
+  <td class="num">~25%</td>
+  <td class="conf-cell"><span class="conf conf-r">R</span></td>
+  <td class="src">Redwood HS (E, 7%) + Tamalpais (E, 5%)</td>
+</tr>
+
+<tr>
+  <td class="rank">51</td>
+  <td class="school">Burlingame Intermediate</td>
+  <td><span class="type-tag tag-public">Public</span></td>
+  <td class="loc">Burlingame SD &rarr; SMUHSD, San Mateo</td>
+  <td class="num">6-8</td>
+  <td class="feeder">Burlingame HS ~95%</td>
+  <td class="col-t25" title="0.95×Burlingame(6) ≈ ~6%.">~6%</td>
+  <td class="num">&lt;1%</td>
+  <td class="num">~12%</td>
+  <td class="num">&lt;1%</td>
+  <td class="num">~23%</td>
+  <td class="conf-cell"><span class="conf conf-r">R</span></td>
+  <td class="src">Burlingame HS (E, 6%)</td>
+</tr>
+
+<tr>
+  <td class="rank">52</td>
+  <td class="school">Central MS (San Carlos)</td>
+  <td><span class="type-tag tag-public">Public</span></td>
+  <td class="loc">San Carlos SD &rarr; Sequoia UHSD, San Mateo</td>
+  <td class="num">6-8</td>
+  <td class="feeder">Carlmont HS ~85% + Sequoia ~15%</td>
+  <td class="col-t25" title="0.85×Carlmont(6)+0.15×Sequoia(2) ≈ ~6%.">~6%</td>
+  <td class="num">~1%</td>
+  <td class="num">~10%</td>
+  <td class="num">&lt;1%</td>
+  <td class="num">~25%</td>
+  <td class="conf-cell"><span class="conf conf-r">R</span></td>
+  <td class="src">Carlmont (E, 6%) + Sequoia HS (R, ~2%)</td>
+</tr>
+
+<tr>
+  <td class="rank">53</td>
+  <td class="school">Saint Mary's School (Berkeley) — K-8 Catholic</td>
+  <td><span class="type-tag tag-catholic">Private K-8 (Catholic)</span></td>
+  <td class="loc">Berkeley, Alameda</td>
+  <td class="num">K-8</td>
+  <td class="feeder">SMC HS ~50% + Berkeley HS / other ~50%</td>
+  <td class="col-t25" title="0.5×SaintMary's HS(4)+0.5×Berkeley HS(8) ≈ ~6%. K-8 Catholic feeder pattern: ~half stay Catholic for HS, half opt for public BHS.">~6%</td>
+  <td class="num">&lt;1%</td>
+  <td class="num">~12%</td>
+  <td class="num">&lt;1%</td>
+  <td class="num">~23%</td>
+  <td class="conf-cell"><span class="conf conf-n">N</span></td>
+  <td class="src">St. Mary's College HS (R, 4%) + Berkeley HS (E, 8%)</td>
+</tr>
+
+<tr>
+  <td class="rank">54</td>
+  <td class="school">Tierra Linda MS (San Carlos)</td>
+  <td><span class="type-tag tag-public">Public</span></td>
+  <td class="loc">San Carlos SD &rarr; Sequoia UHSD, San Mateo</td>
+  <td class="num">6-8</td>
+  <td class="feeder">Carlmont HS ~85% + Sequoia ~15%</td>
+  <td class="col-t25" title="0.85×Carlmont(6)+0.15×Sequoia(2) ≈ ~6%.">~6%</td>
+  <td class="num">~1%</td>
+  <td class="num">~10%</td>
+  <td class="num">&lt;1%</td>
+  <td class="num">~25%</td>
+  <td class="conf-cell"><span class="conf conf-r">R</span></td>
+  <td class="src">Carlmont (E, 6%) + Sequoia HS (R, ~2%)</td>
+</tr>
+
+<tr>
+  <td class="rank">55</td>
+  <td class="school">Ralston MS (Belmont)</td>
+  <td><span class="type-tag tag-public">Public</span></td>
+  <td class="loc">Belmont-Redwood Shores SD &rarr; Sequoia UHSD, San Mateo</td>
+  <td class="num">6-8</td>
+  <td class="feeder">Carlmont HS ~75% + Sequoia/other ~25%</td>
+  <td class="col-t25" title="0.75×Carlmont(6)+0.25×Sequoia(2) = 4.5+0.5 ≈ ~5%.">~5%</td>
+  <td class="num">&lt;1%</td>
+  <td class="num">~9%</td>
+  <td class="num">&lt;1%</td>
+  <td class="num">~22%</td>
+  <td class="conf-cell"><span class="conf conf-r">R</span></td>
+  <td class="src">Carlmont (E, 6%) + Sequoia HS (R, ~2%)</td>
+</tr>
+
+<tr>
+  <td class="rank">56</td>
+  <td class="school">Mill Valley MS</td>
+  <td><span class="type-tag tag-public">Public</span></td>
+  <td class="loc">Mill Valley SD &rarr; Tam UHSD, Marin</td>
+  <td class="num">6-8</td>
+  <td class="feeder">Tamalpais HS ~90% + Redwood ~10%</td>
+  <td class="col-t25" title="0.9×Tam(5)+0.1×Redwood(7) ≈ ~5%.">~5%</td>
+  <td class="num">&lt;1%</td>
+  <td class="num">~10%</td>
+  <td class="num">&lt;1%</td>
+  <td class="num">~21%</td>
+  <td class="conf-cell"><span class="conf conf-r">R</span></td>
+  <td class="src">Tamalpais HS (E, 5%) + Redwood (E, 7%)</td>
+</tr>
+
+<tr>
+  <td class="rank">57</td>
+  <td class="school">Edna Brewer MS (Oakland)</td>
+  <td><span class="type-tag tag-public">Public</span></td>
+  <td class="loc">Oakland USD, Alameda</td>
+  <td class="num">6-8</td>
+  <td class="feeder">Oakland Tech HS ~50% + private/charter ~30% + other OUSD ~20%</td>
+  <td class="col-t25" title="OUSD has open enrollment; Edna Brewer feeds heavily to Oakland Tech (estimated similar to mid-public ~5%). Weighted T25 with the private-exit rate ≈ ~5%.">~5%</td>
+  <td class="num">&lt;1%</td>
+  <td class="num">~10%</td>
+  <td class="num">&lt;1%</td>
+  <td class="num">~17%</td>
+  <td class="conf-cell"><span class="conf conf-n">N</span></td>
+  <td class="src">Oakland Tech (R, ~4-5%) + private exit-rate</td>
+</tr>
+
+<tr>
+  <td class="rank">58</td>
+  <td class="school">St. Francis of Assisi (Concord) — K-8 Catholic</td>
+  <td><span class="type-tag tag-catholic">Private K-8 (Catholic)</span></td>
+  <td class="loc">Concord, Contra Costa</td>
+  <td class="num">K-8</td>
+  <td class="feeder">De La Salle HS ~50% + Carondelet ~20% + public (Concord/Northgate) ~30%</td>
+  <td class="col-t25" title="0.5×DLS(5)+0.2×Carondelet(4)+0.3×public-mix(~5) ≈ ~5%. Catholic K-8 feeders typically split ~70/30 Catholic/public for HS.">~5%</td>
+  <td class="num">&lt;1%</td>
+  <td class="num">~10%</td>
+  <td class="num">&lt;1%</td>
+  <td class="num">~17%</td>
+  <td class="conf-cell"><span class="conf conf-n">N</span></td>
+  <td class="src">DLS (E, 5%) + Carondelet (R, 4%) + public mix</td>
+</tr>
+
+<tr>
+  <td class="rank">59</td>
+  <td class="school">Notre Dame Elem (Belmont) — K-8</td>
+  <td><span class="type-tag tag-catholic">Private K-8 (Catholic)</span></td>
+  <td class="loc">Belmont, San Mateo</td>
+  <td class="num">K-8</td>
+  <td class="feeder">NDB HS ~50% + Junipero Serra/SHC ~20% + Carlmont/public ~30%</td>
+  <td class="col-t25" title="0.5×NDB(3.5)+0.2×SHC(7)+0.3×Carlmont(6) ≈ ~5%.">~5%</td>
+  <td class="num">&lt;1%</td>
+  <td class="num">~10%</td>
+  <td class="num">&lt;1%</td>
+  <td class="num">~19%</td>
+  <td class="conf-cell"><span class="conf conf-n">N</span></td>
+  <td class="src">NDB (R, 3.5%) + SHC (R, 7%) + Carlmont (E, 6%)</td>
+</tr>
+
+<tr>
+  <td class="rank">60</td>
+  <td class="school">Bowditch MS (Foster City)</td>
+  <td><span class="type-tag tag-public">Public</span></td>
+  <td class="loc">San Mateo-Foster City SD &rarr; SMUHSD, San Mateo</td>
+  <td class="num">6-8</td>
+  <td class="feeder">Aragon HS ~50% + San Mateo HS ~30% + Hillsdale ~20%</td>
+  <td class="col-t25" title="0.5×Aragon(7)+0.3×SanMateo(3)+0.2×Hillsdale(2) = 3.5+0.9+0.4 ≈ ~5%.">~5%</td>
+  <td class="num">&lt;1%</td>
+  <td class="num">~10%</td>
+  <td class="num">&lt;1%</td>
+  <td class="num">~21%</td>
+  <td class="conf-cell"><span class="conf conf-n">N</span></td>
+  <td class="src">Aragon (E, 7%) + San Mateo HS (R, 3%) + Hillsdale (R, 2%)</td>
+</tr>
+
+<tr>
+  <td class="rank">61</td>
+  <td class="school">Borel MS (San Mateo)</td>
+  <td><span class="type-tag tag-public">Public</span></td>
+  <td class="loc">San Mateo-Foster City SD &rarr; SMUHSD, San Mateo</td>
+  <td class="num">6-8</td>
+  <td class="feeder">San Mateo HS ~70% + Aragon ~25% + Hillsdale ~5%</td>
+  <td class="col-t25" title="0.7×SanMateo(3)+0.25×Aragon(7)+0.05×Hillsdale(2) ≈ ~4%.">~4%</td>
+  <td class="num">&lt;1%</td>
+  <td class="num">~8%</td>
+  <td class="num">&lt;1%</td>
+  <td class="num">~17%</td>
+  <td class="conf-cell"><span class="conf conf-n">N</span></td>
+  <td class="src">San Mateo HS (R, 3%) + Aragon (E, 7%) + Hillsdale (R, 2%)</td>
+</tr>
+
+<tr>
+  <td class="rank">62</td>
+  <td class="school">Abbott MS (San Mateo)</td>
+  <td><span class="type-tag tag-public">Public</span></td>
+  <td class="loc">San Mateo-Foster City SD &rarr; SMUHSD, San Mateo</td>
+  <td class="num">6-8</td>
+  <td class="feeder">San Mateo HS ~50% + Aragon ~30% + Hillsdale ~20%</td>
+  <td class="col-t25" title="0.5×SanMateo(3)+0.3×Aragon(7)+0.2×Hillsdale(2) ≈ ~4%.">~4%</td>
+  <td class="num">&lt;1%</td>
+  <td class="num">~8%</td>
+  <td class="num">&lt;1%</td>
+  <td class="num">~17%</td>
+  <td class="conf-cell"><span class="conf conf-n">N</span></td>
+  <td class="src">San Mateo HS (R) + Aragon (E) + Hillsdale (R)</td>
+</tr>
+
+<tr>
+  <td class="rank">63</td>
+  <td class="school">All Souls Catholic (S. SF) — K-8</td>
+  <td><span class="type-tag tag-catholic">Private K-8 (Catholic)</span></td>
+  <td class="loc">South San Francisco, San Mateo</td>
+  <td class="num">K-8</td>
+  <td class="feeder">SHC ~25% + SI ~10% + Mercy/Junipero ~20% + public (Westmoor/El Camino) ~45%</td>
+  <td class="col-t25" title="0.25×SHC(7)+0.1×SI(9)+0.2×Mercy(3)+0.45×public(~2) = 1.75+0.9+0.6+0.9 ≈ ~4%. Most All Souls grads stay Catholic.">~4%</td>
+  <td class="num">&lt;1%</td>
+  <td class="num">~8%</td>
+  <td class="num">&lt;1%</td>
+  <td class="num">~14%</td>
+  <td class="conf-cell"><span class="conf conf-n">N</span></td>
+  <td class="src">SHC (R) + SI (E) + Mercy (N) + public (R)</td>
+</tr>
+
+</tbody>
+</table>
+
+<div class="footer">
+  Triple-estimation chain: <strong>MS feeder %</strong> &rarr; <strong>HS T25 estimate</strong> &rarr; <strong>HS T25-to-T10/T50/LAC15/UC ratios</strong>. Confidence is one tier worse than the dominant HS feeder, except K-12 / 6-12 private schools (M for direct passthrough). Source HS data is from <a href="all_schools_ranked.html">all_schools_ranked.html</a>; methodology and worked examples on the <a href="middle_school_methodology.html">middle-school methodology page</a>.
+</div>
+
+</div>
+<script>
+(function () {
+  function parseNumeric(text) {
+    if (text == null) return NaN;
+    var t = text.trim();
+    if (t === '' || t === '—' || t === '-' || t === 'varies' || t === 'B') return NaN;
+    var lt = t.match(/^<\s*([\d.]+)/);
+    if (lt) return parseFloat(lt[1]) / 2;
+    var m = t.replace(/,/g, '').match(/-?\d+(?:\.\d+)?/);
+    return m ? parseFloat(m[0]) : NaN;
+  }
+  var CONF_ORDER = { 'M': 0, 'E': 1, 'R': 2, 'N': 3 };
+  function parseConf(text) {
+    if (!text) return Infinity;
+    var m = text.trim().match(/[MERN]/);
+    if (!m) return Infinity;
+    return CONF_ORDER[m[0]];
+  }
+  function detectType(headerText) {
+    var h = (headerText || '').toLowerCase().trim();
+    if (h === 'rank' || h === 't25 %' || h === 't10 %' || h === 't50 %' ||
+        h === 'lac15 %' || h === 'uc %') return 'num';
+    if (h === 'conf' || h === 'confidence') return 'conf';
+    return 'text';
+  }
+  function getCellText(td) {
+    return (td.textContent || td.innerText || '').replace(/\s+/g, ' ').trim();
+  }
+  function sortTable(table, colIndex, direction, type) {
+    var tbody = table.tBodies[0];
+    if (!tbody) return;
+    var rows = Array.prototype.slice.call(tbody.rows);
+    rows.sort(function (a, b) {
+      var ca = a.cells[colIndex], cb = b.cells[colIndex];
+      var ta = ca ? getCellText(ca) : '';
+      var tb = cb ? getCellText(cb) : '';
+      var av, bv;
+      if (type === 'num') { av = parseNumeric(ta); bv = parseNumeric(tb); }
+      else if (type === 'conf') { av = parseConf(ta); bv = parseConf(tb); }
+      else { av = ta.toLowerCase(); bv = tb.toLowerCase(); }
+      var aN = (typeof av === 'number' && isNaN(av));
+      var bN = (typeof bv === 'number' && isNaN(bv));
+      if (aN && bN) return 0;
+      if (aN) return 1;
+      if (bN) return -1;
+      if (av < bv) return direction === 'asc' ? -1 : 1;
+      if (av > bv) return direction === 'asc' ? 1 : -1;
+      return 0;
+    });
+    rows.forEach(function (r) { tbody.appendChild(r); });
+  }
+  function resetTable(table) {
+    var tbody = table.tBodies[0];
+    if (!tbody || !table._origRows) return;
+    table._origRows.forEach(function (r) { tbody.appendChild(r); });
+  }
+  function makeSortable(table) {
+    var thead = table.tHead;
+    if (!thead || !thead.rows.length) return;
+    var headerRow = thead.rows[thead.rows.length - 1];
+    var ths = Array.prototype.slice.call(headerRow.cells);
+    var tbody = table.tBodies[0];
+    if (!tbody) return;
+    table._origRows = Array.prototype.slice.call(tbody.rows);
+    var state = { col: -1, dir: null };
+    ths.forEach(function (th, idx) {
+      var headerText = getCellText(th);
+      var type = detectType(headerText);
+      th.style.cursor = 'pointer';
+      th.setAttribute('data-sort-type', type);
+      var indicator = document.createElement('span');
+      indicator.className = 'sort-indicator';
+      indicator.style.marginLeft = '4px';
+      indicator.style.opacity = '0.4';
+      indicator.style.fontSize = '0.85em';
+      indicator.textContent = '';
+      th.appendChild(indicator);
+      th.addEventListener('click', function () {
+        var newDir;
+        if (state.col !== idx) { newDir = 'asc'; }
+        else if (state.dir === 'asc') { newDir = 'desc'; }
+        else if (state.dir === 'desc') { newDir = null; }
+        else { newDir = 'asc'; }
+        ths.forEach(function (t) {
+          var ind = t.querySelector('.sort-indicator');
+          if (ind) { ind.textContent = ''; ind.style.opacity = '0.4'; }
+        });
+        if (newDir === null) {
+          resetTable(table);
+          state.col = -1; state.dir = null;
+        } else {
+          sortTable(table, idx, newDir, type);
+          state.col = idx; state.dir = newDir;
+          indicator.textContent = newDir === 'asc' ? '▲' : '▼';
+          indicator.style.opacity = '1';
+        }
+      });
+    });
+  }
+  function init() {
+    var tables = document.querySelectorAll('table');
+    tables.forEach(function (t) {
+      if (t.tHead) makeSortable(t);
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+
+</body>
+</html>
