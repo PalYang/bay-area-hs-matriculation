@@ -191,11 +191,11 @@
   <table class="years">
     <thead><tr><th>Year</th><th>Feeder split</th><th>Weighted HS T25%</th><th>Inferred MS T25%</th><th>Source HS data</th><th>Notes</th></tr></thead>
     <tbody>
-      <tr><td>2021</td><td>San Mateo HS 0.30 + Aragon 0.15 + Crystal 0.20 + Nueva/Menlo/SHP 0.25 + other private 0.10</td><td>0.30&times;3 + 0.15&times;6 + 0.20&times;27 + 0.25&times;35 + 0.10&times;25 = 11.5</td><td>~12%</td><td>San Mateo, Aragon, Crystal, Nueva/Menlo/SHP 2021</td><td></td></tr>
-      <tr><td>2022</td><td>same</td><td>0.30&times;3 + 0.15&times;7 + 0.20&times;28 + 0.25&times;35 + 0.10&times;25 = 11.7</td><td>~12%</td><td>2022</td><td></td></tr>
-      <tr><td>2023</td><td>same</td><td>0.30&times;3 + 0.15&times;7 + 0.20&times;28 + 0.25&times;35 + 0.10&times;25 = 11.7</td><td>~12%</td><td>2023</td><td></td></tr>
-      <tr><td>2024</td><td>same</td><td>0.30&times;3 + 0.15&times;8 + 0.20&times;28 + 0.25&times;35 + 0.10&times;25 = 11.9</td><td>~12%</td><td>2024</td><td>UCSD lift via Aragon.</td></tr>
-      <tr><td>2025</td><td>same</td><td>0.30&times;3 + 0.15&times;8 + 0.20&times;29 + 0.25&times;36 + 0.10&times;26 = 12.4</td><td>~12%</td><td>2025</td><td></td></tr>
+      <tr><td>2021</td><td>San Mateo HS 0.30 + Aragon 0.15 + Crystal 0.20 + Nueva/Menlo/SHP 0.25 + other private 0.10</td><td>raw 0.30&times;3 + 0.15&times;6 + 0.20&times;27 + 0.25&times;35 + 0.10&times;25 = 18.05; haircut</td><td>~12%</td><td>San Mateo, Aragon, Crystal, Nueva/Menlo/SHP 2021</td><td>Haircut from raw weighted ~18% to ~12% for selection-bias adjustment (Crocker MS does not select for the same applicant pool as Crystal/Nueva/Menlo/SHP; the implied "every Crocker family who lists private goes to a top one" overstates).</td></tr>
+      <tr><td>2022</td><td>same</td><td>raw 0.30&times;3 + 0.15&times;7 + 0.20&times;28 + 0.25&times;35 + 0.10&times;25 = 18.20; haircut</td><td>~12%</td><td>2022</td><td>Haircut applied (see 2021 note).</td></tr>
+      <tr><td>2023</td><td>same</td><td>raw 0.30&times;3 + 0.15&times;7 + 0.20&times;28 + 0.25&times;35 + 0.10&times;25 = 18.20; haircut</td><td>~12%</td><td>2023</td><td>Haircut applied.</td></tr>
+      <tr><td>2024</td><td>same</td><td>raw 0.30&times;3 + 0.15&times;8 + 0.20&times;28 + 0.25&times;35 + 0.10&times;25 = 18.35; haircut</td><td>~12%</td><td>2024</td><td>UCSD lift via Aragon; haircut applied.</td></tr>
+      <tr><td>2025</td><td>same</td><td>raw 0.30&times;3 + 0.15&times;8 + 0.20&times;29 + 0.25&times;36 + 0.10&times;26 = 18.90; haircut</td><td>~12%</td><td>2025</td><td>Haircut applied.</td></tr>
     </tbody>
   </table>
   <details class="methodology"><summary>Estimation methodology</summary><p>Crocker MS is the single Hillsborough City SD middle school. Hillsborough is the wealthiest residential area in central San Mateo County; published "next school" data and parent-survey reporting suggest a 40-50% private-exit rate (Crystal Springs Uplands is in Hillsborough; Nueva is in Hillsborough; Menlo School and SHP are nearby). Weights pool the four big private feeders (Nueva/Menlo/SHP at ~35% T25 weighted average; Crystal at 27-29%) plus the SMUHSD-assigned HSs. Confidence R because the private-exit-rate split is not published.</p></details>
