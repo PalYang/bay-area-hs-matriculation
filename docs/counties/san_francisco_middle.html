@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>San Francisco County Middle Schools — Year-by-year Inferred T25 %</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; max-width: 1100px; margin: 40px auto; padding: 0 24px; line-height: 1.5; color: #1f2328; }
+  h1 { font-size: 26px; }
+  h2 { font-size: 19px; margin-top: 36px; padding-top: 16px; border-top: 1px solid #d0d7de; }
+  h2 .meta { color: #656d76; font-size: 14px; font-weight: normal; }
+  .summary { background: #f6f8fa; padding: 10px 14px; border-radius: 6px; font-size: 14px; }
+  table.years { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 12px; }
+  table.years th, table.years td { border: 1px solid #d0d7de; padding: 6px 10px; text-align: left; }
+  table.years th { background: #f6f8fa; }
+  table.years td.nodata { color: #999; font-style: italic; }
+  details.methodology { margin-top: 10px; font-size: 13px; }
+  details.methodology summary { cursor: pointer; color: #0969da; }
+  details.methodology p { background: #fff8c5; padding: 10px 14px; border-radius: 6px; border: 1px solid #d4a72c; }
+  .nav { margin-bottom: 20px; font-size: 14px; }
+  .nav a { color: #0969da; text-decoration: none; margin-right: 16px; }
+  .nav a:hover { text-decoration: underline; }
+  .conf { display: inline-block; padding: 1px 6px; border-radius: 3px; font-size: 11px; font-weight: bold; color: #fff; }
+  .conf-m { background: #2da44e; }
+  .conf-e { background: #d4a72c; color: #1f2328; }
+  .conf-r { background: #d97706; }
+  .conf-n { background: #999; }
+  .caveat { background: #fef3c7; border-left: 4px solid #d97706; padding: 12px 16px; border-radius: 6px; margin: 16px 0; font-size: 13.5px; }
+  .caveat ul { margin: 6px 0 0; padding-left: 22px; }
+</style>
+</head>
+<body>
+<div class="nav">
+  <a href="../index.html">&larr; Index</a>
+  <a href="../middle_schools_ranked.html">All MS ranked &rarr;</a>
+  <a href="san_francisco.html">SF County HS &rarr;</a>
+  <a href="marin_middle.html">Marin County MS &rarr;</a>
+</div>
+<h1>San Francisco County Middle Schools &mdash; Year-by-year Inferred T25 %, 2021&ndash;2025</h1>
+<p>Per-school, per-year inferred matriculation to the U.S. News Top-25 national universities for middle schools in San Francisco County. Because middle schools do not place students directly in colleges, every number is a feeder-weighted estimate: <code>MS T25(year) = &Sigma;(feeder weight &times; HS T25(year))</code>. T25 = Princeton, MIT, Harvard, Stanford, Yale, Penn, Caltech, Duke, Brown, Johns Hopkins, Northwestern, Columbia, Cornell, U Chicago, UC Berkeley, UCLA, Rice, Dartmouth, Vanderbilt, Notre Dame, Michigan, Georgetown, UNC Chapel Hill, Carnegie Mellon, Emory, UVA, WashU. See the <a href="../middle_school_methodology.html">middle-school methodology</a> for the full chain.</p>
+
+<div class="caveat">
+  <strong>Read this first.</strong>
+  <ul>
+    <li><strong>All MS numbers are doubly-derived.</strong> First we estimate the HS feeder mix (most SF independents publish a 3&ndash;5 year "where they go" list of HSs but no class-share weights), then we multiply by each HS's per-year T25 % from the <a href="san_francisco.html">SF HS page</a>. Confidence is therefore capped at <span class="conf conf-r">R</span> rough proxy for nearly every school.</li>
+    <li><strong>COVID 2021 adjustment:</strong> the Class of 2021 (graduating HS in 2025 if currently in 8th, but here the column means HS-graduating-in-year) feels a &minus;10% T25 dip relative to baseline because UC admit rates compressed and SF-specific Lowell-cohort effects (suspended merit admission 2020&ndash;22) flowed into HS exits.</li>
+    <li><strong>2024&ndash;25 UCSD-expansion lift:</strong> UCSD freshman class grew from ~6k to ~9k+ between 2020 and 2024, lifting UC-heavy SF feeders' T25 share by ~5&ndash;10% (more lift for MSs that feed Lowell heavily, less lift for elite-private feeders that already saturate non-UC T25).</li>
+    <li><strong>SFUSD MS-to-HS placement reset (2020-2024):</strong> SFUSD suspended Lowell's merit-based admissions for the cohorts entering HS in 2021 and 2022, then partially restored merit admissions for 2024-25. This added noise to feeder-weight estimates for Presidio MS / Aptos / Hoover / Roosevelt across the window.</li>
+    <li><strong>Confidence:</strong> <span class="conf conf-m">M</span> measured (school publishes per-class HS-exit list w/ counts), <span class="conf conf-e">E</span> estimated (HS-exit list w/o counts; equal-weight assumption), <span class="conf conf-r">R</span> rough (feeder mix inferred from neighborhood / school positioning), <span class="conf conf-n">N</span> no usable data. Schools sorted by 5-year average inferred T25%.</li>
+  </ul>
+</div>
+
+<!-- ====================================================================== -->
+<!-- 1. HAMLIN -->
+<!-- ====================================================================== -->
+<section class="school" id="ms-hamlin">
+  <h2>1. The Hamlin School <span class="meta">Private K-8 girls &middot; Pacific Heights &middot; ~45/yr &middot; ~23% inferred T25 <span class="conf conf-r">R</span></span></h2>
+  <p class="summary">Top SF girls' K-8. Feeder mix per Hamlin's published 5-yr HS exit list: UHS ~30% + Convent ~20% + Lick ~15% + Urban ~10% + Branson/MA ~10% + SF public ~15%. Heavy UHS pull is the dominant T25 driver; Branson/MA pull (Marin commute) lifts the upper tail.</p>
+  <table class="years">
+    <thead><tr><th>Year</th><th>Cohort proxy</th><th>Inferred T25 %</th><th>Conf.</th><th>Source / per-year note</th></tr></thead>
+    <tbody>
+      <tr><td>2021</td><td>~45</td><td>~21%</td><td><span class="conf conf-r">R</span></td><td>COVID&minus;10% on UC-heavy feeders. UHS/Convent/Lick all flat at aggregate; minor dip from SF-public weight (~15% &times; 17% Lowell &asymp; 2.5pp).</td></tr>
+      <tr><td>2022</td><td>~45</td><td>~23%</td><td><span class="conf conf-r">R</span></td><td>Recovery to baseline. <a href="https://www.hamlin.org/admissions/high-school-placement" target="_blank">Hamlin HS placement page</a> lists 5-yr exit set.</td></tr>
+      <tr><td>2023</td><td>~45</td><td>~23%</td><td><span class="conf conf-r">R</span></td><td>Baseline year. 0.3&times;UHS(28)+0.2&times;Convent(15)+0.15&times;Lick(33)+0.1&times;Urban(19)+0.1&times;Branson/MA(~38)+0.15&times;SFpub(~6) &asymp; 23%.</td></tr>
+      <tr><td>2024</td><td>~45</td><td>~24%</td><td><span class="conf conf-r">R</span></td><td>UCSD expansion: +1pp on SF-public weight (Lowell HS T25 lifts to ~22%).</td></tr>
+      <tr><td>2025</td><td>~45</td><td>~24%</td><td><span class="conf conf-r">R</span></td><td>Forward projection; UCSD expansion sustained.</td></tr>
+    </tbody>
+  </table>
+  <details class="methodology"><summary>Methodology &amp; gaps</summary><p>Hamlin's 5-yr HS exit list names ~25 HSs without per-school counts; weights are reverse-engineered from list density and SF independent-school admissions cycle. UHS and Branson/MA dominate the upper tail. Per-year numerical values are HS-T25-driven; Hamlin itself does not produce per-year variance.</p></details>
+</section>
+
+<!-- ====================================================================== -->
+<!-- 2. TOWN SCHOOL FOR BOYS -->
+<!-- ====================================================================== -->
+<section class="school" id="ms-town">
+  <h2>2. Town School for Boys <span class="meta">Private K-8 boys &middot; Pacific Heights &middot; ~45/yr &middot; ~19% inferred T25 <span class="conf conf-r">R</span></span></h2>
+  <p class="summary">Top SF boys' K-8 (peer of Hamlin). Feeder mix from Town's published HS exit list: UHS ~25% + Lick ~20% + Stuart Hall HS ~15% + Bay ~10% + SI/SHCP ~15% + public ~15%. Stuart Hall HS pull is the boys-school equivalent of Hamlin&rarr;Convent; Catholic college-prep weight (SI/SHCP) is higher than Hamlin's.</p>
+  <table class="years">
+    <thead><tr><th>Year</th><th>Cohort proxy</th><th>Inferred T25 %</th><th>Conf.</th><th>Source / per-year note</th></tr></thead>
+    <tbody>
+      <tr><td>2021</td><td>~45</td><td>~17%</td><td><span class="conf conf-r">R</span></td><td>COVID&minus;10%. UC-heavy weighting in Catholic + SF-public buckets dragged.</td></tr>
+      <tr><td>2022</td><td>~45</td><td>~19%</td><td><span class="conf conf-r">R</span></td><td>Recovery. <a href="https://www.townschool.com/academics/high-school-placement" target="_blank">Town HS placement</a></td></tr>
+      <tr><td>2023</td><td>~45</td><td>~19%</td><td><span class="conf conf-r">R</span></td><td>Baseline: 0.25&times;UHS(28)+0.2&times;Lick(33)+0.15&times;StuartHall(15)+0.1&times;Bay(6)+0.15&times;Catholic(~8)+0.15&times;SFpub(~6) &asymp; 19%.</td></tr>
+      <tr><td>2024</td><td>~45</td><td>~20%</td><td><span class="conf conf-r">R</span></td><td>UCSD lift on Catholic + SF-public weights.</td></tr>
+      <tr><td>2025</td><td>~45</td><td>~20%</td><td><span class="conf conf-r">R</span></td><td>Forward projection.</td></tr>
+    </tbody>
+  </table>
+  <details class="methodology"><summary>Methodology &amp; gaps</summary><p>Town's HS placement list goes back to 2017; we used the 2019&ndash;23 window for feeder weights. Stuart Hall HS pull at 15% is on the high end &mdash; Sacred Heart Schools' campus geography means many Town &rarr; Stuart Hall HS transitions are pre-set by family ties. UHS at 25% is similar to Hamlin's 30% (Hamlin has slightly stronger UHS reputation).</p></details>
+</section>
+
+<!-- ====================================================================== -->
+<!-- 3. SF DAY SCHOOL -->
+<!-- ====================================================================== -->
+<section class="school" id="ms-sfday">
+  <h2>3. San Francisco Day School <span class="meta">Private K-8 independent &middot; Presidio Heights &middot; ~50/yr &middot; ~20% inferred T25 <span class="conf conf-r">R</span></span></h2>
+  <p class="summary">Co-ed independent K-8 in Presidio Heights. Feeder mix: UHS ~25% + Lick ~20% + Urban ~15% + Bay ~10% + Drew/Convent/SHCP ~15% + Lowell/SF public ~15%. Spread across all major SF private HSs; very few Marin/Peninsula commuters.</p>
+  <table class="years">
+    <thead><tr><th>Year</th><th>Cohort proxy</th><th>Inferred T25 %</th><th>Conf.</th><th>Source / per-year note</th></tr></thead>
+    <tbody>
+      <tr><td>2021</td><td>~50</td><td>~18%</td><td><span class="conf conf-r">R</span></td><td>COVID&minus;10%.</td></tr>
+      <tr><td>2022</td><td>~50</td><td>~20%</td><td><span class="conf conf-r">R</span></td><td>Baseline recovery. <a href="https://www.sfday.org/academics/middle-school/high-school-placement" target="_blank">SFDS HS placement</a></td></tr>
+      <tr><td>2023</td><td>~50</td><td>~20%</td><td><span class="conf conf-r">R</span></td><td>Baseline: 0.25&times;UHS(28)+0.2&times;Lick(33)+0.15&times;Urban(19)+0.1&times;Bay(6)+0.15&times;other-priv(~10)+0.15&times;SFpub-mix(~6) &asymp; 20%.</td></tr>
+      <tr><td>2024</td><td>~50</td><td>~21%</td><td><span class="conf conf-r">R</span></td><td>UCSD lift on SF-public + Bay weights.</td></tr>
+      <tr><td>2025</td><td>~50</td><td>~21%</td><td><span class="conf conf-r">R</span></td><td>Forward projection.</td></tr>
+    </tbody>
+  </table>
+  <details class="methodology"><summary>Methodology &amp; gaps</summary><p>SFDS publishes a 5-yr HS exit list naming ~30 HSs. Heavier Drew/Convent/SHCP weight than Hamlin/Town reflects co-ed family preference for co-ed HS. The 5-yr avg ~20% lands SFDS in the second tier of SF independent K-8s, behind Hamlin (UHS-pull bonus).</p></details>
+</section>
+
+<!-- ====================================================================== -->
+<!-- 4. PRESIDIO MS (SFUSD) -->
+<!-- ====================================================================== -->
+<section class="school" id="ms-presidio">
+  <h2>4. Presidio MS (SFUSD) <span class="meta">Public &middot; SFUSD &middot; ~470/yr &middot; ~12% inferred T25 <span class="conf conf-r">R</span></span></h2>
+  <p class="summary">Highest-performing SFUSD middle school by HS placement. Feeder mix to HS: Lowell HS ~50% (via competitive HS app) + Washington/Lincoln/SOTA ~50%. Note SFUSD suspended Lowell merit-admissions for cohorts entering HS in 2021 and 2022 (graduating 2025/2026); merit admissions partially restored 2024-25.</p>
+  <table class="years">
+    <thead><tr><th>Year</th><th>Cohort proxy</th><th>Inferred T25 %</th><th>Conf.</th><th>Source / per-year note</th></tr></thead>
+    <tbody>
+      <tr><td>2021</td><td>~470</td><td>~10%</td><td><span class="conf conf-r">R</span></td><td>COVID&minus;10% AND Lowell merit suspension; Presidio's high-test cohort dispersed across non-Lowell SFUSD HSs.</td></tr>
+      <tr><td>2022</td><td>~470</td><td>~11%</td><td><span class="conf conf-r">R</span></td><td>Continuing Lowell merit suspension.</td></tr>
+      <tr><td>2023</td><td>~470</td><td>~12%</td><td><span class="conf conf-r">R</span></td><td>Baseline: 0.5&times;Lowell(20)+0.5&times;other-SF-public(3) &asymp; 12%.</td></tr>
+      <tr><td>2024</td><td>~470</td><td>~13%</td><td><span class="conf conf-r">R</span></td><td>Lowell merit partially restored + UCSD expansion lifts Lowell to ~22%.</td></tr>
+      <tr><td>2025</td><td>~470</td><td>~13%</td><td><span class="conf conf-r">R</span></td><td>Forward projection.</td></tr>
+    </tbody>
+  </table>
+  <details class="methodology"><summary>Methodology &amp; gaps</summary><p>The 50% Lowell-exit estimate is a post-restoration approximation; under the 2021&ndash;2023 lottery system the share was likely 25&ndash;35%. Presidio's high-test population still has the highest hit-rate on Lowell among SFUSD MSs. R confidence overall.</p></details>
+</section>
+
+<!-- ====================================================================== -->
+<!-- 5. CONVENT OF THE SACRED HEART ELEMENTARY -->
+<!-- ====================================================================== -->
+<section class="school" id="ms-convent-elem">
+  <h2>5. Convent of the Sacred Heart Elementary <span class="meta">Private K-8 girls (Catholic) &middot; Pacific Heights &middot; ~30/yr &middot; ~16% inferred T25 <span class="conf conf-r">R</span></span></h2>
+  <p class="summary">Same-campus K-8 girls' school feeding Convent HS. Feeder mix: Convent HS ~35% + UHS ~15% + Lick ~10% + SHC/Mercy ~10% + Bay/other private ~10% + public ~20%. Same-campus pull dampens T25 % vs Hamlin (Convent HS T25 % &asymp; 15%, lower than UHS 28%).</p>
+  <table class="years">
+    <thead><tr><th>Year</th><th>Cohort proxy</th><th>Inferred T25 %</th><th>Conf.</th><th>Source / per-year note</th></tr></thead>
+    <tbody>
+      <tr><td>2021</td><td>~30</td><td>~14%</td><td><span class="conf conf-r">R</span></td><td>COVID&minus;10%.</td></tr>
+      <tr><td>2022</td><td>~30</td><td>~16%</td><td><span class="conf conf-r">R</span></td><td>Baseline. <a href="https://www.sacredsf.org/academics/lower-and-middle-form-girls" target="_blank">Sacred SF Convent K-8 page</a></td></tr>
+      <tr><td>2023</td><td>~30</td><td>~16%</td><td><span class="conf conf-r">R</span></td><td>Baseline: 0.35&times;Convent(15)+0.15&times;UHS(28)+0.1&times;Lick(33)+0.1&times;SHC(7)+0.1&times;Bay/other(~12)+0.2&times;SFpub(~6) &asymp; 16%.</td></tr>
+      <tr><td>2024</td><td>~30</td><td>~17%</td><td><span class="conf conf-r">R</span></td><td>UCSD lift on SF-public + Catholic weights.</td></tr>
+      <tr><td>2025</td><td>~30</td><td>~17%</td><td><span class="conf conf-r">R</span></td><td>Forward projection.</td></tr>
+    </tbody>
+  </table>
+  <details class="methodology"><summary>Methodology &amp; gaps</summary><p>Same-campus passthrough means the 35% Convent HS feeder weight is essentially measured (very few girls leave Convent K-8 then return for HS to a different school). The ~15% T25 for Convent HS itself is the bottleneck.</p></details>
+</section>
+
+<!-- ====================================================================== -->
+<!-- 6. STUART HALL FOR BOYS (K-8) -->
+<!-- ====================================================================== -->
+<section class="school" id="ms-stuart-hall">
+  <h2>6. Stuart Hall for Boys (K-8) <span class="meta">Private K-8 boys (Catholic) &middot; Pacific Heights &middot; ~30/yr &middot; ~17% inferred T25 <span class="conf conf-r">R</span></span></h2>
+  <p class="summary">Same-campus K-8 boys' school feeding Stuart Hall HS. Feeder mix: Stuart Hall HS ~30% + UHS ~15% + Lick ~15% + SI/SHCP ~15% + Bay/other private ~10% + public ~15%. Same-campus pull lower than Convent K-8 (boys are more likely to switch to UHS/Lick for HS).</p>
+  <table class="years">
+    <thead><tr><th>Year</th><th>Cohort proxy</th><th>Inferred T25 %</th><th>Conf.</th><th>Source / per-year note</th></tr></thead>
+    <tbody>
+      <tr><td>2021</td><td>~30</td><td>~15%</td><td><span class="conf conf-r">R</span></td><td>COVID&minus;10%.</td></tr>
+      <tr><td>2022</td><td>~30</td><td>~17%</td><td><span class="conf conf-r">R</span></td><td>Baseline. <a href="https://www.sacredsf.org/academics/lower-and-middle-form-boys" target="_blank">Stuart Hall K-8 page</a></td></tr>
+      <tr><td>2023</td><td>~30</td><td>~17%</td><td><span class="conf conf-r">R</span></td><td>Baseline: 0.3&times;StuartHall(15)+0.15&times;UHS(28)+0.15&times;Lick(33)+0.15&times;SI/SHCP(~9)+0.1&times;Bay/other(~12)+0.15&times;SFpub(~6) &asymp; 17%.</td></tr>
+      <tr><td>2024</td><td>~30</td><td>~18%</td><td><span class="conf conf-r">R</span></td><td>UCSD lift.</td></tr>
+      <tr><td>2025</td><td>~30</td><td>~18%</td><td><span class="conf conf-r">R</span></td><td>Forward projection.</td></tr>
+    </tbody>
+  </table>
+  <details class="methodology"><summary>Methodology &amp; gaps</summary><p>Sacred Heart Schools SF runs a single college counseling office for both Convent + Stuart Hall HS; the 30% same-campus pull is a school-published estimate (vs Convent K-8's 35% which is closer to 50% reality but historically published lower).</p></details>
+</section>
+
+<!-- ====================================================================== -->
+<!-- 7. BURKE'S SCHOOL -->
+<!-- ====================================================================== -->
+<section class="school" id="ms-burkes">
+  <h2>7. Katherine Delmar Burke's School <span class="meta">Private K-8 girls &middot; Sea Cliff &middot; ~40/yr &middot; ~19% inferred T25 <span class="conf conf-r">R</span></span></h2>
+  <p class="summary">Co-peer to Hamlin (girls K-8); located in Sea Cliff. Feeder mix: Convent HS ~25% + UHS ~20% + Lick ~15% + Bay/Hamlin/Marin-Acad ~10% + Branson/MA ~10% + public/other ~20%. Higher Convent HS share than Hamlin (Burke's has a Catholic-adjacent family base in the Richmond/Sea Cliff).</p>
+  <table class="years">
+    <thead><tr><th>Year</th><th>Cohort proxy</th><th>Inferred T25 %</th><th>Conf.</th><th>Source / per-year note</th></tr></thead>
+    <tbody>
+      <tr><td>2021</td><td>~40</td><td>~17%</td><td><span class="conf conf-r">R</span></td><td>COVID&minus;10%.</td></tr>
+      <tr><td>2022</td><td>~40</td><td>~19%</td><td><span class="conf conf-r">R</span></td><td>Baseline. <a href="https://www.kdbs.org/academics/middle-school/high-school-placement" target="_blank">Burke's HS placement</a></td></tr>
+      <tr><td>2023</td><td>~40</td><td>~19%</td><td><span class="conf conf-r">R</span></td><td>Baseline gross: 0.25&times;Convent(15)+0.2&times;UHS(28)+0.15&times;Lick(33)+0.1&times;Bay/MA(~16)+0.1&times;Branson/MA(~38)+0.2&times;SFpub(~6) &asymp; 21%; haircut to 19% for selection-bias overlap with Hamlin.</td></tr>
+      <tr><td>2024</td><td>~40</td><td>~20%</td><td><span class="conf conf-r">R</span></td><td>UCSD lift.</td></tr>
+      <tr><td>2025</td><td>~40</td><td>~20%</td><td><span class="conf conf-r">R</span></td><td>Forward projection.</td></tr>
+    </tbody>
+  </table>
+  <details class="methodology"><summary>Methodology &amp; gaps</summary><p>Burke's HS placement page lists 5-yr exits including Convent, UHS, Lick, SI, SHCP, Marin Catholic, Marin Academy, Branson, Lowell. Marin Catholic appears more often than at Hamlin/SFDS (Sea Cliff &rarr; GG Bridge commute). Selection-bias haircut applied because high-ability families may shop the same Hamlin/Burke's pool.</p></details>
+</section>
+
+<!-- ====================================================================== -->
+<!-- 8. CAIS -->
+<!-- ====================================================================== -->
+<section class="school" id="ms-cais">
+  <h2>8. Chinese American International School (CAIS) <span class="meta">Private PK-8 (Mandarin immersion) &middot; Hayes Valley &middot; ~50/yr &middot; ~20% inferred T25 <span class="conf conf-r">R</span></span></h2>
+  <p class="summary">Mandarin-immersion K-8 with strong UHS/Lick exit. Feeder mix: UHS ~20% + Lick ~20% + Convent/Stuart Hall ~15% + Bay ~10% + Lowell/SOTA ~15% + other SF-pub/private ~20%. Heavy Lick weight reflects CAIS's STEM/global-affairs focus aligning with Lick's profile.</p>
+  <table class="years">
+    <thead><tr><th>Year</th><th>Cohort proxy</th><th>Inferred T25 %</th><th>Conf.</th><th>Source / per-year note</th></tr></thead>
+    <tbody>
+      <tr><td>2021</td><td>~50</td><td>~18%</td><td><span class="conf conf-r">R</span></td><td>COVID&minus;10%.</td></tr>
+      <tr><td>2022</td><td>~50</td><td>~20%</td><td><span class="conf conf-r">R</span></td><td>Baseline. <a href="https://www.cais.org/academics/middle-school/high-school-placement" target="_blank">CAIS HS placement</a></td></tr>
+      <tr><td>2023</td><td>~50</td><td>~20%</td><td><span class="conf conf-r">R</span></td><td>Baseline: 0.2&times;UHS(28)+0.2&times;Lick(33)+0.15&times;Conv/StH(15)+0.1&times;Bay(6)+0.15&times;Lowell(20)+0.2&times;other(~8) &asymp; 20%.</td></tr>
+      <tr><td>2024</td><td>~50</td><td>~21%</td><td><span class="conf conf-r">R</span></td><td>UCSD lift on Lowell + SF-public weights (CAIS sends more to Lowell than Hamlin/Town do).</td></tr>
+      <tr><td>2025</td><td>~50</td><td>~21%</td><td><span class="conf conf-r">R</span></td><td>Forward projection.</td></tr>
+    </tbody>
+  </table>
+  <details class="methodology"><summary>Methodology &amp; gaps</summary><p>CAIS publishes a "where they go" grid annually; our weights are equal-weight on the named HSs. Mandarin immersion creates an unusual academic pipeline; some grads continue at FAIS/Lyc&eacute;e for HS. Lowell weight at 15% is among the highest of SF independents (CAIS families include Asian-American Lowell-track applicants).</p></details>
+</section>
+
+<!-- ====================================================================== -->
+<!-- 9. PRESIDIO HILL SCHOOL -->
+<!-- ====================================================================== -->
+<section class="school" id="ms-presidio-hill">
+  <h2>9. Presidio Hill School <span class="meta">Private K-8 progressive &middot; Presidio Heights &middot; ~25/yr &middot; ~19% inferred T25 <span class="conf conf-r">R</span></span></h2>
+  <p class="summary">Small progressive K-8 in Presidio Heights. Feeder mix: UHS ~20% + Lick ~20% + Urban ~15% + Bay ~10% + SF public (Lowell/Lincoln) ~25% + other ~10%. Urban weight higher than peer SF independents reflects progressive-school alignment.</p>
+  <table class="years">
+    <thead><tr><th>Year</th><th>Cohort proxy</th><th>Inferred T25 %</th><th>Conf.</th><th>Source / per-year note</th></tr></thead>
+    <tbody>
+      <tr><td>2021</td><td>~25</td><td>~17%</td><td><span class="conf conf-r">R</span></td><td>COVID&minus;10%.</td></tr>
+      <tr><td>2022</td><td>~25</td><td>~19%</td><td><span class="conf conf-r">R</span></td><td>Baseline. <a href="https://www.presidiohill.org/academics/middle-school/high-school-placement" target="_blank">PHS HS placement</a></td></tr>
+      <tr><td>2023</td><td>~25</td><td>~19%</td><td><span class="conf conf-r">R</span></td><td>Baseline: 0.2&times;UHS(28)+0.2&times;Lick(33)+0.15&times;Urban(19)+0.1&times;Bay(6)+0.25&times;SFpub(~7)+0.1&times;other(~15) &asymp; 19%.</td></tr>
+      <tr><td>2024</td><td>~25</td><td>~20%</td><td><span class="conf conf-r">R</span></td><td>UCSD lift on heavy SF-public weight.</td></tr>
+      <tr><td>2025</td><td>~25</td><td>~20%</td><td><span class="conf conf-r">R</span></td><td>Forward projection.</td></tr>
+    </tbody>
+  </table>
+  <details class="methodology"><summary>Methodology &amp; gaps</summary><p>PHS class size is small (~25) so per-year share volatility is high. The 25% SF-public weight (Lowell/Lincoln/Washington) is unusually high among SF privates &mdash; PHS families include public-shoppers.</p></details>
+</section>
+
+<!-- ====================================================================== -->
+<!-- 10. LIVE OAK -->
+<!-- ====================================================================== -->
+<section class="school" id="ms-live-oak">
+  <h2>10. Live Oak School <span class="meta">Private K-8 progressive &middot; Potrero Hill &middot; ~35/yr &middot; ~17% inferred T25 <span class="conf conf-r">R</span></span></h2>
+  <p class="summary">Progressive co-ed K-8. Feeder mix: UHS ~15% + Lick ~25% + Urban ~15% + Bay ~10% + Drew/Convent/SHCP ~10% + public ~25%. Lick weight higher than peer SFDS (Potrero Hill geography &amp; progressive-school mission alignment).</p>
+  <table class="years">
+    <thead><tr><th>Year</th><th>Cohort proxy</th><th>Inferred T25 %</th><th>Conf.</th><th>Source / per-year note</th></tr></thead>
+    <tbody>
+      <tr><td>2021</td><td>~35</td><td>~15%</td><td><span class="conf conf-r">R</span></td><td>COVID&minus;10%.</td></tr>
+      <tr><td>2022</td><td>~35</td><td>~17%</td><td><span class="conf conf-r">R</span></td><td>Baseline. <a href="https://www.liveoaksf.org/academics/middle-school/high-school-placement" target="_blank">Live Oak HS placement</a></td></tr>
+      <tr><td>2023</td><td>~35</td><td>~17%</td><td><span class="conf conf-r">R</span></td><td>Baseline: 0.15&times;UHS(28)+0.25&times;Lick(33)+0.15&times;Urban(19)+0.1&times;Bay(6)+0.1&times;other-priv(~10)+0.25&times;SFpub(~6) &asymp; 17%.</td></tr>
+      <tr><td>2024</td><td>~35</td><td>~18%</td><td><span class="conf conf-r">R</span></td><td>UCSD lift on heavy SF-public weight.</td></tr>
+      <tr><td>2025</td><td>~35</td><td>~18%</td><td><span class="conf conf-r">R</span></td><td>Forward projection.</td></tr>
+    </tbody>
+  </table>
+  <details class="methodology"><summary>Methodology &amp; gaps</summary><p>Live Oak's HS placement list emphasizes Lick, Urban, Bay, SFDS, plus Lowell + Lincoln. Lower UHS pull than Pacific Heights schools because Live Oak is socioeconomically more mid-spread.</p></details>
+</section>
+
+<!-- ====================================================================== -->
+<!-- 11. FRENCH AMERICAN INTERNATIONAL (FAIS K-8 component) -->
+<!-- ====================================================================== -->
+<section class="school" id="ms-fais">
+  <h2>11. French American International School (K-8 component) <span class="meta">Private PK-8 &rarr; same-school IHS &middot; Hayes Valley &middot; ~50/yr &middot; ~16% inferred T25 <span class="conf conf-r">R</span></span></h2>
+  <p class="summary">FAIS is K-12; the K-8 component feeds into the same-campus International HS (IHS) at ~70% rate with French Bac / IB program. The remaining ~30% leave for UHS/Lick/Urban/Bay or SF public. Many IHS grads matriculate to French/EU/UK universities (not in T25), so feeder T25 efficiency is lower than peer SF privates.</p>
+  <table class="years">
+    <thead><tr><th>Year</th><th>Cohort proxy</th><th>Inferred T25 %</th><th>Conf.</th><th>Source / per-year note</th></tr></thead>
+    <tbody>
+      <tr><td>2021</td><td>~50</td><td>~14%</td><td><span class="conf conf-r">R</span></td><td>COVID&minus;10% on US-bound exits; gap-year/Europe-bound students unaffected.</td></tr>
+      <tr><td>2022</td><td>~50</td><td>~16%</td><td><span class="conf conf-r">R</span></td><td>Baseline. <a href="https://www.internationalsfusa.org/academics/middle-school" target="_blank">FAIS MS</a></td></tr>
+      <tr><td>2023</td><td>~50</td><td>~16%</td><td><span class="conf conf-r">R</span></td><td>Baseline: 0.7&times;IHS(~13)+0.1&times;UHS(28)+0.05&times;Lick(33)+0.05&times;Urban(19)+0.1&times;SFpub(~6) &asymp; 16%. IHS T25 estimate ~13% reflects France/EU departure share.</td></tr>
+      <tr><td>2024</td><td>~50</td><td>~17%</td><td><span class="conf conf-r">R</span></td><td>UCSD lift on SF-public weight; minor.</td></tr>
+      <tr><td>2025</td><td>~50</td><td>~17%</td><td><span class="conf conf-r">R</span></td><td>Forward projection.</td></tr>
+    </tbody>
+  </table>
+  <details class="methodology"><summary>Methodology &amp; gaps</summary><p>FAIS K-8 feeder mix is dominated by same-campus IHS passthrough (~70%). IHS itself sends a meaningful share to French universities (Sciences Po, ENS) and UK (Oxbridge, LSE, KCL) which are not in T25. The non-T25 share is larger than at peer US-only schools.</p></details>
+</section>
+
+<!-- ====================================================================== -->
+<!-- 12. LYCEE FRANCAIS DE SF (K-8 component) -->
+<!-- ====================================================================== -->
+<section class="school" id="ms-lycee">
+  <h2>12. Lyc&eacute;e Fran&ccedil;ais de SF (K-8 component) <span class="meta">Private PK-12 &middot; Sunset/Ashbury &middot; ~35/yr &middot; ~14% inferred T25 <span class="conf conf-r">R</span></span></h2>
+  <p class="summary">K-12 French Lyc&eacute;e; K-8 component feeds same-school HS at ~85%. Many grads matriculate to French prepa/EU schools or UK (Oxbridge, KCL); US T25 share is correspondingly modest.</p>
+  <table class="years">
+    <thead><tr><th>Year</th><th>Cohort proxy</th><th>Inferred T25 %</th><th>Conf.</th><th>Source / per-year note</th></tr></thead>
+    <tbody>
+      <tr><td>2021</td><td>~35</td><td>~13%</td><td><span class="conf conf-r">R</span></td><td>COVID&minus;10% on US exits.</td></tr>
+      <tr><td>2022</td><td>~35</td><td>~14%</td><td><span class="conf conf-r">R</span></td><td>Baseline. <a href="https://www.lelycee.org/academics/middle-school" target="_blank">LFSF MS</a></td></tr>
+      <tr><td>2023</td><td>~35</td><td>~14%</td><td><span class="conf conf-r">R</span></td><td>Baseline: 0.85&times;LFSF-HS(12)+0.05&times;UHS(28)+0.05&times;Bay(6)+0.05&times;SFpub(~6) &asymp; 14%.</td></tr>
+      <tr><td>2024</td><td>~35</td><td>~15%</td><td><span class="conf conf-r">R</span></td><td>Marginal UCSD lift.</td></tr>
+      <tr><td>2025</td><td>~35</td><td>~15%</td><td><span class="conf conf-r">R</span></td><td>Forward projection.</td></tr>
+    </tbody>
+  </table>
+  <details class="methodology"><summary>Methodology &amp; gaps</summary><p>LFSF K-12 same-school passthrough is the dominant signal; international (France/UK) college destinations are a major share of LFSF HS exits. T25 % understates academic strength because UK/EU schools are not in scope.</p></details>
+</section>
+
+<!-- ====================================================================== -->
+<!-- 13. APTOS MS (SFUSD) -->
+<!-- ====================================================================== -->
+<section class="school" id="ms-aptos">
+  <h2>13. Aptos MS (SFUSD) <span class="meta">Public &middot; SFUSD &middot; ~440/yr &middot; ~10% inferred T25 <span class="conf conf-r">R</span></span></h2>
+  <p class="summary">SFUSD MS in the West Portal/Ingleside area. Feeder mix to HS: Lowell HS ~40% + Lincoln/Washington ~60%. Strong test-prep population produces a Lowell-heavy exit similar to (but smaller than) Presidio MS.</p>
+  <table class="years">
+    <thead><tr><th>Year</th><th>Cohort proxy</th><th>Inferred T25 %</th><th>Conf.</th><th>Source / per-year note</th></tr></thead>
+    <tbody>
+      <tr><td>2021</td><td>~440</td><td>~9%</td><td><span class="conf conf-r">R</span></td><td>COVID&minus;10% + Lowell merit suspension dispersion.</td></tr>
+      <tr><td>2022</td><td>~440</td><td>~10%</td><td><span class="conf conf-r">R</span></td><td>Continuing Lowell merit suspension.</td></tr>
+      <tr><td>2023</td><td>~440</td><td>~10%</td><td><span class="conf conf-r">R</span></td><td>Baseline: 0.4&times;Lowell(20)+0.6&times;SF-pub(3) &asymp; 10%.</td></tr>
+      <tr><td>2024</td><td>~440</td><td>~11%</td><td><span class="conf conf-r">R</span></td><td>Lowell merit partially restored + UCSD lift.</td></tr>
+      <tr><td>2025</td><td>~440</td><td>~11%</td><td><span class="conf conf-r">R</span></td><td>Forward projection.</td></tr>
+    </tbody>
+  </table>
+  <details class="methodology"><summary>Methodology &amp; gaps</summary><p>Aptos sends ~5-10pp fewer to Lowell than Presidio MS does (different feeder elementaries; Aptos pulls from less-test-intensive neighborhoods).</p></details>
+</section>
+
+<!-- ====================================================================== -->
+<!-- 14. HOOVER MS (SFUSD) -->
+<!-- ====================================================================== -->
+<section class="school" id="ms-hoover">
+  <h2>14. Herbert Hoover MS (SFUSD) <span class="meta">Public &middot; SFUSD &middot; ~470/yr &middot; ~11% inferred T25 <span class="conf conf-r">R</span></span></h2>
+  <p class="summary">SFUSD MS in Ingleside/Sunset. Feeder mix to HS: Lowell HS ~45% + Washington/Lincoln/SOTA ~55%. Sunset/Ingleside Asian-American population produces strong Lowell pipeline.</p>
+  <table class="years">
+    <thead><tr><th>Year</th><th>Cohort proxy</th><th>Inferred T25 %</th><th>Conf.</th><th>Source / per-year note</th></tr></thead>
+    <tbody>
+      <tr><td>2021</td><td>~470</td><td>~9%</td><td><span class="conf conf-r">R</span></td><td>COVID&minus;10% + merit-suspension dispersion.</td></tr>
+      <tr><td>2022</td><td>~470</td><td>~10%</td><td><span class="conf conf-r">R</span></td><td>Continuing merit suspension.</td></tr>
+      <tr><td>2023</td><td>~470</td><td>~11%</td><td><span class="conf conf-r">R</span></td><td>Baseline: 0.45&times;Lowell(20)+0.55&times;SF-pub(3) &asymp; 11%.</td></tr>
+      <tr><td>2024</td><td>~470</td><td>~12%</td><td><span class="conf conf-r">R</span></td><td>Lowell merit partial restoration + UCSD.</td></tr>
+      <tr><td>2025</td><td>~470</td><td>~12%</td><td><span class="conf conf-r">R</span></td><td>Forward projection.</td></tr>
+    </tbody>
+  </table>
+  <details class="methodology"><summary>Methodology &amp; gaps</summary><p>Hoover sits between Presidio and Aptos on Lowell exit share; Sunset Asian-American family network is a strong predictor of Lowell-track placement.</p></details>
+</section>
+
+<!-- ====================================================================== -->
+<!-- 15. ROOSEVELT MS (SFUSD) -->
+<!-- ====================================================================== -->
+<section class="school" id="ms-roosevelt">
+  <h2>15. Theodore Roosevelt MS (SFUSD) <span class="meta">Public &middot; SFUSD &middot; ~430/yr &middot; ~10% inferred T25 <span class="conf conf-r">R</span></span></h2>
+  <p class="summary">SFUSD MS in Inner Richmond. Feeder mix to HS: Lowell HS ~40% + Galileo/Washington/Lincoln ~60%. Comparable to Aptos in test-prep intensity.</p>
+  <table class="years">
+    <thead><tr><th>Year</th><th>Cohort proxy</th><th>Inferred T25 %</th><th>Conf.</th><th>Source / per-year note</th></tr></thead>
+    <tbody>
+      <tr><td>2021</td><td>~430</td><td>~9%</td><td><span class="conf conf-r">R</span></td><td>COVID&minus;10% + merit-suspension dispersion.</td></tr>
+      <tr><td>2022</td><td>~430</td><td>~10%</td><td><span class="conf conf-r">R</span></td><td>Continuing merit suspension.</td></tr>
+      <tr><td>2023</td><td>~430</td><td>~10%</td><td><span class="conf conf-r">R</span></td><td>Baseline: 0.4&times;Lowell(20)+0.6&times;SF-pub(3) &asymp; 10%.</td></tr>
+      <tr><td>2024</td><td>~430</td><td>~11%</td><td><span class="conf conf-r">R</span></td><td>Lowell merit + UCSD.</td></tr>
+      <tr><td>2025</td><td>~430</td><td>~11%</td><td><span class="conf conf-r">R</span></td><td>Forward projection.</td></tr>
+    </tbody>
+  </table>
+  <details class="methodology"><summary>Methodology &amp; gaps</summary><p>Inner Richmond demographics straddle Hoover (Sunset) and Aptos (West Portal); Lowell exit share is in between.</p></details>
+</section>
+
+<!-- ====================================================================== -->
+<!-- 16. ST. BRENDAN -->
+<!-- ====================================================================== -->
+<section class="school" id="ms-st-brendan">
+  <h2>16. St. Brendan School <span class="meta">Private K-8 (Catholic) &middot; West Portal &middot; ~35/yr &middot; ~7% inferred T25 <span class="conf conf-r">R</span></span></h2>
+  <p class="summary">Catholic parish K-8 in West Portal. Feeder mix to HS: SI ~25% + SHC ~15% + Mercy/Convent ~10% + Lick/Urban ~10% + SF public (Lowell/Lincoln) ~30% + other ~10%. Heavy SI pull; modest exit to SF independents.</p>
+  <table class="years">
+    <thead><tr><th>Year</th><th>Cohort proxy</th><th>Inferred T25 %</th><th>Conf.</th><th>Source / per-year note</th></tr></thead>
+    <tbody>
+      <tr><td>2021</td><td>~35</td><td>~6%</td><td><span class="conf conf-n">N</span></td><td>COVID&minus;10%.</td></tr>
+      <tr><td>2022</td><td>~35</td><td>~7%</td><td><span class="conf conf-n">N</span></td><td>Baseline. <a href="https://www.stbrendansf.com/" target="_blank">St. Brendan</a></td></tr>
+      <tr><td>2023</td><td>~35</td><td>~7%</td><td><span class="conf conf-n">N</span></td><td>Baseline: 0.25&times;SI(17)+0.15&times;SHC(12)+0.1&times;Mercy/Conv(~12)+0.1&times;Lick/Urban(~26)+0.3&times;SFpub(~7)+0.1&times;other(~5) &asymp; 11%; haircut to 7% for actual catholic-track UC bias.</td></tr>
+      <tr><td>2024</td><td>~35</td><td>~8%</td><td><span class="conf conf-n">N</span></td><td>UCSD lift on SF-public weight.</td></tr>
+      <tr><td>2025</td><td>~35</td><td>~8%</td><td><span class="conf conf-n">N</span></td><td>Forward projection.</td></tr>
+    </tbody>
+  </table>
+  <details class="methodology"><summary>Methodology &amp; gaps</summary><p>Catholic K-8 grads predominantly continue Catholic (SI/SHC) for HS, then go to USF, SCU, LMU, or UC. T25 share is mostly UCB+UCLA admits via SI.</p></details>
+</section>
+
+<!-- ====================================================================== -->
+<!-- 17. ST. CECILIA -->
+<!-- ====================================================================== -->
+<section class="school" id="ms-st-cecilia">
+  <h2>17. St. Cecilia School <span class="meta">Private K-8 (Catholic) &middot; Parkside/Sunset &middot; ~50/yr &middot; ~7% inferred T25 <span class="conf conf-r">R</span></span></h2>
+  <p class="summary">Largest SF Catholic parish K-8 (Sunset). Feeder mix to HS: SI ~30% + SHC ~15% + Mercy ~10% + Lowell/Lincoln ~25% + other ~20%. Heavy SI exit + Sunset's Lowell-track demographic.</p>
+  <table class="years">
+    <thead><tr><th>Year</th><th>Cohort proxy</th><th>Inferred T25 %</th><th>Conf.</th><th>Source / per-year note</th></tr></thead>
+    <tbody>
+      <tr><td>2021</td><td>~50</td><td>~6%</td><td><span class="conf conf-n">N</span></td><td>COVID&minus;10%.</td></tr>
+      <tr><td>2022</td><td>~50</td><td>~7%</td><td><span class="conf conf-n">N</span></td><td>Baseline. <a href="https://www.stceciliaschool.org/" target="_blank">St. Cecilia</a></td></tr>
+      <tr><td>2023</td><td>~50</td><td>~7%</td><td><span class="conf conf-n">N</span></td><td>Baseline: 0.3&times;SI(17)+0.15&times;SHC(12)+0.1&times;Mercy(~12)+0.25&times;SFpub(~10 incl Lowell)+0.2&times;other(~5) &asymp; 11%; haircut to 7% for catholic-track UC bias.</td></tr>
+      <tr><td>2024</td><td>~50</td><td>~8%</td><td><span class="conf conf-n">N</span></td><td>UCSD lift.</td></tr>
+      <tr><td>2025</td><td>~50</td><td>~8%</td><td><span class="conf conf-n">N</span></td><td>Forward projection.</td></tr>
+    </tbody>
+  </table>
+  <details class="methodology"><summary>Methodology &amp; gaps</summary><p>St. Cecilia is the largest SF Catholic parish K-8; Sunset Asian-American population pushes Lowell/Lincoln share above peer SF Catholic K-8s.</p></details>
+</section>
+
+<!-- ====================================================================== -->
+<!-- 18. ST. ANNE -->
+<!-- ====================================================================== -->
+<section class="school" id="ms-st-anne">
+  <h2>18. St. Anne School <span class="meta">Private K-8 (Catholic) &middot; Inner Sunset &middot; ~30/yr &middot; ~7% inferred T25 <span class="conf conf-r">R</span></span></h2>
+  <p class="summary">Catholic parish K-8 in Inner Sunset. Feeder mix similar to St. Cecilia: SI ~25% + SHC ~15% + Mercy ~10% + Lowell/Lincoln ~25% + other ~25%.</p>
+  <table class="years">
+    <thead><tr><th>Year</th><th>Cohort proxy</th><th>Inferred T25 %</th><th>Conf.</th><th>Source / per-year note</th></tr></thead>
+    <tbody>
+      <tr><td>2021</td><td>~30</td><td>~6%</td><td><span class="conf conf-n">N</span></td><td>COVID&minus;10%.</td></tr>
+      <tr><td>2022</td><td>~30</td><td>~7%</td><td><span class="conf conf-n">N</span></td><td>Baseline. <a href="https://www.stannesf.org/" target="_blank">St. Anne</a></td></tr>
+      <tr><td>2023</td><td>~30</td><td>~7%</td><td><span class="conf conf-n">N</span></td><td>Baseline ~ St. Cecilia. ~7% after catholic-track UC haircut.</td></tr>
+      <tr><td>2024</td><td>~30</td><td>~8%</td><td><span class="conf conf-n">N</span></td><td>UCSD lift.</td></tr>
+      <tr><td>2025</td><td>~30</td><td>~8%</td><td><span class="conf conf-n">N</span></td><td>Forward projection.</td></tr>
+    </tbody>
+  </table>
+  <details class="methodology"><summary>Methodology &amp; gaps</summary><p>Smaller cohort than St. Cecilia; same Sunset demographics. N confidence: no published HS placement list.</p></details>
+</section>
+
+<!-- ====================================================================== -->
+<!-- 19. ST. BRIGID -->
+<!-- ====================================================================== -->
+<section class="school" id="ms-st-brigid">
+  <h2>19. St. Brigid School <span class="meta">Private K-8 (Catholic) &middot; Pacific Heights &middot; ~25/yr &middot; ~9% inferred T25 <span class="conf conf-r">R</span></span></h2>
+  <p class="summary">Catholic parish K-8 in Pacific Heights. Feeder mix favors SI/SHC/Convent + UHS/Lick due to Pacific Heights wealth: SI ~20% + SHC ~15% + Convent/Stuart Hall ~15% + UHS/Lick ~15% + Lowell ~15% + other ~20%. Higher T25 % than peer Catholic K-8s due to neighborhood income.</p>
+  <table class="years">
+    <thead><tr><th>Year</th><th>Cohort proxy</th><th>Inferred T25 %</th><th>Conf.</th><th>Source / per-year note</th></tr></thead>
+    <tbody>
+      <tr><td>2021</td><td>~25</td><td>~8%</td><td><span class="conf conf-n">N</span></td><td>COVID&minus;10%.</td></tr>
+      <tr><td>2022</td><td>~25</td><td>~9%</td><td><span class="conf conf-n">N</span></td><td>Baseline. <a href="https://www.saintbrigidsf.org/" target="_blank">St. Brigid</a></td></tr>
+      <tr><td>2023</td><td>~25</td><td>~9%</td><td><span class="conf conf-n">N</span></td><td>Baseline: 0.2&times;SI(17)+0.15&times;SHC(12)+0.15&times;Convent/StH(15)+0.15&times;UHS/Lick(~30)+0.15&times;Lowell(20)+0.2&times;other(~5) &asymp; 13%; haircut to 9% for catholic-track UC bias.</td></tr>
+      <tr><td>2024</td><td>~25</td><td>~10%</td><td><span class="conf conf-n">N</span></td><td>UCSD lift.</td></tr>
+      <tr><td>2025</td><td>~25</td><td>~10%</td><td><span class="conf conf-n">N</span></td><td>Forward projection.</td></tr>
+    </tbody>
+  </table>
+  <details class="methodology"><summary>Methodology &amp; gaps</summary><p>Pacific Heights Catholic K-8s benefit from neighborhood proximity to UHS/Convent for HS application; St. Brigid grads are more likely to test into UHS/Lick than peers in Sunset.</p></details>
+</section>
+
+</body>
+</html>
