@@ -104,6 +104,13 @@ UC %(m)    = &Sigma;<sub>i</sub> w<sub>i</sub> &times; UC %(h<sub>i</sub>)</pre>
 <h2>3. Source of the HS T25 anchor data</h2>
 <p>All HS T25 / T10 / T50 / LAC15 / UC values used as feeder anchors come from <a href="all_schools_ranked.html">all_schools_ranked.html</a>, which is itself built from the multi-source weighted estimator described on the <a href="methodology.html">main methodology page</a>. Each MS row in the ranked table cites the specific HS feeder estimates used in its <em>Source HS estimate(s)</em> column.</p>
 
+<p><strong>Per-year vs 5-year-average anchor choice (county MS pages vs main MS ranking).</strong> Two views of the data are maintained:</p>
+<ul>
+  <li><strong>County MS pages</strong> (e.g., <a href="counties/contra_costa_middle.html">contra_costa_middle.html</a>, <a href="counties/marin_middle.html">marin_middle.html</a>) compute MS T25 <em>per-year</em>, multiplying the per-year HS T25 (from the same-county HS page) by the feeder weights. This captures year-over-year shifts (COVID-2021 dip, UCSD-2024 lift).</li>
+  <li><strong>Main MS ranking</strong> (<a href="middle_schools_ranked.html">middle_schools_ranked.html</a>) uses the <em>5-year-average</em> HS T25 from <a href="all_schools_ranked.html">all_schools_ranked.html</a>, computed where possible from the per-year cells but rounded to a single headline number per HS feeder.</li>
+  <li><strong>Cross-page consistency.</strong> The two views are typically within ±2pp of each other (year-by-year rounding plus per-year averaging differences). Where a county MS page shows ~17% in 2024-25 (post-UCSD lift) but the main ranking shows ~15% (5-yr avg), both are correct interpretations of the same underlying HS data &mdash; the main ranking is intentionally a steady-state midpoint, not the latest year.</li>
+</ul>
+
 <h2>4. Source of the feeder weights</h2>
 <p>Feeder weights come from a combination of:</p>
 <ul>
