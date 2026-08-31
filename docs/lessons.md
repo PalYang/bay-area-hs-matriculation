@@ -72,7 +72,7 @@ Three sanity checks to run when adding any new school estimate:
 
 | School type | T25 yield | Reasoning |
 |---|---|---|
-| STEM-focused affluent secular (BASIS Fremont, BASIS SV, Quarry Lane, Pinewood, Stanford OHS) | **90%** | High aspiration, few non-T25 attractions, low cost sensitivity. |
+| STEM-focused affluent secular (BASIS Fremont, BASIS SV, Pinewood, Stanford OHS) | **90%** | High aspiration, few non-T25 attractions, low cost sensitivity. Quarry Lane is handled separately below because its unusually high offer volume and documented cross-admit clustering justify a more conservative 85% assumption. |
 | Elite progressive secular (Marin Academy, Urban, Lick-Wilmerding, Bay School, Branson) | **80%** | LAC alternative pulls some T25-admitted students to top LACs instead. |
 | Top-tier Catholic (Bellarmine, Mitty, SI, SHC, Saint Francis) | **70%** | Notre Dame loyalty (counts in T25, fine) but Santa Clara / USF / USD pull some T25-admitted students away. |
 | Mid-tier Catholic (NDB, Mercy Burlingame, De La Salle, Carondelet, Bishop O'Dowd) | **65%** | More cost sensitivity + religious-school preference; many T25 admits opt for SCU / USF / USD. |
@@ -88,7 +88,7 @@ The first revision fixed the subset-rule violation. The second revision recogniz
 
 **Sister-school implication.** BASIS Independent Silicon Valley sits in the same type bucket and was previously held at ~25% T25 in the data; the same correction lifted it to ~30% T25 (33% T25 acceptance × 90% yield). Acknowledged in the prior lessons doc but not previously revised — fixed in this pass.
 
-**Other rows touched by this correction.** Quarry Lane (~14% → ~16%), Stanford OHS (~30% → ~32%), Notre Dame HS Belmont (~4% → ~3.5% — moved from blanket 80% to 65% mid-tier-Catholic yield). Bentley and Bay School are elite progressive secular and stayed at the 80% yield, so their T25 % did not change — only their tooltip rationale was updated.
+**Other rows touched by this correction.** Quarry Lane was initially moved from ~14% to ~16%, but that interim estimate is superseded by the annual overlap model in Section 8. Stanford OHS moved from ~30% to ~32%, and Notre Dame HS Belmont from ~4% to ~3.5% (moved from blanket 80% to 65% mid-tier-Catholic yield). Bentley and Bay School are elite progressive secular and stayed at the 80% yield, so their T25 % did not change — only their tooltip rationale was updated.
 
 ## 7. Lessons applied
 
@@ -97,7 +97,23 @@ Revisions already made:
 - **BASIS Independent Fremont:** T25 % corrected from ~22% to ~32% (stacked-discount fix), then to **~48%** (yield-by-type correction).
 - **BASIS Independent Silicon Valley:** T25 % corrected from ~25% to **~30%** (yield-by-type correction; sister-school parity with BASIS Fremont).
 - **Stanford Online HS:** ~30% → **~32%** (STEM-affluent secular yield 90%).
-- **The Quarry Lane School:** ~14% → **~16%** (STEM-affluent secular yield 90%).
+- **The Quarry Lane School:** interim ~16% estimate superseded by the annual clustering model below; current weighted 2022–2026 estimate **~18%**.
 - **Notre Dame HS Belmont:** ~4% → **~3.5%** (mid-tier Catholic yield 65%).
 
 Other school-by-school revisions are documented in commit history and `methodology_and_review.md`. The formal rule statement lives in `methodology.html` sections 8 and 9 — this lessons doc is the long-form case study and learning log.
+
+## 8. Acceptance events require a separate overlap model
+
+**The bug.** Treating each T25 acceptance event as if it came from a mostly different student inflates inferred matriculation at schools where seniors submit many applications. Yield corrects the transition from a unique admitted student to a matriculant; it does not remove duplicate offers held by the same student. These are two different operations.
+
+**The Quarry Lane signal.** Official annual pages report roughly 5.8 total offers per graduate in 2021, rising to 10.3 in 2026. The school also publishes an alumnus account describing admission to every UC plus several Ivy and Ivy-Plus institutions. That does not reveal the current distribution, but it directly demonstrates that one top applicant can generate many of the offer events shown in an aggregate table.
+
+**Correct sequence.** For acceptance-event sources, estimate:
+
+```
+estimated T25 matriculants = T25 offer events ÷ T25 offers per T25-admitted student × conditional T25 yield
+```
+
+Do not divide T25 events by total offers per graduate: non-T25 offers are not duplicate T25 offers. Instead, choose a T25-specific overlap factor informed by total application intensity and any student-level cross-admit evidence. For Quarry Lane, use annual overlap factors of 2.8 (2021), 3.2 (2022–2023), 3.5 (2024–2025), and 3.6 (2026), followed by a conservative 85% conditional yield. This produces annual T25 matriculation estimates of about 11%, 22%, 21%, 14%, 13%, and 19%, and a weighted 2022–2026 average of about 18%.
+
+**Uncertainty must stay wide.** For the Class of 2026, 61 T25 events among 74 graduates produce about 19% at the 3.6 central overlap. Plausible 2.8–5.0 overlap produces about 14–25%; extreme concentration among seven students would imply about 8%. Until unique-admit or final-matriculation counts are published, show a rough 10–25% working range and confidence R.
